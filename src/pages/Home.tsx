@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, Code2, Database, Cloud, Cpu, Smartphone, Zap, GitBranch, Terminal, Blocks, Workflow, Brain, Gauge, Rocket } from 'lucide-react';
+import { ArrowRight, Code2, Database, Cloud, Cpu, GitBranch, Terminal, Brain, Gauge, Rocket, FileCode, Binary } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Marquee from 'react-fast-marquee';
 import { useEffect, useState } from 'react';
@@ -16,23 +16,23 @@ export const Home = () => {
   }, []);
 
   const technologies = [
-    { icon: Code2, name: 'React & TypeScript' },
+    { icon: Code2, name: 'Rust & Python' },
     { icon: Database, name: 'PostgreSQL' },
     { icon: Cloud, name: 'Cloud Computing' },
     { icon: Cpu, name: 'AI/ML' }
   ];
 
   const techStackIcons = [
-    { icon: Code2, name: 'React', color: 'text-[rgb(var(--color-accent))]' },
-    { icon: Terminal, name: 'TypeScript', color: 'text-[rgb(var(--color-accent))]' },
+    { icon: Code2, name: 'Python', color: 'text-[rgb(var(--color-accent))]' },
+    { icon: Binary, name: 'Rust', color: 'text-[rgb(var(--color-accent))]' },
+    { icon: Cpu, name: 'Go', color: 'text-[rgb(var(--color-accent))]' },
     { icon: Database, name: 'PostgreSQL', color: 'text-[rgb(var(--color-accent))]' },
-    { icon: Smartphone, name: 'React Native', color: 'text-[rgb(var(--color-accent))]' },
     { icon: Cloud, name: 'AWS', color: 'text-[rgb(var(--color-accent))]' },
     { icon: GitBranch, name: 'Git', color: 'text-[rgb(var(--color-accent))]' },
-    { icon: Zap, name: 'Node.js', color: 'text-[rgb(var(--color-accent))]' },
-    { icon: Cpu, name: 'AI/ML', color: 'text-[rgb(var(--color-accent))]' },
-    { icon: Blocks, name: 'Docker', color: 'text-[rgb(var(--color-accent))]' },
-    { icon: Workflow, name: 'CI/CD', color: 'text-[rgb(var(--color-accent))]' }
+    { icon: Terminal, name: 'Bash', color: 'text-[rgb(var(--color-accent))]' },
+    { icon: Brain, name: 'AI/ML', color: 'text-[rgb(var(--color-accent))]' },
+    { icon: FileCode, name: 'LaTeX', color: 'text-[rgb(var(--color-accent))]' },
+    { icon: Code2, name: 'Java', color: 'text-[rgb(var(--color-accent))]' }
   ];
 
   const getScrollOpacity = (threshold: number) => {
