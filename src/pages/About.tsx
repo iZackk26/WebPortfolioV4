@@ -404,7 +404,7 @@ export const About = () => {
               transition={{ duration: 0.6 }}
               className="text-center mb-24"
             >
-              <h2 className="text-4xl font-bold mb-4 dark:text-white text-[rgb(var(--color-text-primary))]">{t('about.technicalSkills')}</h2>
+              <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">{t('about.technicalSkills')}</h2>
               <p className="text-lg text-[rgb(var(--color-text-secondary))] max-w-2xl mx-auto">
                 A comprehensive journey through my technical expertise
               </p>
@@ -443,7 +443,7 @@ export const About = () => {
                             >
                               <item.icon className="text-[rgb(var(--color-accent))]" size={24} />
                             </motion.div>
-                            <h3 className="text-xl font-bold dark:text-white text-[rgb(var(--color-text-primary))]">{item.title}</h3>
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white">{item.title}</h3>
                           </div>
 
                           <div className="flex flex-wrap gap-2 max-w-md">
@@ -471,7 +471,7 @@ export const About = () => {
                                   }}
                                   className="w-1.5 h-1.5 rounded-full bg-[rgb(var(--color-accent))]"
                                 />
-                                <span className="dark:text-[rgb(var(--color-text-secondary))] text-[rgb(var(--color-text-primary))] text-xs font-medium">
+                                <span className="text-gray-700 dark:text-[rgb(var(--color-text-secondary))] text-xs font-medium">
                                   {skill}
                                 </span>
                               </motion.div>
