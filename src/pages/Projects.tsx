@@ -67,9 +67,9 @@ export const Projects = () => {
   return (
     <>
       <SEO
-        title="Projects | Portfolio of Software Development & AI/ML Projects"
-        description="Explore my portfolio of software development projects including AI/ML solutions, web applications, automation tools, and cloud-native applications."
-        keywords="software projects, ai ml projects, web development, automation projects, cloud projects, portfolio projects, react projects, python projects"
+        title="Isaac Ramírez Projects | Software Development & AI/ML Portfolio"
+        description="Explore Isaac Ramírez's portfolio of software development projects including AI/ML solutions, web applications, automation tools, and cloud-native applications."
+        keywords="Isaac Ramírez projects, software projects, ai ml projects, web development, automation projects, cloud projects, portfolio projects, react projects, python projects"
       />
       <div className="min-h-screen pt-16">
       <section className="py-20">

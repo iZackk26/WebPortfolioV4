@@ -48,9 +48,9 @@ export const Home = () => {
   return (
     <>
       <SEO
-        title="Portfolio | Computer Engineering Student & Full-Stack Developer"
-        description="Passionate Computer Engineering student specializing in automation, digital transformation, and innovative software solutions. Expert in Full-Stack Development, AI/ML, Cloud Computing, React, TypeScript, and Python."
-        keywords="software developer, computer engineering, full-stack developer, react developer, typescript, python, ai ml, machine learning, cloud computing, aws, automation, digital transformation, web development, portfolio"
+        title="Isaac Ramírez | Computer Engineering Student & Full-Stack Developer"
+        description="Isaac Ramírez - Computer Engineering student specializing in automation, digital transformation, and innovative software solutions. Expert in Full-Stack Development, AI/ML, Cloud Computing, React, TypeScript, and Python. Advanced English (B2/C1)."
+        keywords="Isaac Ramírez, software developer, computer engineering, full-stack developer, react developer, typescript, python, ai ml, machine learning, cloud computing, aws, automation, digital transformation, web development, portfolio"
       />
       <div className="min-h-screen pt-16">
       <section className="min-h-[calc(100vh-4rem)] flex items-center">
@@ -58,15 +58,21 @@ export const Home = () => {
           <div className="grid md:grid-cols-5 gap-12 items-center">
             <div className="md:col-span-3 space-y-8">
               <div>
-                <p className="text-[rgb(var(--color-text-secondary))] text-lg mb-4">
+                <p className="text-[rgb(var(--color-text-secondary))] text-lg mb-2">
                   {t('home.greeting')}
                 </p>
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
-                  Software Developer
+                  {t('home.name')}
                 </h1>
-                <p className="text-xl text-[rgb(var(--color-text-secondary))] leading-relaxed max-w-2xl">
+                <p className="text-xl text-[rgb(var(--color-text-secondary))] leading-relaxed max-w-2xl mb-4">
                   {t('home.role')}
                 </p>
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-[rgb(var(--color-bg-secondary))] border border-[rgb(var(--color-border))] rounded-lg">
+                  <span className="text-sm font-medium text-[rgb(var(--color-accent))]">🌐</span>
+                  <span className="text-sm font-medium text-[rgb(var(--color-text-secondary))]">
+                    {t('home.englishLevel')}
+                  </span>
+                </div>
               </div>
 
               <div className="flex flex-wrap gap-4">

@@ -147,9 +147,9 @@ export const Certificates = () => {
   return (
     <>
       <SEO
-        title="Certifications & Technical Skills | AWS, GCP, Azure, Snowflake"
-        description="Professional certifications and technical expertise in AWS, Google Cloud Platform, Microsoft Azure, Snowflake, Databricks, Oracle, and various Linux distributions."
-        keywords="aws certifications, gcp certifications, azure certifications, snowflake certifications, databricks, oracle, cloud certifications, linux expertise, technical skills"
+        title="Isaac Ramírez Certifications | AWS, GCP, Azure, Snowflake"
+        description="Isaac Ramírez's professional certifications and technical expertise in AWS, Google Cloud Platform, Microsoft Azure, Snowflake, Databricks, Oracle, and various Linux distributions."
+        keywords="Isaac Ramírez certifications, aws certifications, gcp certifications, azure certifications, snowflake certifications, databricks, oracle, cloud certifications, linux expertise, technical skills"
       />
       <div className="min-h-screen pt-16">
       <section className="py-20">

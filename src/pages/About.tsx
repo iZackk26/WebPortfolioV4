@@ -148,9 +148,9 @@ export const About = () => {
   return (
     <>
       <SEO
-        title="About Me | Computer Engineering Student & Developer"
-        description="Learn about my journey as a Computer Engineering student. Passionate about automation, AI/ML, cloud computing, and creating innovative software solutions."
-        keywords="about me, computer engineering student, software developer, automation engineer, ai ml developer, cloud computing, professional profile"
+        title="About Isaac Ramírez | Computer Engineering Student & Developer"
+        description="Learn about Isaac Ramírez's journey as a Computer Engineering student. Passionate about automation, AI/ML, cloud computing, and creating innovative software solutions. Advanced English proficiency (B2/C1)."
+        keywords="Isaac Ramírez, about me, computer engineering student, software developer, automation engineer, ai ml developer, cloud computing, professional profile, advanced english"
       />
       <div className="min-h-screen pt-16" ref={containerRef}>
       <section className="py-20">

@@ -7,12 +7,14 @@
   },
   "home": {
     "greeting": "Hi, I'm",
+    "name": "Isaac Ramírez",
     "role": "Computer Engineering Student & Software Developer",
     "description": "Passionate about automation, digital transformation, and building innovative solutions that solve real-world problems.",
     "cta": "View My Work",
     "currentProjects": "Current Projects",
     "technologies": "Technologies I Master",
-    "viewProject": "View Project"
+    "viewProject": "View Project",
+    "englishLevel": "Advanced English (B2/C1) - Professional communication and technical understanding"
   },
   "about": {
     "title": "About Me",
@@ -38,7 +40,8 @@
         "Adaptability & Quick Learning",
         "Effective Communication",
         "Project Management",
-        "Attention to Detail"
+        "Attention to Detail",
+        "Advanced English (B2/C1) - Professional & Technical Communication"
       ]
     }
   },

@@ -7,12 +7,14 @@
   },
   "home": {
     "greeting": "Hola, soy",
+    "name": "Isaac Ramírez",
     "role": "Estudiante de Ingeniería en Computación y Desarrollador de Software",
     "description": "Apasionado por la automatización, transformación digital y la construcción de soluciones innovadoras que resuelven problemas del mundo real.",
     "cta": "Ver Mi Trabajo",
     "currentProjects": "Proyectos Actuales",
     "technologies": "Tecnologías que Domino",
-    "viewProject": "Ver Proyecto"
+    "viewProject": "Ver Proyecto",
+    "englishLevel": "Inglés Avanzado (B2/C1) - Comunicación profesional y comprensión técnica"
   },
   "about": {
     "title": "Sobre Mí",
@@ -38,7 +40,8 @@
         "Adaptabilidad y Aprendizaje Rápido",
         "Comunicación Efectiva",
         "Gestión de Proyectos",
-        "Atención al Detalle"
+        "Atención al Detalle",
+        "Inglés Avanzado (B2/C1) - Comunicación Profesional y Técnica"
       ]
     }
   },

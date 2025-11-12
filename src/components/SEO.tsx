@@ -12,9 +12,9 @@ interface SEOProps {
 }
 
 export const SEO = ({
-  title = 'Portfolio | Computer Engineering Student & Software Developer',
-  description = 'Passionate Computer Engineering student specializing in automation, digital transformation, and innovative software solutions. Expert in Full-Stack Development, AI/ML, and Cloud Computing.',
-  keywords = 'software developer, computer engineering, full-stack developer, react, typescript, ai ml, cloud computing, automation, digital transformation, portfolio',
+  title = 'Isaac Ramírez | Computer Engineering Student & Software Developer',
+  description = 'Isaac Ramírez - Computer Engineering student specializing in automation, digital transformation, and innovative software solutions. Expert in Full-Stack Development, AI/ML, and Cloud Computing. Advanced English (B2/C1).',
+  keywords = 'Isaac Ramírez, software developer, computer engineering, full-stack developer, react, typescript, ai ml, cloud computing, automation, digital transformation, portfolio',
   ogImage = '/og-image.jpg',
   type = 'website',
   structuredData
@@ -30,7 +30,7 @@ export const SEO = ({
     const metaTags = {
       description,
       keywords,
-      author: 'Portfolio Developer',
+      author: 'Isaac Ramírez',
       'og:title': title,
       'og:description': description,
       'og:image': `${window.location.origin}${ogImage}`,
@@ -79,9 +79,22 @@ export const SEO = ({
     const defaultStructuredData = {
       '@context': 'https://schema.org',
       '@type': 'Person',
-      name: 'Portfolio Developer',
+      name: 'Isaac Ramírez',
       jobTitle: 'Computer Engineering Student & Software Developer',
       url: window.location.origin,
+      knowsLanguage: [
+        {
+          '@type': 'Language',
+          name: 'Spanish',
+          alternateName: 'es'
+        },
+        {
+          '@type': 'Language',
+          name: 'English',
+          alternateName: 'en',
+          proficiencyLevel: 'Advanced (B2/C1)'
+        }
+      ],
       sameAs: [
         'https://linkedin.com/in/yourprofile',
         'https://github.com/yourprofile'
@@ -93,7 +106,10 @@ export const SEO = ({
         'Machine Learning',
         'Cloud Computing',
         'Automation',
-        'Digital Transformation'
+        'Digital Transformation',
+        'React',
+        'TypeScript',
+        'Python'
       ]
     };
 
