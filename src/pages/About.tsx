@@ -1,12 +1,15 @@
 import { useTranslation } from 'react-i18next';
 import { Target, Award, TrendingUp, Users, Lightbulb, BookOpen, Code, Server, Cloud, Database, Cpu, Layers, GitBranch, Smartphone, Download } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Marquee from 'react-fast-marquee';
+
+const TRON_TRAIL_INTERVAL = 10000;
 
 export const About = () => {
   const { t, i18n } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
+  const [showTronTrail, setShowTronTrail] = useState(false);
 
   const handleDownloadCV = () => {
     const cvPath = i18n.language === 'es' ? '/cv-es.pdf' : '/cv-en.pdf';
@@ -132,6 +135,15 @@ export const About = () => {
 
   const parallaxY = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowTronTrail(true);
+      setTimeout(() => setShowTronTrail(false), 3000);
+    }, TRON_TRAIL_INTERVAL);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="min-h-screen pt-16" ref={containerRef}>
       <section className="py-20">
@@ -158,10 +170,36 @@ export const About = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleDownloadCV}
-                className="inline-flex items-center space-x-2 px-6 py-3 bg-[rgb(var(--color-accent))] text-white rounded-xl font-semibold hover:bg-[rgb(var(--color-accent-hover))] transition-all duration-200 shadow-lg shadow-[rgb(var(--color-accent))]/20"
+                className="relative inline-flex items-center space-x-2 px-6 py-3 bg-[rgb(var(--color-accent))] text-white rounded-xl font-semibold hover:bg-[rgb(var(--color-accent-hover))] transition-all duration-200 shadow-lg shadow-[rgb(var(--color-accent))]/20 overflow-hidden"
               >
                 <Download size={20} />
                 <span>{t('about.downloadCV')}</span>
+
+                {showTronTrail && (
+                  <motion.div
+                    className="absolute inset-0 rounded-xl"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  >
+                    <motion.div
+                      className="absolute top-0 left-0 w-16 h-0.5 bg-white shadow-[0_0_8px_2px_rgba(255,255,255,0.8)]"
+                      initial={{ x: 0, y: 0 }}
+                      animate={{
+                        x: ['0%', '100%', '100%', '100%', '0%'],
+                        y: ['0%', '0%', '100%', '100%', '100%']
+                      }}
+                      transition={{
+                        duration: 3,
+                        ease: 'linear',
+                        times: [0, 0.25, 0.5, 0.75, 1]
+                      }}
+                      style={{
+                        filter: 'blur(1px)'
+                      }}
+                    />
+                  </motion.div>
+                )}
               </motion.button>
             </div>
             <motion.div
@@ -341,7 +379,7 @@ export const About = () => {
         </div>
       </section>
 
-      <section className="relative py-32 -mt-20">
+      <section className="relative py-32 bg-[rgb(var(--color-bg-primary))]">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/30" />
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
