@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { LanguageTransition } from './components/LanguageTransition';
@@ -12,10 +12,22 @@ import { StateDetectionDetail } from './pages/projects/StateDetectionDetail';
 import { VectorDBDetail } from './pages/projects/VectorDBDetail';
 import { IFixItDetail } from './pages/projects/IFixItDetail';
 import { PuraCompraDetail } from './pages/projects/PuraCompraDetail';
+import { useEffect } from 'react';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen">
         <Navbar />
         <LanguageTransition>
