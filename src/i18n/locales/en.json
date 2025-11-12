@@ -85,9 +85,9 @@
         "highlights": "Small dataset optimization, High precision, Fast inference"
       },
       "vectorDB": {
-        "title": "Vector Database Implementation",
-        "description": "Implemented embeddings and vector databases for efficient cloud storage and semantic search capabilities.",
-        "highlights": "Semantic search, Cloud optimization, Scalable architecture"
+        "title": "Facial Recognition System with Weaviate and TensorFlow",
+        "description": "This project implements a facial recognition system using Weaviate, a vector database, to store facial embeddings, and TensorFlow for face detection and recognition. It includes a graphical user interface for user registration and identification in images and video.",
+        "highlights": "Weaviate - Vector database, TensorFlow - Machine learning"
       },
       "iFixIt": {
         "title": "iFixIt - Workshop Management Platform",
