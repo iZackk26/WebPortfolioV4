@@ -22,16 +22,6 @@ export const Footer = () => {
 
   return (
     <footer className="relative bg-[rgb(var(--color-bg-secondary))] border-t border-[rgb(var(--color-border))] mt-32 overflow-hidden">
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="absolute bottom-0 left-0 text-[200px] font-bold text-[rgb(var(--color-text-primary))] opacity-5 pointer-events-none select-none leading-none"
-      >
-        ↗
-      </motion.div>
-
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           <div className="lg:col-span-4">
