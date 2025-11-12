@@ -145,12 +145,35 @@ export const Navbar = () => {
                 </motion.button>
 
                 <motion.button
-                  whileHover={{ scale: 1.05, rotate: 180 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={toggleTheme}
-                  className="hidden sm:flex p-2.5 rounded-full bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] hover:bg-[rgb(var(--color-accent))] hover:text-white transition-all duration-200 border border-[rgb(var(--color-border))] hover:border-[rgb(var(--color-accent))] shadow-sm"
+                  className="hidden sm:flex p-2.5 rounded-full bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] hover:bg-[rgb(var(--color-accent))] hover:text-white transition-all duration-200 border border-[rgb(var(--color-border))] hover:border-[rgb(var(--color-accent))] shadow-sm relative overflow-hidden"
                 >
-                  {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+                  <motion.div
+                    key={theme}
+                    initial={{ y: -30, opacity: 0, rotate: -180 }}
+                    animate={{ y: 0, opacity: 1, rotate: 0 }}
+                    exit={{ y: 30, opacity: 0, rotate: 180 }}
+                    transition={{
+                      duration: 0.5,
+                      ease: [0.34, 1.56, 0.64, 1]
+                    }}
+                  >
+                    {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+                  </motion.div>
+
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-[rgb(var(--color-accent))]/0 via-[rgb(var(--color-accent))]/20 to-[rgb(var(--color-accent))]/0"
+                    initial={{ x: '-100%' }}
+                    animate={{ x: '100%' }}
+                    transition={{
+                      duration: 0.5,
+                      ease: 'easeInOut',
+                      repeat: 0
+                    }}
+                    key={`shimmer-${theme}`}
+                  />
                 </motion.button>
 
                 <motion.button
