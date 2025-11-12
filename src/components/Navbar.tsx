@@ -102,9 +102,11 @@ export const Navbar = () => {
                       >
                         {isActive && (
                           <motion.div
-                            layoutId="activeNav"
                             className="absolute inset-0 rounded-full bg-[rgb(var(--color-accent))] shadow-lg shadow-[rgb(var(--color-accent))]/30"
-                            transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.8, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                           />
                         )}
 
