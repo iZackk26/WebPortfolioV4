@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, Code2, Database, Cloud, Cpu, Smartphone, Zap, GitBranch, Terminal, Blocks, Workflow } from 'lucide-react';
+import { ArrowRight, Code2, Database, Cloud, Cpu, Smartphone, Zap, GitBranch, Terminal, Blocks, Workflow, Brain, Gauge, Rocket } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Marquee from 'react-fast-marquee';
 import { useEffect, useState } from 'react';
@@ -185,41 +185,41 @@ export const Home = () => {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                What I Bring to the Table
+                {t('home.focusAreas.title')}
               </h2>
               <p className="text-lg text-[rgb(var(--color-text-secondary))] max-w-2xl mx-auto">
-                A blend of technical expertise, creative problem-solving, and a passion for building impactful solutions
+                {t('home.focusAreas.subtitle')}
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-[rgb(var(--color-card))] border border-[rgb(var(--color-border))] rounded-2xl p-8 hover:border-[rgb(var(--color-accent))] transition-colors duration-150">
                 <div className="w-12 h-12 rounded-lg bg-[rgb(var(--color-accent))] flex items-center justify-center mb-4">
-                  <Code2 className="text-white" size={24} />
+                  <Brain className="text-white" size={24} />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Full-Stack Development</h3>
+                <h3 className="text-xl font-bold mb-3">{t('home.focusAreas.ai.title')}</h3>
                 <p className="text-[rgb(var(--color-text-secondary))] leading-relaxed">
-                  Building end-to-end solutions with modern frameworks and best practices, from responsive frontends to scalable backends.
+                  {t('home.focusAreas.ai.description')}
                 </p>
               </div>
 
               <div className="bg-[rgb(var(--color-card))] border border-[rgb(var(--color-border))] rounded-2xl p-8 hover:border-[rgb(var(--color-accent))] transition-colors duration-150">
                 <div className="w-12 h-12 rounded-lg bg-[rgb(var(--color-accent))] flex items-center justify-center mb-4">
-                  <Cpu className="text-white" size={24} />
+                  <Gauge className="text-white" size={24} />
                 </div>
-                <h3 className="text-xl font-bold mb-3">AI/ML Integration</h3>
+                <h3 className="text-xl font-bold mb-3">{t('home.focusAreas.automation.title')}</h3>
                 <p className="text-[rgb(var(--color-text-secondary))] leading-relaxed">
-                  Implementing intelligent features with machine learning models, from computer vision to natural language processing.
+                  {t('home.focusAreas.automation.description')}
                 </p>
               </div>
 
               <div className="bg-[rgb(var(--color-card))] border border-[rgb(var(--color-border))] rounded-2xl p-8 hover:border-[rgb(var(--color-accent))] transition-colors duration-150">
                 <div className="w-12 h-12 rounded-lg bg-[rgb(var(--color-accent))] flex items-center justify-center mb-4">
-                  <Workflow className="text-white" size={24} />
+                  <Rocket className="text-white" size={24} />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Process Automation</h3>
+                <h3 className="text-xl font-bold mb-3">{t('home.focusAreas.cloud.title')}</h3>
                 <p className="text-[rgb(var(--color-text-secondary))] leading-relaxed">
-                  Streamlining workflows and eliminating repetitive tasks through smart automation and digital transformation.
+                  {t('home.focusAreas.cloud.description')}
                 </p>
               </div>
             </div>

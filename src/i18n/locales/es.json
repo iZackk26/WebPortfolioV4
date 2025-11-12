@@ -14,7 +14,23 @@
     "currentProjects": "Proyectos Actuales",
     "technologies": "Tecnologías que Domino",
     "viewProject": "Ver Proyecto",
-    "englishLevel": "Inglés Avanzado (B2/C1)"
+    "englishLevel": "Inglés Avanzado (B2/C1)",
+    "focusAreas": {
+      "title": "Innovación en la Práctica",
+      "subtitle": "Donde la ingeniería se encuentra con el impacto real—construyendo sistemas inteligentes y escalables desde el prototipo hasta la producción.",
+      "ai": {
+        "title": "IA y Visión por Computadora",
+        "description": "Construcción de sistemas de detección, clasificación e inferencia usando frameworks modernos de ML, optimización de modelos y decisiones basadas en datos."
+      },
+      "automation": {
+        "title": "Plataformas Inteligentes y Automatización",
+        "description": "Desarrollo de herramientas que conectan usuarios, datos y flujos de trabajo—reduciendo errores humanos y optimizando procesos complejos."
+      },
+      "cloud": {
+        "title": "Nube e Infraestructura",
+        "description": "Despliegue de sistemas resilientes y pipelines eficientes usando AWS, Docker y principios de arquitectura distribuida."
+      }
+    }
   },
   "about": {
     "title": "Sobre Mí",

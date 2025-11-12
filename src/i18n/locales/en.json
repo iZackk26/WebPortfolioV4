@@ -14,7 +14,23 @@
     "currentProjects": "Current Projects",
     "technologies": "Technologies I Master",
     "viewProject": "View Project",
-    "englishLevel": "Advanced English (B2/C1)"
+    "englishLevel": "Advanced English (B2/C1)",
+    "focusAreas": {
+      "title": "Innovation in Practice",
+      "subtitle": "Where engineering meets real-world impact—building intelligent, scalable systems from prototype to production.",
+      "ai": {
+        "title": "AI & Computer Vision",
+        "description": "Building detection, classification, and inference systems using modern ML frameworks, model optimization, and data-driven decisions."
+      },
+      "automation": {
+        "title": "Smart Platforms & Automation",
+        "description": "Developing tools that connect users, data, and workflows—reducing human error and optimizing complex processes."
+      },
+      "cloud": {
+        "title": "Cloud & Infrastructure",
+        "description": "Deploying resilient systems and efficient pipelines using AWS, Docker, and distributed architecture principles."
+      }
+    }
   },
   "about": {
     "title": "About Me",
