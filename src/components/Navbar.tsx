@@ -100,6 +100,23 @@ export const Navbar = () => {
                         whileTap={{ y: 0 }}
                         className="relative px-5 py-2.5 rounded-full group"
                       >
+                        {isActive && (
+                          <motion.div
+                            layoutId="activeNav"
+                            className="absolute inset-0 rounded-full bg-[rgb(var(--color-accent))] shadow-lg shadow-[rgb(var(--color-accent))]/30"
+                            transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                          />
+                        )}
+
+                        {!isActive && (
+                          <motion.div
+                            className="absolute inset-0 rounded-full bg-[rgb(var(--color-accent))]"
+                            initial={{ scale: 0, opacity: 0 }}
+                            whileHover={{ scale: 1, opacity: 0.1 }}
+                            transition={{ duration: 0.2 }}
+                          />
+                        )}
+
                         <motion.span
                           key={`${item.path}-${i18n.language}`}
                           initial={{ opacity: 0, y: -5 }}
@@ -113,25 +130,6 @@ export const Navbar = () => {
                         >
                           {item.label}
                         </motion.span>
-
-                        <motion.div
-                          className="absolute inset-0 rounded-full bg-[rgb(var(--color-accent))]"
-                          initial={false}
-                          animate={{
-                            scale: isActive ? 1 : 0,
-                            opacity: isActive ? 1 : 0
-                          }}
-                          whileHover={{ scale: 1, opacity: isActive ? 1 : 0.1 }}
-                          transition={{ duration: 0.2 }}
-                        />
-
-                        {isActive && (
-                          <motion.div
-                            layoutId="activeNav"
-                            className="absolute inset-0 rounded-full bg-[rgb(var(--color-accent))] shadow-lg shadow-[rgb(var(--color-accent))]/30"
-                            transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                          />
-                        )}
                       </motion.div>
                     </Link>
                   );
