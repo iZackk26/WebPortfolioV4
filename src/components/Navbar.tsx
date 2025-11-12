@@ -43,7 +43,7 @@ export const Navbar = () => {
         animate={{
           width: isCompact ? '56px' : '100%',
           height: isCompact ? '56px' : '80px',
-          borderRadius: isCompact ? '28px' : '0px',
+          borderRadius: isCompact ? '28px' : '16px',
           x: isCompact ? '24px' : '0px',
           y: isCompact ? '24px' : '0px'
         }}
@@ -55,7 +55,7 @@ export const Navbar = () => {
         }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="fixed top-0 left-0 z-50 bg-[rgb(var(--color-bg-primary))]/90 backdrop-blur-xl border border-[rgb(var(--color-border))]/50 shadow-lg overflow-hidden"
+        className="fixed top-0 left-0 z-50 bg-[rgb(var(--color-bg-primary))]/90 backdrop-blur-xl border border-[rgb(var(--color-border))]/50 shadow-lg overflow-hidden rounded-2xl"
         style={{
           willChange: 'transform, width, height, border-radius',
           contain: 'layout style paint'
