@@ -1,18 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { Cloud, Monitor, CheckCircle, Award, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { AWSIcon, GCPIcon, AzureIcon } from '../components/icons/CloudIcons';
-import {
-  ArchLinuxIcon,
-  UbuntuIcon,
-  FedoraIcon,
-  KaliLinuxIcon,
-  ManjaroIcon,
-  EndeavourOSIcon,
-  AppleIcon,
-  WindowsIcon
-} from '../components/icons/OSIcons';
-import { SnowflakeIcon, DatabricksIcon, OracleIcon } from '../components/icons/CertificationIcons';
+
+const IconImage = ({ src, alt, size = 48 }: { src: string; alt: string; size?: number }) => (
+  <img src={src} alt={alt} width={size} height={size} className="object-contain" />
+);
 
 export const Certificates = () => {
   const { t } = useTranslation();
@@ -21,41 +13,41 @@ export const Certificates = () => {
     {
       name: 'Amazon Web Services',
       description: t('certificates.aws'),
-      icon: AWSIcon,
+      iconPath: '/icons/aws.svg',
       color: '#FF9900'
     },
     {
       name: 'Google Cloud Platform',
       description: t('certificates.gcp'),
-      icon: GCPIcon,
+      iconPath: '/icons/gcp.svg',
       color: '#4285F4'
     },
     {
       name: 'Microsoft Azure',
       description: t('certificates.azure'),
-      icon: AzureIcon,
+      iconPath: '/icons/azure.svg',
       color: '#0078D4'
     }
   ];
 
   const linuxDistros = [
-    { name: 'Arch Linux', icon: ArchLinuxIcon, color: '#1793D1' },
-    { name: 'Ubuntu', icon: UbuntuIcon, color: '#E95420' },
-    { name: 'Fedora', icon: FedoraIcon, color: '#294172' },
-    { name: 'Kali Linux', icon: KaliLinuxIcon, color: '#367BF0' },
-    { name: 'Manjaro', icon: ManjaroIcon, color: '#35BF5C' },
-    { name: 'EndeavourOS', icon: EndeavourOSIcon, color: '#7F7FFF' }
+    { name: 'Arch Linux', iconPath: '/icons/archlinux.svg', color: '#1793D1' },
+    { name: 'Ubuntu', iconPath: '/icons/ubuntu.svg', color: '#E95420' },
+    { name: 'Fedora', iconPath: '/icons/fedora.svg', color: '#294172' },
+    { name: 'Kali Linux', iconPath: '/icons/kalilinux.svg', color: '#367BF0' },
+    { name: 'Manjaro', iconPath: '/icons/manjaro.svg', color: '#35BF5C' },
+    { name: 'EndeavourOS', iconPath: '/icons/endeavouros.svg', color: '#7F7FFF' }
   ];
 
   const otherOS = [
-    { name: 'macOS', icon: AppleIcon },
-    { name: 'Windows', icon: WindowsIcon, color: '#00ADEF' }
+    { name: 'macOS', iconPath: '/icons/macos.svg' },
+    { name: 'Windows', iconPath: '/icons/windows.svg', color: '#00ADEF' }
   ];
 
   const certifications = [
     {
       provider: 'Snowflake',
-      icon: SnowflakeIcon,
+      iconPath: '/icons/snowflake.svg',
       color: '#29B5E8',
       certs: [
         {
@@ -87,7 +79,7 @@ export const Certificates = () => {
     },
     {
       provider: 'Databricks',
-      icon: DatabricksIcon,
+      iconPath: '/icons/databricks.svg',
       color: '#FF3621',
       certs: [
         {
@@ -99,7 +91,7 @@ export const Certificates = () => {
     },
     {
       provider: 'Oracle',
-      icon: OracleIcon,
+      iconPath: '/icons/oracle.svg',
       color: '#F80000',
       certs: [
         {
@@ -111,7 +103,7 @@ export const Certificates = () => {
     },
     {
       provider: 'Amazon Web Services',
-      icon: AWSIcon,
+      iconPath: '/icons/aws.svg',
       color: '#FF9900',
       certs: [
         {
@@ -211,7 +203,7 @@ export const Certificates = () => {
                     whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
                     className="mb-6 flex items-center justify-center h-20"
                   >
-                    <provider.icon size={72} />
+                    <IconImage src={provider.iconPath} alt={provider.name} size={72} />
                   </motion.div>
 
                   <h3 className="text-xl font-bold mb-4">{provider.name}</h3>
@@ -259,7 +251,7 @@ export const Certificates = () => {
                       transition={{ duration: 0.3 }}
                       className="flex-shrink-0"
                     >
-                      <cert.icon size={56} />
+                      <IconImage src={cert.iconPath} alt={cert.provider} size={56} />
                     </motion.div>
                     <div>
                       <h3 className="text-2xl font-bold">{cert.provider}</h3>
@@ -348,7 +340,7 @@ export const Certificates = () => {
                       transition={{ duration: 0.6 }}
                       className="mb-3"
                     >
-                      <distro.icon size={48} />
+                      <IconImage src={distro.iconPath} alt={distro.name} size={48} />
                     </motion.div>
                     <span className="text-sm font-semibold text-[rgb(var(--color-text-secondary))]">
                       {distro.name}
@@ -383,7 +375,7 @@ export const Certificates = () => {
                       transition={{ duration: 0.5 }}
                       className="mb-3"
                     >
-                      <os.icon size={56} />
+                      <IconImage src={os.iconPath} alt={os.name} size={56} />
                     </motion.div>
                     <span className="text-sm font-semibold text-[rgb(var(--color-text-secondary))]">
                       {os.name}
