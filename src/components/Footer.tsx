@@ -27,7 +27,7 @@ export const Footer = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="absolute top-8 left-8 text-[200px] font-bold text-[rgb(var(--color-text-primary))] opacity-5 pointer-events-none select-none"
+        className="absolute bottom-0 left-0 text-[200px] font-bold text-[rgb(var(--color-text-primary))] opacity-5 pointer-events-none select-none leading-none"
       >
         ↗
       </motion.div>
@@ -41,7 +41,7 @@ export const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h3 className="text-2xl font-bold mb-3">Pablo Zúñiga</h3>
+              <h3 className="text-2xl font-bold mb-3">Isaac Ramírez</h3>
               <p className="text-[rgb(var(--color-text-secondary))] text-sm leading-relaxed max-w-xs">
                 {t('home.role')}
               </p>
@@ -113,21 +113,6 @@ export const Footer = () => {
           </div>
         </div>
 
-        <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-12 pt-8 border-t border-[rgb(var(--color-border))] origin-left"
-        >
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[rgb(var(--color-text-secondary))]">
-            <p>Hecho con ❤️ en Costa Rica</p>
-            <p className="flex items-center gap-1">
-              Impulsado por innovación
-              <ArrowUpRight size={12} className="text-[rgb(var(--color-accent))]" />
-            </p>
-          </div>
-        </motion.div>
       </div>
     </footer>
   );
