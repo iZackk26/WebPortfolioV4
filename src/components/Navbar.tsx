@@ -100,7 +100,11 @@ export const Navbar = () => {
                         whileTap={{ y: 0 }}
                         className="relative px-5 py-2.5 rounded-full group"
                       >
-                        <span
+                        <motion.span
+                          key={`${item.path}-${i18n.language}`}
+                          initial={{ opacity: 0, y: -5 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                           className={`relative z-10 font-medium transition-colors duration-200 ${
                             isActive
                               ? 'text-white'
@@ -108,7 +112,7 @@ export const Navbar = () => {
                           }`}
                         >
                           {item.label}
-                        </span>
+                        </motion.span>
 
                         <motion.div
                           className="absolute inset-0 rounded-full bg-[rgb(var(--color-accent))]"
@@ -139,9 +143,32 @@ export const Navbar = () => {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={toggleLanguage}
-                  className="hidden sm:flex items-center px-4 py-2 rounded-full bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] font-semibold hover:bg-[rgb(var(--color-accent))] hover:text-white transition-all duration-200 border border-[rgb(var(--color-border))] hover:border-[rgb(var(--color-accent))] shadow-sm"
+                  className="hidden sm:flex items-center px-4 py-2 rounded-full bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] font-semibold hover:bg-[rgb(var(--color-accent))] hover:text-white transition-all duration-200 border border-[rgb(var(--color-border))] hover:border-[rgb(var(--color-accent))] shadow-sm relative overflow-hidden"
                 >
-                  {i18n.language === 'en' ? 'ES' : 'EN'}
+                  <motion.span
+                    key={i18n.language}
+                    initial={{ y: -20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: 20, opacity: 0 }}
+                    transition={{
+                      duration: 0.3,
+                      ease: [0.4, 0, 0.2, 1]
+                    }}
+                    className="relative z-10"
+                  >
+                    {i18n.language === 'en' ? 'ES' : 'EN'}
+                  </motion.span>
+
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-[rgb(var(--color-accent))]/0 via-[rgb(var(--color-accent))]/20 to-[rgb(var(--color-accent))]/0"
+                    initial={{ x: '-100%' }}
+                    animate={{ x: '100%' }}
+                    transition={{
+                      duration: 0.4,
+                      ease: 'easeInOut'
+                    }}
+                    key={`lang-shimmer-${i18n.language}`}
+                  />
                 </motion.button>
 
                 <motion.button

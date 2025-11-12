@@ -1,8 +1,9 @@
 import { Github, Linkedin, Instagram } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
 export const Footer = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com', label: 'GitHub' },
@@ -36,9 +37,15 @@ export const Footer = () => {
             ))}
           </div>
 
-          <div className="text-center text-[rgb(var(--color-text-secondary))] text-sm">
+          <motion.div
+            key={i18n.language}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+            className="text-center text-[rgb(var(--color-text-secondary))] text-sm"
+          >
             <p>© {new Date().getFullYear()} Portfolio. {t('footer.rights')}.</p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </footer>
