@@ -15,9 +15,9 @@ export const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
-    { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' }
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/izack/', label: 'LinkedIn' },
+    { icon: Github, href: 'https://github.com/iZackk26', label: 'GitHub' },
+    { icon: Instagram, href: 'https://www.instagram.com/izackk_r/', label: 'Instagram' }
   ];
 
   return (
