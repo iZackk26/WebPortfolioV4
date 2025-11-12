@@ -209,7 +209,7 @@ export const About = () => {
                       initial={{ strokeDashoffset: 0 }}
                       animate={{ strokeDashoffset: -1080 }}
                       transition={{
-                        duration: 4,
+                        duration: 3.5,
                         ease: 'linear'
                       }}
                     />
