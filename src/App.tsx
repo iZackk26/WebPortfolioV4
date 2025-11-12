@@ -6,14 +6,12 @@ import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Projects } from './pages/Projects';
 import { Certificates } from './pages/Certificates';
-import {
-  AppraisalDetail,
-  FaceAntiSpoofingDetail,
-  StateDetectionDetail,
-  VectorDBDetail,
-  IFixItDetail,
-  PuraCompraDetail
-} from './pages/projects';
+import { AppraisalDetail } from './pages/projects/AppraisalDetail';
+import { FaceAntiSpoofingDetail } from './pages/projects/FaceAntiSpoofingDetail';
+import { StateDetectionDetail } from './pages/projects/StateDetectionDetail';
+import { VectorDBDetail } from './pages/projects/VectorDBDetail';
+import { IFixItDetail } from './pages/projects/IFixItDetail';
+import { PuraCompraDetail } from './pages/projects/PuraCompraDetail';
 
 function App() {
   return (
