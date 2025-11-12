@@ -1,23 +1,30 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 interface SEOProps {
   title?: string;
   description?: string;
   keywords?: string;
   ogImage?: string;
+  type?: 'website' | 'article' | 'profile';
+  structuredData?: Record<string, any>;
 }
 
 export const SEO = ({
   title = 'Portfolio | Computer Engineering Student & Software Developer',
   description = 'Passionate Computer Engineering student specializing in automation, digital transformation, and innovative software solutions. Expert in Full-Stack Development, AI/ML, and Cloud Computing.',
   keywords = 'software developer, computer engineering, full-stack developer, react, typescript, ai ml, cloud computing, automation, digital transformation, portfolio',
-  ogImage = '/og-image.jpg'
+  ogImage = '/og-image.jpg',
+  type = 'website',
+  structuredData
 }: SEOProps) => {
   const location = useLocation();
+  const { i18n } = useTranslation();
   const canonicalUrl = `${window.location.origin}${location.pathname}`;
 
   useEffect(() => {
+    document.documentElement.lang = i18n.language;
     document.title = title;
 
     const metaTags = {
@@ -26,16 +33,22 @@ export const SEO = ({
       author: 'Portfolio Developer',
       'og:title': title,
       'og:description': description,
-      'og:image': ogImage,
+      'og:image': `${window.location.origin}${ogImage}`,
       'og:url': canonicalUrl,
-      'og:type': 'website',
+      'og:type': type,
+      'og:site_name': 'Portfolio',
+      'og:locale': i18n.language === 'es' ? 'es_ES' : 'en_US',
       'twitter:card': 'summary_large_image',
       'twitter:title': title,
       'twitter:description': description,
-      'twitter:image': ogImage,
-      'robots': 'index, follow',
-      'language': 'English, Spanish',
-      'revisit-after': '7 days'
+      'twitter:image': `${window.location.origin}${ogImage}`,
+      'twitter:site': '@yourhandle',
+      'robots': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+      'googlebot': 'index, follow',
+      'language': i18n.language,
+      'revisit-after': '7 days',
+      'rating': 'general',
+      'distribution': 'global'
     };
 
     Object.entries(metaTags).forEach(([name, content]) => {
@@ -63,7 +76,38 @@ export const SEO = ({
     }
     linkCanonical.href = canonicalUrl;
 
-  }, [title, description, keywords, ogImage, canonicalUrl]);
+    const defaultStructuredData = {
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Portfolio Developer',
+      jobTitle: 'Computer Engineering Student & Software Developer',
+      url: window.location.origin,
+      sameAs: [
+        'https://linkedin.com/in/yourprofile',
+        'https://github.com/yourprofile'
+      ],
+      knowsAbout: [
+        'Software Development',
+        'Full-Stack Development',
+        'Artificial Intelligence',
+        'Machine Learning',
+        'Cloud Computing',
+        'Automation',
+        'Digital Transformation'
+      ]
+    };
+
+    const dataToUse = structuredData || defaultStructuredData;
+
+    let structuredDataScript = document.querySelector('script[type="application/ld+json"]');
+    if (!structuredDataScript) {
+      structuredDataScript = document.createElement('script');
+      structuredDataScript.type = 'application/ld+json';
+      document.head.appendChild(structuredDataScript);
+    }
+    structuredDataScript.textContent = JSON.stringify(dataToUse);
+
+  }, [title, description, keywords, ogImage, canonicalUrl, type, structuredData, i18n.language]);
 
   return null;
 };

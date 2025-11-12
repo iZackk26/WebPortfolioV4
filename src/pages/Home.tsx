@@ -3,6 +3,7 @@ import { ArrowRight, Code2, Database, Cloud, Cpu, Smartphone, Zap, GitBranch, Te
 import { Link } from 'react-router-dom';
 import Marquee from 'react-fast-marquee';
 import { useEffect, useState } from 'react';
+import { SEO } from '../components/SEO';
 
 export const Home = () => {
   const { t } = useTranslation();
@@ -45,7 +46,13 @@ export const Home = () => {
   };
 
   return (
-    <div className="min-h-screen pt-16">
+    <>
+      <SEO
+        title="Portfolio | Computer Engineering Student & Full-Stack Developer"
+        description="Passionate Computer Engineering student specializing in automation, digital transformation, and innovative software solutions. Expert in Full-Stack Development, AI/ML, Cloud Computing, React, TypeScript, and Python."
+        keywords="software developer, computer engineering, full-stack developer, react developer, typescript, python, ai ml, machine learning, cloud computing, aws, automation, digital transformation, web development, portfolio"
+      />
+      <div className="min-h-screen pt-16">
       <section className="min-h-[calc(100vh-4rem)] flex items-center">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
           <div className="grid md:grid-cols-5 gap-12 items-center">
@@ -246,5 +253,6 @@ export const Home = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };

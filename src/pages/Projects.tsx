@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { SEO } from '../components/SEO';
 import { ExternalLink, Smartphone, Brain, GraduationCap, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -64,7 +65,13 @@ export const Projects = () => {
   };
 
   return (
-    <div className="min-h-screen pt-16">
+    <>
+      <SEO
+        title="Projects | Portfolio of Software Development & AI/ML Projects"
+        description="Explore my portfolio of software development projects including AI/ML solutions, web applications, automation tools, and cloud-native applications."
+        keywords="software projects, ai ml projects, web development, automation projects, cloud projects, portfolio projects, react projects, python projects"
+      />
+      <div className="min-h-screen pt-16">
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
@@ -373,5 +380,6 @@ export const Projects = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };

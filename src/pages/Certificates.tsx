@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { SEO } from '../components/SEO';
 import { Cloud, Monitor, CheckCircle, Award, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -144,7 +145,13 @@ export const Certificates = () => {
   };
 
   return (
-    <div className="min-h-screen pt-16">
+    <>
+      <SEO
+        title="Certifications & Technical Skills | AWS, GCP, Azure, Snowflake"
+        description="Professional certifications and technical expertise in AWS, Google Cloud Platform, Microsoft Azure, Snowflake, Databricks, Oracle, and various Linux distributions."
+        keywords="aws certifications, gcp certifications, azure certifications, snowflake certifications, databricks, oracle, cloud certifications, linux expertise, technical skills"
+      />
+      <div className="min-h-screen pt-16">
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
@@ -388,5 +395,6 @@ export const Certificates = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };

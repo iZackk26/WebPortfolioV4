@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { SEO } from './components/SEO';
 import { LanguageTransition } from './components/LanguageTransition';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
@@ -19,7 +18,6 @@ import {
 function App() {
   return (
     <Router>
-      <SEO />
       <div className="min-h-screen">
         <Navbar />
         <LanguageTransition>

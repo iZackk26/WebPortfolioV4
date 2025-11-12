@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Target, Award, TrendingUp, Users, Lightbulb, BookOpen, Code, Server, Cloud, Database, Cpu, Layers, GitBranch, Smartphone, Download } from 'lucide-react';
+import { SEO } from '../components/SEO';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import Marquee from 'react-fast-marquee';
@@ -145,7 +146,13 @@ export const About = () => {
   }, []);
 
   return (
-    <div className="min-h-screen pt-16" ref={containerRef}>
+    <>
+      <SEO
+        title="About Me | Computer Engineering Student & Developer"
+        description="Learn about my journey as a Computer Engineering student. Passionate about automation, AI/ML, cloud computing, and creating innovative software solutions."
+        keywords="about me, computer engineering student, software developer, automation engineer, ai ml developer, cloud computing, professional profile"
+      />
+      <div className="min-h-screen pt-16" ref={containerRef}>
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
@@ -522,6 +529,7 @@ export const About = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
