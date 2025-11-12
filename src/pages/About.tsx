@@ -176,29 +176,44 @@ export const About = () => {
                 <span>{t('about.downloadCV')}</span>
 
                 {showTronTrail && (
-                  <motion.div
-                    className="absolute inset-0 rounded-xl"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                  <svg
+                    className="absolute inset-0 w-full h-full pointer-events-none"
+                    style={{ overflow: 'visible' }}
                   >
-                    <motion.div
-                      className="absolute top-0 left-0 w-16 h-0.5 bg-white shadow-[0_0_8px_2px_rgba(255,255,255,0.8)]"
-                      initial={{ x: 0, y: 0 }}
-                      animate={{
-                        x: ['0%', '100%', '100%', '100%', '0%'],
-                        y: ['0%', '0%', '100%', '100%', '100%']
-                      }}
+                    <defs>
+                      <linearGradient id="trailGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="rgba(255, 255, 255, 0)" />
+                        <stop offset="50%" stopColor="rgba(255, 255, 255, 0.6)" />
+                        <stop offset="100%" stopColor="rgba(255, 255, 255, 1)" />
+                      </linearGradient>
+                      <filter id="glow">
+                        <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                        <feMerge>
+                          <feMergeNode in="coloredBlur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                    </defs>
+                    <motion.rect
+                      x="0"
+                      y="0"
+                      width="100%"
+                      height="100%"
+                      rx="12"
+                      ry="12"
+                      fill="none"
+                      stroke="url(#trailGradient)"
+                      strokeWidth="3"
+                      filter="url(#glow)"
+                      strokeDasharray="80 1000"
+                      initial={{ strokeDashoffset: 0 }}
+                      animate={{ strokeDashoffset: -1080 }}
                       transition={{
-                        duration: 3,
-                        ease: 'linear',
-                        times: [0, 0.25, 0.5, 0.75, 1]
-                      }}
-                      style={{
-                        filter: 'blur(1px)'
+                        duration: 4,
+                        ease: 'linear'
                       }}
                     />
-                  </motion.div>
+                  </svg>
                 )}
               </motion.button>
             </div>
