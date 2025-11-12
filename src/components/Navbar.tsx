@@ -8,6 +8,7 @@ import { useTheme } from '../hooks/useTheme';
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { t, i18n } = useTranslation();
   const location = useLocation();
@@ -27,11 +28,13 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 100);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const isCompact = scrolled && !isHovered;
 
   return (
     <>
@@ -39,170 +42,237 @@ export const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? 'bg-[rgb(var(--color-bg-primary))]/80 backdrop-blur-xl border-b border-[rgb(var(--color-border))]/50 shadow-lg shadow-black/5'
-            : 'bg-transparent'
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className={`fixed z-50 transition-all duration-500 ${
+          isCompact
+            ? 'top-6 left-6 right-auto w-auto rounded-full bg-[rgb(var(--color-bg-primary))]/95 backdrop-blur-xl border border-[rgb(var(--color-border))] shadow-2xl shadow-black/10'
+            : 'top-0 left-0 right-0 bg-[rgb(var(--color-bg-primary))]/80 backdrop-blur-xl border-b border-[rgb(var(--color-border))]/50'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            <Link
-              to="/"
-              className="relative group flex items-center space-x-3"
-            >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative"
-              >
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))] flex items-center justify-center overflow-hidden border-2 border-[rgb(var(--color-border))] shadow-lg shadow-[rgb(var(--color-accent))]/20 transition-all duration-300 group-hover:shadow-[rgb(var(--color-accent))]/40">
-                  <User size={24} className="text-white" />
-                </div>
+        <motion.div
+          className={`${isCompact ? 'px-2' : 'max-w-7xl mx-auto px-6 lg:px-8'}`}
+          animate={{
+            width: isCompact ? 'auto' : '100%'
+          }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className={`flex items-center ${isCompact ? 'justify-center' : 'justify-between'} transition-all duration-400`} style={{ height: isCompact ? '56px' : '80px' }}>
+            <AnimatePresence mode="wait">
+              {!isCompact ? (
                 <motion.div
-                  className="absolute inset-0 rounded-full bg-[rgb(var(--color-accent))]/20"
-                  initial={{ scale: 1, opacity: 0 }}
-                  whileHover={{ scale: 1.3, opacity: 0 }}
-                  transition={{ duration: 0.6 }}
-                />
-              </motion.div>
-              <motion.span
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-xl font-bold hidden sm:block tracking-tight relative"
-              >
-                Portfolio
-                <motion.div
-                  className="absolute -bottom-1 left-0 h-0.5 bg-[rgb(var(--color-accent))]"
-                  initial={{ width: 0 }}
-                  whileHover={{ width: '100%' }}
+                  key="full-logo"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.3 }}
-                />
-              </motion.span>
-            </Link>
-
-            <div className="hidden md:flex items-center space-x-2">
-              {navItems.map((item, index) => {
-                const isActive = location.pathname === item.path;
-                return (
-                  <Link key={item.path} to={item.path}>
+                >
+                  <Link
+                    to="/"
+                    className="relative group flex items-center space-x-3"
+                  >
                     <motion.div
-                      initial={{ opacity: 0, y: -20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.1 * index, duration: 0.5 }}
-                      whileHover={{ y: -2 }}
-                      whileTap={{ y: 0 }}
-                      className="relative px-5 py-2.5 rounded-full group"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="relative"
                     >
-                      <span
-                        className={`relative z-10 font-medium transition-colors duration-300 ${
-                          isActive
-                            ? 'text-white'
-                            : 'text-[rgb(var(--color-text-secondary))] group-hover:text-[rgb(var(--color-text-primary))]'
-                        }`}
-                      >
-                        {item.label}
-                      </span>
-
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))] flex items-center justify-center overflow-hidden border-2 border-[rgb(var(--color-border))] shadow-lg shadow-[rgb(var(--color-accent))]/20 transition-all duration-300 group-hover:shadow-[rgb(var(--color-accent))]/40">
+                        <User size={24} className="text-white" />
+                      </div>
                       <motion.div
-                        className="absolute inset-0 rounded-full bg-[rgb(var(--color-accent))]"
-                        initial={false}
-                        animate={{
-                          scale: isActive ? 1 : 0,
-                          opacity: isActive ? 1 : 0
-                        }}
-                        whileHover={{ scale: 1, opacity: isActive ? 1 : 0.1 }}
-                        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                        className="absolute inset-0 rounded-full bg-[rgb(var(--color-accent))]/20"
+                        initial={{ scale: 1, opacity: 0 }}
+                        whileHover={{ scale: 1.3, opacity: 0 }}
+                        transition={{ duration: 0.6 }}
                       />
-
-                      {isActive && (
-                        <motion.div
-                          layoutId="activeNav"
-                          className="absolute inset-0 rounded-full bg-[rgb(var(--color-accent))] shadow-lg shadow-[rgb(var(--color-accent))]/30"
-                          transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                        />
-                      )}
+                    </motion.div>
+                    <motion.span
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.2 }}
+                      className="text-xl font-bold hidden sm:block tracking-tight relative"
+                    >
+                      Portfolio
+                      <motion.div
+                        className="absolute -bottom-1 left-0 h-0.5 bg-[rgb(var(--color-accent))]"
+                        initial={{ width: 0 }}
+                        whileHover={{ width: '100%' }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </motion.span>
+                  </Link>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="compact-logo"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Link to="/" className="relative group">
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="relative"
+                    >
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))] flex items-center justify-center overflow-hidden border-2 border-[rgb(var(--color-border))] shadow-lg shadow-[rgb(var(--color-accent))]/30 transition-all duration-300">
+                        <User size={20} className="text-white" />
+                      </div>
+                      <motion.div
+                        className="absolute -inset-1 rounded-full border-2 border-[rgb(var(--color-accent))]"
+                        initial={{ scale: 1, opacity: 0 }}
+                        animate={{ scale: 1.3, opacity: 0 }}
+                        transition={{ duration: 1.5, repeat: Infinity, repeatType: 'loop' }}
+                      />
                     </motion.div>
                   </Link>
-                );
-              })}
-            </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
-            <div className="flex items-center space-x-3">
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={toggleLanguage}
-                className="hidden sm:flex items-center px-4 py-2 rounded-full bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] font-semibold hover:bg-[rgb(var(--color-accent))] hover:text-white transition-all duration-300 border border-[rgb(var(--color-border))] hover:border-[rgb(var(--color-accent))] shadow-sm"
-              >
-                {i18n.language === 'en' ? 'ES' : 'EN'}
-              </motion.button>
+            <AnimatePresence>
+              {!isCompact && (
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.3, staggerChildren: 0.05 }}
+                  className="hidden md:flex items-center space-x-2"
+                >
+                  {navItems.map((item, index) => {
+                    const isActive = location.pathname === item.path;
+                    return (
+                      <Link key={item.path} to={item.path}>
+                        <motion.div
+                          initial={{ opacity: 0, y: -20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          transition={{ delay: 0.1 * index, duration: 0.5 }}
+                          whileHover={{ y: -2 }}
+                          whileTap={{ y: 0 }}
+                          className="relative px-5 py-2.5 rounded-full group"
+                        >
+                          <span
+                            className={`relative z-10 font-medium transition-colors duration-300 ${
+                              isActive
+                                ? 'text-white'
+                                : 'text-[rgb(var(--color-text-secondary))] group-hover:text-[rgb(var(--color-text-primary))]'
+                            }`}
+                          >
+                            {item.label}
+                          </span>
 
-              <motion.button
-                whileHover={{ scale: 1.05, rotate: 180 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={toggleTheme}
-                className="hidden sm:flex p-2.5 rounded-full bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] hover:bg-[rgb(var(--color-accent))] hover:text-white transition-all duration-300 border border-[rgb(var(--color-border))] hover:border-[rgb(var(--color-accent))] shadow-sm"
-              >
-                <AnimatePresence mode="wait">
-                  {theme === 'dark' ? (
-                    <motion.div
-                      key="sun"
-                      initial={{ rotate: -180, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: 180, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Sun size={20} />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="moon"
-                      initial={{ rotate: -180, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: 180, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Moon size={20} />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.button>
+                          <motion.div
+                            className="absolute inset-0 rounded-full bg-[rgb(var(--color-accent))]"
+                            initial={false}
+                            animate={{
+                              scale: isActive ? 1 : 0,
+                              opacity: isActive ? 1 : 0
+                            }}
+                            whileHover={{ scale: 1, opacity: isActive ? 1 : 0.1 }}
+                            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                          />
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden p-2.5 rounded-full bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] border border-[rgb(var(--color-border))] shadow-sm"
-              >
-                <AnimatePresence mode="wait">
-                  {isOpen ? (
-                    <motion.div
-                      key="close"
-                      initial={{ rotate: -90, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: 90, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <X size={24} />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="menu"
-                      initial={{ rotate: -90, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: 90, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <Menu size={24} />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.button>
-            </div>
+                          {isActive && (
+                            <motion.div
+                              layoutId="activeNav"
+                              className="absolute inset-0 rounded-full bg-[rgb(var(--color-accent))] shadow-lg shadow-[rgb(var(--color-accent))]/30"
+                              transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                            />
+                          )}
+                        </motion.div>
+                      </Link>
+                    );
+                  })}
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <AnimatePresence>
+              {!isCompact && (
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex items-center space-x-3"
+                >
+                  <motion.button
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={toggleLanguage}
+                    className="hidden sm:flex items-center px-4 py-2 rounded-full bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] font-semibold hover:bg-[rgb(var(--color-accent))] hover:text-white transition-all duration-300 border border-[rgb(var(--color-border))] hover:border-[rgb(var(--color-accent))] shadow-sm"
+                  >
+                    {i18n.language === 'en' ? 'ES' : 'EN'}
+                  </motion.button>
+
+                  <motion.button
+                    whileHover={{ scale: 1.05, rotate: 180 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={toggleTheme}
+                    className="hidden sm:flex p-2.5 rounded-full bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] hover:bg-[rgb(var(--color-accent))] hover:text-white transition-all duration-300 border border-[rgb(var(--color-border))] hover:border-[rgb(var(--color-accent))] shadow-sm"
+                  >
+                    <AnimatePresence mode="wait">
+                      {theme === 'dark' ? (
+                        <motion.div
+                          key="sun"
+                          initial={{ rotate: -180, opacity: 0 }}
+                          animate={{ rotate: 0, opacity: 1 }}
+                          exit={{ rotate: 180, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <Sun size={20} />
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key="moon"
+                          initial={{ rotate: -180, opacity: 0 }}
+                          animate={{ rotate: 0, opacity: 1 }}
+                          exit={{ rotate: 180, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <Moon size={20} />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.button>
+
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="md:hidden p-2.5 rounded-full bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] border border-[rgb(var(--color-border))] shadow-sm"
+                  >
+                    <AnimatePresence mode="wait">
+                      {isOpen ? (
+                        <motion.div
+                          key="close"
+                          initial={{ rotate: -90, opacity: 0 }}
+                          animate={{ rotate: 0, opacity: 1 }}
+                          exit={{ rotate: 90, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <X size={24} />
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key="menu"
+                          initial={{ rotate: -90, opacity: 0 }}
+                          animate={{ rotate: 0, opacity: 1 }}
+                          exit={{ rotate: 90, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Menu size={24} />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.button>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
-        </div>
+        </motion.div>
 
         <AnimatePresence>
           {isOpen && (
