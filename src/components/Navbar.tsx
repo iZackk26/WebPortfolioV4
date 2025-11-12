@@ -41,11 +41,11 @@ export const Navbar = () => {
       <motion.nav
         initial={false}
         animate={{
-          width: isCompact ? '56px' : '100%',
-          height: isCompact ? '56px' : '80px',
-          borderRadius: isCompact ? '28px' : '16px',
-          x: isCompact ? '24px' : '0px',
-          y: isCompact ? '24px' : '0px'
+          width: isCompact ? '56px' : 'calc(100% - 48px)',
+          height: isCompact ? '56px' : '64px',
+          borderRadius: isCompact ? '28px' : '32px',
+          x: isCompact ? '24px' : '24px',
+          y: isCompact ? '24px' : '16px'
         }}
         transition={{
           type: 'spring',
@@ -55,7 +55,7 @@ export const Navbar = () => {
         }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="fixed top-0 left-0 z-50 bg-[rgb(var(--color-bg-primary))]/90 backdrop-blur-xl border border-[rgb(var(--color-border))]/50 shadow-lg overflow-hidden rounded-2xl"
+        className="fixed top-0 left-0 z-50 bg-[rgb(var(--color-bg-primary))]/90 backdrop-blur-xl border border-[rgb(var(--color-border))]/50 shadow-lg overflow-hidden"
         style={{
           willChange: 'transform, width, height, border-radius',
           contain: 'layout style paint'
@@ -258,7 +258,7 @@ export const Navbar = () => {
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed top-20 left-0 right-0 z-40 md:hidden border-t border-[rgb(var(--color-border))]/50 bg-[rgb(var(--color-bg-primary))]/95 backdrop-blur-xl overflow-hidden"
+          className="fixed top-24 left-6 right-6 z-40 md:hidden border border-[rgb(var(--color-border))]/50 bg-[rgb(var(--color-bg-primary))]/95 backdrop-blur-xl overflow-hidden rounded-3xl shadow-lg"
         >
           <div className="px-6 py-6 space-y-2">
             {navItems.map((item) => {
@@ -302,7 +302,7 @@ export const Navbar = () => {
         </motion.div>
       )}
 
-      <div className="h-20" />
+      <div className="h-24" />
     </>
   );
 };
