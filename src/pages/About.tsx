@@ -71,10 +71,10 @@ export const About = () => {
   ];
 
   const achievements = [
-    { icon: Code, label: 'Projects Built', value: '12+' },
-    { icon: Award, label: 'Technologies', value: '15+' },
-    { icon: Users, label: 'Team Projects', value: '5+' },
-    { icon: TrendingUp, label: 'Years Experience', value: '3+' }
+    { icon: Code, label: 'Projects Built', value: '15+' },
+    { icon: Award, label: 'Technologies', value: '20+' },
+    { icon: Users, label: 'Team Projects', value: '3+' },
+    { icon: TrendingUp, label: 'Years Experience', value: '1+' }
   ];
 
   const interests = [
@@ -341,7 +341,7 @@ export const About = () => {
                         whileHover={{ x: 5 }}
                         className="px-3 py-2 bg-[rgb(var(--color-bg-secondary))] rounded-lg text-sm border border-transparent hover:border-[rgb(var(--color-accent))] transition-all duration-150"
                       >
-                        Advanced AI/ML
+                        Cybersecurity
                       </motion.div>
                       <motion.div
                         whileHover={{ x: 5 }}
