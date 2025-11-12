@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "certificates": "Certificates"
+  },
+  "home": {
+    "greeting": "Hi, I'm",
+    "role": "Computer Engineering Student & Software Developer",
+    "description": "Passionate about automation, digital transformation, and building innovative solutions that solve real-world problems.",
+    "cta": "View My Work",
+    "currentProjects": "Current Projects",
+    "technologies": "Technologies I Master",
+    "viewProject": "View Project"
+  },
+  "about": {
+    "title": "About Me",
+    "downloadCV": "Download CV",
+    "introduction": "I'm a Computer Engineering student at TEC de Costa Rica, deeply passionate about process automation and digital transformation. My journey in technology is driven by a constant desire to learn and create solutions that make a difference.",
+    "motivation": "Motivation & Goals",
+    "motivationText": "My goal is to leverage technology to automate processes, optimize workflows, and drive digital transformation across industries. I believe in the power of innovation to solve complex problems and improve people's lives.",
+    "technicalSkills": "Technical Skills",
+    "softSkills": "Soft Skills",
+    "skills": {
+      "technical": [
+        "Full-Stack Development (React, Node.js, TypeScript)",
+        "Mobile Development (React Native, Nativewind)",
+        "Database Design (PostgreSQL, SQL, Vector Databases)",
+        "Cloud Computing (AWS, Google Cloud, Azure)",
+        "AI/ML (Face Recognition, Anti-Spoofing, Model Optimization)",
+        "DevOps & System Administration (Linux, Docker, Heroku)",
+        "API Development (REST, GraphQL)"
+      ],
+      "soft": [
+        "Problem Solving & Critical Thinking",
+        "Team Collaboration & Leadership",
+        "Adaptability & Quick Learning",
+        "Effective Communication",
+        "Project Management",
+        "Attention to Detail"
+      ]
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "professional": "Professional Projects",
+    "ai": "AI Projects",
+    "university": "University Projects",
+    "viewDetails": "View Details",
+    "technologies": "Technologies",
+    "items": {
+      "appraisal": {
+        "title": "Mobile Appraisal Application",
+        "description": "Hybrid mobile solution enabling offline completion of dynamic forms using Formly. Designed for field appraisers to work seamlessly without internet connectivity.",
+        "highlights": "Offline-first architecture, Dynamic form generation, Data synchronization"
+      },
+      "faceAntiSpoofing": {
+        "title": "Face Anti-Spoofing System",
+        "description": "AI-powered solution to prevent identity falsification by detecting presentation attacks in facial recognition systems.",
+        "highlights": "Real-time detection, High accuracy rate, Lightweight model"
+      },
+      "stateDetection": {
+        "title": "Optimized State Detection Model",
+        "description": "Machine learning model optimized to achieve high accuracy with minimal training data, demonstrating efficient use of limited datasets.",
+        "highlights": "Small dataset optimization, High precision, Fast inference"
+      },
+      "vectorDB": {
+        "title": "Vector Database Implementation",
+        "description": "Implemented embeddings and vector databases for efficient cloud storage and semantic search capabilities.",
+        "highlights": "Semantic search, Cloud optimization, Scalable architecture"
+      },
+      "iFixIt": {
+        "title": "iFixIt - Workshop Management Platform",
+        "description": "Comprehensive web and mobile platform for automotive workshop management, featuring real-time location tracking, appointment scheduling, and service management.",
+        "highlights": "Full-stack solution, Real-time tracking, Mobile & Web interfaces"
+      },
+      "puraCompra": {
+        "title": "Pura Compra - E-commerce Intermediary",
+        "description": "Platform connecting users with multiple online stores, providing a unified shopping experience with price comparisons and streamlined checkout.",
+        "highlights": "Multi-store integration, Price comparison, Unified checkout"
+      }
+    }
+  },
+  "certificates": {
+    "title": "Certificates & Achievements",
+    "cloudExperience": "Cloud Experience",
+    "osExperience": "Operating Systems",
+    "aws": "Amazon Web Services (CloudWatch, Cognito)",
+    "gcp": "Google Cloud Platform (VMs, Firewall, Storage)",
+    "azure": "Microsoft Azure",
+    "linux": "Linux Distributions (Arch, Ubuntu, Fedora, Kali, Manjaro, EndevourOS)",
+    "other": "macOS & Windows"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "connect": "Let's Connect"
+  }
+}

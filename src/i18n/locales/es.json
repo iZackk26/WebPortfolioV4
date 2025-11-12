@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Mí",
+    "projects": "Proyectos",
+    "certificates": "Certificados"
+  },
+  "home": {
+    "greeting": "Hola, soy",
+    "role": "Estudiante de Ingeniería en Computación y Desarrollador de Software",
+    "description": "Apasionado por la automatización, transformación digital y la construcción de soluciones innovadoras que resuelven problemas del mundo real.",
+    "cta": "Ver Mi Trabajo",
+    "currentProjects": "Proyectos Actuales",
+    "technologies": "Tecnologías que Domino",
+    "viewProject": "Ver Proyecto"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "downloadCV": "Descargar CV",
+    "introduction": "Soy estudiante de Ingeniería en Computación en el TEC de Costa Rica, profundamente apasionado por la automatización de procesos y la transformación digital. Mi camino en la tecnología está impulsado por un deseo constante de aprender y crear soluciones que marquen la diferencia.",
+    "motivation": "Motivación y Objetivos",
+    "motivationText": "Mi objetivo es aprovechar la tecnología para automatizar procesos, optimizar flujos de trabajo e impulsar la transformación digital en todas las industrias. Creo en el poder de la innovación para resolver problemas complejos y mejorar la vida de las personas.",
+    "technicalSkills": "Habilidades Técnicas",
+    "softSkills": "Habilidades Blandas",
+    "skills": {
+      "technical": [
+        "Desarrollo Full-Stack (React, Node.js, TypeScript)",
+        "Desarrollo Móvil (React Native, Nativewind)",
+        "Diseño de Bases de Datos (PostgreSQL, SQL, Bases de Datos Vectoriales)",
+        "Computación en la Nube (AWS, Google Cloud, Azure)",
+        "IA/ML (Reconocimiento Facial, Anti-Spoofing, Optimización de Modelos)",
+        "DevOps y Administración de Sistemas (Linux, Docker, Heroku)",
+        "Desarrollo de APIs (REST, GraphQL)"
+      ],
+      "soft": [
+        "Resolución de Problemas y Pensamiento Crítico",
+        "Colaboración en Equipo y Liderazgo",
+        "Adaptabilidad y Aprendizaje Rápido",
+        "Comunicación Efectiva",
+        "Gestión de Proyectos",
+        "Atención al Detalle"
+      ]
+    }
+  },
+  "projects": {
+    "title": "Proyectos",
+    "professional": "Proyectos Profesionales",
+    "ai": "Proyectos de IA",
+    "university": "Proyectos Universitarios",
+    "viewDetails": "Ver Detalles",
+    "technologies": "Tecnologías",
+    "items": {
+      "appraisal": {
+        "title": "Aplicación Móvil de Avalúos",
+        "description": "Solución móvil híbrida que permite completar formularios dinámicos sin conexión usando Formly. Diseñada para tasadores de campo que trabajan sin conectividad a internet.",
+        "highlights": "Arquitectura offline-first, Generación de formularios dinámicos, Sincronización de datos"
+      },
+      "faceAntiSpoofing": {
+        "title": "Sistema Anti-Spoofing Facial",
+        "description": "Solución impulsada por IA para prevenir la falsificación de identidad mediante la detección de ataques de presentación en sistemas de reconocimiento facial.",
+        "highlights": "Detección en tiempo real, Alta tasa de precisión, Modelo ligero"
+      },
+      "stateDetection": {
+        "title": "Modelo Optimizado de Detección de Estados",
+        "description": "Modelo de aprendizaje automático optimizado para lograr alta precisión con datos de entrenamiento mínimos, demostrando uso eficiente de conjuntos de datos limitados.",
+        "highlights": "Optimización con dataset pequeño, Alta precisión, Inferencia rápida"
+      },
+      "vectorDB": {
+        "title": "Implementación de Base de Datos Vectorial",
+        "description": "Implementación de embeddings y bases de datos vectoriales para almacenamiento eficiente en la nube y capacidades de búsqueda semántica.",
+        "highlights": "Búsqueda semántica, Optimización en la nube, Arquitectura escalable"
+      },
+      "iFixIt": {
+        "title": "iFixIt - Plataforma de Gestión de Talleres",
+        "description": "Plataforma integral web y móvil para gestión de talleres automotrices, con seguimiento de ubicación en tiempo real, programación de citas y gestión de servicios.",
+        "highlights": "Solución full-stack, Seguimiento en tiempo real, Interfaces móvil y web"
+      },
+      "puraCompra": {
+        "title": "Pura Compra - Intermediario de E-commerce",
+        "description": "Plataforma que conecta usuarios con múltiples tiendas en línea, proporcionando una experiencia de compra unificada con comparación de precios y checkout simplificado.",
+        "highlights": "Integración multi-tienda, Comparación de precios, Checkout unificado"
+      }
+    }
+  },
+  "certificates": {
+    "title": "Certificados y Logros",
+    "cloudExperience": "Experiencia en la Nube",
+    "osExperience": "Sistemas Operativos",
+    "aws": "Amazon Web Services (CloudWatch, Cognito)",
+    "gcp": "Google Cloud Platform (VMs, Firewall, Storage)",
+    "azure": "Microsoft Azure",
+    "linux": "Distribuciones Linux (Arch, Ubuntu, Fedora, Kali, Manjaro, EndevourOS)",
+    "other": "macOS y Windows"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "connect": "Conectemos"
+  }
+}
