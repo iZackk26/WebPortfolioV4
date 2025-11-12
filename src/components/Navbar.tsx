@@ -82,12 +82,13 @@ export const Navbar = () => {
                   className="relative"
                 >
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))] flex items-center justify-center overflow-hidden border-2 border-[rgb(var(--color-border))] shadow-lg shadow-[rgb(var(--color-accent))]/20">
-                    <User size={24} className="text-white" />
+                    <img
+                      src="/icon.jpeg"
+                      alt="Isaac"
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
                   </div>
                 </motion.div>
-                <span className="text-xl font-bold hidden sm:block tracking-tight">
-                  Portfolio
-                </span>
               </Link>
 
               <div className="hidden md:flex items-center space-x-2">
@@ -124,11 +125,10 @@ export const Navbar = () => {
                           initial={{ opacity: 0, y: -5 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                          className={`relative z-10 font-medium transition-colors duration-200 ${
-                            isActive
-                              ? 'text-white'
-                              : 'text-[rgb(var(--color-text-secondary))] group-hover:text-[rgb(var(--color-text-primary))]'
-                          }`}
+                          className={`relative z-10 font-medium transition-colors duration-200 ${isActive
+                            ? 'text-white'
+                            : 'text-[rgb(var(--color-text-secondary))] group-hover:text-[rgb(var(--color-text-primary))]'
+                            }`}
                         >
                           {item.label}
                         </motion.span>
@@ -234,7 +234,12 @@ export const Navbar = () => {
                 className="relative"
               >
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))] flex items-center justify-center overflow-hidden border-2 border-[rgb(var(--color-border))] shadow-lg shadow-[rgb(var(--color-accent))]/40">
-                  <User size={20} className="text-white" />
+                  <img
+                    src="/icon.jpeg"
+                    alt="Isaac"
+                    className="w-8 h-8 rounded-full object-cover"
+                  />
+
                 </div>
                 <motion.div
                   className="absolute -inset-1 rounded-full border-2 border-[rgb(var(--color-accent))]"
@@ -271,11 +276,10 @@ export const Navbar = () => {
                 >
                   <motion.div
                     whileHover={{ x: 4 }}
-                    className={`px-5 py-3 rounded-xl transition-all duration-200 ${
-                      isActive
-                        ? 'bg-[rgb(var(--color-accent))] text-white shadow-lg shadow-[rgb(var(--color-accent))]/30'
-                        : 'text-[rgb(var(--color-text-secondary))] hover:bg-[rgb(var(--color-bg-secondary))] hover:text-[rgb(var(--color-text-primary))]'
-                    }`}
+                    className={`px-5 py-3 rounded-xl transition-all duration-200 ${isActive
+                      ? 'bg-[rgb(var(--color-accent))] text-white shadow-lg shadow-[rgb(var(--color-accent))]/30'
+                      : 'text-[rgb(var(--color-text-secondary))] hover:bg-[rgb(var(--color-bg-secondary))] hover:text-[rgb(var(--color-text-primary))]'
+                      }`}
                   >
                     {item.label}
                   </motion.div>
