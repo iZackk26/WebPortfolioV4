@@ -21,7 +21,7 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-[rgb(var(--color-bg-secondary))] border-t border-[rgb(var(--color-border))] mt-32 overflow-hidden">
+    <footer className="relative bg-[rgb(var(--color-bg-secondary))] border-t border-[rgb(var(--color-border))] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           <div className="lg:col-span-4">

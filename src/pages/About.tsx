@@ -393,7 +393,7 @@ export const About = () => {
           </div>
         </section>
 
-        <section className="relative pt-32 pb-0 bg-[rgb(var(--color-bg-primary))]">
+        <section className="relative py-32 bg-[rgb(var(--color-bg-primary))]">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent dark:via-black/20 dark:to-black/30 via-black/5 to-black/10" />
 
           <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
