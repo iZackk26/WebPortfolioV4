@@ -1,45 +1,27 @@
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, Brain, TrendingUp, Target } from 'lucide-react';
+import { ArrowLeft, CheckCircle, Video, TrendingUp, Target } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 export const StateDetectionDetail = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
-  const features = [
-    'High accuracy with minimal training data',
-    'Efficient use of limited datasets',
-    'Fast inference times',
-    'Model optimization techniques',
-    'Transfer learning implementation',
-    'Continuous performance monitoring'
-  ];
+  // Get features from i18n
+  const features: string[] = t('project_detail.features', { returnObjects: true }) as string[];
 
-  const technologies = [
-    { name: 'Machine Learning', category: 'AI/ML' },
-    { name: 'Python', category: 'Language' },
-    { name: 'Scikit-learn', category: 'Framework' },
-    { name: 'Data Preprocessing', category: 'Pipeline' },
-    { name: 'Feature Engineering', category: 'Optimization' },
-    { name: 'Model Compression', category: 'Deployment' }
-  ];
+  // Get technologies from i18n
+  const technologies: Array<{ name: string; category: string }> = t('project_detail.technologies', { returnObjects: true }) as Array<{ name: string; category: string }>;
 
-  const challenges = [
-    {
-      icon: Target,
-      title: 'Limited Data Challenge',
-      description: 'Developed strategies to maximize model performance with limited training samples through data augmentation and smart feature selection.'
-    },
-    {
-      icon: TrendingUp,
-      title: 'Model Optimization',
-      description: 'Implemented advanced optimization techniques to achieve high accuracy while maintaining minimal computational requirements.'
-    },
-    {
-      icon: Brain,
-      title: 'Feature Engineering',
-      description: 'Created effective features that capture essential patterns in the data, improving model generalization.'
-    }
-  ];
+  // Get challenges from i18n
+  const challengesData: Array<{ title: string; description: string }> = t('project_detail.challenges', { returnObjects: true }) as Array<{ title: string; description: string }>;
+
+  // Map icons to challenges
+  const challengeIcons = [Target, TrendingUp, Video];
+  const challenges = challengesData.map((challenge, index) => ({
+    ...challenge,
+    icon: challengeIcons[index]
+  }));
 
   return (
     <div className="min-h-screen pt-16">
@@ -53,7 +35,7 @@ export const StateDetectionDetail = () => {
             className="inline-flex items-center space-x-2 text-[rgb(var(--color-text-secondary))] hover:text-[rgb(var(--color-accent))] transition-colors duration-200 mb-8"
           >
             <ArrowLeft size={20} />
-            <span>Back to Projects</span>
+            <span>{t('project_detail.back')}</span>
           </motion.button>
 
           <motion.div
@@ -63,13 +45,13 @@ export const StateDetectionDetail = () => {
             className="mb-12"
           >
             <div className="inline-block px-3 py-1 bg-[rgb(var(--color-accent))] text-white text-sm font-semibold rounded-full mb-4">
-              AI/ML PROJECT
+              {t('project_detail.category')}
             </div>
             <h1 className="text-5xl sm:text-6xl font-bold mb-6">
-              Optimized State Detection Model
+              {t('project_detail.title')}
             </h1>
             <p className="text-xl text-[rgb(var(--color-text-secondary))] leading-relaxed max-w-4xl">
-              A machine learning model optimized to achieve high accuracy with minimal training data, demonstrating efficient use of limited datasets and advanced optimization techniques.
+              {t('project_detail.description')}
             </p>
           </motion.div>
         </div>
@@ -78,7 +60,7 @@ export const StateDetectionDetail = () => {
       <section className="py-16 bg-[rgb(var(--color-bg-secondary))]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="aspect-video bg-[rgb(var(--color-card))] border-2 border-[rgb(var(--color-border))] rounded-2xl flex items-center justify-center">
-            <Brain size={120} className="text-[rgb(var(--color-accent))]" />
+            <Video size={120} className="text-[rgb(var(--color-accent))]" />
           </div>
         </div>
       </section>
@@ -92,17 +74,11 @@ export const StateDetectionDetail = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
+              <h2 className="text-3xl font-bold mb-6">{t('project_detail.overview_title')}</h2>
               <div className="space-y-4 text-[rgb(var(--color-text-secondary))] leading-relaxed">
-                <p>
-                  This project demonstrates advanced machine learning techniques for achieving high model accuracy when working with limited training data. The challenge was to build a robust classification system despite data constraints.
-                </p>
-                <p>
-                  Through careful feature engineering, smart data augmentation, and advanced optimization techniques, the model achieves performance comparable to systems trained on much larger datasets.
-                </p>
-                <p>
-                  The resulting model is both accurate and efficient, making it suitable for deployment in resource-constrained environments.
-                </p>
+                <p>{t('project_detail.overview_p1')}</p>
+                <p>{t('project_detail.overview_p2')}</p>
+                <p>{t('project_detail.overview_p3')}</p>
               </div>
             </motion.div>
 
@@ -112,7 +88,7 @@ export const StateDetectionDetail = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-6">Key Features</h2>
+              <h2 className="text-3xl font-bold mb-6">{t('project_detail.features_title')}</h2>
               <div className="space-y-3">
                 {features.map((feature, index) => (
                   <motion.div
@@ -138,7 +114,7 @@ export const StateDetectionDetail = () => {
             transition={{ duration: 0.6 }}
             className="mb-20"
           >
-            <h2 className="text-3xl font-bold mb-8">Technical Challenges</h2>
+            <h2 className="text-3xl font-bold mb-8">{t('project_detail.challenges_title')}</h2>
             <div className="grid md:grid-cols-3 gap-8">
               {challenges.map((challenge, index) => (
                 <motion.div
@@ -166,7 +142,7 @@ export const StateDetectionDetail = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold mb-8">Technologies Used</h2>
+            <h2 className="text-3xl font-bold mb-8">{t('project_detail.technologies_title')}</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               {technologies.map((tech, index) => (
                 <motion.div

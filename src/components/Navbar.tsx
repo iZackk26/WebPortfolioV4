@@ -9,6 +9,7 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { t, i18n } = useTranslation();
   const location = useLocation();
@@ -30,21 +31,37 @@ export const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 100);
     };
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const isCompact = scrolled && !isHovered;
+
+  const handleNavClick = () => {
+    if (isMobile && scrolled) {
+      setIsHovered(!isHovered);
+    }
+  };
 
   return (
     <>
       <motion.nav
         initial={false}
         animate={{
-          width: isCompact ? '56px' : 'calc(100% - 48px)',
+          width: isCompact ? '56px' : 'calc(min(100% - 48px, 1400px))',
           height: isCompact ? '56px' : '64px',
           borderRadius: isCompact ? '28px' : '32px',
-          x: isCompact ? '24px' : '24px',
+          x: isCompact ? '0' : '-50%',
           y: isCompact ? '24px' : '16px'
         }}
         transition={{
@@ -53,12 +70,14 @@ export const Navbar = () => {
           damping: 25,
           mass: 0.8
         }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        className="fixed top-0 left-0 z-50 bg-[rgb(var(--color-bg-primary))]/90 backdrop-blur-xl border border-[rgb(var(--color-border))]/50 shadow-lg overflow-hidden"
+        onMouseEnter={() => !isMobile && setIsHovered(true)}
+        onMouseLeave={() => !isMobile && setIsHovered(false)}
+        onClick={handleNavClick}
+        className="fixed top-0 z-50 bg-[rgb(var(--color-bg-primary))]/90 backdrop-blur-xl border border-[rgb(var(--color-border))]/50 shadow-lg overflow-hidden"
         style={{
           willChange: 'transform, width, height, border-radius',
-          contain: 'layout style paint'
+          contain: 'layout style paint',
+          left: isCompact ? '24px' : '50%'
         }}
       >
         <div className="relative w-full h-full flex items-center">
@@ -74,7 +93,7 @@ export const Navbar = () => {
             className="absolute inset-0 flex items-center justify-between px-6 lg:px-8"
             style={{ willChange: 'opacity' }}
           >
-            <div className="max-w-7xl w-full mx-auto flex items-center justify-between">
+            <div className="w-full flex items-center justify-between">
               <Link to="/" className="relative group flex items-center space-x-3">
                 <motion.div
                   whileHover={{ scale: 1.05 }}

@@ -114,5 +114,91 @@
   "footer": {
     "rights": "Todos los derechos reservados",
     "connect": "Conectemos"
+  },
+  "project_detail": {
+    "back": "Volver a Proyectos",
+    "category": "PROYECTO DE VISIÓN POR COMPUTADORA",
+    "title": "Detección Inteligente de Estado de Carritos",
+    "description": "Sistema de análisis de video en tiempo real para detectar y rastrear el estado de carritos de compras utilizando técnicas avanzadas de visión por computadora y estrategias de muestreo optimizadas.",
+    "overview_title": "Descripción del Proyecto",
+    "overview_p1": "Este proyecto demuestra un sistema inteligente de análisis de video para la detección y seguimiento en tiempo real del estado de los carritos de compras en entornos minoristas. El sistema emplea algoritmos avanzados de visión por computadora y técnicas optimizadas de muestreo de frames de video para analizar eficientemente los niveles de ocupación de los carritos.",
+    "overview_p2": "Al aprovechar modelos de detección de objetos de última generación como YOLOv8 y algoritmos robustos de seguimiento, el sistema puede monitorear de manera confiable múltiples carritos simultáneamente, incluso en escenarios del mundo real desafiantes. La función personalizable de región de interés (ROI) permite un análisis enfocado en áreas específicas del frame de video.",
+    "overview_p3": "El sistema proporciona análisis detallados y visualizaciones intuitivas, permitiendo a los gerentes de tienda obtener información valiosa sobre el comportamiento del cliente y optimizar las operaciones de la tienda. Con su compatibilidad multiplataforma y arquitectura escalable, la solución puede integrarse fácilmente en los sistemas minoristas existentes.",
+    "features_title": "Características Clave",
+    "features": [
+      "Detección de estado de carrito en tiempo real",
+      "Muestreo eficiente de frames de video",
+      "Técnicas avanzadas de seguimiento de objetos",
+      "ROI personalizable para análisis enfocado",
+      "Análisis detallado y visualizaciones",
+      "Compatibilidad multiplataforma"
+    ],
+    "challenges_title": "Desafíos Técnicos",
+    "challenges": [
+      {
+        "title": "Optimización de la Tasa de Muestreo",
+        "description": "Ajuste fino de la tasa de muestreo de frames de video para lograr un equilibrio óptimo entre velocidad de procesamiento y precisión de análisis."
+      },
+      {
+        "title": "Seguimiento de Múltiples Carritos",
+        "description": "Implementación de algoritmos robustos de seguimiento de objetos para rastrear de manera confiable múltiples carritos de compras simultáneamente."
+      },
+      {
+        "title": "Rendimiento en Tiempo Real",
+        "description": "Optimización de la arquitectura del sistema y los algoritmos para permitir una detección y análisis fluidos del estado del carrito en tiempo real."
+      }
+    ],
+    "technologies_title": "Tecnologías Utilizadas",
+    "technologies": [
+      { "name": "Visión por Computadora", "category": "IA/ML" },
+      { "name": "Python", "category": "Lenguaje" },
+      { "name": "YOLOv8", "category": "Detección de Objetos" },
+      { "name": "OpenCV", "category": "Procesamiento de Imágenes" },
+      { "name": "FastAPI", "category": "Backend" },
+      { "name": "React", "category": "Frontend" }
+    ]
+  },
+  "crps_detail": {
+    "back": "Volver a Proyectos",
+    "category": "PROYECTO DE IA/ML",
+    "title": "CRPS - Sistema de Reconocimiento Facial en Tiempo Real",
+    "description": "Un sistema integral de reconocimiento facial en tiempo real que combina técnicas avanzadas de visión por computadora y bases de datos vectoriales para identificar y buscar rostros de manera eficiente en vigilancia, control de acceso y autenticación de usuarios.",
+    "overview_title": "Descripción del Proyecto",
+    "overview_p1": "Este proyecto implementa un sistema de reconocimiento facial de vanguardia que aborda los desafíos de identificación rápida y precisa en escenarios del mundo real. El sistema maneja diversos factores como diferentes ángulos faciales, oclusiones, condiciones de iluminación variables y la necesidad de hacer coincidir rostros con un gran conjunto de datos de identidades conocidas.",
+    "overview_p2": "La solución combina técnicas de última generación: YuNet para detección facial precisa incluso en condiciones desafiantes, FaceNet para generar embeddings faciales robustos invariantes a la pose e iluminación, y Weaviate como base de datos vectorial optimizada para búsqueda por similitud. Esta arquitectura garantiza precisión y eficiencia en operaciones en tiempo real.",
+    "overview_p3": "Con una interfaz gráfica intuitiva en PyQt, almacenamiento de datos encriptados para seguridad y procesamiento multi-hilo para rendimiento en tiempo real, el sistema proporciona una solución integral adecuada para sistemas de vigilancia, control de acceso y aplicaciones de autenticación de usuarios.",
+    "features_title": "Características Clave",
+    "features": [
+      "Detección facial en tiempo real con YuNet",
+      "Embeddings faciales robustos usando FaceNet",
+      "Búsqueda por similitud vectorial con Weaviate",
+      "Interfaz gráfica de usuario construida con PyQt",
+      "Almacenamiento encriptado de datos de usuario",
+      "Procesamiento de video multi-hilo"
+    ],
+    "challenges_title": "Desafíos Técnicos",
+    "challenges": [
+      {
+        "title": "Detección Facial Robusta",
+        "description": "Implementación del detector YuNet para localizar con precisión rostros en condiciones desafiantes incluyendo ángulos variables, oclusiones e iluminación."
+      },
+      {
+        "title": "Búsqueda por Similitud Eficiente",
+        "description": "Aprovechamiento de la base de datos vectorial Weaviate para realizar búsquedas rápidas por similitud en grandes conjuntos de datos de embeddings faciales."
+      },
+      {
+        "title": "Rendimiento en Tiempo Real",
+        "description": "Diseño de arquitectura multi-hilo separando la E/S de la cámara del procesamiento para mantener el rendimiento en tiempo real sin bloqueos."
+      }
+    ],
+    "technologies_title": "Tecnologías Utilizadas",
+    "technologies": [
+      { "name": "YuNet", "category": "Detección Facial" },
+      { "name": "FaceNet", "category": "Deep Learning" },
+      { "name": "Weaviate", "category": "Base de Datos Vectorial" },
+      { "name": "PyQt", "category": "Framework GUI" },
+      { "name": "Python", "category": "Lenguaje" },
+      { "name": "Encriptación", "category": "Seguridad" }
+    ]
   }
 }
