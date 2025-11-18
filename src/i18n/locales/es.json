@@ -196,6 +196,7 @@
       "Procesamiento de video multi-hilo"
     ],
     "challenges_title": "Desafíos Técnicos",
+    "video_title": "Demostración en Video",
     "challenges": [
       {
         "title": "Detección Facial Robusta",

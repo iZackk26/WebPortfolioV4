@@ -195,6 +195,7 @@
       "Encrypted user data storage",
       "Multi-threaded video processing"
     ],
+    "video_title": "Video Demonstration",
     "challenges_title": "Technical Challenges",
     "challenges": [
       {

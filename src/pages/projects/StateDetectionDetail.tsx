@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, Video, TrendingUp, Target } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { VideoPlayer } from '../../components/VideoPlayer';
 
 export const StateDetectionDetail = () => {
   const navigate = useNavigate();
@@ -57,11 +58,69 @@ export const StateDetectionDetail = () => {
         </div>
       </section>
 
+      {/* Sección de 3 videos con reproducción automática */}
       <section className="py-16 bg-[rgb(var(--color-bg-secondary))]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="aspect-video bg-[rgb(var(--color-card))] border-2 border-[rgb(var(--color-border))] rounded-2xl flex items-center justify-center">
-            <Video size={120} className="text-[rgb(var(--color-accent))]" />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative flex items-center justify-center gap-4 md:gap-8 h-[300px] md:h-[400px] lg:h-[500px]"
+          >
+            {/* Video izquierda */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative w-[28%] md:w-[30%] h-full rounded-lg overflow-hidden shadow-2xl z-10"
+            >
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover"
+              >
+                <source src="/vids/Detection01.mp4" type="video/mp4" />
+              </video>
+            </motion.div>
+
+            {/* Video medio (sobrepuesto) */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="relative w-[35%] md:w-[38%] h-full rounded-lg overflow-hidden shadow-2xl z-20 -mx-4 md:-mx-8"
+            >
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover"
+              >
+                <source src="/vids/Detection02.mp4" type="video/mp4" />
+              </video>
+            </motion.div>
+
+            {/* Video derecha */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="relative w-[28%] md:w-[30%] h-full rounded-lg overflow-hidden shadow-2xl z-10"
+            >
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover"
+              >
+                <source src="/vids/Detection03.mp4" type="video/mp4" />
+              </video>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

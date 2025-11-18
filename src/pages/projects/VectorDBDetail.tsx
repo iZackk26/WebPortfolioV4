@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, Database, Search, Cpu } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { VideoPlayer } from '../../components/VideoPlayer';
 
 export const VectorDBDetail = () => {
   const navigate = useNavigate();
@@ -202,6 +203,26 @@ export const VectorDBDetail = () => {
                   <div className="font-bold">{tech.name}</div>
                 </motion.div>
               ))}
+            </div>
+          </motion.div>
+
+          {/* VIDEO DEMONSTRATION */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-20"
+          >
+            <h2 className="text-3xl font-bold mb-8">
+              {t('crps_detail.video_title', { defaultValue: 'Video Demonstration' })}
+            </h2>
+
+            <div className="max-w-4xl mx-auto">
+              <VideoPlayer
+                src="/vids/Demostration-CRPS.mp4"
+                poster="/Embedding.png"
+              />
             </div>
           </motion.div>
 
