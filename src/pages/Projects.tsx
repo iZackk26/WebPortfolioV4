@@ -120,26 +120,18 @@ export const Projects = () => {
                 className="bg-[rgb(var(--color-card))] border-2 border-[rgb(var(--color-border))] rounded-2xl overflow-hidden hover:border-[rgb(var(--color-accent))] transition-colors duration-300"
               >
                 <div className="grid lg:grid-cols-2 gap-0">
-                  <div className="bg-[rgb(var(--color-bg-secondary))] p-12 flex items-center justify-center border-b-2 lg:border-b-0 lg:border-r-2 border-[rgb(var(--color-border))]">
-                    <motion.div
-                      initial={{ scale: 0.8, opacity: 0 }}
+                  <div className="bg-[rgb(var(--color-bg-secondary))] border-b-2 lg:border-b-0 lg:border-r-2 border-[rgb(var(--color-border))] overflow-hidden">
+                    <motion.img
+                      src="/app-design.png"
+                      alt="Appraisal App"
+                      className="w-full h-full object-cover"
+                      initial={{ scale: 1.1, opacity: 0 }}
                       whileInView={{ scale: 1, opacity: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                      className="text-center"
-                    >
-                      <motion.div
-                        whileHover={{ rotate: 360, scale: 1.1 }}
-                        transition={{ duration: 0.6 }}
-                      >
-                        <Smartphone size={80} className="text-[rgb(var(--color-accent))] mx-auto mb-4" />
-                      </motion.div>
-                      <p className="text-[rgb(var(--color-text-secondary))] text-sm">
-                        Project Screenshot
-                      </p>
-                    </motion.div>
+                      transition={{ duration: 0.6, delay: 0.3 }}
+                      whileHover={{ scale: 1.05 }}
+                    />
                   </div>
-
                   <div className="p-12 space-y-6">
                     <motion.div
                       initial={{ opacity: 0, x: 20 }}
