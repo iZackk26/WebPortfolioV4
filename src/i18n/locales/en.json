@@ -72,7 +72,8 @@
       "appraisal": {
         "title": "Mobile Appraisal Application",
         "description": "Hybrid mobile solution enabling offline completion of dynamic forms using Formly. Designed for field appraisers to work seamlessly without internet connectivity.",
-        "highlights": "Offline-first architecture, Dynamic form generation, Data synchronization"
+        "highlights": "Offline-first architecture, Dynamic form generation, Data synchronization",
+        "privacyNote": "Note: Images shown are illustrative only, as this is a private project and confidential information cannot be disclosed."
       },
       "faceAntiSpoofing": {
         "title": "Face Anti-Spoofing System",
@@ -234,6 +235,250 @@
       {
         "name": "Encryption",
         "category": "Security"
+      }
+    ]
+  },
+  "appraisal_detail": {
+    "back": "Back to Projects",
+    "category": "PROFESSIONAL PROJECT",
+    "title": "Mobile Appraisal Application",
+    "description": "A hybrid mobile solution enabling field appraisers to complete dynamic forms offline and synchronize data seamlessly when connectivity is restored.",
+    "overview_title": "Project Overview",
+    "overview_p1": "This mobile application was developed for a professional appraisal company to streamline their field operations. The app enables appraisers to work in remote locations without internet connectivity while maintaining full functionality.",
+    "overview_p2": "The solution leverages Angular with Capacitor to deliver a cross-platform mobile experience, implementing a robust offline-first architecture that guarantees data integrity and seamless synchronization.",
+    "overview_p3": "Dynamic forms are generated using Formly, allowing the system to adapt to different types of appraisals without requiring app updates.",
+    "features_title": "Key Features",
+    "features": [
+      "Offline-first architecture for seamless field work",
+      "Dynamic form generation using Formly",
+      "Automatic data synchronization when online",
+      "Photo capture and attachment management",
+      "GPS location tracking",
+      "Multi-language support"
+    ],
+    "challenges_title": "Technical Challenges",
+    "challenges": [
+      {
+        "title": "Offline Data Management",
+        "description": "Implemented robust local storage with SQLite to handle complex form data structures while maintaining data integrity."
+      },
+      {
+        "title": "Dynamic Form Rendering",
+        "description": "Created a flexible form system using Formly that adapts to different appraisal types and requirements."
+      },
+      {
+        "title": "Cross-Platform Consistency",
+        "description": "Ensured identical user experience across iOS and Android devices with platform-specific optimizations."
+      }
+    ],
+    "technologies_title": "Technologies Used",
+    "technologies": [
+      {
+        "name": "React Native",
+        "category": "Frontend"
+      },
+      {
+        "name": "Formly",
+        "category": "Forms"
+      },
+      {
+        "name": "TypeScript",
+        "category": "Language"
+      },
+      {
+        "name": "SQLite",
+        "category": "Database"
+      },
+      {
+        "name": "Redux",
+        "category": "State Management"
+      },
+      {
+        "name": "React Navigation",
+        "category": "Navigation"
+      }
+    ]
+  },
+  "face_antispoofing_detail": {
+    "back": "Back to Projects",
+    "category": "AI/ML PROJECT",
+    "title": "Face Anti-Spoofing System",
+    "description": "An AI-powered solution to prevent identity falsification by detecting presentation attacks in facial recognition systems with high accuracy and real-time performance.",
+    "overview_title": "Project Overview",
+    "overview_p1": "This project addresses the critical security challenge of presentation attacks in facial recognition systems. Using deep learning techniques, the system can distinguish between genuine faces and various types of spoofing attempts.",
+    "overview_p2": "The solution implements a lightweight convolutional neural network architecture optimized for real-time detection while maintaining high accuracy across diverse scenarios.",
+    "overview_p3": "Extensive testing with various attack types ensures robust protection against evolving spoofing techniques.",
+    "features_title": "Key Features",
+    "features": [
+      "Real-time presentation attack detection",
+      "High accuracy with low false positive rate",
+      "Lightweight model for edge deployment",
+      "Multi-modal spoof detection",
+      "Integration with existing authentication systems",
+      "Continuous model improvement pipeline"
+    ],
+    "challenges_title": "Technical Challenges",
+    "challenges": [
+      {
+        "title": "Attack Variety Detection",
+        "description": "Developed robust detection mechanisms for various presentation attacks including print, replay, and mask attacks."
+      },
+      {
+        "title": "Real-time Performance",
+        "description": "Optimized model architecture to achieve real-time processing speeds without sacrificing accuracy."
+      },
+      {
+        "title": "Generalization",
+        "description": "Ensured model performs well across different lighting conditions, camera qualities, and demographic groups."
+      }
+    ],
+    "technologies_title": "Technologies Used",
+    "technologies": [
+      {
+        "name": "Python",
+        "category": "Language"
+      },
+      {
+        "name": "TensorFlow",
+        "category": "Framework"
+      },
+      {
+        "name": "OpenCV",
+        "category": "Computer Vision"
+      },
+      {
+        "name": "Deep Learning",
+        "category": "AI/ML"
+      },
+      {
+        "name": "CNN Architecture",
+        "category": "Model"
+      },
+      {
+        "name": "Data Augmentation",
+        "category": "Training"
+      }
+    ]
+  },
+  "ifixit_detail": {
+    "back": "Back to Projects",
+    "category": "UNIVERSITY PROJECT",
+    "title": "iFixIt - Workshop Management Platform",
+    "description": "A comprehensive web and mobile platform for automotive workshop management, featuring real-time location tracking, appointment scheduling, and complete service lifecycle management.",
+    "overview_title": "Project Overview",
+    "overview_p1": "iFixIt is a full-stack solution designed to modernize automotive workshop operations. The platform connects customers, technicians, and workshop managers through intuitive web and mobile interfaces.",
+    "overview_p2": "The system includes real-time location tracking for mobile technicians, intelligent appointment scheduling, comprehensive service management, and automated customer communications.",
+    "overview_p3": "Built with modern technologies and best practices, the platform demonstrates proficiency in full-stack development and system architecture.",
+    "features_title": "Key Features",
+    "features": [
+      "Real-time location tracking for mobile technicians",
+      "Appointment scheduling and management",
+      "Service history and tracking",
+      "Customer portal for service requests",
+      "Mobile and web interfaces",
+      "Automated notifications and reminders"
+    ],
+    "challenges_title": "Technical Challenges",
+    "challenges": [
+      {
+        "title": "Real-time Tracking",
+        "description": "Implemented efficient real-time location tracking for field technicians with minimal battery impact and accurate positioning."
+      },
+      {
+        "title": "Smart Scheduling",
+        "description": "Developed an intelligent scheduling system that optimizes routes and minimizes travel time between appointments."
+      },
+      {
+        "title": "Service Management",
+        "description": "Created a comprehensive service management system handling the complete lifecycle from request to completion."
+      }
+    ],
+    "technologies_title": "Technologies Used",
+    "technologies": [
+      {
+        "name": "PostgreSQL",
+        "category": "Database"
+      },
+      {
+        "name": "Node.js",
+        "category": "Backend"
+      },
+      {
+        "name": "React",
+        "category": "Frontend"
+      },
+      {
+        "name": "Tailwind CSS",
+        "category": "Styling"
+      },
+      {
+        "name": "Google Maps API",
+        "category": "Integration"
+      },
+      {
+        "name": "WebSockets",
+        "category": "Real-time"
+      }
+    ]
+  },
+  "pura_compra_detail": {
+    "back": "Back to Projects",
+    "category": "UNIVERSITY PROJECT",
+    "title": "Pura Compra - E-commerce Intermediary",
+    "description": "A platform connecting users with multiple online stores, providing a unified shopping experience with intelligent price comparisons and streamlined checkout process.",
+    "overview_title": "Project Overview",
+    "overview_p1": "Pura Compra is an e-commerce intermediary platform that simplifies online shopping by aggregating products from multiple stores into a single, unified interface. Users can compare prices, read reviews, and complete purchases without navigating between different websites.",
+    "overview_p2": "The platform integrates with various online retailers, normalizes product data, and provides intelligent recommendations based on price, availability, and shipping options.",
+    "overview_p3": "Built as a university project, it demonstrates proficiency in full-stack development, API integration, and creating user-centric e-commerce solutions.",
+    "features_title": "Key Features",
+    "features": [
+      "Multi-store integration",
+      "Real-time price comparison",
+      "Unified checkout process",
+      "Product catalog aggregation",
+      "Shopping cart synchronization",
+      "Order tracking across stores"
+    ],
+    "challenges_title": "Technical Challenges",
+    "challenges": [
+      {
+        "title": "Store Integration",
+        "description": "Developed a flexible integration layer that connects with multiple online stores while handling different data formats and APIs."
+      },
+      {
+        "title": "Price Comparison",
+        "description": "Implemented real-time price comparison algorithms that account for shipping, taxes, and promotional offers."
+      },
+      {
+        "title": "Unified Experience",
+        "description": "Created a seamless shopping experience that abstracts away the complexity of purchasing from multiple stores."
+      }
+    ],
+    "technologies_title": "Technologies Used",
+    "technologies": [
+      {
+        "name": "SQL",
+        "category": "Database"
+      },
+      {
+        "name": "Node.js",
+        "category": "Backend"
+      },
+      {
+        "name": "Sequelize",
+        "category": "ORM"
+      },
+      {
+        "name": "React",
+        "category": "Frontend"
+      },
+      {
+        "name": "Tailwind CSS",
+        "category": "Styling"
+      },
+      {
+        "name": "REST API",
+        "category": "Integration"
       }
     ]
   }

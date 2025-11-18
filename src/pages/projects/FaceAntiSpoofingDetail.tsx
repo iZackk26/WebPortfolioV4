@@ -1,45 +1,27 @@
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, Brain, Shield, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 export const FaceAntiSpoofingDetail = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
-  const features = [
-    'Real-time presentation attack detection',
-    'High accuracy with low false positive rate',
-    'Lightweight model for edge deployment',
-    'Multi-modal spoof detection',
-    'Integration with existing authentication systems',
-    'Continuous model improvement pipeline'
-  ];
+  // Get features from i18n
+  const features: string[] = t('face_antispoofing_detail.features', { returnObjects: true }) as string[];
 
-  const technologies = [
-    { name: 'Python', category: 'Language' },
-    { name: 'TensorFlow', category: 'Framework' },
-    { name: 'OpenCV', category: 'Computer Vision' },
-    { name: 'Deep Learning', category: 'AI/ML' },
-    { name: 'CNN Architecture', category: 'Model' },
-    { name: 'Data Augmentation', category: 'Training' }
-  ];
+  // Get technologies from i18n
+  const technologies: Array<{ name: string; category: string }> = t('face_antispoofing_detail.technologies', { returnObjects: true }) as Array<{ name: string; category: string }>;
 
-  const challenges = [
-    {
-      icon: Shield,
-      title: 'Attack Variety Detection',
-      description: 'Developed robust detection mechanisms for various presentation attacks including print, replay, and mask attacks.'
-    },
-    {
-      icon: Zap,
-      title: 'Real-time Performance',
-      description: 'Optimized model architecture to achieve real-time processing speeds without sacrificing accuracy.'
-    },
-    {
-      icon: Brain,
-      title: 'Generalization',
-      description: 'Ensured model performs well across different lighting conditions, camera qualities, and demographic groups.'
-    }
-  ];
+  // Get challenges from i18n
+  const challengesData: Array<{ title: string; description: string }> = t('face_antispoofing_detail.challenges', { returnObjects: true }) as Array<{ title: string; description: string }>;
+
+  // Map icons to challenges
+  const challengeIcons = [Shield, Zap, Brain];
+  const challenges = challengesData.map((challenge, index) => ({
+    ...challenge,
+    icon: challengeIcons[index]
+  }));
 
   return (
     <div className="min-h-screen pt-16">
@@ -53,7 +35,7 @@ export const FaceAntiSpoofingDetail = () => {
             className="inline-flex items-center space-x-2 text-[rgb(var(--color-text-secondary))] hover:text-[rgb(var(--color-accent))] transition-colors duration-200 mb-8"
           >
             <ArrowLeft size={20} />
-            <span>Back to Projects</span>
+            <span>{t('face_antispoofing_detail.back')}</span>
           </motion.button>
 
           <motion.div
@@ -63,13 +45,13 @@ export const FaceAntiSpoofingDetail = () => {
             className="mb-12"
           >
             <div className="inline-block px-3 py-1 bg-[rgb(var(--color-accent))] text-white text-sm font-semibold rounded-full mb-4">
-              AI/ML PROJECT
+              {t('face_antispoofing_detail.category')}
             </div>
             <h1 className="text-5xl sm:text-6xl font-bold mb-6">
-              Face Anti-Spoofing System
+              {t('face_antispoofing_detail.title')}
             </h1>
             <p className="text-xl text-[rgb(var(--color-text-secondary))] leading-relaxed max-w-4xl">
-              An AI-powered solution to prevent identity falsification by detecting presentation attacks in facial recognition systems with high accuracy and real-time performance.
+              {t('face_antispoofing_detail.description')}
             </p>
           </motion.div>
         </div>
@@ -92,17 +74,11 @@ export const FaceAntiSpoofingDetail = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
+              <h2 className="text-3xl font-bold mb-6">{t('face_antispoofing_detail.overview_title')}</h2>
               <div className="space-y-4 text-[rgb(var(--color-text-secondary))] leading-relaxed">
-                <p>
-                  This project addresses the critical security challenge of presentation attacks in facial recognition systems. Using deep learning techniques, the system can distinguish between genuine faces and various types of spoofing attempts.
-                </p>
-                <p>
-                  The solution implements a lightweight convolutional neural network architecture optimized for real-time detection while maintaining high accuracy across diverse scenarios.
-                </p>
-                <p>
-                  Extensive testing with various attack types ensures robust protection against evolving spoofing techniques.
-                </p>
+                <p>{t('face_antispoofing_detail.overview_p1')}</p>
+                <p>{t('face_antispoofing_detail.overview_p2')}</p>
+                <p>{t('face_antispoofing_detail.overview_p3')}</p>
               </div>
             </motion.div>
 
@@ -112,7 +88,7 @@ export const FaceAntiSpoofingDetail = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-6">Key Features</h2>
+              <h2 className="text-3xl font-bold mb-6">{t('face_antispoofing_detail.features_title')}</h2>
               <div className="space-y-3">
                 {features.map((feature, index) => (
                   <motion.div
@@ -138,7 +114,7 @@ export const FaceAntiSpoofingDetail = () => {
             transition={{ duration: 0.6 }}
             className="mb-20"
           >
-            <h2 className="text-3xl font-bold mb-8">Technical Challenges</h2>
+            <h2 className="text-3xl font-bold mb-8">{t('face_antispoofing_detail.challenges_title')}</h2>
             <div className="grid md:grid-cols-3 gap-8">
               {challenges.map((challenge, index) => (
                 <motion.div
@@ -166,7 +142,7 @@ export const FaceAntiSpoofingDetail = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold mb-8">Technologies Used</h2>
+            <h2 className="text-3xl font-bold mb-8">{t('face_antispoofing_detail.technologies_title')}</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               {technologies.map((tech, index) => (
                 <motion.div

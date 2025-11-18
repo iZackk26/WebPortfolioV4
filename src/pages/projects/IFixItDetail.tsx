@@ -1,45 +1,27 @@
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, Wrench, MapPin, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 export const IFixItDetail = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
-  const features = [
-    'Real-time location tracking for mobile technicians',
-    'Appointment scheduling and management',
-    'Service history and tracking',
-    'Customer portal for service requests',
-    'Mobile and web interfaces',
-    'Automated notifications and reminders'
-  ];
+  // Get features from i18n
+  const features: string[] = t('ifixit_detail.features', { returnObjects: true }) as string[];
 
-  const technologies = [
-    { name: 'PostgreSQL', category: 'Database' },
-    { name: 'Node.js', category: 'Backend' },
-    { name: 'React', category: 'Frontend' },
-    { name: 'Tailwind CSS', category: 'Styling' },
-    { name: 'Google Maps API', category: 'Integration' },
-    { name: 'WebSockets', category: 'Real-time' }
-  ];
+  // Get technologies from i18n
+  const technologies: Array<{ name: string; category: string }> = t('ifixit_detail.technologies', { returnObjects: true }) as Array<{ name: string; category: string }>;
 
-  const challenges = [
-    {
-      icon: MapPin,
-      title: 'Real-time Tracking',
-      description: 'Implemented efficient real-time location tracking for field technicians with minimal battery impact and accurate positioning.'
-    },
-    {
-      icon: Calendar,
-      title: 'Smart Scheduling',
-      description: 'Developed an intelligent scheduling system that optimizes routes and minimizes travel time between appointments.'
-    },
-    {
-      icon: Wrench,
-      title: 'Service Management',
-      description: 'Created a comprehensive service management system handling the complete lifecycle from request to completion.'
-    }
-  ];
+  // Get challenges from i18n
+  const challengesData: Array<{ title: string; description: string }> = t('ifixit_detail.challenges', { returnObjects: true }) as Array<{ title: string; description: string }>;
+
+  // Map icons to challenges
+  const challengeIcons = [MapPin, Calendar, Wrench];
+  const challenges = challengesData.map((challenge, index) => ({
+    ...challenge,
+    icon: challengeIcons[index]
+  }));
 
   return (
     <div className="min-h-screen pt-16">
@@ -53,7 +35,7 @@ export const IFixItDetail = () => {
             className="inline-flex items-center space-x-2 text-[rgb(var(--color-text-secondary))] hover:text-[rgb(var(--color-accent))] transition-colors duration-200 mb-8"
           >
             <ArrowLeft size={20} />
-            <span>Back to Projects</span>
+            <span>{t('ifixit_detail.back')}</span>
           </motion.button>
 
           <motion.div
@@ -63,13 +45,13 @@ export const IFixItDetail = () => {
             className="mb-12"
           >
             <div className="inline-block px-3 py-1 bg-[rgb(var(--color-accent))] text-white text-sm font-semibold rounded-full mb-4">
-              UNIVERSITY PROJECT
+              {t('ifixit_detail.category')}
             </div>
             <h1 className="text-5xl sm:text-6xl font-bold mb-6">
-              iFixIt - Workshop Management Platform
+              {t('ifixit_detail.title')}
             </h1>
             <p className="text-xl text-[rgb(var(--color-text-secondary))] leading-relaxed max-w-4xl">
-              A comprehensive web and mobile platform for automotive workshop management, featuring real-time location tracking, appointment scheduling, and complete service lifecycle management.
+              {t('ifixit_detail.description')}
             </p>
           </motion.div>
         </div>
@@ -92,17 +74,11 @@ export const IFixItDetail = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
+              <h2 className="text-3xl font-bold mb-6">{t('ifixit_detail.overview_title')}</h2>
               <div className="space-y-4 text-[rgb(var(--color-text-secondary))] leading-relaxed">
-                <p>
-                  iFixIt is a full-stack solution designed to modernize automotive workshop operations. The platform connects customers, technicians, and workshop managers through intuitive web and mobile interfaces.
-                </p>
-                <p>
-                  The system includes real-time location tracking for mobile technicians, intelligent appointment scheduling, comprehensive service management, and automated customer communications.
-                </p>
-                <p>
-                  Built with modern technologies and best practices, the platform demonstrates proficiency in full-stack development and system architecture.
-                </p>
+                <p>{t('ifixit_detail.overview_p1')}</p>
+                <p>{t('ifixit_detail.overview_p2')}</p>
+                <p>{t('ifixit_detail.overview_p3')}</p>
               </div>
             </motion.div>
 
@@ -112,7 +88,7 @@ export const IFixItDetail = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-6">Key Features</h2>
+              <h2 className="text-3xl font-bold mb-6">{t('ifixit_detail.features_title')}</h2>
               <div className="space-y-3">
                 {features.map((feature, index) => (
                   <motion.div
@@ -138,7 +114,7 @@ export const IFixItDetail = () => {
             transition={{ duration: 0.6 }}
             className="mb-20"
           >
-            <h2 className="text-3xl font-bold mb-8">Technical Challenges</h2>
+            <h2 className="text-3xl font-bold mb-8">{t('ifixit_detail.challenges_title')}</h2>
             <div className="grid md:grid-cols-3 gap-8">
               {challenges.map((challenge, index) => (
                 <motion.div
@@ -166,7 +142,7 @@ export const IFixItDetail = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold mb-8">Technologies Used</h2>
+            <h2 className="text-3xl font-bold mb-8">{t('ifixit_detail.technologies_title')}</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               {technologies.map((tech, index) => (
                 <motion.div

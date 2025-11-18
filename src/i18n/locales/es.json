@@ -72,7 +72,8 @@
       "appraisal": {
         "title": "Aplicación Móvil de Avalúos",
         "description": "Solución móvil híbrida que permite completar formularios dinámicos sin conexión usando Formly. Diseñada para tasadores de campo que trabajan sin conectividad a internet.",
-        "highlights": "Arquitectura offline-first, Generación de formularios dinámicos, Sincronización de datos"
+        "highlights": "Arquitectura offline-first, Generación de formularios dinámicos, Sincronización de datos",
+        "privacyNote": "Nota: Las imágenes mostradas son ilustrativas, ya que este es un proyecto privado y no se puede divulgar información confidencial."
       },
       "faceAntiSpoofing": {
         "title": "Sistema Anti-Spoofing Facial",
@@ -122,7 +123,7 @@
     "description": "Sistema de análisis de video en tiempo real para detectar y rastrear el estado de carritos de compras utilizando técnicas avanzadas de visión por computadora y estrategias de muestreo optimizadas.",
     "overview_title": "Descripción del Proyecto",
     "overview_p1": "Este proyecto demuestra un sistema inteligente de análisis de video para la detección y seguimiento en tiempo real del estado de los carritos de compras en entornos minoristas. El sistema emplea algoritmos avanzados de visión por computadora y técnicas optimizadas de muestreo de frames de video para analizar eficientemente los niveles de ocupación de los carritos.",
-    "overview_p2": "Al aprovechar modelos de detección de objetos de última generación como YOLOv8 y algoritmos robustos de seguimiento, el sistema puede monitorear de manera confiable múltiples carritos simultáneamente, incluso en escenarios del mundo real desafiantes. La función personalizable de región de interés (ROI) permite un análisis enfocado en áreas específicas del frame de video.",
+    "overview_p2": "La solución utiliza Angular junto con Capacitor para ofrecer una experiencia móvil multiplataforma, implementando una arquitectura offline-first robusta que garantiza la integridad de los datos y una sincronización fluida.",
     "overview_p3": "El sistema proporciona análisis detallados y visualizaciones intuitivas, permitiendo a los gerentes de tienda obtener información valiosa sobre el comportamiento del cliente y optimizar las operaciones de la tienda. Con su compatibilidad multiplataforma y arquitectura escalable, la solución puede integrarse fácilmente en los sistemas minoristas existentes.",
     "features_title": "Características Clave",
     "features": [
@@ -150,12 +151,30 @@
     ],
     "technologies_title": "Tecnologías Utilizadas",
     "technologies": [
-      { "name": "Visión por Computadora", "category": "IA/ML" },
-      { "name": "Python", "category": "Lenguaje" },
-      { "name": "YOLOv8", "category": "Detección de Objetos" },
-      { "name": "OpenCV", "category": "Procesamiento de Imágenes" },
-      { "name": "FastAPI", "category": "Backend" },
-      { "name": "React", "category": "Frontend" }
+      {
+        "name": "Visión por Computadora",
+        "category": "IA/ML"
+      },
+      {
+        "name": "Python",
+        "category": "Lenguaje"
+      },
+      {
+        "name": "YOLOv8",
+        "category": "Detección de Objetos"
+      },
+      {
+        "name": "OpenCV",
+        "category": "Procesamiento de Imágenes"
+      },
+      {
+        "name": "FastAPI",
+        "category": "Backend"
+      },
+      {
+        "name": "React",
+        "category": "Frontend"
+      }
     ]
   },
   "crps_detail": {
@@ -193,12 +212,274 @@
     ],
     "technologies_title": "Tecnologías Utilizadas",
     "technologies": [
-      { "name": "YuNet", "category": "Detección Facial" },
-      { "name": "FaceNet", "category": "Deep Learning" },
-      { "name": "Weaviate", "category": "Base de Datos Vectorial" },
-      { "name": "PyQt", "category": "Framework GUI" },
-      { "name": "Python", "category": "Lenguaje" },
-      { "name": "Encriptación", "category": "Seguridad" }
+      {
+        "name": "YuNet",
+        "category": "Detección Facial"
+      },
+      {
+        "name": "FaceNet",
+        "category": "Deep Learning"
+      },
+      {
+        "name": "Weaviate",
+        "category": "Base de Datos Vectorial"
+      },
+      {
+        "name": "PyQt",
+        "category": "Framework GUI"
+      },
+      {
+        "name": "Python",
+        "category": "Lenguaje"
+      },
+      {
+        "name": "Encriptación",
+        "category": "Seguridad"
+      }
+    ]
+  },
+  "appraisal_detail": {
+    "back": "Volver a Proyectos",
+    "category": "PROYECTO PROFESIONAL",
+    "title": "Aplicación Móvil de Avalúos",
+    "description": "Solución móvil híbrida que permite a los tasadores de campo completar formularios dinámicos sin conexión y sincronizar datos sin problemas cuando se restaura la conectividad.",
+    "overview_title": "Descripción del Proyecto",
+    "overview_p1": "Esta aplicación móvil fue desarrollada para una empresa de avalúos profesional para optimizar sus operaciones de campo. La aplicación permite a los tasadores trabajar en ubicaciones remotas sin conectividad a internet mientras mantienen la funcionalidad completa.",
+    "overview_p2": "La solución aprovecha React Native para compatibilidad multiplataforma e implementa una arquitectura sofisticada offline-first que garantiza la integridad de los datos y la sincronización sin problemas.",
+    "overview_p3": "Los formularios dinámicos se generan usando Formly, permitiendo que el sistema se adapte a diferentes tipos de avalúos sin requerir actualizaciones de la aplicación.",
+    "features_title": "Características Clave",
+    "features": [
+      "Arquitectura offline-first para trabajo de campo sin interrupciones",
+      "Generación de formularios dinámicos usando Formly",
+      "Sincronización automática de datos cuando está en línea",
+      "Captura de fotos y gestión de archivos adjuntos",
+      "Seguimiento de ubicación GPS",
+      "Soporte multiidioma"
+    ],
+    "challenges_title": "Desafíos Técnicos",
+    "challenges": [
+      {
+        "title": "Gestión de Datos Offline",
+        "description": "Implementación de almacenamiento local robusto con SQLite para manejar estructuras de datos de formularios complejos mientras se mantiene la integridad de los datos."
+      },
+      {
+        "title": "Renderizado de Formularios Dinámicos",
+        "description": "Creación de un sistema de formularios flexible usando Formly que se adapta a diferentes tipos de avalúos y requisitos."
+      },
+      {
+        "title": "Consistencia Multiplataforma",
+        "description": "Garantizar una experiencia de usuario idéntica en dispositivos iOS y Android con optimizaciones específicas de la plataforma."
+      }
+    ],
+    "technologies_title": "Tecnologías Utilizadas",
+    "technologies": [
+      {
+        "name": "React Native",
+        "category": "Frontend"
+      },
+      {
+        "name": "Formly",
+        "category": "Formularios"
+      },
+      {
+        "name": "TypeScript",
+        "category": "Lenguaje"
+      },
+      {
+        "name": "SQLite",
+        "category": "Base de Datos"
+      },
+      {
+        "name": "Redux",
+        "category": "Gestión de Estado"
+      },
+      {
+        "name": "React Navigation",
+        "category": "Navegación"
+      }
+    ]
+  },
+  "face_antispoofing_detail": {
+    "back": "Volver a Proyectos",
+    "category": "PROYECTO DE IA/ML",
+    "title": "Sistema Anti-Spoofing Facial",
+    "description": "Solución impulsada por IA para prevenir la falsificación de identidad mediante la detección de ataques de presentación en sistemas de reconocimiento facial con alta precisión y rendimiento en tiempo real.",
+    "overview_title": "Descripción del Proyecto",
+    "overview_p1": "Este proyecto aborda el desafío crítico de seguridad de los ataques de presentación en sistemas de reconocimiento facial. Usando técnicas de deep learning, el sistema puede distinguir entre rostros genuinos y varios tipos de intentos de suplantación.",
+    "overview_p2": "La solución implementa una arquitectura de red neuronal convolucional ligera optimizada para detección en tiempo real mientras mantiene alta precisión en diversos escenarios.",
+    "overview_p3": "Pruebas extensivas con varios tipos de ataques garantizan protección robusta contra técnicas de suplantación en evolución.",
+    "features_title": "Características Clave",
+    "features": [
+      "Detección de ataques de presentación en tiempo real",
+      "Alta precisión con baja tasa de falsos positivos",
+      "Modelo ligero para despliegue en edge",
+      "Detección de suplantación multimodal",
+      "Integración con sistemas de autenticación existentes",
+      "Pipeline de mejora continua del modelo"
+    ],
+    "challenges_title": "Desafíos Técnicos",
+    "challenges": [
+      {
+        "title": "Detección de Variedad de Ataques",
+        "description": "Desarrollo de mecanismos de detección robustos para varios ataques de presentación incluyendo impresiones, repeticiones y ataques con máscaras."
+      },
+      {
+        "title": "Rendimiento en Tiempo Real",
+        "description": "Optimización de la arquitectura del modelo para lograr velocidades de procesamiento en tiempo real sin sacrificar la precisión."
+      },
+      {
+        "title": "Generalización",
+        "description": "Asegurar que el modelo funcione bien en diferentes condiciones de iluminación, calidades de cámara y grupos demográficos."
+      }
+    ],
+    "technologies_title": "Tecnologías Utilizadas",
+    "technologies": [
+      {
+        "name": "Python",
+        "category": "Lenguaje"
+      },
+      {
+        "name": "TensorFlow",
+        "category": "Framework"
+      },
+      {
+        "name": "OpenCV",
+        "category": "Visión por Computadora"
+      },
+      {
+        "name": "Deep Learning",
+        "category": "IA/ML"
+      },
+      {
+        "name": "Arquitectura CNN",
+        "category": "Modelo"
+      },
+      {
+        "name": "Aumentación de Datos",
+        "category": "Entrenamiento"
+      }
+    ]
+  },
+  "ifixit_detail": {
+    "back": "Volver a Proyectos",
+    "category": "PROYECTO UNIVERSITARIO",
+    "title": "iFixIt - Plataforma de Gestión de Talleres",
+    "description": "Plataforma integral web y móvil para la gestión de talleres automotrices, con seguimiento de ubicación en tiempo real, programación de citas y gestión completa del ciclo de vida del servicio.",
+    "overview_title": "Descripción del Proyecto",
+    "overview_p1": "iFixIt es una solución full-stack diseñada para modernizar las operaciones de talleres automotrices. La plataforma conecta clientes, técnicos y gerentes de talleres a través de interfaces web y móviles intuitivas.",
+    "overview_p2": "El sistema incluye seguimiento de ubicación en tiempo real para técnicos móviles, programación inteligente de citas, gestión integral de servicios y comunicaciones automatizadas con clientes.",
+    "overview_p3": "Construida con tecnologías modernas y mejores prácticas, la plataforma demuestra competencia en desarrollo full-stack y arquitectura de sistemas.",
+    "features_title": "Características Clave",
+    "features": [
+      "Seguimiento de ubicación en tiempo real para técnicos móviles",
+      "Programación y gestión de citas",
+      "Historial y seguimiento de servicios",
+      "Portal de cliente para solicitudes de servicio",
+      "Interfaces móvil y web",
+      "Notificaciones y recordatorios automatizados"
+    ],
+    "challenges_title": "Desafíos Técnicos",
+    "challenges": [
+      {
+        "title": "Seguimiento en Tiempo Real",
+        "description": "Implementación de seguimiento de ubicación en tiempo real eficiente para técnicos de campo con impacto mínimo en la batería y posicionamiento preciso."
+      },
+      {
+        "title": "Programación Inteligente",
+        "description": "Desarrollo de un sistema de programación inteligente que optimiza rutas y minimiza el tiempo de viaje entre citas."
+      },
+      {
+        "title": "Gestión de Servicios",
+        "description": "Creación de un sistema integral de gestión de servicios que maneja el ciclo de vida completo desde la solicitud hasta la finalización."
+      }
+    ],
+    "technologies_title": "Tecnologías Utilizadas",
+    "technologies": [
+      {
+        "name": "PostgreSQL",
+        "category": "Base de Datos"
+      },
+      {
+        "name": "Node.js",
+        "category": "Backend"
+      },
+      {
+        "name": "React",
+        "category": "Frontend"
+      },
+      {
+        "name": "Tailwind CSS",
+        "category": "Estilos"
+      },
+      {
+        "name": "Google Maps API",
+        "category": "Integración"
+      },
+      {
+        "name": "WebSockets",
+        "category": "Tiempo Real"
+      }
+    ]
+  },
+  "pura_compra_detail": {
+    "back": "Volver a Proyectos",
+    "category": "PROYECTO UNIVERSITARIO",
+    "title": "Pura Compra - Intermediario de E-commerce",
+    "description": "Plataforma que conecta usuarios con múltiples tiendas en línea, proporcionando una experiencia de compra unificada con comparaciones inteligentes de precios y proceso de checkout optimizado.",
+    "overview_title": "Descripción del Proyecto",
+    "overview_p1": "Pura Compra es una plataforma intermediaria de e-commerce que simplifica las compras en línea al agregar productos de múltiples tiendas en una única interfaz unificada. Los usuarios pueden comparar precios, leer reseñas y completar compras sin navegar entre diferentes sitios web.",
+    "overview_p2": "La plataforma se integra con varios minoristas en línea, normaliza los datos de productos y proporciona recomendaciones inteligentes basadas en precio, disponibilidad y opciones de envío.",
+    "overview_p3": "Construida como proyecto universitario, demuestra competencia en desarrollo full-stack, integración de APIs y creación de soluciones de e-commerce centradas en el usuario.",
+    "features_title": "Características Clave",
+    "features": [
+      "Integración multi-tienda",
+      "Comparación de precios en tiempo real",
+      "Proceso de checkout unificado",
+      "Agregación de catálogo de productos",
+      "Sincronización de carrito de compras",
+      "Seguimiento de pedidos entre tiendas"
+    ],
+    "challenges_title": "Desafíos Técnicos",
+    "challenges": [
+      {
+        "title": "Integración de Tiendas",
+        "description": "Desarrollo de una capa de integración flexible que se conecta con múltiples tiendas en línea mientras maneja diferentes formatos de datos y APIs."
+      },
+      {
+        "title": "Comparación de Precios",
+        "description": "Implementación de algoritmos de comparación de precios en tiempo real que tienen en cuenta envío, impuestos y ofertas promocionales."
+      },
+      {
+        "title": "Experiencia Unificada",
+        "description": "Creación de una experiencia de compra fluida que abstrae la complejidad de comprar en múltiples tiendas."
+      }
+    ],
+    "technologies_title": "Tecnologías Utilizadas",
+    "technologies": [
+      {
+        "name": "SQL",
+        "category": "Base de Datos"
+      },
+      {
+        "name": "Node.js",
+        "category": "Backend"
+      },
+      {
+        "name": "Sequelize",
+        "category": "ORM"
+      },
+      {
+        "name": "React",
+        "category": "Frontend"
+      },
+      {
+        "name": "Tailwind CSS",
+        "category": "Estilos"
+      },
+      {
+        "name": "REST API",
+        "category": "Integración"
+      }
     ]
   }
 }

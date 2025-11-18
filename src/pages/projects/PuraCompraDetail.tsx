@@ -1,45 +1,27 @@
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, ShoppingCart, TrendingDown, Link2 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 export const PuraCompraDetail = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
-  const features = [
-    'Multi-store integration',
-    'Real-time price comparison',
-    'Unified checkout process',
-    'Product catalog aggregation',
-    'Shopping cart synchronization',
-    'Order tracking across stores'
-  ];
+  // Get features from i18n
+  const features: string[] = t('pura_compra_detail.features', { returnObjects: true }) as string[];
 
-  const technologies = [
-    { name: 'SQL', category: 'Database' },
-    { name: 'Node.js', category: 'Backend' },
-    { name: 'Sequelize', category: 'ORM' },
-    { name: 'React', category: 'Frontend' },
-    { name: 'Tailwind CSS', category: 'Styling' },
-    { name: 'REST API', category: 'Integration' }
-  ];
+  // Get technologies from i18n
+  const technologies: Array<{ name: string; category: string }> = t('pura_compra_detail.technologies', { returnObjects: true }) as Array<{ name: string; category: string }>;
 
-  const challenges = [
-    {
-      icon: Link2,
-      title: 'Store Integration',
-      description: 'Developed a flexible integration layer that connects with multiple online stores while handling different data formats and APIs.'
-    },
-    {
-      icon: TrendingDown,
-      title: 'Price Comparison',
-      description: 'Implemented real-time price comparison algorithms that account for shipping, taxes, and promotional offers.'
-    },
-    {
-      icon: ShoppingCart,
-      title: 'Unified Experience',
-      description: 'Created a seamless shopping experience that abstracts away the complexity of purchasing from multiple stores.'
-    }
-  ];
+  // Get challenges from i18n
+  const challengesData: Array<{ title: string; description: string }> = t('pura_compra_detail.challenges', { returnObjects: true }) as Array<{ title: string; description: string }>;
+
+  // Map icons to challenges
+  const challengeIcons = [Link2, TrendingDown, ShoppingCart];
+  const challenges = challengesData.map((challenge, index) => ({
+    ...challenge,
+    icon: challengeIcons[index]
+  }));
 
   return (
     <div className="min-h-screen pt-16">
@@ -53,7 +35,7 @@ export const PuraCompraDetail = () => {
             className="inline-flex items-center space-x-2 text-[rgb(var(--color-text-secondary))] hover:text-[rgb(var(--color-accent))] transition-colors duration-200 mb-8"
           >
             <ArrowLeft size={20} />
-            <span>Back to Projects</span>
+            <span>{t('pura_compra_detail.back')}</span>
           </motion.button>
 
           <motion.div
@@ -63,13 +45,13 @@ export const PuraCompraDetail = () => {
             className="mb-12"
           >
             <div className="inline-block px-3 py-1 bg-[rgb(var(--color-accent))] text-white text-sm font-semibold rounded-full mb-4">
-              UNIVERSITY PROJECT
+              {t('pura_compra_detail.category')}
             </div>
             <h1 className="text-5xl sm:text-6xl font-bold mb-6">
-              Pura Compra - E-commerce Intermediary
+              {t('pura_compra_detail.title')}
             </h1>
             <p className="text-xl text-[rgb(var(--color-text-secondary))] leading-relaxed max-w-4xl">
-              A platform connecting users with multiple online stores, providing a unified shopping experience with intelligent price comparisons and streamlined checkout process.
+              {t('pura_compra_detail.description')}
             </p>
           </motion.div>
         </div>
@@ -92,17 +74,11 @@ export const PuraCompraDetail = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
+              <h2 className="text-3xl font-bold mb-6">{t('pura_compra_detail.overview_title')}</h2>
               <div className="space-y-4 text-[rgb(var(--color-text-secondary))] leading-relaxed">
-                <p>
-                  Pura Compra is an e-commerce intermediary platform that simplifies online shopping by aggregating products from multiple stores into a single, unified interface. Users can compare prices, read reviews, and complete purchases without navigating between different websites.
-                </p>
-                <p>
-                  The platform integrates with various online retailers, normalizes product data, and provides intelligent recommendations based on price, availability, and shipping options.
-                </p>
-                <p>
-                  Built as a university project, it demonstrates proficiency in full-stack development, API integration, and creating user-centric e-commerce solutions.
-                </p>
+                <p>{t('pura_compra_detail.overview_p1')}</p>
+                <p>{t('pura_compra_detail.overview_p2')}</p>
+                <p>{t('pura_compra_detail.overview_p3')}</p>
               </div>
             </motion.div>
 
@@ -112,7 +88,7 @@ export const PuraCompraDetail = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-6">Key Features</h2>
+              <h2 className="text-3xl font-bold mb-6">{t('pura_compra_detail.features_title')}</h2>
               <div className="space-y-3">
                 {features.map((feature, index) => (
                   <motion.div
@@ -138,7 +114,7 @@ export const PuraCompraDetail = () => {
             transition={{ duration: 0.6 }}
             className="mb-20"
           >
-            <h2 className="text-3xl font-bold mb-8">Technical Challenges</h2>
+            <h2 className="text-3xl font-bold mb-8">{t('pura_compra_detail.challenges_title')}</h2>
             <div className="grid md:grid-cols-3 gap-8">
               {challenges.map((challenge, index) => (
                 <motion.div
@@ -166,7 +142,7 @@ export const PuraCompraDetail = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold mb-8">Technologies Used</h2>
+            <h2 className="text-3xl font-bold mb-8">{t('pura_compra_detail.technologies_title')}</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               {technologies.map((tech, index) => (
                 <motion.div
