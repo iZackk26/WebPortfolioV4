@@ -67,11 +67,23 @@ export const VectorDBDetail = () => {
       {/* IMAGE BANNER */}
       <section className="py-16 bg-[rgb(var(--color-bg-secondary))]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="aspect-video bg-[rgb(var(--color-card))] border-2 border-[rgb(var(--color-border))] rounded-2xl flex items-center justify-center">
-            <Database size={120} className="text-[rgb(var(--color-accent))]" />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="space-y-4"
+          >
+            <div className="aspect-video max-w-4xl mx-auto bg-[rgb(var(--color-card))] border-2 border-[rgb(var(--color-border))] rounded-2xl overflow-hidden">
+              <img
+                src="/Embedding.png"
+                alt={t('appraisal_detail.title')}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
+
 
       {/* MAIN CONTENT */}
       <section className="py-20">

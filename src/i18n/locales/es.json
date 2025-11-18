@@ -244,9 +244,9 @@
     "title": "Aplicación Móvil de Avalúos",
     "description": "Solución móvil híbrida que permite a los tasadores de campo completar formularios dinámicos sin conexión y sincronizar datos sin problemas cuando se restaura la conectividad.",
     "overview_title": "Descripción del Proyecto",
-    "overview_p1": "Esta aplicación móvil fue desarrollada para una empresa de avalúos profesional para optimizar sus operaciones de campo. La aplicación permite a los tasadores trabajar en ubicaciones remotas sin conectividad a internet mientras mantienen la funcionalidad completa.",
-    "overview_p2": "La solución aprovecha React Native para compatibilidad multiplataforma e implementa una arquitectura sofisticada offline-first que garantiza la integridad de los datos y la sincronización sin problemas.",
-    "overview_p3": "Los formularios dinámicos se generan usando Formly, permitiendo que el sistema se adapte a diferentes tipos de avalúos sin requerir actualizaciones de la aplicación.",
+    "overview_p1": "Esta aplicación móvil fue desarrollada para una empresa profesional de valuación con el fin de optimizar sus operaciones en campo. La app permite que los peritos trabajen en ubicaciones remotas sin conexión a internet, manteniendo todas las funcionalidades.",
+    "overview_p2": "La solución utiliza Angular junto con Capacitor para ofrecer una experiencia móvil multiplataforma, implementando una arquitectura offline-first robusta que garantiza la integridad de los datos y una sincronización fluida.",
+    "overview_p3": "Los formularios dinámicos se generan mediante Formly, lo que permite que el sistema se adapte a diferentes tipos de valuaciones sin necesidad de actualizar la aplicación.",
     "features_title": "Características Clave",
     "features": [
       "Arquitectura offline-first para trabajo de campo sin interrupciones",
@@ -274,7 +274,7 @@
     "technologies_title": "Tecnologías Utilizadas",
     "technologies": [
       {
-        "name": "React Native",
+        "name": "Angular + Capacitator",
         "category": "Frontend"
       },
       {

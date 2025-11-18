@@ -274,7 +274,7 @@
     "technologies_title": "Technologies Used",
     "technologies": [
       {
-        "name": "React Native",
+        "name": "Angular + Capacitator",
         "category": "Frontend"
       },
       {
