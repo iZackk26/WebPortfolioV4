@@ -10,6 +10,7 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
   const { theme, toggleTheme } = useTheme();
   const { t, i18n } = useTranslation();
   const location = useLocation();
@@ -58,6 +59,45 @@ export const Navbar = () => {
     }
   };
 
+  // Funciones para manejar hover con delay en desktop
+  const handleMouseEnter = () => {
+    if (!isTouchDevice) {
+      // Limpiar cualquier timeout de cierre pendiente
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout);
+        setHoverTimeout(null);
+      }
+      // Agregar un pequeño delay antes de abrir (200ms)
+      const openTimeout = setTimeout(() => {
+        setIsHovered(true);
+      }, 200);
+      setHoverTimeout(openTimeout);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!isTouchDevice) {
+      // Limpiar cualquier timeout de apertura pendiente
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout);
+      }
+      // Mantener abierto por 1 segundo antes de cerrar
+      const closeTimeout = setTimeout(() => {
+        setIsHovered(false);
+      }, 1000);
+      setHoverTimeout(closeTimeout);
+    }
+  };
+
+  // Limpiar timeouts al desmontar
+  useEffect(() => {
+    return () => {
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout);
+      }
+    };
+  }, [hoverTimeout]);
+
   return (
     <>
       <motion.nav
@@ -71,12 +111,12 @@ export const Navbar = () => {
         }}
         transition={{
           type: 'spring',
-          stiffness: 200,
-          damping: 25,
-          mass: 0.8
+          stiffness: isTouchDevice ? 200 : 150, // Más lento en desktop
+          damping: isTouchDevice ? 25 : 30, // Más amortiguación en desktop
+          mass: isTouchDevice ? 0.8 : 1.2 // Más masa en desktop para animación más suave
         }}
-        onMouseEnter={() => !isTouchDevice && setIsHovered(true)}
-        onMouseLeave={() => !isTouchDevice && setIsHovered(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         className="fixed top-0 left-0 z-50 bg-[rgb(var(--color-bg-primary))]/90 backdrop-blur-xl border border-[rgb(var(--color-border))]/50 shadow-lg overflow-hidden"
         style={{
           willChange: 'transform, width, height, border-radius',
@@ -91,7 +131,7 @@ export const Navbar = () => {
               pointerEvents: isCompact ? 'none' : 'auto'
             }}
             transition={{
-              duration: 0.25,
+              duration: isTouchDevice ? 0.25 : 0.4,
               ease: 'easeInOut'
             }}
             className="absolute inset-0 flex items-center justify-between px-6 lg:px-8"
@@ -262,7 +302,7 @@ export const Navbar = () => {
               pointerEvents: isCompact ? 'auto' : 'none'
             }}
             transition={{
-              duration: 0.25,
+              duration: isTouchDevice ? 0.25 : 0.4,
               ease: 'easeInOut'
             }}
             className="absolute inset-0 flex items-center justify-center"
