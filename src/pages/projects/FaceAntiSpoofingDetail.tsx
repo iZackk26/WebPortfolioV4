@@ -59,8 +59,12 @@ export const FaceAntiSpoofingDetail = () => {
 
       <section className="py-16 bg-[rgb(var(--color-bg-secondary))]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="aspect-video bg-[rgb(var(--color-card))] border-2 border-[rgb(var(--color-border))] rounded-2xl flex items-center justify-center">
-            <Brain size={120} className="text-[rgb(var(--color-accent))]" />
+          <div className="aspect-video max-w-4xl mx-auto bg-[rgb(var(--color-card))] border-2 border-[rgb(var(--color-border))] rounded-2xl overflow-hidden">
+            <img
+              src="/face-Spoofing.jpeg"
+              alt={t('face_antispoofing_detail.title')}
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </section>

@@ -47,7 +47,12 @@ export const IFixItDetail = () => {
             <div className="inline-block px-3 py-1 bg-[rgb(var(--color-accent))] text-white text-sm font-semibold rounded-full mb-4">
               {t('ifixit_detail.category')}
             </div>
-            <h1 className="text-5xl sm:text-6xl font-bold mb-6">
+            <h1 className="text-5xl sm:text-6xl font-bold mb-6 flex items-center gap-4">
+              <img
+                src="/ifixit/ifixit-logo.png"
+                alt="iFixIt Logo"
+                className="w-12 h-12 sm:w-16 sm:h-16 object-contain"
+              />
               {t('ifixit_detail.title')}
             </h1>
             <p className="text-xl text-[rgb(var(--color-text-secondary))] leading-relaxed max-w-4xl">
@@ -59,9 +64,42 @@ export const IFixItDetail = () => {
 
       <section className="py-16 bg-[rgb(var(--color-bg-secondary))]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="aspect-video bg-[rgb(var(--color-card))] border-2 border-[rgb(var(--color-border))] rounded-2xl flex items-center justify-center">
-            <Wrench size={120} className="text-[rgb(var(--color-accent))]" />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="space-y-4"
+          >
+            <div className="aspect-video max-w-4xl mx-auto bg-[rgb(var(--color-card))] border-2 border-[rgb(var(--color-border))] rounded-2xl overflow-hidden">
+              <img
+                src="/ifixit/iFix-Preview.png"
+                alt={t('pura_compra_detail.title')}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="max-w-4xl mx-auto"
+            >
+              <div className="flex items-center justify-center space-x-2 bg-[rgb(var(--color-card))] border border-[rgb(var(--color-border))] rounded-lg p-4">
+                <span className="text-xl">🚀</span>
+                <p className="text-sm text-[rgb(var(--color-text-secondary))]">
+                  {t('pura_compra_detail.live_demo_text', { defaultValue: 'Want to see it in action? Visit the' })}{' '}
+                  <a
+                    href="https://i-fix-it.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[rgb(var(--color-accent))] hover:underline font-semibold"
+                  >
+                    live demo
+                  </a>
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

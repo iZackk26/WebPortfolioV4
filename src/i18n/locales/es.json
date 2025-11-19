@@ -459,6 +459,40 @@
     "category": "PROYECTO UNIVERSITARIO",
     "title": "Pura Compra - Intermediario de E-commerce",
     "description": "Plataforma que conecta usuarios con múltiples tiendas en línea, proporcionando una experiencia de compra unificada con comparaciones inteligentes de precios y proceso de checkout optimizado.",
+    "production_title": "Plataforma en Producción",
+    "production_description": "Esta plataforma fue diseñada y desplegada para uso real, permitiendo a usuarios comprar productos de forma automatizada y eficiente. El sistema integra tecnologías modernas para ofrecer una experiencia completa de comercio electrónico.",
+    "production_features": [
+      {
+        "icon": "CreditCard",
+        "title": "Sistema de Pagos",
+        "description": "Integración completa con pasarelas de pago seguras"
+      },
+      {
+        "icon": "Shield",
+        "title": "Panel de Administración",
+        "description": "Vistas especializadas para gestión de productos, pedidos y usuarios"
+      },
+      {
+        "icon": "MapPin",
+        "title": "Gestor de Direcciones",
+        "description": "Sistema completo para administrar múltiples direcciones de envío"
+      },
+      {
+        "icon": "Palette",
+        "title": "Selector de Colores",
+        "description": "Visualización y selección de variantes de productos por color"
+      },
+      {
+        "icon": "Globe",
+        "title": "Web Scraping",
+        "description": "Extracción automática de información de tiendas seleccionadas"
+      },
+      {
+        "icon": "Zap",
+        "title": "Cotizaciones Automáticas",
+        "description": "Generación y envío automático de cotizaciones al dueño de la tienda"
+      }
+    ],
     "overview_title": "Descripción del Proyecto",
     "overview_p1": "Pura Compra es una plataforma intermediaria de e-commerce que simplifica las compras en línea al agregar productos de múltiples tiendas en una única interfaz unificada. Los usuarios pueden comparar precios, leer reseñas y completar compras sin navegar entre diferentes sitios web.",
     "overview_p2": "La plataforma se integra con varios minoristas en línea, normaliza los datos de productos y proporciona recomendaciones inteligentes basadas en precio, disponibilidad y opciones de envío.",
