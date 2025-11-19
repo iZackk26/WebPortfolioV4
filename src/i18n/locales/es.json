@@ -452,7 +452,21 @@
         "name": "WebSockets",
         "category": "Tiempo Real"
       }
-    ]
+    ],
+    "automation_title": "Sistema Integral de Gestión",
+    "automation_subtitle": "Diseñado para talleres y agencias que buscan optimizar el registro y seguimiento de vehículos en mantenimiento",
+    "automation_search_title": "Búsqueda Instantánea por Placas",
+    "automation_search_desc": "Localiza cualquier vehículo en segundos. Accede al historial completo, estado actual y toda la información relevante con solo ingresar la placa del auto.",
+    "automation_status_title": "Seguimiento en Tiempo Real",
+    "automation_status_desc": "Mantén a tus clientes informados. Sistema de estados que notifica el progreso del mantenimiento y cuándo pueden retirar su vehículo.",
+    "automation_images_title": "Galería Visual",
+    "automation_images_desc": "Documenta cada detalle con fotos. Organiza y almacena imágenes del estado del vehículo antes, durante y después del servicio.",
+    "automation_comments_title": "Historial de Notas",
+    "automation_comments_desc": "Registra observaciones, daños previos y comunicaciones importantes para cada vehículo.",
+    "automation_mobile_title": "App Móvil para Clientes",
+    "automation_mobile_desc": "Aplicación nativa iOS y Android para que los clientes consulten talleres cercanos, revisen el estado de sus vehículos y reciban notificaciones en tiempo real.",
+    "automation_responsive_title": "Multiplataforma",
+    "automation_responsive_desc": "Funciona perfectamente en cualquier dispositivo: PC, tablet o smartphone."
   },
   "pura_compra_detail": {
     "back": "Volver a Proyectos",

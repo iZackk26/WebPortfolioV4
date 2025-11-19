@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, Wrench, MapPin, Calendar } from 'lucide-react';
+import { ArrowLeft, CheckCircle, Wrench, MapPin, Calendar, Car, Search, Image, MessageSquare, Bell, Smartphone } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
@@ -144,6 +144,171 @@ export const IFixItDetail = () => {
               </div>
             </motion.div>
           </div>
+
+          {/* Automation Section - Bento Box Design */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-20"
+          >
+            <div className="text-center mb-12">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="inline-block"
+              >
+                <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-[rgb(var(--color-text))] via-[rgb(var(--color-accent))] to-[rgb(var(--color-text))] bg-clip-text text-transparent">
+                  {t('ifixit_detail.automation_title')}
+                </h2>
+              </motion.div>
+              <p className="text-lg text-[rgb(var(--color-text-secondary))] max-w-2xl mx-auto">
+                {t('ifixit_detail.automation_subtitle')}
+              </p>
+            </div>
+
+            {/* Bento Grid Layout */}
+            <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-auto">
+              {/* Búsqueda por Placas - Large Featured Card */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="md:col-span-2 lg:col-span-3 md:row-span-2 bg-gradient-to-br from-[rgb(var(--color-accent))]/10 to-[rgb(var(--color-accent))]/5 border-2 border-[rgb(var(--color-accent))]/20 rounded-2xl p-8 relative overflow-hidden group hover:border-[rgb(var(--color-accent))]/40 transition-all duration-300"
+              >
+                <div className="absolute top-0 right-0 w-40 h-40 bg-[rgb(var(--color-accent))]/5 rounded-full -mr-20 -mt-20 group-hover:scale-150 transition-transform duration-500" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-[rgb(var(--color-accent))]/5 rounded-full -ml-16 -mb-16 group-hover:scale-150 transition-transform duration-500" />
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-[rgb(var(--color-accent))]/15 rounded-xl flex items-center justify-center mb-6">
+                    <Search size={32} className="text-[rgb(var(--color-accent))]" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-[rgb(var(--color-text))]">
+                    {t('ifixit_detail.automation_search_title')}
+                  </h3>
+                  <p className="text-[rgb(var(--color-text-secondary))] leading-relaxed text-lg">
+                    {t('ifixit_detail.automation_search_desc')}
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Gestión de Estados - Medium Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="md:col-span-2 lg:col-span-3 md:row-span-1 bg-[rgb(var(--color-card))] border-2 border-[rgb(var(--color-border))] rounded-2xl p-6 hover:border-[rgb(var(--color-accent))]/30 transition-all duration-300 group"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <Bell size={32} className="text-blue-400/70" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">
+                      {t('ifixit_detail.automation_status_title')}
+                    </h3>
+                    <p className="text-[rgb(var(--color-text-secondary))] text-sm leading-relaxed">
+                      {t('ifixit_detail.automation_status_desc')}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Gestor de Imágenes - Tall Card */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="md:col-span-2 lg:col-span-2 md:row-span-2 bg-gradient-to-b from-emerald-500/8 to-teal-500/5 border-2 border-emerald-500/15 rounded-2xl p-6 hover:border-emerald-500/30 transition-all duration-300 relative overflow-hidden group"
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-[rgb(var(--color-card))]/80 to-transparent" />
+                <div className="relative z-10 h-full flex flex-col">
+                  <div className="w-14 h-14 bg-emerald-500/15 rounded-lg flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform duration-300">
+                    <Image size={28} className="text-emerald-400/70" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">
+                    {t('ifixit_detail.automation_images_title')}
+                  </h3>
+                  <p className="text-[rgb(var(--color-text-secondary))] text-sm leading-relaxed flex-grow">
+                    {t('ifixit_detail.automation_images_desc')}
+                  </p>
+                  <div className="mt-4 flex gap-2">
+                    <div className="w-12 h-12 bg-emerald-500/10 rounded-lg border border-emerald-500/20" />
+                    <div className="w-12 h-12 bg-teal-500/10 rounded-lg border border-teal-500/20" />
+                    <div className="w-12 h-12 bg-emerald-500/10 rounded-lg border border-emerald-500/20" />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Registro de Comentarios - Wide Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="md:col-span-2 lg:col-span-2 md:row-span-1 bg-[rgb(var(--color-card))] border-2 border-[rgb(var(--color-border))] rounded-2xl p-6 hover:border-[rgb(var(--color-accent))]/30 hover:shadow-lg transition-all duration-300"
+              >
+                <div className="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-3">
+                  <MessageSquare size={24} className="text-orange-400/70" />
+                </div>
+                <h3 className="text-lg font-bold mb-2">
+                  {t('ifixit_detail.automation_comments_title')}
+                </h3>
+                <p className="text-[rgb(var(--color-text-secondary))] text-sm leading-relaxed">
+                  {t('ifixit_detail.automation_comments_desc')}
+                </p>
+              </motion.div>
+
+              {/* App Móvil para Clientes - NEW Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.45 }}
+                className="md:col-span-2 lg:col-span-2 md:row-span-1 bg-gradient-to-br from-cyan-500/10 to-blue-500/8 border-2 border-cyan-500/15 rounded-2xl p-6 hover:border-cyan-500/30 hover:scale-105 transition-all duration-300"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 bg-cyan-500/15 rounded-lg flex items-center justify-center">
+                    <Smartphone size={20} className="text-cyan-400/70" />
+                  </div>
+                  <div className="flex gap-1.5">
+                    <span className="text-xs px-2 py-0.5 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 rounded font-medium border border-cyan-500/20">iOS</span>
+                    <span className="text-xs px-2 py-0.5 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 rounded font-medium border border-cyan-500/20">Android</span>
+                  </div>
+                </div>
+                <h3 className="text-lg font-bold mb-2">
+                  {t('ifixit_detail.automation_mobile_title')}
+                </h3>
+                <p className="text-[rgb(var(--color-text-secondary))] text-sm leading-relaxed">
+                  {t('ifixit_detail.automation_mobile_desc')}
+                </p>
+              </motion.div>
+
+              {/* Responsive - Accent Card */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="md:col-span-2 lg:col-span-2 md:row-span-1 bg-gradient-to-br from-purple-500/10 to-pink-500/8 border-2 border-purple-500/15 rounded-2xl p-6 hover:border-purple-500/30 hover:scale-105 transition-all duration-300"
+              >
+                <div className="w-12 h-12 bg-purple-500/15 rounded-lg flex items-center justify-center mb-3">
+                  <Smartphone size={24} className="text-purple-400/70" />
+                </div>
+                <h3 className="text-lg font-bold mb-2">
+                  {t('ifixit_detail.automation_responsive_title')}
+                </h3>
+                <p className="text-[rgb(var(--color-text-secondary))] text-sm leading-relaxed">
+                  {t('ifixit_detail.automation_responsive_desc')}
+                </p>
+              </motion.div>
+            </div>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}

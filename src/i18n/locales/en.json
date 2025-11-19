@@ -452,7 +452,21 @@
         "name": "WebSockets",
         "category": "Real-time"
       }
-    ]
+    ],
+    "automation_title": "Comprehensive Management System",
+    "automation_subtitle": "Designed for workshops and agencies looking to optimize vehicle registration and maintenance tracking",
+    "automation_search_title": "Instant License Plate Search",
+    "automation_search_desc": "Locate any vehicle in seconds. Access complete history, current status, and all relevant information by simply entering the license plate.",
+    "automation_status_title": "Real-time Tracking",
+    "automation_status_desc": "Keep your customers informed. Status system that notifies maintenance progress and when they can pick up their vehicle.",
+    "automation_images_title": "Visual Gallery",
+    "automation_images_desc": "Document every detail with photos. Organize and store images of the vehicle's condition before, during, and after service.",
+    "automation_comments_title": "Notes History",
+    "automation_comments_desc": "Record observations, pre-existing damage, and important communications for each vehicle.",
+    "automation_mobile_title": "Mobile App for Customers",
+    "automation_mobile_desc": "Native iOS and Android app for customers to browse nearby workshops, check their vehicle status, and receive real-time notifications.",
+    "automation_responsive_title": "Multi-platform",
+    "automation_responsive_desc": "Works seamlessly on any device: PC, tablet, or smartphone."
   },
   "pura_compra_detail": {
     "back": "Back to Projects",
