@@ -42,7 +42,6 @@ export const SEO = ({
       'twitter:title': title,
       'twitter:description': description,
       'twitter:image': `${window.location.origin}${ogImage}`,
-      'twitter:site': '@yourhandle',
       'robots': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
       'googlebot': 'index, follow',
       'language': i18n.language,
@@ -96,8 +95,9 @@ export const SEO = ({
         }
       ],
       sameAs: [
-        'https://linkedin.com/in/yourprofile',
-        'https://github.com/yourprofile'
+        'https://www.linkedin.com/in/izack/',
+        'https://github.com/iZackk26',
+        'https://www.instagram.com/izackk_r/'
       ],
       knowsAbout: [
         'Software Development',
