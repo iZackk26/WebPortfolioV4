@@ -2,13 +2,14 @@ import { Moon, Sun, Menu, X, User } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../hooks/useTheme';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { t, i18n } = useTranslation();
   const location = useLocation();
@@ -26,6 +27,11 @@ export const Navbar = () => {
     localStorage.setItem('language', newLang);
   };
 
+  // Detectar si es un dispositivo táctil
+  useEffect(() => {
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 100);
@@ -34,7 +40,23 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Cerrar el navbar expandido cuando se hace scroll en móvil
+  useEffect(() => {
+    if (isTouchDevice && scrolled && isHovered) {
+      setIsHovered(false);
+      setIsOpen(false); // También cerrar el menú de hamburguesa
+    }
+  }, [scrolled, isTouchDevice]);
+
   const isCompact = scrolled && !isHovered;
+
+  // Función para manejar el click en el navbar compacto
+  const handleCompactNavClick = () => {
+    if (isTouchDevice && isCompact) {
+      setIsHovered(!isHovered);
+      setIsOpen(false); // Asegurar que el menú esté cerrado al expandir
+    }
+  };
 
   return (
     <>
@@ -53,8 +75,8 @@ export const Navbar = () => {
           damping: 25,
           mass: 0.8
         }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseEnter={() => !isTouchDevice && setIsHovered(true)}
+        onMouseLeave={() => !isTouchDevice && setIsHovered(false)}
         className="fixed top-0 left-0 z-50 bg-[rgb(var(--color-bg-primary))]/90 backdrop-blur-xl border border-[rgb(var(--color-border))]/50 shadow-lg overflow-hidden"
         style={{
           willChange: 'transform, width, height, border-radius',
@@ -62,6 +84,7 @@ export const Navbar = () => {
         }}
       >
         <div className="relative w-full h-full flex items-center">
+          {/* Navbar expandido */}
           <motion.div
             animate={{
               opacity: isCompact ? 0 : 1,
@@ -88,6 +111,18 @@ export const Navbar = () => {
                       className="w-10 h-10 rounded-full object-cover"
                     />
                   </div>
+                  {/* Área clickeable solo para móvil para contraer el navbar */}
+                  {isTouchDevice && (
+                    <div
+                      className="absolute inset-0 z-10 rounded-full"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setIsHovered(false);
+                        setIsOpen(false); // También cerrar el menú de hamburguesa
+                      }}
+                    />
+                  )}
                 </motion.div>
               </Link>
 
@@ -207,14 +242,20 @@ export const Navbar = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setIsOpen(!isOpen)}
-                  className="md:hidden p-2.5 rounded-full bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] border border-[rgb(var(--color-border))] shadow-sm"
+                  className="md:hidden p-2.5 rounded-full bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] border border-[rgb(var(--color-border))] shadow-sm overflow-hidden"
                 >
-                  {isOpen ? <X size={24} /> : <Menu size={24} />}
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                  >
+                    {isOpen ? <X size={24} /> : <Menu size={24} />}
+                  </motion.div>
                 </motion.button>
               </div>
             </div>
           </motion.div>
 
+          {/* Navbar compacto (solo icono) */}
           <motion.div
             animate={{
               opacity: isCompact ? 1 : 0,
@@ -226,8 +267,9 @@ export const Navbar = () => {
             }}
             className="absolute inset-0 flex items-center justify-center"
             style={{ willChange: 'opacity' }}
+            onClick={handleCompactNavClick}
           >
-            <Link to="/" className="relative group">
+            <div className="relative group cursor-pointer">
               <motion.div
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
@@ -239,7 +281,6 @@ export const Navbar = () => {
                     alt="Isaac"
                     className="w-8 h-8 rounded-full object-cover"
                   />
-
                 </div>
                 <motion.div
                   className="absolute -inset-1 rounded-full border-2 border-[rgb(var(--color-accent))]"
@@ -252,59 +293,97 @@ export const Navbar = () => {
                   }}
                 />
               </motion.div>
-            </Link>
+            </div>
           </motion.div>
         </div>
       </motion.nav>
 
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
-          transition={{ duration: 0.3 }}
-          className="fixed top-24 left-6 right-6 z-40 md:hidden border border-[rgb(var(--color-border))]/50 bg-[rgb(var(--color-bg-primary))]/95 backdrop-blur-xl overflow-hidden rounded-3xl shadow-lg"
-        >
-          <div className="px-6 py-6 space-y-2">
-            {navItems.map((item) => {
-              const isActive = location.pathname === item.path;
-              return (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setIsOpen(false)}
-                >
+      {/* Menú móvil */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: -20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -20 }}
+            transition={{
+              duration: 0.4,
+              ease: [0.4, 0, 0.2, 1]
+            }}
+            className="fixed top-24 left-6 right-6 z-40 md:hidden border border-[rgb(var(--color-border))]/50 bg-[rgb(var(--color-bg-primary))]/95 backdrop-blur-xl overflow-hidden rounded-3xl shadow-lg"
+          >
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2, delay: 0.1 }}
+              className="px-6 py-6 space-y-2"
+            >
+              {navItems.map((item, index) => {
+                const isActive = location.pathname === item.path;
+                return (
                   <motion.div
-                    whileHover={{ x: 4 }}
-                    className={`px-5 py-3 rounded-xl transition-all duration-200 ${isActive
-                      ? 'bg-[rgb(var(--color-accent))] text-white shadow-lg shadow-[rgb(var(--color-accent))]/30'
-                      : 'text-[rgb(var(--color-text-secondary))] hover:bg-[rgb(var(--color-bg-secondary))] hover:text-[rgb(var(--color-text-primary))]'
-                      }`}
+                    key={item.path}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{
+                      duration: 0.35,
+                      delay: index * 0.06,
+                      ease: [0.4, 0, 0.2, 1]
+                    }}
                   >
-                    {item.label}
+                    <Link
+                      to={item.path}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <motion.div
+                        whileHover={{ x: 4 }}
+                        whileTap={{ scale: 0.98 }}
+                        className={`px-5 py-3 rounded-xl transition-all duration-200 ${isActive
+                          ? 'bg-[rgb(var(--color-accent))] text-white shadow-lg shadow-[rgb(var(--color-accent))]/30'
+                          : 'text-[rgb(var(--color-text-secondary))] hover:bg-[rgb(var(--color-bg-secondary))] hover:text-[rgb(var(--color-text-primary))]'
+                          }`}
+                      >
+                        {item.label}
+                      </motion.div>
+                    </Link>
                   </motion.div>
-                </Link>
-              );
-            })}
+                );
+              })}
 
-            <div className="flex items-center space-x-3 pt-4 border-t border-[rgb(var(--color-border))]/50">
-              <button
-                onClick={toggleLanguage}
-                className="flex-1 px-4 py-3 rounded-xl bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] font-semibold hover:bg-[rgb(var(--color-accent))] hover:text-white transition-all duration-200 border border-[rgb(var(--color-border))]"
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{
+                  duration: 0.35,
+                  delay: navItems.length * 0.06,
+                  ease: [0.4, 0, 0.2, 1]
+                }}
+                className="flex items-center space-x-3 pt-4 border-t border-[rgb(var(--color-border))]/50"
               >
-                {i18n.language === 'en' ? 'Español' : 'English'}
-              </button>
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={toggleLanguage}
+                  className="flex-1 px-4 py-3 rounded-xl bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] font-semibold hover:bg-[rgb(var(--color-accent))] hover:text-white transition-all duration-200 border border-[rgb(var(--color-border))]"
+                >
+                  {i18n.language === 'en' ? 'Español' : 'English'}
+                </motion.button>
 
-              <button
-                onClick={toggleTheme}
-                className="px-4 py-3 rounded-xl bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] hover:bg-[rgb(var(--color-accent))] hover:text-white transition-all duration-200 border border-[rgb(var(--color-border))]"
-              >
-                {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
-            </div>
-          </div>
-        </motion.div>
-      )}
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={toggleTheme}
+                  className="px-4 py-3 rounded-xl bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] hover:bg-[rgb(var(--color-accent))] hover:text-white transition-all duration-200 border border-[rgb(var(--color-border))]"
+                >
+                  {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+                </motion.button>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <div className="h-24" />
     </>
