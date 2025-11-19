@@ -247,9 +247,10 @@ export const Projects = () => {
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     whileHover={{ y: -12 }}
-                    className="bg-[rgb(var(--color-card))] border border-[rgb(var(--color-border))] rounded-2xl overflow-hidden hover:border-[rgb(var(--color-accent))] transition-all duration-300"
+                    className="bg-[rgb(var(--color-card))] border border-[rgb(var(--color-border))] rounded-2xl overflow-hidden hover:border-[rgb(var(--color-accent))] transition-all duration-300 flex flex-col"
                   >
-                    <div className="bg-[rgb(var(--color-bg-secondary))] border-b border-[rgb(var(--color-border))] h-48 overflow-hidden rounded-t-2xl">
+                    {/* Fixed height image container */}
+                    <div className="bg-[rgb(var(--color-bg-secondary))] border-b border-[rgb(var(--color-border))] h-48 overflow-hidden">
                       <motion.img
                         src={project.image}
                         alt={project.id}
@@ -260,39 +261,48 @@ export const Projects = () => {
                         transition={{ duration: 0.6 }}
                         whileHover={{ scale: 1.03 }}
                       />
-                    </div>                    <div className="p-6 space-y-4">
-                      <h3 className="text-xl font-bold">
+                    </div>
+
+                    {/* Card content with flex-grow to push button to bottom */}
+                    <div className="p-6 flex flex-col flex-grow">
+                      {/* Title section - fixed height */}
+                      <h3 className="text-xl font-bold mb-3 min-h-[56px]">
                         {t(`projects.items.${project.id}.title`)}
                       </h3>
 
-                      <p className="text-[rgb(var(--color-text-secondary))] text-sm leading-relaxed">
+                      {/* Description section - flex-grow to fill available space */}
+                      <p className="text-[rgb(var(--color-text-secondary))] text-sm leading-relaxed mb-4 flex-grow">
                         {t(`projects.items.${project.id}.description`)}
                       </p>
 
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {project.technologies.slice(0, 2).map((tech, techIndex) => (
-                          <motion.span
-                            key={tech}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.3, delay: index * 0.1 + techIndex * 0.05 }}
-                            whileHover={{ scale: 1.05 }}
-                            className="px-2 py-1 text-xs bg-[rgb(var(--color-bg-secondary))] border border-[rgb(var(--color-border))] rounded hover:border-[rgb(var(--color-accent))] transition-colors duration-200"
-                          >
-                            {tech}
-                          </motion.span>
-                        ))}
-                      </div>
+                      {/* Technologies section - fixed at bottom with consistent spacing */}
+                      <div className="space-y-4">
+                        <div className="flex flex-wrap gap-2 min-h-[32px]">
+                          {project.technologies.slice(0, 2).map((tech, techIndex) => (
+                            <motion.span
+                              key={tech}
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.3, delay: index * 0.1 + techIndex * 0.05 }}
+                              whileHover={{ scale: 1.05 }}
+                              className="px-3 py-1 text-xs bg-[rgb(var(--color-bg-secondary))] border border-[rgb(var(--color-border))] rounded-lg hover:border-[rgb(var(--color-accent))] transition-colors duration-200"
+                            >
+                              {tech}
+                            </motion.span>
+                          ))}
+                        </div>
 
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        onClick={() => navigate(`/projects/${project.id}`)}
-                        className="w-full py-2 border-2 border-[rgb(var(--color-border))] text-[rgb(var(--color-text-primary))] rounded-lg font-semibold text-sm hover:border-[rgb(var(--color-accent))] hover:text-[rgb(var(--color-accent))] transition-all duration-150"
-                      >
-                        {t('projects.viewDetails')}
-                      </motion.button>
+                        {/* Button - always at the bottom */}
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          onClick={() => navigate(`/projects/${project.id}`)}
+                          className="w-full py-2.5 bg-[rgb(var(--color-accent))] text-white rounded-lg font-semibold text-sm hover:bg-[rgb(var(--color-accent-hover))] transition-all duration-150"
+                        >
+                          {t('projects.viewDetails')}
+                        </motion.button>
+                      </div>
                     </div>
                   </motion.div>
                 ))}
@@ -322,10 +332,10 @@ export const Projects = () => {
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.5, delay: index * 0.15 }}
                     whileHover={{ y: -12 }}
-                    className="bg-[rgb(var(--color-card))] border border-[rgb(var(--color-border))] rounded-2xl overflow-hidden hover:border-[rgb(var(--color-accent))] transition-all duration-300"
+                    className="bg-[rgb(var(--color-card))] border border-[rgb(var(--color-border))] rounded-2xl overflow-hidden hover:border-[rgb(var(--color-accent))] transition-all duration-300 flex flex-col"
                   >
-
-                    <div className="bg-[rgb(var(--color-bg-secondary))] border-b border-[rgb(var(--color-border))] h-64 overflow-hidden rounded-t-2xl">
+                    {/* Fixed height image container */}
+                    <div className="bg-[rgb(var(--color-bg-secondary))] border-b border-[rgb(var(--color-border))] h-64 overflow-hidden">
                       <motion.img
                         src={project.image}
                         alt={project.id}
@@ -338,39 +348,45 @@ export const Projects = () => {
                       />
                     </div>
 
-                    <div className="p-8 space-y-4">
-                      <h3 className="text-2xl font-bold">
+                    {/* Card content with flex-grow */}
+                    <div className="p-8 flex flex-col flex-grow">
+                      {/* Title section */}
+                      <h3 className="text-2xl font-bold mb-4">
                         {t(`projects.items.${project.id}.title`)}
                       </h3>
 
-                      <p className="text-[rgb(var(--color-text-secondary))] leading-relaxed">
+                      {/* Description section - flex-grow */}
+                      <p className="text-[rgb(var(--color-text-secondary))] leading-relaxed mb-4 flex-grow">
                         {t(`projects.items.${project.id}.description`)}
                       </p>
 
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {project.technologies.slice(0, 4).map((tech, techIndex) => (
-                          <motion.span
-                            key={tech}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.3, delay: index * 0.15 + techIndex * 0.05 }}
-                            whileHover={{ scale: 1.05 }}
-                            className="px-3 py-1 text-xs bg-[rgb(var(--color-bg-secondary))] border border-[rgb(var(--color-border))] rounded-lg hover:border-[rgb(var(--color-accent))] transition-colors duration-200"
-                          >
-                            {tech}
-                          </motion.span>
-                        ))}
-                      </div>
+                      {/* Technologies and button section - fixed at bottom */}
+                      <div className="space-y-4">
+                        <div className="flex flex-wrap gap-2 min-h-[32px]">
+                          {project.technologies.slice(0, 4).map((tech, techIndex) => (
+                            <motion.span
+                              key={tech}
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.3, delay: index * 0.15 + techIndex * 0.05 }}
+                              whileHover={{ scale: 1.05 }}
+                              className="px-3 py-1 text-xs bg-[rgb(var(--color-bg-secondary))] border border-[rgb(var(--color-border))] rounded-lg hover:border-[rgb(var(--color-accent))] transition-colors duration-200"
+                            >
+                              {tech}
+                            </motion.span>
+                          ))}
+                        </div>
 
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        onClick={() => navigate(`/projects/${project.id}`)}
-                        className="w-full py-3 bg-[rgb(var(--color-accent))] text-white rounded-lg font-semibold hover:bg-[rgb(var(--color-accent-hover))] transition-all duration-150"
-                      >
-                        {t('projects.viewDetails')}
-                      </motion.button>
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          onClick={() => navigate(`/projects/${project.id}`)}
+                          className="w-full py-3 bg-[rgb(var(--color-accent))] text-white rounded-lg font-semibold hover:bg-[rgb(var(--color-accent-hover))] transition-all duration-150"
+                        >
+                          {t('projects.viewDetails')}
+                        </motion.button>
+                      </div>
                     </div>
                   </motion.div>
                 ))}

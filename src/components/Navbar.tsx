@@ -22,6 +22,38 @@ export const Navbar = () => {
     { path: '/certificates', label: t('nav.certificates') }
   ];
 
+  // Función para manejar el mouse enter
+  const handleMouseEnter = () => {
+    if (!isTouchDevice) {
+      // Limpiar timeout si existe
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout);
+        setHoverTimeout(null);
+      }
+      setIsHovered(true);
+    }
+  };
+
+  // Función para manejar el mouse leave con delay
+  const handleMouseLeave = () => {
+    if (!isTouchDevice) {
+      // Crear timeout de 1.5 segundos antes de cerrar
+      const timeout = setTimeout(() => {
+        setIsHovered(false);
+      }, 1500); // 1.5 segundos de delay
+      setHoverTimeout(timeout);
+    }
+  };
+
+  // Limpiar timeout cuando el componente se desmonte
+  useEffect(() => {
+    return () => {
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout);
+      }
+    };
+  }, [hoverTimeout]);
+
   const toggleLanguage = () => {
     const newLang = i18n.language === 'en' ? 'es' : 'en';
     i18n.changeLanguage(newLang);
@@ -35,17 +67,31 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 100);
+      const currentScrollY = window.scrollY;
+
+      // Si es móvil y el menú está abierto, cerrarlo al hacer scroll
+      if (isTouchDevice && isOpen && currentScrollY > 10) {
+        setIsOpen(false);
+      }
+
+      // Lógica original para el navbar compacto
+      setScrolled(currentScrollY > 100);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isTouchDevice, isOpen]);
 
-  // Cerrar el navbar expandido cuando se hace scroll en móvil
+  // Cerrar el navbar expandido y el menú cuando se hace scroll en móvil
   useEffect(() => {
-    if (isTouchDevice && scrolled && isHovered) {
-      setIsHovered(false);
-      setIsOpen(false); // También cerrar el menú de hamburguesa
+    if (isTouchDevice && scrolled) {
+      if (isHovered) {
+        setIsHovered(false);
+      }
+      // Siempre cerrar el menú de hamburguesa al hacer scroll en móvil
+      if (isOpen) {
+        setIsOpen(false);
+      }
     }
   }, [scrolled, isTouchDevice]);
 
@@ -58,45 +104,6 @@ export const Navbar = () => {
       setIsOpen(false); // Asegurar que el menú esté cerrado al expandir
     }
   };
-
-  // Funciones para manejar hover con delay en desktop
-  const handleMouseEnter = () => {
-    if (!isTouchDevice) {
-      // Limpiar cualquier timeout de cierre pendiente
-      if (hoverTimeout) {
-        clearTimeout(hoverTimeout);
-        setHoverTimeout(null);
-      }
-      // Agregar un pequeño delay antes de abrir (200ms)
-      const openTimeout = setTimeout(() => {
-        setIsHovered(true);
-      }, 200);
-      setHoverTimeout(openTimeout);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (!isTouchDevice) {
-      // Limpiar cualquier timeout de apertura pendiente
-      if (hoverTimeout) {
-        clearTimeout(hoverTimeout);
-      }
-      // Mantener abierto por 1 segundo antes de cerrar
-      const closeTimeout = setTimeout(() => {
-        setIsHovered(false);
-      }, 1000);
-      setHoverTimeout(closeTimeout);
-    }
-  };
-
-  // Limpiar timeouts al desmontar
-  useEffect(() => {
-    return () => {
-      if (hoverTimeout) {
-        clearTimeout(hoverTimeout);
-      }
-    };
-  }, [hoverTimeout]);
 
   return (
     <>
@@ -111,9 +118,9 @@ export const Navbar = () => {
         }}
         transition={{
           type: 'spring',
-          stiffness: isTouchDevice ? 200 : 150, // Más lento en desktop
-          damping: isTouchDevice ? 25 : 30, // Más amortiguación en desktop
-          mass: isTouchDevice ? 0.8 : 1.2 // Más masa en desktop para animación más suave
+          stiffness: 180,
+          damping: 28,
+          mass: 1
         }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -131,7 +138,7 @@ export const Navbar = () => {
               pointerEvents: isCompact ? 'none' : 'auto'
             }}
             transition={{
-              duration: isTouchDevice ? 0.25 : 0.4,
+              duration: 0.35,
               ease: 'easeInOut'
             }}
             className="absolute inset-0 flex items-center justify-between px-6 lg:px-8"
@@ -302,7 +309,7 @@ export const Navbar = () => {
               pointerEvents: isCompact ? 'auto' : 'none'
             }}
             transition={{
-              duration: isTouchDevice ? 0.25 : 0.4,
+              duration: 0.35,
               ease: 'easeInOut'
             }}
             className="absolute inset-0 flex items-center justify-center"
