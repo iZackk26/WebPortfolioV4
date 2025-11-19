@@ -152,11 +152,14 @@ export const Navbar = () => {
                   className="relative"
                 >
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))] flex items-center justify-center overflow-hidden border-2 border-[rgb(var(--color-border))] shadow-lg shadow-[rgb(var(--color-accent))]/20">
-                    <img
-                      src="/icon.jpeg"
-                      alt="Isaac"
-                      className="w-10 h-10 rounded-full object-cover"
-                    />
+                    <picture>
+                      <source srcSet="/icon.webp" type="image/webp" />
+                      <img
+                        src="/icon.jpeg"
+                        alt="Isaac"
+                        className="w-10 h-10 rounded-full object-cover"
+                      />
+                    </picture>
                   </div>
                   {/* Área clickeable solo para móvil para contraer el navbar */}
                   {isTouchDevice && (
@@ -181,7 +184,7 @@ export const Navbar = () => {
                       <motion.div
                         whileHover={{ y: -2 }}
                         whileTap={{ y: 0 }}
-                        className="relative px-5 py-2.5 rounded-full group"
+                        className="relative px-5 py-3 rounded-full group min-h-[48px] flex items-center"
                       >
                         {isActive && (
                           <motion.div
@@ -290,6 +293,8 @@ export const Navbar = () => {
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setIsOpen(!isOpen)}
                   className="md:hidden p-2.5 rounded-full bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] border border-[rgb(var(--color-border))] shadow-sm overflow-hidden"
+                  aria-label={isOpen ? t('nav.close_menu') : t('nav.open_menu')}
+                  aria-expanded={isOpen}
                 >
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
@@ -323,11 +328,14 @@ export const Navbar = () => {
                 className="relative"
               >
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))] flex items-center justify-center overflow-hidden border-2 border-[rgb(var(--color-border))] shadow-lg shadow-[rgb(var(--color-accent))]/40">
-                  <img
-                    src="/icon.jpeg"
-                    alt="Isaac"
-                    className="w-8 h-8 rounded-full object-cover"
-                  />
+                  <picture>
+                    <source srcSet="/icon.webp" type="image/webp" />
+                    <img
+                      src="/icon.jpeg"
+                      alt="Isaac"
+                      className="w-8 h-8 rounded-full object-cover"
+                    />
+                  </picture>
                 </div>
                 <motion.div
                   className="absolute -inset-1 rounded-full border-2 border-[rgb(var(--color-accent))]"

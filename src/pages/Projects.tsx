@@ -11,17 +11,17 @@ export const Projects = () => {
   const aiProjects = [
     {
       id: 'faceAntiSpoofing',
-      image: "spoofing.png",
+      image: "spoofing.webp",
       technologies: ['Python', 'TensorFlow', 'OpenCV', 'Deep Learning']
     },
     {
       id: 'stateDetection',
-      image: "cart.jpeg",
+      image: "cart.webp",
       technologies: ['Machine Learning', 'Python', 'Optimization']
     },
     {
       id: 'vectorDB',
-      image: "face-detection.png",
+      image: "face-detection.webp",
       technologies: ['Vector DB', 'Embeddings', 'Cloud', 'Semantic Search']
     }
   ];
@@ -34,7 +34,7 @@ export const Projects = () => {
     },
     {
       id: 'puraCompra',
-      image: 'puracompra.png',
+      image: 'puracompra.webp',
       technologies: ['SQL', 'Node.js', 'Sequelize', 'React', 'Tailwind CSS']
     }
   ];
@@ -122,7 +122,7 @@ export const Projects = () => {
                 <div className="grid lg:grid-cols-2 gap-0">
                   <div className="bg-[rgb(var(--color-bg-secondary))] border-b-2 lg:border-b-0 lg:border-r-2 border-[rgb(var(--color-border))] overflow-hidden">
                     <motion.img
-                      src="/app-design.png"
+                      src="/app-design.webp"
                       alt="Appraisal App"
                       className="w-full h-full object-cover"
                       initial={{ scale: 1.1, opacity: 0 }}

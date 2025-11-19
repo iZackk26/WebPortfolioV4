@@ -321,7 +321,7 @@ export const About = () => {
                     className="aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[rgb(var(--color-border))] bg-[rgb(var(--color-bg-secondary))] hover:border-[rgb(var(--color-accent))] shadow-md transition-all duration-300"
                   >
                     <img
-                      src="/photo02.jpeg"
+                      src="/photo02.webp"
                       alt="Isaac Ramírez"
                       className="w-full h-full object-cover"
                     />

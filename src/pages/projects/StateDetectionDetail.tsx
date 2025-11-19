@@ -295,7 +295,7 @@ export const StateDetectionDetail = () => {
           >
             <h2 className="text-3xl font-bold mb-8">{t('project_detail.model_demo_title')}</h2>
             <div className="mb-6">
-              <VideoPlayer src="/vids/Comp-Models.mp4" poster="/detection-preview.png" />
+              <VideoPlayer src="/vids/Comp-Models.mp4" poster="/detection-preview.webp" />
             </div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}

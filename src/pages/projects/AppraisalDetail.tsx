@@ -65,7 +65,7 @@ export const AppraisalDetail = () => {
           >
             <div className="aspect-video max-w-4xl mx-auto bg-[rgb(var(--color-card))] border-2 border-[rgb(var(--color-border))] rounded-2xl overflow-hidden">
               <img
-                src="/app-design02.png"
+                src="/app-design02.webp"
                 alt={t('appraisal_detail.title')}
                 className="w-full h-full object-cover"
               />

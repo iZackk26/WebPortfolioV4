@@ -112,11 +112,15 @@ export const Home = () => {
               <div className="md:col-span-2">
                 <div className="relative">
                   <div className="aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[rgb(var(--color-border))] bg-[rgb(var(--color-bg-secondary))] shadow-md">
-                    <img
-                      src="/photo01.jpeg"
-                      alt="Isaac Ramírez"
-                      className="w-full h-full object-cover"
-                    />
+                    <picture>
+                      <source srcSet="/photo01.webp" type="image/webp" />
+                      <img
+                        src="/photo01.jpeg"
+                        alt="Isaac Ramírez"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </picture>
                   </div>
                   <div className="absolute -bottom-4 -right-4 bg-[rgb(var(--color-card))] border-2 border-[rgb(var(--color-border))] rounded-xl px-6 py-4 shadow-lg">
                     <p className="text-sm font-semibold text-[rgb(var(--color-accent))]">

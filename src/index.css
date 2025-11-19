@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import './fonts.css';
 
 @tailwind base;
 @tailwind components;
@@ -9,7 +9,7 @@
     --color-bg-primary: 255 254 247;
     --color-bg-secondary: 245 244 237;
     --color-text-primary: 46 50 87;
-    --color-text-secondary: 98 125 154;
+    --color-text-secondary: 70 90 115;
     --color-accent: 98 125 154;
     --color-accent-hover: 78 105 134;
     --color-border: 223 197 164;
@@ -20,7 +20,7 @@
     --color-bg-primary: 46 50 87;
     --color-bg-secondary: 36 40 67;
     --color-text-primary: 255 254 247;
-    --color-text-secondary: 186 187 189;
+    --color-text-secondary: 200 201 203;
     --color-accent: 98 125 154;
     --color-accent-hover: 118 145 174;
     --color-border: 98 125 154;

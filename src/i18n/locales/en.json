@@ -3,7 +3,9 @@
     "home": "Home",
     "about": "About",
     "projects": "Projects",
-    "certificates": "Certificates"
+    "certificates": "Certificates",
+    "open_menu": "Open menu",
+    "close_menu": "Close menu"
   },
   "home": {
     "greeting": "Hi, I'm",
