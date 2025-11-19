@@ -17,14 +17,14 @@
     "englishLevel": "Inglés Avanzado (B2/C1)",
     "focusAreas": {
       "title": "Innovación en la Práctica",
-      "subtitle": "Donde la ingeniería se encuentra con el impacto real—construyendo sistemas inteligentes y escalables desde el prototipo hasta la producción.",
+      "subtitle": "Donde la ingeniería se encuentra con el impacto real construyendo sistemas inteligentes y escalables desde el prototipo hasta la producción.",
       "ai": {
         "title": "IA y Visión por Computadora",
         "description": "Construcción de sistemas de detección, clasificación e inferencia usando frameworks modernos de ML, optimización de modelos y decisiones basadas en datos."
       },
       "automation": {
         "title": "Plataformas Inteligentes y Automatización",
-        "description": "Desarrollo de herramientas que conectan usuarios, datos y flujos de trabajo—reduciendo errores humanos y optimizando procesos complejos."
+        "description": "Desarrollo de herramientas que conectan usuarios, datos y flujos de trabajo reduciendo errores humanos y optimizando procesos complejos."
       },
       "cloud": {
         "title": "Nube e Infraestructura",
@@ -175,7 +175,39 @@
         "name": "React",
         "category": "Frontend"
       }
-    ]
+    ],
+    "system_states_title": "Entendiendo el Sistema",
+    "system_states_intro": "Este proyecto fue desarrollado para automatizar el proceso de llenado de tubos con semillas y productos en un entorno industrial. El sistema monitorea carritos a medida que avanzan por diferentes etapas desde vacíos hasta llenos y utiliza visión por computadora para rastrear, analizar y optimizar el proceso de llenado.",
+    "states": [
+      {
+        "name": "Plataforma Vacía",
+        "description": "La plataforma está lista, esperando que se coloque un carrito para que comience el proceso de llenado."
+      },
+      {
+        "name": "Carrito Vacío",
+        "description": "Un carrito con 6 espacios vacíos está posicionado en la plataforma, listo para recibir tubos de ensayo."
+      },
+      {
+        "name": "Carrito Incompleto",
+        "description": "El carrito contiene entre 1 y 5 tubos de ensayo, indicando que el proceso de llenado está en curso."
+      },
+      {
+        "name": "Carrito Completo",
+        "description": "Los 6 espacios están llenos con tubos de ensayo. El carrito está listo para sellado y análisis de calidad."
+      }
+    ],
+    "process_explanation": "Una vez llenos, los tubos se sellan y pasan por el modelo de detección para capturar métricas como la duración del procesamiento, identificar posibles problemas y analizar el comportamiento del sistema para una mejora continua.",
+    "model_demo_title": "Demostración del Modelo",
+    "model_limitations": {
+      "title": "Evolución y Limitaciones del Modelo",
+      "intro": "En esta sección se puede observar la comparación entre el entrenamiento, los hiperparámetros utilizados y los falsos positivos generados durante el proceso, lo que permite visualizar cómo el modelo ha ido evolucionando conforme se ajustaba a los datos disponibles.",
+      "dataset_label": "Limitación del dataset:",
+      "dataset_text": "Durante el desarrollo del proyecto, la cinta transportadora utilizada para capturar las imágenes sufrió daños, lo que impidió recolectar más datos. Como resultado, el modelo fue entrenado con únicamente",
+      "images_count": "260 imágenes",
+      "dataset_suffix": "una cantidad considerablemente pequeña para tareas de visión por computadora.",
+      "potential_label": "Potencial futuro:",
+      "potential_text": "A pesar de estas restricciones, el sistema muestra resultados prometedores y es altamente probable que su desempeño mejore de manera significativa con un conjunto de datos más amplio."
+    }
   },
   "crps_detail": {
     "back": "Volver a Proyectos",

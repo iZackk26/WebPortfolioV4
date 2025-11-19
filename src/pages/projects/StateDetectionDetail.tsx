@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, Video, TrendingUp, Target } from 'lucide-react';
+import { ArrowLeft, CheckCircle, Video, TrendingUp, Target, BarChart3, Box, ShoppingCart, Layers } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { VideoPlayer } from '../../components/VideoPlayer';
@@ -22,6 +22,16 @@ export const StateDetectionDetail = () => {
   const challenges = challengesData.map((challenge, index) => ({
     ...challenge,
     icon: challengeIcons[index]
+  }));
+
+  // Get system states from i18n
+  const statesData: Array<{ name: string; description: string }> = t('project_detail.states', { returnObjects: true }) as Array<{ name: string; description: string }>;
+
+  // Map icons to states
+  const stateIcons = [Box, ShoppingCart, Layers, CheckCircle];
+  const states = statesData.map((state, index) => ({
+    ...state,
+    icon: stateIcons[index]
   }));
 
   return (
@@ -173,6 +183,60 @@ export const StateDetectionDetail = () => {
             transition={{ duration: 0.6 }}
             className="mb-20"
           >
+            <h2 className="text-3xl font-bold mb-6">{t('project_detail.system_states_title')}</h2>
+
+            <div className="bg-[rgb(var(--color-card))] border border-[rgb(var(--color-border))] rounded-xl p-6 mb-8">
+              <p className="text-[rgb(var(--color-text-secondary))] leading-relaxed">
+                {t('project_detail.system_states_intro')}
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              {states.map((state, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.02 }}
+                  className="bg-[rgb(var(--color-card))] border border-[rgb(var(--color-border))] rounded-lg p-5 hover:border-[rgb(var(--color-accent))] transition-all duration-300"
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0">
+                      <state.icon size={28} className="text-[rgb(var(--color-accent))]" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold mb-2">{state.name}</h3>
+                      <p className="text-[rgb(var(--color-text-secondary))] text-sm leading-relaxed">
+                        {state.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-gradient-to-r from-[rgb(var(--color-accent))]/10 to-transparent border-l-4 border-[rgb(var(--color-accent))] rounded-lg p-6"
+            >
+              <p className="text-[rgb(var(--color-text-secondary))] leading-relaxed">
+                {t('project_detail.process_explanation')}
+              </p>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-20"
+          >
             <h2 className="text-3xl font-bold mb-8">{t('project_detail.challenges_title')}</h2>
             <div className="grid md:grid-cols-3 gap-8">
               {challenges.map((challenge, index) => (
@@ -200,6 +264,7 @@ export const StateDetectionDetail = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="mb-20"
           >
             <h2 className="text-3xl font-bold mb-8">{t('project_detail.technologies_title')}</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -220,6 +285,59 @@ export const StateDetectionDetail = () => {
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl font-bold mb-8">{t('project_detail.model_demo_title')}</h2>
+            <div className="mb-6">
+              <VideoPlayer src="/vids/Comp-Models.mp4" poster="/detection-preview.png" />
+            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-[rgb(var(--color-card))] border-l-4 border-[rgb(var(--color-accent))] rounded-lg p-6 space-y-4"
+            >
+              <div className="flex items-center space-x-3 mb-4">
+                <BarChart3 size={24} className="text-[rgb(var(--color-accent))]" />
+                <h3 className="text-xl font-bold">{t('project_detail.model_limitations.title')}</h3>
+              </div>
+
+              <p className="text-[rgb(var(--color-text-secondary))] text-sm leading-relaxed">
+                {t('project_detail.model_limitations.intro')}
+              </p>
+
+              <div className="space-y-3 pt-2">
+                <div>
+                  <p className="text-sm font-semibold text-[rgb(var(--color-accent))] mb-1">
+                    {t('project_detail.model_limitations.dataset_label')}
+                  </p>
+                  <p className="text-[rgb(var(--color-text-secondary))] text-sm leading-relaxed">
+                    {t('project_detail.model_limitations.dataset_text')}{' '}
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[rgb(var(--color-accent))]/10 text-[rgb(var(--color-accent))] border border-[rgb(var(--color-accent))]/20">
+                      {t('project_detail.model_limitations.images_count')}
+                    </span>
+                    {', '}
+                    {t('project_detail.model_limitations.dataset_suffix')}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-sm font-semibold text-[rgb(var(--color-accent))] mb-1">
+                    {t('project_detail.model_limitations.potential_label')}
+                  </p>
+                  <p className="text-[rgb(var(--color-text-secondary))] text-sm leading-relaxed">
+                    {t('project_detail.model_limitations.potential_text')}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
