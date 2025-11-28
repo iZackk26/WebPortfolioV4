@@ -5,8 +5,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   build: {
-    // Enable CSS code splitting
-    cssCodeSplit: true,
+    // Disable CSS code splitting to have one CSS file that can be cached better
+    cssCodeSplit: false,
     // Optimize chunk splitting
     rollupOptions: {
       output: {
