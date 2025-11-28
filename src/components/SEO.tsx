@@ -12,9 +12,9 @@ interface SEOProps {
 }
 
 export const SEO = ({
-  title = 'Isaac Ramírez | Computer Engineering Student & Software Developer',
-  description = 'Isaac Ramírez - Computer Engineering student specializing in automation, digital transformation, and innovative software solutions. Expert in Full-Stack Development, AI/ML, and Cloud Computing. Advanced English (B2/C1).',
-  keywords = 'Isaac Ramírez, software developer, computer engineering, full-stack developer, react, typescript, ai ml, cloud computing, automation, digital transformation, portfolio',
+  title = 'Isaac Ramírez Rojas | Computer Engineering Student & Software Developer',
+  description = 'Isaac Ramírez Rojas (izackk) - Computer Engineering student specializing in automation, digital transformation, and innovative software solutions. Expert in Full-Stack Development, AI/ML, and Cloud Computing. Advanced English (B2/C1).',
+  keywords = 'Isaac Ramírez Rojas, Isaac Ramírez, izackk, izackk.com, software developer, computer engineering, full-stack developer, react, typescript, ai ml, cloud computing, automation, digital transformation, portfolio, Costa Rica developer',
   ogImage = '/og-image.jpg',
   type = 'website',
   structuredData
@@ -30,18 +30,20 @@ export const SEO = ({
     const metaTags = {
       description,
       keywords,
-      author: 'Isaac Ramírez',
+      author: 'Isaac Ramírez Rojas',
       'og:title': title,
       'og:description': description,
       'og:image': `${window.location.origin}${ogImage}`,
       'og:url': canonicalUrl,
       'og:type': type,
-      'og:site_name': 'Portfolio',
+      'og:site_name': 'Isaac Ramírez Rojas - izackk',
       'og:locale': i18n.language === 'es' ? 'es_ES' : 'en_US',
       'twitter:card': 'summary_large_image',
       'twitter:title': title,
       'twitter:description': description,
       'twitter:image': `${window.location.origin}${ogImage}`,
+      'twitter:creator': '@izackk_r',
+      'twitter:site': '@izackk_r',
       'robots': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
       'googlebot': 'index, follow',
       'language': i18n.language,
@@ -78,7 +80,11 @@ export const SEO = ({
     const defaultStructuredData = {
       '@context': 'https://schema.org',
       '@type': 'Person',
-      name: 'Isaac Ramírez',
+      name: 'Isaac Ramírez Rojas',
+      alternateName: ['Isaac Ramírez', 'izackk', 'Isaac Ramirez Rojas', 'Isaac Ramirez'],
+      givenName: 'Isaac',
+      familyName: 'Ramírez Rojas',
+      additionalName: 'izackk',
       jobTitle: 'Computer Engineering Student & Software Developer',
       url: window.location.origin,
       knowsLanguage: [
@@ -97,7 +103,8 @@ export const SEO = ({
       sameAs: [
         'https://www.linkedin.com/in/izack/',
         'https://github.com/iZackk26',
-        'https://www.instagram.com/izackk_r/'
+        'https://www.instagram.com/izackk_r/',
+        'https://izackk.com'
       ],
       knowsAbout: [
         'Software Development',

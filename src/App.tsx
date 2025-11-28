@@ -4,6 +4,8 @@ import { Footer } from './components/Footer';
 import { LanguageTransition } from './components/LanguageTransition';
 import { Home } from './pages/Home';
 import { useEffect, lazy, Suspense } from 'react';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 // Lazy load pages that aren't immediately needed
 const About = lazy(() => import('./pages/About').then(m => ({ default: m.About })));
@@ -54,6 +56,8 @@ function App() {
         </LanguageTransition>
         <Footer />
       </div>
+      <Analytics />
+      <SpeedInsights />
     </Router>
   );
 }

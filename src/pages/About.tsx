@@ -471,7 +471,7 @@ export const About = () => {
                                   }}
                                   className="w-1.5 h-1.5 rounded-full bg-[rgb(var(--color-accent))]"
                                 />
-                                <span className="text-gray-700 dark:text-[rgb(var(--color-text-secondary))] text-xs font-medium">
+                                <span className="text-[#000000] dark:text-gray-100 text-xs font-medium">
                                   {skill}
                                 </span>
                               </motion.div>
