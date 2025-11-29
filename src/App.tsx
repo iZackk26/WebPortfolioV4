@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { LanguageTransition } from './components/LanguageTransition';
+import { Chatbot } from './components/Chatbot';
 import { Home } from './pages/Home';
 import { useEffect, lazy, Suspense } from 'react';
 import { Analytics } from '@vercel/analytics/react';
@@ -55,6 +56,7 @@ function App() {
           </Suspense>
         </LanguageTransition>
         <Footer />
+        <Chatbot />
       </div>
       <Analytics />
       <SpeedInsights />
