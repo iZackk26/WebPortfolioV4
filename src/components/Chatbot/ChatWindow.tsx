@@ -45,17 +45,22 @@ export function ChatWindow({ isOpen, messages, isLoading, onClose, onSendMessage
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
             className="fixed z-50
-                       bottom-4 right-4 left-4 md:bottom-24 md:right-6 md:left-auto
-                       w-auto md:w-[380px] h-[calc(100vh-2rem)] md:h-[500px]
-                       bg-[#24283b] rounded-2xl shadow-2xl
+                       bottom-0 right-0 left-0 md:bottom-24 md:right-6 md:left-auto
+                       w-full md:w-[380px] max-h-[100dvh] md:h-[500px]
+                       bg-[rgb(var(--color-card))] rounded-t-2xl md:rounded-2xl shadow-2xl
                        flex flex-col overflow-hidden
-                       border border-[#414868]"
+                       border-t border-[rgb(var(--color-border))] md:border"
+            style={{
+              height: 'auto',
+              maxHeight: '85vh',
+              paddingBottom: 'max(env(safe-area-inset-bottom, 0px), 0px)'
+            }}
           >
             {/* Header */}
-            <div className="bg-gradient-to-br from-[#7aa2f7] to-[#bb9af7] p-4 flex items-center justify-between">
+            <div className="bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))] p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#1a1b26] flex items-center justify-center">
-                  <Bot className="w-6 h-6 text-[#7aa2f7]" />
+                <div className="w-10 h-10 rounded-full bg-[rgb(var(--color-bg-primary))] flex items-center justify-center border border-[rgb(var(--color-border))]">
+                  <Bot className="w-6 h-6 text-[rgb(var(--color-accent))]" />
                 </div>
                 <div>
                   <h3 className="text-white font-semibold">Max</h3>
@@ -76,7 +81,11 @@ export function ChatWindow({ isOpen, messages, isLoading, onClose, onSendMessage
             {/* Messages Area */}
             <div
               ref={messagesContainerRef}
-              className="flex-1 overflow-y-auto p-4 bg-[#1f2335] scrollbar-thin scrollbar-thumb-[#414868] scrollbar-track-transparent"
+              className="flex-1 overflow-y-auto p-4 bg-[rgb(var(--color-bg-secondary))] scrollbar-thin scrollbar-thumb-[rgb(var(--color-border))] scrollbar-track-transparent min-h-0"
+              style={{
+                maxHeight: 'calc(85vh - 140px)',
+                overscrollBehavior: 'contain'
+              }}
             >
               {messages.map((message, index) => (
                 <ChatMessage key={`${message.timestamp}-${index}`} message={message} index={index} />
@@ -89,11 +98,11 @@ export function ChatWindow({ isOpen, messages, isLoading, onClose, onSendMessage
                   animate={{ opacity: 1 }}
                   className="flex gap-3 mb-4"
                 >
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#1a1b26] border border-[#414868] flex items-center justify-center">
-                    <Bot className="w-5 h-5 text-[#7aa2f7]" />
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[rgb(var(--color-card))] border border-[rgb(var(--color-border))] flex items-center justify-center">
+                    <Bot className="w-5 h-5 text-[rgb(var(--color-accent))]" />
                   </div>
-                  <div className="bg-[#1a1b26] border border-[#414868] rounded-2xl px-4 py-3">
-                    <div className="flex items-center gap-2 text-[#7aa2f7]">
+                  <div className="bg-[rgb(var(--color-card))] border border-[rgb(var(--color-border))] rounded-2xl px-4 py-3">
+                    <div className="flex items-center gap-2 text-[rgb(var(--color-accent))]">
                       <Loader2 className="w-4 h-4 animate-spin" />
                       <span className="text-sm">Escribiendo...</span>
                     </div>

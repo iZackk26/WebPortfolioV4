@@ -40,22 +40,22 @@ export function ChatMessage({ message, index }: ChatMessageProps) {
       <div
         className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
           isUser
-            ? 'bg-gradient-to-br from-[#7aa2f7] to-[#bb9af7]'
-            : 'bg-[#1a1b26] border border-[#414868]'
+            ? 'bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))]'
+            : 'bg-[rgb(var(--color-card))] border border-[rgb(var(--color-border))]'
         }`}
       >
         {isUser ? (
           <User className="w-5 h-5 text-white" />
         ) : (
-          <Bot className="w-5 h-5 text-[#7aa2f7]" />
+          <Bot className="w-5 h-5 text-[rgb(var(--color-accent))]" />
         )}
       </div>
 
       <div
         className={`flex-1 max-w-[75%] rounded-2xl px-4 py-3 ${
           isUser
-            ? 'bg-gradient-to-br from-[#7aa2f7] to-[#bb9af7] text-white'
-            : 'bg-[#1a1b26] border border-[#414868] text-[#c0caf5]'
+            ? 'bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))] text-white'
+            : 'bg-[rgb(var(--color-card))] border border-[rgb(var(--color-border))] text-[rgb(var(--color-text-primary))]'
         }`}
       >
         <div

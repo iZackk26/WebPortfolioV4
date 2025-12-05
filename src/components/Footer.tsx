@@ -23,7 +23,92 @@ export const Footer = () => {
   return (
     <footer className="relative bg-[rgb(var(--color-bg-secondary))] border-t border-[rgb(var(--color-border))] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+        {/* Mobile Layout */}
+        <div className="lg:hidden space-y-8">
+          {/* Name and description - centered */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center"
+          >
+            <h3 className="text-2xl font-bold mb-3">Isaac Ramírez</h3>
+            <p className="text-[rgb(var(--color-text-secondary))] text-sm leading-relaxed mx-auto max-w-xs">
+              {t('home.role')}
+            </p>
+          </motion.div>
+
+          {/* Social links - prominent and centered */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-center"
+          >
+            <h4 className="text-sm font-semibold mb-4 text-[rgb(var(--color-text-secondary))] uppercase tracking-wider">
+              Conectemos
+            </h4>
+            <div className="flex gap-3 justify-center">
+              {socialLinks.map((social) => (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-12 h-12 rounded-full border border-[rgb(var(--color-border))] flex items-center justify-center text-[rgb(var(--color-text-secondary))] hover:border-[rgb(var(--color-accent))] hover:text-[rgb(var(--color-accent))] transition-all duration-200"
+                  aria-label={social.label}
+                >
+                  <social.icon size={20} />
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Navigation - 2 columns for compact layout */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-center"
+          >
+            <h4 className="text-sm font-semibold mb-4 text-[rgb(var(--color-text-secondary))] uppercase tracking-wider">
+              Navegación
+            </h4>
+            <nav className="grid grid-cols-2 gap-3 max-w-xs mx-auto">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-sm hover:text-[rgb(var(--color-accent))] transition-colors duration-200"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+          </motion.div>
+
+          {/* Copyright - centered */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-center pt-4 border-t border-[rgb(var(--color-border))]"
+          >
+            <p className="text-xs text-[rgb(var(--color-text-secondary))] flex items-center gap-2 justify-center">
+              <span className="inline-block w-2 h-2 rounded-full bg-[rgb(var(--color-accent))] animate-pulse"></span>
+              © {currentYear}
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Desktop Layout - unchanged */}
+        <div className="hidden lg:grid lg:grid-cols-12 gap-8">
           <div className="lg:col-span-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -93,7 +178,7 @@ export const Footer = () => {
                 </div>
               </div>
 
-              <div className="mt-8 lg:mt-0">
+              <div className="mt-8">
                 <p className="text-xs text-[rgb(var(--color-text-secondary))] flex items-center gap-2">
                   <span className="inline-block w-2 h-2 rounded-full bg-[rgb(var(--color-accent))] animate-pulse"></span>
                   © {currentYear}

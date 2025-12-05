@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import Marquee from 'react-fast-marquee';
 
-const TRON_TRAIL_INTERVAL = 10000;
+const TRON_TRAIL_INTERVAL = 4000;
 
 export const About = () => {
   const { t, i18n } = useTranslation();
@@ -153,15 +153,16 @@ export const About = () => {
         keywords="Isaac Ramírez, about me, computer engineering student, software developer, automation engineer, ai ml developer, cloud computing, professional profile, advanced english"
       />
       <div className="min-h-screen pt-16" ref={containerRef}>
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <section className="py-20" style={{ overflow: 'visible' }}>
+          <div className="max-w-7xl mx-auto px-6 lg:px-8" style={{ overflow: 'visible' }}>
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
               className="mb-16"
+              style={{ overflow: 'visible' }}
             >
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-4" style={{ overflow: 'visible' }}>
                 <motion.h1
                   variants={fadeInUp}
                   custom={0}
@@ -177,42 +178,106 @@ export const About = () => {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleDownloadCV}
-                  className="relative inline-flex items-center space-x-2 px-6 py-3 bg-[rgb(var(--color-accent))] text-white rounded-xl font-semibold hover:bg-[rgb(var(--color-accent-hover))] transition-all duration-200 shadow-lg shadow-[rgb(var(--color-accent))]/20 overflow-hidden"
+                  className="relative inline-flex items-center space-x-2 px-6 py-3 bg-[rgb(var(--color-accent))] text-white rounded-xl font-semibold hover:bg-[rgb(var(--color-accent-hover))] transition-all duration-200 shadow-lg shadow-[rgb(var(--color-accent))]/20"
+                  style={{ overflow: 'visible' }}
                 >
                   <Download size={20} />
                   <span>{t('about.downloadCV')}</span>
 
                   {showTronTrail && (
                     <svg
-                      className="absolute inset-0 w-full h-full pointer-events-none"
-                      style={{ overflow: 'visible' }}
+                      className="absolute pointer-events-none"
+                      style={{
+                        left: '-15px',
+                        top: '-15px',
+                        width: 'calc(100% + 30px)',
+                        height: 'calc(100% + 30px)',
+                        overflow: 'visible'
+                      }}
                     >
                       <defs>
                         <linearGradient id="trailGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                           <stop offset="0%" stopColor="rgba(255, 255, 255, 0)" />
-                          <stop offset="50%" stopColor="rgba(255, 255, 255, 0.6)" />
+                          <stop offset="50%" stopColor="rgba(255, 255, 255, 0.9)" />
                           <stop offset="100%" stopColor="rgba(255, 255, 255, 1)" />
                         </linearGradient>
-                        <filter id="glow">
-                          <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-                          <feMerge>
-                            <feMergeNode in="coloredBlur" />
-                            <feMergeNode in="SourceGraphic" />
-                          </feMerge>
-                        </filter>
                       </defs>
+                      {/* Outer glow layer */}
                       <motion.rect
-                        x="0"
-                        y="0"
-                        width="100%"
-                        height="100%"
+                        x="15"
+                        y="15"
+                        width="calc(100% - 30px)"
+                        height="calc(100% - 30px)"
+                        rx="12"
+                        ry="12"
+                        fill="none"
+                        stroke="url(#trailGradient)"
+                        strokeWidth="8"
+                        strokeDasharray="80 1000"
+                        opacity="0.15"
+                        initial={{ strokeDashoffset: 0 }}
+                        animate={{ strokeDashoffset: -1080 }}
+                        transition={{
+                          duration: 3.5,
+                          ease: 'linear'
+                        }}
+                        style={{ filter: 'blur(12px)' }}
+                      />
+                      {/* Middle glow layer */}
+                      <motion.rect
+                        x="15"
+                        y="15"
+                        width="calc(100% - 30px)"
+                        height="calc(100% - 30px)"
+                        rx="12"
+                        ry="12"
+                        fill="none"
+                        stroke="url(#trailGradient)"
+                        strokeWidth="5"
+                        strokeDasharray="80 1000"
+                        opacity="0.3"
+                        initial={{ strokeDashoffset: 0 }}
+                        animate={{ strokeDashoffset: -1080 }}
+                        transition={{
+                          duration: 3.5,
+                          ease: 'linear'
+                        }}
+                        style={{ filter: 'blur(6px)' }}
+                      />
+                      {/* Inner bright layer */}
+                      <motion.rect
+                        x="15"
+                        y="15"
+                        width="calc(100% - 30px)"
+                        height="calc(100% - 30px)"
                         rx="12"
                         ry="12"
                         fill="none"
                         stroke="url(#trailGradient)"
                         strokeWidth="3"
-                        filter="url(#glow)"
                         strokeDasharray="80 1000"
+                        opacity="0.6"
+                        initial={{ strokeDashoffset: 0 }}
+                        animate={{ strokeDashoffset: -1080 }}
+                        transition={{
+                          duration: 3.5,
+                          ease: 'linear'
+                        }}
+                        style={{ filter: 'blur(3px)' }}
+                      />
+                      {/* Core sharp layer */}
+                      <motion.rect
+                        x="15"
+                        y="15"
+                        width="calc(100% - 30px)"
+                        height="calc(100% - 30px)"
+                        rx="12"
+                        ry="12"
+                        fill="none"
+                        stroke="url(#trailGradient)"
+                        strokeWidth="2"
+                        strokeDasharray="80 1000"
+                        opacity="0.95"
                         initial={{ strokeDashoffset: 0 }}
                         animate={{ strokeDashoffset: -1080 }}
                         transition={{

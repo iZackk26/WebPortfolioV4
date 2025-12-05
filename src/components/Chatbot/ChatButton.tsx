@@ -16,18 +16,18 @@ export function ChatButton({ isOpen, onClick }: ChatButtonProps) {
       whileTap={{ scale: 0.9 }}
       onClick={onClick}
       className="fixed bottom-6 right-6 z-50 w-14 h-14 md:w-16 md:h-16
-                 bg-gradient-to-br from-[#7aa2f7] to-[#bb9af7]
+                 bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))]
                  rounded-full shadow-2xl
                  flex items-center justify-center
                  cursor-pointer
                  transition-all duration-300
-                 hover:shadow-[0_0_30px_rgba(122,162,247,0.5)]
+                 hover:shadow-[0_0_30px_rgba(98,125,154,0.5)]
                  group"
       aria-label={isOpen ? 'Close chat' : 'Open chat'}
     >
       {/* Pulse effect */}
       <motion.div
-        className="absolute inset-0 rounded-full bg-gradient-to-br from-[#7aa2f7] to-[#bb9af7]"
+        className="absolute inset-0 rounded-full bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))]"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.5, 0, 0.5],

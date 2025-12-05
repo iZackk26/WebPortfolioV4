@@ -36,8 +36,7 @@ export const Home = () => {
   ];
 
   const getScrollOpacity = (threshold: number) => {
-    const opacity = Math.min(scrollY / threshold, 1);
-    return opacity;
+    return 1; // Always 100% opacity
   };
 
   const getScrollTransform = (threshold: number, distance: number) => {
@@ -157,21 +156,21 @@ export const Home = () => {
         <section
           className="py-20 border-t border-[rgb(var(--color-border))]"
           style={{
-            opacity: getScrollOpacity(300),
-            transform: `translateY(${30 - getScrollTransform(300, 30)}px)`
+            opacity: getScrollOpacity(150),
+            transform: `translateY(${30 - getScrollTransform(150, 30)}px)`
           }}
         >
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid md:grid-cols-3 gap-12">
-              <div>
+              <div className="text-center md:text-left">
                 <div className="text-4xl font-bold text-[rgb(var(--color-accent))] mb-2">3+</div>
                 <p className="text-[rgb(var(--color-text-secondary))]">Years Coding</p>
               </div>
-              <div>
+              <div className="text-center md:text-left">
                 <div className="text-4xl font-bold text-[rgb(var(--color-accent))] mb-2">12+</div>
                 <p className="text-[rgb(var(--color-text-secondary))]">Projects Completed</p>
               </div>
-              <div>
+              <div className="text-center md:text-left">
                 <div className="text-4xl font-bold text-[rgb(var(--color-accent))] mb-2">6</div>
                 <p className="text-[rgb(var(--color-text-secondary))]">Tech Stacks</p>
               </div>
@@ -182,8 +181,8 @@ export const Home = () => {
         <section
           className="py-20 bg-[rgb(var(--color-bg-secondary))] border-t border-[rgb(var(--color-border))]"
           style={{
-            opacity: getScrollOpacity(500),
-            transform: `translateY(${30 - getScrollTransform(500, 30)}px)`
+            opacity: getScrollOpacity(250),
+            transform: `translateY(${30 - getScrollTransform(250, 30)}px)`
           }}
         >
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -233,8 +232,8 @@ export const Home = () => {
         <section
           className="py-20 border-t border-[rgb(var(--color-border))]"
           style={{
-            opacity: getScrollOpacity(800),
-            transform: `translateY(${30 - getScrollTransform(800, 30)}px)`
+            opacity: getScrollOpacity(400),
+            transform: `translateY(${30 - getScrollTransform(400, 30)}px)`
           }}
         >
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">

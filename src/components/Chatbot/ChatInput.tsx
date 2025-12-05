@@ -25,7 +25,7 @@ export function ChatInput({ onSend, disabled }: ChatInputProps) {
   };
 
   return (
-    <div className="border-t border-[#414868] p-4 bg-[#1a1b26]">
+    <div className="border-t border-[rgb(var(--color-border))] p-3 md:p-4 bg-[rgb(var(--color-card))] shrink-0">
       <div className="flex gap-2 items-center">
         <input
           type="text"
@@ -34,10 +34,14 @@ export function ChatInput({ onSend, disabled }: ChatInputProps) {
           onKeyDown={handleKeyDown}
           placeholder="Escribe tu mensaje..."
           disabled={disabled}
-          className="flex-1 bg-[#24283b] text-[#c0caf5] rounded-xl px-4 py-3 text-sm
-                     focus:outline-none focus:ring-2 focus:ring-[#7aa2f7]
+          className="flex-1 bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] rounded-xl px-3 md:px-4 py-2 md:py-3 text-sm
+                     focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-accent))]
                      disabled:opacity-50 disabled:cursor-not-allowed
-                     placeholder:text-[#565f89]"
+                     placeholder:text-[rgb(var(--color-text-secondary))]
+                     touch-manipulation border border-[rgb(var(--color-border))]"
+          autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="off"
         />
 
         <motion.button
@@ -45,10 +49,11 @@ export function ChatInput({ onSend, disabled }: ChatInputProps) {
           whileTap={{ scale: disabled ? 1 : 0.95 }}
           onClick={handleSend}
           disabled={disabled || !input.trim()}
-          className="bg-gradient-to-br from-[#7aa2f7] to-[#bb9af7] text-white
-                     rounded-xl p-3 hover:shadow-lg transition-all
+          className="bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))] text-white
+                     rounded-xl p-2.5 md:p-3 hover:shadow-lg transition-all
                      disabled:opacity-50 disabled:cursor-not-allowed
-                     disabled:hover:shadow-none"
+                     disabled:hover:shadow-none
+                     touch-manipulation shrink-0"
         >
           <Send className="w-5 h-5" />
         </motion.button>
