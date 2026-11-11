@@ -38,7 +38,7 @@
     "agrovoltaic": {
       "title": "AgroVoltaic",
       "description": "Plataforma de datos y agentes de IA para un sistema agrovoltaico en San Carlos: ETL de los sensores a Supabase, un agente de análisis histórico, otro de pronóstico de irradiancia y una consola para depurarlos. Lidero la arquitectura y las herramientas de los agentes.",
-      "alt": "Ilustración de AgroVoltaic: paneles solares entre cultivos, la gráfica del agente de pronóstico y la consola de agentes"
+      "alt": "Tablero de AgroVoltaic con la irradiación mensual de la planta en San Carlos"
     }
   },
   "more": {

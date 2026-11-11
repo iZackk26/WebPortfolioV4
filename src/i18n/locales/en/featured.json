@@ -38,7 +38,7 @@
     "agrovoltaic": {
       "title": "AgroVoltaic",
       "description": "Data and AI agent platform for an agrivoltaic system in San Carlos: sensor ETL into Supabase, a historical analysis agent, an irradiance forecasting agent and a console to debug them. I lead the architecture and the agents' tooling.",
-      "alt": "AgroVoltaic illustration: solar panels between crops, the forecasting agent chart and the agent console"
+      "alt": "AgroVoltaic dashboard showing the San Carlos plant monthly irradiation"
     }
   },
   "more": {
