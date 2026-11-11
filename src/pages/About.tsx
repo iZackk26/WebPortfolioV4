@@ -1,36 +1,30 @@
-import { useRef } from 'react';
-import { useScroll, useTransform } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { SEO } from '../components/SEO';
-import { AboutHeader } from '../components/about/AboutHeader';
-import { AboutIntro } from '../components/about/AboutIntro';
-import { ProfileSidebar } from '../components/about/ProfileSidebar';
-import { InterestsMarquee } from '../components/about/InterestsMarquee';
-import { SkillsTimeline } from '../components/about/SkillsTimeline';
-import { ABOUT_SEO } from '../constants/seo';
-
-const PARALLAX_MAX_OFFSET_PX = -50;
+import { AboutHero } from '../components/about/AboutHero';
+import { AboutStory } from '../components/about/AboutStory';
+import { AboutJourney } from '../components/about/AboutJourney';
+import { AboutSystems } from '../components/about/AboutSystems';
+import { AboutClose } from '../components/about/AboutClose';
+import { ABOUT_KEYWORDS, PERSON_SCHEMA } from '../constants/about';
 
 export const About = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start end', 'end start'] });
-  const parallaxY = useTransform(scrollYProgress, [0, 1], [0, PARALLAX_MAX_OFFSET_PX]);
+  const { t } = useTranslation();
 
   return (
     <>
-      <SEO {...ABOUT_SEO} />
-      <div className="min-h-screen pt-16" ref={containerRef}>
-        <section className="py-20" style={{ overflow: 'visible' }}>
-          <div className="max-w-7xl mx-auto px-6 lg:px-8" style={{ overflow: 'visible' }}>
-            <AboutHeader />
-            <div className="grid lg:grid-cols-3 gap-12 mb-20">
-              <AboutIntro />
-              <ProfileSidebar parallaxY={parallaxY} />
-            </div>
-            <InterestsMarquee />
-          </div>
-        </section>
-        <SkillsTimeline />
-      </div>
+      <SEO
+        title={t('about.seo.title')}
+        description={t('about.seo.description')}
+        keywords={ABOUT_KEYWORDS}
+        type="profile"
+        ogImage="/about/avatar.jpg"
+        structuredData={PERSON_SCHEMA}
+      />
+      <AboutHero />
+      <AboutStory />
+      <AboutJourney />
+      <AboutSystems />
+      <AboutClose />
     </>
   );
 };

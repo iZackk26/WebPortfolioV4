@@ -1,29 +1,63 @@
 {
-  "title": "Sobre Mí",
-  "downloadCV": "Descargar CV",
-  "introduction": "Soy estudiante de Ingeniería en Computación en el TEC de Costa Rica, profundamente apasionado por la automatización de procesos y la transformación digital. Mi camino en la tecnología está impulsado por un deseo constante de aprender y crear soluciones que marquen la diferencia.",
-  "motivation": "Motivación y Objetivos",
-  "motivationText": "Mi objetivo es aprovechar la tecnología para automatizar procesos, optimizar flujos de trabajo e impulsar la transformación digital en todas las industrias. Creo en el poder de la innovación para resolver problemas complejos y mejorar la vida de las personas.",
-  "technicalSkills": "Habilidades Técnicas",
-  "softSkills": "Habilidades Blandas",
-  "skills": {
-    "technical": [
-      "Desarrollo Full-Stack (React, Node.js, TypeScript)",
-      "Desarrollo Móvil (React Native, Nativewind)",
-      "Diseño de Bases de Datos (PostgreSQL, SQL, Bases de Datos Vectoriales)",
-      "Computación en la Nube (AWS, Google Cloud, Azure)",
-      "IA/ML (Reconocimiento Facial, Anti-Spoofing, Optimización de Modelos)",
-      "DevOps y Administración de Sistemas (Linux, Docker, Heroku)",
-      "Desarrollo de APIs (REST, GraphQL)"
+  "kicker": "Sobre mí",
+  "title": "Hola, soy Isaac.",
+  "bio": "Desarrollador full-stack en Costa Rica. Diseño sistemas, automatizo procesos y construyo agentes de IA.",
+  "bioRoles": "Desarrollador en Visione Edge y Owner de The Growth Path.",
+  "downloadCv": "Descargar CV",
+  "contact": "Escríbeme",
+  "info": {
+    "window": "Obtener información",
+    "role": "Rol",
+    "roleValue": "Desarrollador en Visione Edge",
+    "project": "Proyecto",
+    "projectValue": "Owner de The Growth Path",
+    "studies": "Estudios",
+    "studiesValue": "Ing. en Computación, TEC (2023–2026)",
+    "location": "Ubicación",
+    "locationValue": "Costa Rica",
+    "languages": "Idiomas",
+    "languagesValue": "Español · Inglés B2/C1",
+    "focus": "Enfoque",
+    "focusValues": ["diseño de sistemas", "automatización", "agentes de IA"]
+  },
+  "story": {
+    "kicker": "Mi historia",
+    "title": "Empecé por resolver problemas",
+    "paragraphs": [
+      "Empecé a programar a los 17, en Python y sin IA. Desde el inicio lo que me llamó la atención fue encontrar problemas y resolver necesidades.",
+      "Poco a poco fui mejorando. Hoy lidero proyectos en Visione Edge: llevo la parte técnica como desarrollador y también negocio con los clientes.",
+      "Me gusta diseñar sistemas con tecnología, automatizar procesos y analizar hacia dónde se mueve el mercado, en la industria y en la tecnología."
     ],
-    "soft": [
-      "Resolución de Problemas y Pensamiento Crítico",
-      "Colaboración en Equipo y Liderazgo",
-      "Adaptabilidad y Aprendizaje Rápido",
-      "Comunicación Efectiva",
-      "Gestión de Proyectos",
-      "Atención al Detalle",
-      "Inglés Avanzado (B2/C1)"
-    ]
+    "quote": "Muchas veces no se trata del producto, sino de la necesidad que se quiere resolver. Entenderla a fondo es lo que más valor da."
+  },
+  "journey": {
+    "kicker": "Trayectoria",
+    "title": "Mi recorrido",
+    "lede": "Lo que he hecho y en lo que trabajo hoy.",
+    "finished": "terminado",
+    "ownProject": "proyecto propio",
+    "items": {
+      "tec": { "title": "Ingeniería en Computación, TEC", "period": "2023 – 2026", "role": "Estudiante", "text": "Empecé la carrera en 2023 y termino en 2026." },
+      "vadi": { "title": "Vadi", "period": "feb 2025 – dic 2025", "role": "Desarrollador", "text": "App móvil de avalúos en campo con formularios que funcionan sin conexión. Después Vadi se volvió cliente de Visione Edge." },
+      "visione": { "title": "Visione Edge", "period": "ene 2026 – hoy", "role": "Desarrollador", "text": "Lidero proyectos: llevo la parte técnica, negocio con los clientes y trabajo en Visione Flow, el constructor visual de agentes de IA." },
+      "growthPath": { "title": "The Growth Path", "period": "jun 2026 – hoy", "role": "Owner", "text": "Una idea que se está validando con la metodología de un coach: analítica completa de entrenamientos, dieta y peso." }
+    },
+    "aiImport": "IA para importar históricos"
+  },
+  "systems": {
+    "kicker": "Sistemas",
+    "title": "Donde trabajo",
+    "lede": "Linux es mi casa, pero me muevo bien en cualquier escritorio.",
+    "label": "Sistemas operativos que uso"
+  },
+  "close": {
+    "title": "¿Hablamos?",
+    "text": "Si quieres hablar de un proyecto, una idea o cualquier cosa, mándame un mensaje.",
+    "send": "Mandar mensaje",
+    "projects": "Ver proyectos"
+  },
+  "seo": {
+    "title": "Sobre mí · Isaac Ramírez Rojas | Desarrollador full-stack en Costa Rica",
+    "description": "Isaac Ramírez Rojas (izackk), desarrollador full-stack en Costa Rica. Lidera proyectos de agentes de IA y automatización en Visione Edge y es Owner de The Growth Path."
   }
 }

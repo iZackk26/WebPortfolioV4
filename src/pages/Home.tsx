@@ -20,7 +20,7 @@ export const Home = () => (
     <SecondaryDock />
     <StackScatter groups={['activity', 'method']}>
       <ActivitySection />
-      <StackRow />
+      <StackRow groups={['activity', 'method', 'contact']} />
       <MethodSection />
     </StackScatter>
     <StackScatter groups={['contact']}>

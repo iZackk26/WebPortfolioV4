@@ -9,7 +9,8 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
 // Lazy load pages that aren't immediately needed
-// About, Projects y Certificates se están rediseñando para la V5: mientras tanto muestran la página en construcción
+// Projects y Certificates se están rediseñando para la V5: mientras tanto muestran la página en construcción
+const About = lazy(() => import('./pages/About').then(m => ({ default: m.About })));
 const UnderConstruction = lazy(() => import('./pages/UnderConstruction').then(m => ({ default: m.UnderConstruction })));
 const AppraisalDetail = lazy(() => import('./pages/projects/AppraisalDetail').then(m => ({ default: m.AppraisalDetail })));
 const FaceAntiSpoofingDetail = lazy(() => import('./pages/projects/FaceAntiSpoofingDetail').then(m => ({ default: m.FaceAntiSpoofingDetail })));
@@ -42,7 +43,7 @@ function App() {
           }>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/about" element={<UnderConstruction section="about" />} />
+              <Route path="/about" element={<About />} />
               <Route path="/projects" element={<UnderConstruction section="projects" />} />
               <Route path="/projects/appraisal" element={<AppraisalDetail />} />
               <Route path="/projects/faceAntiSpoofing" element={<FaceAntiSpoofingDetail />} />

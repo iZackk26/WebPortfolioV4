@@ -13,6 +13,7 @@
 @import './styles/method-flow.css';
 @import './styles/wip.css';
 @import './styles/stack.css';
+@import './styles/about.css';
 
 @tailwind base;
 @tailwind components;

@@ -1,35 +1,31 @@
-import { PointerEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CONTACT_PHOTO } from '../../../constants/contact';
-import { useDraggable } from '../../../hooks/useDraggable';
+import { MouseDraggable } from '../../ui/MouseDraggable';
 import { Window } from '../../ui/Window';
 
-/** Selfie en una ventana inclinada junto al formulario; solo el mouse la arrastra, para no bloquear el scroll táctil. */
-export const ContactPhoto = () => {
-  const { t } = useTranslation();
-  const { offset, dragging, handlers } = useDraggable();
+interface ContactPhotoProps {
+  /** Ancho de la foto según dónde se use */
+  className?: string;
+}
 
-  const onPointerDown = (e: PointerEvent<HTMLElement>) => {
-    if (e.pointerType === 'mouse') handlers.onPointerDown(e);
-  };
+/** Selfie en una ventana inclinada; se usa en el contacto de la Home y en el About. */
+export const ContactPhoto = ({ className = 'w-[min(190px,55%)] lg:w-[300px]' }: ContactPhotoProps) => {
+  const { t } = useTranslation();
 
   return (
-    <figure
-      className={`m-0 w-[min(190px,55%)] select-none lg:w-[300px] lg:cursor-grab ${dragging ? 'relative z-10 lg:cursor-grabbing' : ''}`}
-      style={{ transform: `translate(${offset.x}px, ${offset.y}px) rotate(${dragging ? 0 : CONTACT_PHOTO.rotateDeg}deg)` }}
-      {...handlers}
-      onPointerDown={onPointerDown}
-    >
-      <Window title={CONTACT_PHOTO.fileName}>
-        <img
-          src={CONTACT_PHOTO.src}
-          alt={t('contact.photoAlt')}
-          draggable={false}
-          loading="lazy"
-          decoding="async"
-          className="pointer-events-none block aspect-square w-full object-cover object-[center_60%] lg:aspect-[3/4] lg:object-center"
-        />
-      </Window>
-    </figure>
+    <MouseDraggable rotate={CONTACT_PHOTO.rotateDeg} className={className}>
+      <figure className="m-0">
+        <Window title={CONTACT_PHOTO.fileName}>
+          <img
+            src={CONTACT_PHOTO.src}
+            alt={t('contact.photoAlt')}
+            draggable={false}
+            loading="lazy"
+            decoding="async"
+            className="pointer-events-none block aspect-square w-full object-cover object-[center_60%] md:aspect-[3/4] md:object-center"
+          />
+        </Window>
+      </figure>
+    </MouseDraggable>
   );
 };
