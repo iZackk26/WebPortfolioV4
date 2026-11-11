@@ -1,9 +1,9 @@
 /** Proyectos principales del carrusel de la Home, en orden de aparición. */
-export type FeaturedKind = 'main' | 'private' | 'university';
-export type FeaturedRole = 'developer' | 'owner';
+export type FeaturedKind = 'main' | 'private' | 'research';
+export type FeaturedRole = 'developer' | 'owner' | 'techLead';
 
 export type FeaturedMedia =
-  | { type: 'screen'; src: string }
+  | { type: 'screen'; src: string; /** contain: muestra la imagen completa (gráficas) */ fit?: 'cover' | 'contain' }
   | { type: 'phones'; front: string; back: string };
 
 export interface FeaturedProject {
@@ -46,16 +46,17 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     stack: ['Angular 20', 'Capacitor 8', 'Formly', 'SQLite', 'TypeScript'],
   },
   {
-    id: 'puraCompra',
-    fileName: 'pura-compra.app',
-    kind: 'university',
-    media: { type: 'screen', src: '/featured/pura-compra.jpg' },
-    stack: ['SQL', 'Node.js', 'Sequelize', 'React', 'Tailwind CSS'],
-    caseRoute: '/projects/puraCompra',
+    id: 'agrovoltaic',
+    fileName: 'agrovoltaic.py',
+    kind: 'research',
+    role: 'techLead',
+    media: { type: 'screen', src: '/featured/agrovoltaic.jpg', fit: 'contain' },
+    stack: ['Python', 'pandas', 'pvlib', 'FastAPI', 'Supabase', 'Next.js'],
   },
+
 ];
 
 /** Ids de PROJECTS que ya aparecen en el carrusel y por eso no van en el dock */
-export const FEATURED_PROJECT_IDS = new Set(['puraCompra']);
+export const FEATURED_PROJECT_IDS = new Set<string>();
 
 export const CAROUSEL_AUTOPLAY_MS = 6000;

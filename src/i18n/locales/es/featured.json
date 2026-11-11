@@ -11,11 +11,12 @@
   "kinds": {
     "main": "Principal",
     "private": "Privado",
-    "university": "Universitario"
+    "research": "Investigación"
   },
   "roles": {
     "developer": "Desarrollador",
-    "owner": "Owner"
+    "owner": "Owner",
+    "techLead": "Líder técnico"
   },
   "items": {
     "visioneFlow": {
@@ -34,10 +35,10 @@
       "description": "App móvil híbrida para que los tasadores hagan avalúos en campo, con formularios dinámicos que funcionan sin conexión y se sincronizan solos al recuperar señal.",
       "alt": "Dos pantallas de la app de avalúos en iPhone"
     },
-    "puraCompra": {
-      "title": "Pura Compra",
-      "description": "Plataforma que conecta usuarios con múltiples tiendas en línea, con comparación de precios y un checkout unificado.",
-      "alt": "Catálogo de productos de Pura Compra"
+    "agrovoltaic": {
+      "title": "AgroVoltaic",
+      "description": "Plataforma de datos y agentes de IA para un sistema agrovoltaico en San Carlos: ETL de los sensores a Supabase, un agente de análisis histórico, otro de pronóstico de irradiancia y una consola para depurarlos. Lidero la arquitectura y las herramientas de los agentes.",
+      "alt": "Gráfica del error del pronóstico según el horizonte: el agente supera a la línea base"
     }
   },
   "more": {
@@ -49,6 +50,7 @@
     "faceAntiSpoofing": "Anti-spoofing",
     "iFixIt": "iFixIt",
     "stateDetection": "Estados",
-    "vectorDB": "Vector DB"
+    "vectorDB": "Vector DB",
+    "puraCompra": "Pura Compra"
   }
 }

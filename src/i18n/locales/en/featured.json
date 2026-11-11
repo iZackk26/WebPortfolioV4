@@ -11,11 +11,12 @@
   "kinds": {
     "main": "Featured",
     "private": "Private",
-    "university": "University"
+    "research": "Research"
   },
   "roles": {
     "developer": "Developer",
-    "owner": "Owner"
+    "owner": "Owner",
+    "techLead": "Tech lead"
   },
   "items": {
     "visioneFlow": {
@@ -34,10 +35,10 @@
       "description": "Hybrid mobile app for appraisers working in the field, with dynamic forms that work offline and sync automatically once the connection is back.",
       "alt": "Two screens of the appraisal app on iPhone"
     },
-    "puraCompra": {
-      "title": "Pura Compra",
-      "description": "A platform that connects users with multiple online stores, with price comparison and a unified checkout.",
-      "alt": "Pura Compra product catalog"
+    "agrovoltaic": {
+      "title": "AgroVoltaic",
+      "description": "Data and AI agent platform for an agrivoltaic system in San Carlos: sensor ETL into Supabase, a historical analysis agent, an irradiance forecasting agent and a console to debug them. I lead the architecture and the agents' tooling.",
+      "alt": "Forecast error by horizon: the agent beats the baseline"
     }
   },
   "more": {
@@ -49,6 +50,7 @@
     "faceAntiSpoofing": "Anti-spoofing",
     "iFixIt": "iFixIt",
     "stateDetection": "States",
-    "vectorDB": "Vector DB"
+    "vectorDB": "Vector DB",
+    "puraCompra": "Pura Compra"
   }
 }

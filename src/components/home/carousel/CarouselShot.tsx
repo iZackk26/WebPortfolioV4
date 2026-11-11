@@ -23,7 +23,7 @@ export const CarouselShot = ({ media, alt, flashNonce }: CarouselShotProps) => {
 
   return (
     <div className="carousel-shot">
-      <img src={media.src} alt={alt} loading="lazy" decoding="async" />
+      <img src={media.src} alt={alt} loading="lazy" decoding="async" className={media.fit === 'contain' ? '!object-contain !object-center p-3' : undefined} />
       {sweep}
     </div>
   );
