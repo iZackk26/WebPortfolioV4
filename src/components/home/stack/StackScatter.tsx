@@ -1,9 +1,11 @@
 import { CSSProperties, ReactNode, useCallback, useState } from 'react';
-import { STACK_ICONS, STACK_WINDOW_WIDTH_PX, StackIcon } from '../../../constants/stackIcons';
+import { STACK_ICONS, STACK_WINDOW_WIDTH_PX, StackGroup, StackIcon } from '../../../constants/stackIcons';
 import { DeskItem } from '../intro/DeskItem';
 import { StackIconTile } from './StackIconTile';
 
 interface StackScatterProps {
+  /** Qué logos flotan en esta zona */
+  groups: StackGroup[];
   children: ReactNode;
 }
 
@@ -15,17 +17,17 @@ const positionFor = (icon: StackIcon): CSSProperties => {
 };
 
 /**
- * Envuelve "Un commit a la vez" y "IA sí" con los logos del stack.
+ * Envuelve uno o más bloques de la Home con los logos de sus grupos.
  * En xl+ flotan a los costados y se arrastran; en pantallas más chicas los muestra StackRow.
  */
-export const StackScatter = ({ children }: StackScatterProps) => {
+export const StackScatter = ({ groups, children }: StackScatterProps) => {
   const [focused, setFocused] = useState(false);
   const onDragChange = useCallback((dragging: boolean) => setFocused(dragging), []);
 
   return (
     <div className={`desk-scope relative ${focused ? 'is-focus' : ''}`}>
       <div className="pointer-events-none absolute inset-0 z-10 hidden xl:block" aria-hidden="true">
-        {STACK_ICONS.map((icon) => (
+        {STACK_ICONS.filter((icon) => groups.includes(icon.group)).map((icon) => (
           <DeskItem key={icon.id} className="pointer-events-auto" style={positionFor(icon)} rotate={icon.rotate} onDragChange={onDragChange}>
             <StackIconTile icon={icon} />
           </DeskItem>

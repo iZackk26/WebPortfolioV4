@@ -18,11 +18,13 @@ export const Home = () => (
     <HomeIntro />
     <ProjectCarousel />
     <SecondaryDock />
-    <StackScatter>
+    <StackScatter groups={['activity', 'method']}>
       <ActivitySection />
       <StackRow />
       <MethodSection />
     </StackScatter>
-    <ContactSection />
+    <StackScatter groups={['contact']}>
+      <ContactSection />
+    </StackScatter>
   </>
 );
