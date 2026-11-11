@@ -1,0 +1,101 @@
+/* Línea de tiempo del método: nodos numerados que avanzan sin rebotes. */
+.method-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.method-step {
+  position: relative;
+  min-width: 0;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.method-node {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font: 500 11.5px var(--font-mono);
+  color: rgb(0 0 0 / 0.4);
+  background: #fff;
+  box-shadow: inset 0 0 0 1.5px rgb(0 0 0 / 0.18);
+  transition: background 0.6s ease, color 0.6s ease, box-shadow 0.6s ease;
+}
+.method-step h3 {
+  margin: 8px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 15.5px;
+  font-weight: 500;
+  color: rgb(0 0 0 / 0.4);
+  transition: color 0.6s ease;
+}
+.method-step p {
+  margin: 0;
+  font-size: 13.5px;
+  color: rgb(0 0 0 / 0.4);
+  transition: color 0.6s ease;
+}
+.method-step .method-badge { opacity: 0.55; transition: opacity 0.6s ease; }
+
+.method-step[data-state='done'] h3,
+.method-step[data-state='active'] h3 { color: rgb(var(--ink)); }
+.method-step[data-state='done'] p,
+.method-step[data-state='active'] p { color: rgb(0 0 0 / 0.6); }
+.method-step[data-state='done'] .method-badge,
+.method-step[data-state='active'] .method-badge { opacity: 1; }
+
+.method-step[data-actor='me'] { --c: var(--me-fg); }
+.method-step[data-actor='ai'] { --c: var(--ai-fg); }
+.method-step[data-state='done'] .method-node { color: var(--c); box-shadow: inset 0 0 0 1.5px var(--c); }
+.method-step[data-state='active'] .method-node { color: #fff; background: var(--c); box-shadow: none; }
+
+/* Tramo hacia el siguiente paso, en el color de quien hace ese paso */
+.method-link {
+  position: absolute;
+  top: 37px;
+  left: 58px;
+  right: -8px;
+  height: 1px;
+  overflow: hidden;
+  background: rgb(0 0 0 / 0.12);
+}
+.method-link i {
+  position: absolute;
+  inset: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: var(--next);
+  transition: transform 1.1s cubic-bezier(0.45, 0, 0.2, 1);
+}
+.method-step[data-next='me'] { --next: var(--me-fg); }
+.method-step[data-next='ai'] { --next: var(--ai-fg); }
+.method-step[data-state='done'] .method-link i { transform: none; }
+
+@media (max-width: 767px) {
+  .method-flow { grid-template-columns: 1fr; }
+  .method-step {
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr);
+    column-gap: 14px;
+    row-gap: 4px;
+    padding: 16px 18px;
+  }
+  .method-node { grid-row: 1 / span 2; }
+  .method-step h3 { margin-top: 4px; }
+  .method-link { top: 50px; bottom: -14px; left: 32px; right: auto; width: 1px; height: auto; }
+  .method-link i { transform: scaleY(0); transform-origin: top; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .method-node, .method-step h3, .method-step p, .method-step .method-badge, .method-link i { transition: none; }
+}

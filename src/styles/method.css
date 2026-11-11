@@ -1,0 +1,113 @@
+/* Bloque de método: ámbar = lo que hago yo, grafito = lo que hace la IA. */
+:root {
+  --me-bg: #fff4d6;
+  --me-bg2: #fdeccb;
+  --me-fg: #8a5a00;
+  --me-ink: #4a3300;
+  --me-edge: rgb(138 90 0 / 0.3);
+  --ai-bg: #ececee;
+  --ai-fg: #2f3440;
+  --ai-ink: #1d2128;
+  --ai-edge: rgb(47 52 64 / 0.35);
+}
+
+.method-title s {
+  color: rgb(0 0 0 / 0.4);
+  text-decoration-thickness: 3px;
+  text-decoration-color: rgb(196 43 28 / 0.75);
+}
+
+.method-badge {
+  align-self: flex-start;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font: 500 10.5px var(--font-mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.method-badge[data-actor='me'] { color: var(--me-fg); background: var(--me-bg); box-shadow: inset 0 0 0 1px var(--me-edge); }
+.method-badge[data-actor='ai'] { color: var(--ai-fg); background: var(--ai-bg); box-shadow: inset 0 0 0 1px var(--ai-edge); }
+
+/* Lo decido yo: etiquetas ámbar con ícono */
+.method-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 14px 0 10px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--me-ink);
+  background: linear-gradient(#fffaf0, var(--me-bg2));
+  box-shadow: inset 0 0 0 1px var(--me-edge), 0 3px 8px rgb(138 90 0 / 0.08);
+}
+.method-chip svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Lo acelero con IA: teclas grafito */
+.method-key {
+  --top: #f6f6f7;
+  --top2: #e4e5e8;
+  --side: #b9bbc2;
+  --edge: #50545e;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 38px;
+  padding: 0 12px 7px;
+  border-radius: 9px;
+  font: 500 12.5px var(--font-mono);
+  color: var(--ai-ink);
+  background: var(--side);
+  box-shadow: inset 0 0 0 1px var(--edge), 0 2px 3px rgb(0 0 0 / 0.1);
+  user-select: none;
+}
+.method-key::before {
+  content: '';
+  position: absolute;
+  inset: 1px 1px 6px;
+  border-radius: 8px;
+  background: linear-gradient(var(--top), var(--top2));
+  box-shadow: inset 0 0 0 1px var(--edge), inset 0 2px 0 rgb(255 255 255 / 0.7);
+  transition: transform 0.12s;
+}
+.method-key span { position: relative; transition: transform 0.12s; }
+.method-key:hover::before,
+.method-key:hover span { transform: translateY(3px); }
+.method-key[data-accent='true'] {
+  --top: #5a5f6b;
+  --top2: #3a3e47;
+  --side: #23262d;
+  --edge: #0e1014;
+  color: #fff;
+}
+@keyframes method-key-in {
+  0% { opacity: 0; transform: translateY(-10px); }
+  45% { opacity: 1; transform: translateY(1px); }
+  100% { transform: none; }
+}
+.method-keys.is-playing .method-key {
+  animation: method-key-in 0.5s cubic-bezier(0.3, 0.7, 0.3, 1) backwards;
+  animation-delay: var(--d);
+}
+.method-model-tag {
+  flex: 0 0 auto;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font: 500 12px var(--font-mono);
+  color: #fff;
+  background: var(--ai-fg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .method-keys.is-playing .method-key { animation: none; }
+  .method-key::before, .method-key span { transition: none; }
+}

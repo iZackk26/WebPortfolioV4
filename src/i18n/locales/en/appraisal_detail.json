@@ -1,0 +1,61 @@
+{
+  "back": "Back to Projects",
+  "category": "PROFESSIONAL PROJECT",
+  "title": "Mobile Appraisal Application",
+  "description": "A hybrid mobile solution enabling field appraisers to complete dynamic forms offline and synchronize data seamlessly when connectivity is restored.",
+  "overview_title": "Project Overview",
+  "overview_p1": "This mobile application was developed for a professional appraisal company to streamline their field operations. The app enables appraisers to work in remote locations without internet connectivity while maintaining full functionality.",
+  "overview_p2": "The solution leverages Angular with Capacitor to deliver a cross-platform mobile experience, implementing a robust offline-first architecture that guarantees data integrity and seamless synchronization.",
+  "overview_p3": "Dynamic forms are generated using Formly, allowing the system to adapt to different types of appraisals without requiring app updates.",
+  "features_title": "Key Features",
+  "features": [
+    "Offline-first architecture for seamless field work",
+    "Dynamic form generation using Formly",
+    "Automatic data synchronization when online",
+    "Photo capture and attachment management",
+    "GPS location tracking",
+    "Multi-language support"
+  ],
+  "challenges_title": "Technical Challenges",
+  "challenges": [
+    {
+      "title": "Offline Data Management",
+      "description": "Implemented robust local storage with SQLite to handle complex form data structures while maintaining data integrity."
+    },
+    {
+      "title": "Dynamic Form Rendering",
+      "description": "Created a flexible form system using Formly that adapts to different appraisal types and requirements."
+    },
+    {
+      "title": "Cross-Platform Consistency",
+      "description": "Ensured identical user experience across iOS and Android devices with platform-specific optimizations."
+    }
+  ],
+  "technologies_title": "Technologies Used",
+  "technologies": [
+    {
+      "name": "Angular + Capacitator",
+      "category": "Frontend"
+    },
+    {
+      "name": "Formly",
+      "category": "Forms"
+    },
+    {
+      "name": "TypeScript",
+      "category": "Language"
+    },
+    {
+      "name": "SQLite",
+      "category": "Database"
+    },
+    {
+      "name": "Redux",
+      "category": "State Management"
+    },
+    {
+      "name": "React Navigation",
+      "category": "Navigation"
+    }
+  ]
+}

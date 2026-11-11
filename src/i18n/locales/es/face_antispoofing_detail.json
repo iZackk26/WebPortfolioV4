@@ -1,0 +1,61 @@
+{
+  "back": "Volver a Proyectos",
+  "category": "PROYECTO DE IA/ML",
+  "title": "Sistema Anti-Spoofing Facial",
+  "description": "Solución impulsada por IA para prevenir la falsificación de identidad mediante la detección de ataques de presentación en sistemas de reconocimiento facial con alta precisión y rendimiento en tiempo real.",
+  "overview_title": "Descripción del Proyecto",
+  "overview_p1": "Este proyecto aborda el desafío crítico de seguridad de los ataques de presentación en sistemas de reconocimiento facial. Usando técnicas de deep learning, el sistema puede distinguir entre rostros genuinos y varios tipos de intentos de suplantación.",
+  "overview_p2": "La solución implementa una arquitectura de red neuronal convolucional ligera optimizada para detección en tiempo real mientras mantiene alta precisión en diversos escenarios.",
+  "overview_p3": "Pruebas extensivas con varios tipos de ataques garantizan protección robusta contra técnicas de suplantación en evolución.",
+  "features_title": "Características Clave",
+  "features": [
+    "Detección de ataques de presentación en tiempo real",
+    "Alta precisión con baja tasa de falsos positivos",
+    "Modelo ligero para despliegue en edge",
+    "Detección de suplantación multimodal",
+    "Integración con sistemas de autenticación existentes",
+    "Pipeline de mejora continua del modelo"
+  ],
+  "challenges_title": "Desafíos Técnicos",
+  "challenges": [
+    {
+      "title": "Detección de Variedad de Ataques",
+      "description": "Desarrollo de mecanismos de detección robustos para varios ataques de presentación incluyendo impresiones, repeticiones y ataques con máscaras."
+    },
+    {
+      "title": "Rendimiento en Tiempo Real",
+      "description": "Optimización de la arquitectura del modelo para lograr velocidades de procesamiento en tiempo real sin sacrificar la precisión."
+    },
+    {
+      "title": "Generalización",
+      "description": "Asegurar que el modelo funcione bien en diferentes condiciones de iluminación, calidades de cámara y grupos demográficos."
+    }
+  ],
+  "technologies_title": "Tecnologías Utilizadas",
+  "technologies": [
+    {
+      "name": "Python",
+      "category": "Lenguaje"
+    },
+    {
+      "name": "TensorFlow",
+      "category": "Framework"
+    },
+    {
+      "name": "OpenCV",
+      "category": "Visión por Computadora"
+    },
+    {
+      "name": "Deep Learning",
+      "category": "IA/ML"
+    },
+    {
+      "name": "Arquitectura CNN",
+      "category": "Modelo"
+    },
+    {
+      "name": "Aumentación de Datos",
+      "category": "Entrenamiento"
+    }
+  ]
+}

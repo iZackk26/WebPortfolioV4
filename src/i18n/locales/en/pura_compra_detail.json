@@ -1,0 +1,95 @@
+{
+  "back": "Back to Projects",
+  "category": "UNIVERSITY PROJECT",
+  "title": "Pura Compra - E-commerce Intermediary",
+  "description": "A platform connecting users with multiple online stores, providing a unified shopping experience with intelligent price comparisons and streamlined checkout process.",
+  "production_title": "Production Platform",
+  "production_description": "This platform was designed and deployed for real-world use, enabling users to purchase products in an automated and efficient manner. The system integrates modern technologies to deliver a complete e-commerce experience.",
+  "production_features": [
+    {
+      "icon": "CreditCard",
+      "title": "Payment System",
+      "description": "Full integration with secure payment gateways"
+    },
+    {
+      "icon": "Shield",
+      "title": "Admin Dashboard",
+      "description": "Specialized views for managing products, orders, and users"
+    },
+    {
+      "icon": "MapPin",
+      "title": "Address Manager",
+      "description": "Complete system for managing multiple shipping addresses"
+    },
+    {
+      "icon": "Palette",
+      "title": "Color Selector",
+      "description": "Visualization and selection of product variants by color"
+    },
+    {
+      "icon": "Globe",
+      "title": "Web Scraping",
+      "description": "Automatic extraction of information from selected stores"
+    },
+    {
+      "icon": "Zap",
+      "title": "Automated Quotes",
+      "description": "Automatic generation and sending of quotes to the store owner"
+    }
+  ],
+  "overview_title": "Project Overview",
+  "overview_p1": "Pura Compra is an e-commerce intermediary platform that simplifies online shopping by aggregating products from multiple stores into a single, unified interface. Users can compare prices, read reviews, and complete purchases without navigating between different websites.",
+  "overview_p2": "The platform integrates with various online retailers, normalizes product data, and provides intelligent recommendations based on price, availability, and shipping options.",
+  "overview_p3": "Built as a university project, it demonstrates proficiency in full-stack development, API integration, and creating user-centric e-commerce solutions.",
+  "features_title": "Key Features",
+  "features": [
+    "Multi-store integration",
+    "Real-time price comparison",
+    "Unified checkout process",
+    "Product catalog aggregation",
+    "Shopping cart synchronization",
+    "Order tracking across stores"
+  ],
+  "challenges_title": "Technical Challenges",
+  "challenges": [
+    {
+      "title": "Store Integration",
+      "description": "Developed a flexible integration layer that connects with multiple online stores while handling different data formats and APIs."
+    },
+    {
+      "title": "Price Comparison",
+      "description": "Implemented real-time price comparison algorithms that account for shipping, taxes, and promotional offers."
+    },
+    {
+      "title": "Unified Experience",
+      "description": "Created a seamless shopping experience that abstracts away the complexity of purchasing from multiple stores."
+    }
+  ],
+  "technologies_title": "Technologies Used",
+  "technologies": [
+    {
+      "name": "SQL",
+      "category": "Database"
+    },
+    {
+      "name": "Node.js",
+      "category": "Backend"
+    },
+    {
+      "name": "Sequelize",
+      "category": "ORM"
+    },
+    {
+      "name": "React",
+      "category": "Frontend"
+    },
+    {
+      "name": "Tailwind CSS",
+      "category": "Styling"
+    },
+    {
+      "name": "REST API",
+      "category": "Integration"
+    }
+  ]
+}

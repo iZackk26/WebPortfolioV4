@@ -1,0 +1,21 @@
+{
+  "kicker": "En construcción",
+  "lede": "Estoy rediseñando esta sección para la V5. Mientras tanto, mis proyectos principales están en el inicio.",
+  "progress": "construyendo",
+  "ctaHome": "Ver proyectos en el inicio",
+  "ctaContact": "Escríbeme",
+  "note": "Sí, Claude ayuda. La revisión la hago yo.",
+  "sections": {
+    "about": { "title": "Sobre mí, versión 5", "file": "sobre-mi.tsx" },
+    "projects": { "title": "Proyectos, versión 5", "file": "proyectos.tsx" },
+    "certificates": { "title": "Certificados, versión 5", "file": "certificados.tsx" }
+  },
+  "lines": [
+    "$ claude \"rediseña {{file}}\"",
+    "› leyendo el diseño aprobado…",
+    "› armando componentes de menos de 150 líneas",
+    "› esperando revisión de Isaac",
+    "✓ casi listo"
+  ],
+  "sceneLabel": "Claude escribiendo en un teclado mientras se construye la sección"
+}

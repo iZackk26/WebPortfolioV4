@@ -1,0 +1,75 @@
+{
+  "back": "Volver a Proyectos",
+  "category": "PROYECTO UNIVERSITARIO",
+  "title": "iFixIt - Plataforma de Gestión de Talleres",
+  "description": "Plataforma integral web y móvil para la gestión de talleres automotrices, con seguimiento de ubicación en tiempo real, programación de citas y gestión completa del ciclo de vida del servicio.",
+  "overview_title": "Descripción del Proyecto",
+  "overview_p1": "iFixIt es una solución full-stack diseñada para modernizar las operaciones de talleres automotrices. La plataforma conecta clientes, técnicos y gerentes de talleres a través de interfaces web y móviles intuitivas.",
+  "overview_p2": "El sistema incluye seguimiento de ubicación en tiempo real para técnicos móviles, programación inteligente de citas, gestión integral de servicios y comunicaciones automatizadas con clientes.",
+  "overview_p3": "Construida con tecnologías modernas y mejores prácticas, la plataforma demuestra competencia en desarrollo full-stack y arquitectura de sistemas.",
+  "features_title": "Características Clave",
+  "features": [
+    "Seguimiento de ubicación en tiempo real para técnicos móviles",
+    "Programación y gestión de citas",
+    "Historial y seguimiento de servicios",
+    "Portal de cliente para solicitudes de servicio",
+    "Interfaces móvil y web",
+    "Notificaciones y recordatorios automatizados"
+  ],
+  "challenges_title": "Desafíos Técnicos",
+  "challenges": [
+    {
+      "title": "Seguimiento en Tiempo Real",
+      "description": "Implementación de seguimiento de ubicación en tiempo real eficiente para técnicos de campo con impacto mínimo en la batería y posicionamiento preciso."
+    },
+    {
+      "title": "Programación Inteligente",
+      "description": "Desarrollo de un sistema de programación inteligente que optimiza rutas y minimiza el tiempo de viaje entre citas."
+    },
+    {
+      "title": "Gestión de Servicios",
+      "description": "Creación de un sistema integral de gestión de servicios que maneja el ciclo de vida completo desde la solicitud hasta la finalización."
+    }
+  ],
+  "technologies_title": "Tecnologías Utilizadas",
+  "technologies": [
+    {
+      "name": "PostgreSQL",
+      "category": "Base de Datos"
+    },
+    {
+      "name": "Node.js",
+      "category": "Backend"
+    },
+    {
+      "name": "React",
+      "category": "Frontend"
+    },
+    {
+      "name": "Tailwind CSS",
+      "category": "Estilos"
+    },
+    {
+      "name": "Google Maps API",
+      "category": "Integración"
+    },
+    {
+      "name": "WebSockets",
+      "category": "Tiempo Real"
+    }
+  ],
+  "automation_title": "Sistema Integral de Gestión",
+  "automation_subtitle": "Diseñado para talleres y agencias que buscan optimizar el registro y seguimiento de vehículos en mantenimiento",
+  "automation_search_title": "Búsqueda Instantánea por Placas",
+  "automation_search_desc": "Localiza cualquier vehículo en segundos. Accede al historial completo, estado actual y toda la información relevante con solo ingresar la placa del auto.",
+  "automation_status_title": "Seguimiento en Tiempo Real",
+  "automation_status_desc": "Mantén a tus clientes informados. Sistema de estados que notifica el progreso del mantenimiento y cuándo pueden retirar su vehículo.",
+  "automation_images_title": "Galería Visual",
+  "automation_images_desc": "Documenta cada detalle con fotos. Organiza y almacena imágenes del estado del vehículo antes, durante y después del servicio.",
+  "automation_comments_title": "Historial de Notas",
+  "automation_comments_desc": "Registra observaciones, daños previos y comunicaciones importantes para cada vehículo.",
+  "automation_mobile_title": "App Móvil para Clientes",
+  "automation_mobile_desc": "Aplicación nativa iOS y Android para que los clientes consulten talleres cercanos, revisen el estado de sus vehículos y reciban notificaciones en tiempo real.",
+  "automation_responsive_title": "Multiplataforma",
+  "automation_responsive_desc": "Funciona perfectamente en cualquier dispositivo: PC, tablet o smartphone."
+}

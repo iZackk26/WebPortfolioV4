@@ -1,0 +1,29 @@
+{
+  "kicker": "How I work",
+  "titleYes": "AI, yes.",
+  "titleStruck": "Vibe-coding",
+  "titleNo": "no.",
+  "lede": "I use AI every day, but I don't vibe-code. I own the decisions that make a product solid.",
+  "me": "I decide",
+  "ai": "AI speeds up",
+  "actor": { "me": "me", "ai": "AI" },
+  "decisions": {
+    "architecture": "Architecture",
+    "systemDesign": "System design",
+    "interface": "User interface",
+    "algorithms": "Algorithms & tools"
+  },
+  "decisionsNote": "That's the difference between something built well and something pushed out the door.",
+  "toolsLabel": "Tools I use",
+  "model": "For day-to-day work, Opus is all I need: it's stable and doesn't burn through tokens.",
+  "flowLabel": "How I work, step by step",
+  "steps": {
+    "define": { "title": "Define", "text": "I decide what gets built and how." },
+    "orchestrate": { "title": "Orchestrate", "text": "Agents lead and review each other's work." },
+    "review": { "title": "Review", "text": "I read the code and verify the logic." },
+    "ship": { "title": "Ship", "text": "Something solid, not something rushed out." }
+  },
+  "pricing": "Shipping a requirement is much faster now.",
+  "pricingStrong": "Pricing it is the hard part.",
+  "hype": "Every new model comes with hype, but we're not at general intelligence yet. I keep reading and sharpening the skills that don't depend on AI."
+}

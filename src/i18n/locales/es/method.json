@@ -1,0 +1,29 @@
+{
+  "kicker": "Cómo trabajo",
+  "titleYes": "IA sí.",
+  "titleStruck": "Vibe-coding",
+  "titleNo": "no.",
+  "lede": "Uso IA todos los días, pero no vibe-codeo. Lo que hace que un producto sea sólido lo decido yo.",
+  "me": "Lo decido yo",
+  "ai": "Lo acelero con IA",
+  "actor": { "me": "yo", "ai": "IA" },
+  "decisions": {
+    "architecture": "Arquitectura",
+    "systemDesign": "Diseño de sistemas",
+    "interface": "Interfaz",
+    "algorithms": "Algoritmos y herramientas"
+  },
+  "decisionsNote": "Esto es lo que separa algo bien hecho de algo que solo salió por salir.",
+  "toolsLabel": "Herramientas que uso",
+  "model": "Para el día a día me basta Opus: estable y sin quemar tokens.",
+  "flowLabel": "Cómo trabajo, paso a paso",
+  "steps": {
+    "define": { "title": "Defino", "text": "Yo decido qué se hace y cómo." },
+    "orchestrate": { "title": "Orquesto", "text": "Agentes que se lideran y se revisan entre ellos." },
+    "review": { "title": "Reviso", "text": "Leo el código y valido la lógica." },
+    "ship": { "title": "Entrego", "text": "Algo sólido, no algo por salir." }
+  },
+  "pricing": "Hoy sacar un requerimiento es mucho más rápido.",
+  "pricingStrong": "Lo difícil es cotizarlo.",
+  "hype": "Cada modelo nuevo trae hype, pero todavía no hay inteligencia general. Yo sigo leyendo y practicando lo que no depende de la IA."
+}

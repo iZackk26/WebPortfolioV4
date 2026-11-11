@@ -1,0 +1,16 @@
+{
+  "kicker": "Constancia",
+  "title": "Un commit a la vez",
+  "lede": "Mi actividad real de GitHub en el último año, incluyendo los repos privados de clientes y de Visione.",
+  "total": "contribuciones",
+  "activeDays": "días activos",
+  "longestStreak": "racha más larga",
+  "peakDay": "récord en un día",
+  "days": "{{count}} días",
+  "peak": "pico: {{count}} el {{date}}",
+  "cell": "{{count}} contribuciones · {{date}}",
+  "graphLabel": "Mapa de contribuciones de GitHub del último año: {{total}} contribuciones en {{days}} días activos",
+  "less": "menos",
+  "more": "más",
+  "updated": "actualizado el {{date}}"
+}

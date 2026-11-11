@@ -1,0 +1,21 @@
+{
+  "kicker": "Under construction",
+  "lede": "I'm redesigning this section for V5. In the meantime, my featured projects are on the home page.",
+  "progress": "building",
+  "ctaHome": "See projects on the home page",
+  "ctaContact": "Get in touch",
+  "note": "Yes, Claude helps. I do the review.",
+  "sections": {
+    "about": { "title": "About me, version 5", "file": "about.tsx" },
+    "projects": { "title": "Projects, version 5", "file": "projects.tsx" },
+    "certificates": { "title": "Certificates, version 5", "file": "certificates.tsx" }
+  },
+  "lines": [
+    "$ claude \"redesign {{file}}\"",
+    "› reading the approved design…",
+    "› building components under 150 lines",
+    "› waiting for Isaac's review",
+    "✓ almost there"
+  ],
+  "sceneLabel": "Claude typing on a keyboard while the section is being built"
+}

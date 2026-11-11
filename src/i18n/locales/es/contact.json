@@ -1,0 +1,20 @@
+{
+  "title": "¿Construimos algo?",
+  "lede": "Si tienes un proyecto, una vacante o una idea que quieras llevar a producción, escríbeme.",
+  "window": "Mensaje nuevo",
+  "to": "Para:",
+  "from": "De:",
+  "subject": "Asunto:",
+  "namePlaceholder": "Tu nombre",
+  "subjectPlaceholder": "De qué se trata",
+  "messagePlaceholder": "Escribe tu mensaje…",
+  "messageLabel": "Mensaje",
+  "send": "Enviar",
+  "bookCall": "Agendar una call",
+  "emptyError": "Escribe un mensaje antes de enviar.",
+  "defaultSubject": "Hola Isaac",
+  "subjectFrom": "Mensaje de {{name}}",
+  "or": "o directo:",
+  "copy": "Copiar correo",
+  "copied": "Correo copiado"
+}

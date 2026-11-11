@@ -1,0 +1,62 @@
+{
+  "back": "Back to Projects",
+  "category": "AI/ML PROJECT",
+  "title": "CRPS - Real-Time Facial Recognition System",
+  "description": "A comprehensive real-time facial recognition system that combines advanced computer vision techniques and vector databases to efficiently identify and search for faces in surveillance, access control, and user authentication scenarios.",
+  "overview_title": "Project Overview",
+  "overview_p1": "This project implements a cutting-edge facial recognition system that addresses the challenges of fast and accurate face identification in real-world scenarios. The system handles various factors such as different facial angles, occlusions, varying lighting conditions, and the need to match faces against a large dataset of known identities.",
+  "overview_p2": "The solution combines state-of-the-art techniques: YuNet for precise face detection even in challenging conditions, FaceNet for generating robust facial embeddings invariant to pose and lighting, and Weaviate as a vector database optimized for similarity search. This architecture ensures both accuracy and efficiency in real-time operations.",
+  "overview_p3": "With an intuitive PyQt graphical interface, encrypted data storage for security, and multi-threaded processing for real-time performance, the system provides a comprehensive solution suitable for surveillance systems, access control, and user authentication applications.",
+  "features_title": "Key Features",
+  "features": [
+    "Real-time face detection with YuNet",
+    "Robust facial embeddings using FaceNet",
+    "Vector similarity search with Weaviate",
+    "Graphical user interface built with PyQt",
+    "Encrypted user data storage",
+    "Multi-threaded video processing"
+  ],
+  "video_title": "Video Demonstration",
+  "challenges_title": "Technical Challenges",
+  "challenges": [
+    {
+      "title": "Robust Face Detection",
+      "description": "Implemented YuNet detector to accurately locate faces in challenging conditions including varying angles, occlusions, and lighting."
+    },
+    {
+      "title": "Efficient Similarity Search",
+      "description": "Leveraged Weaviate vector database to perform fast similarity searches across large datasets of facial embeddings."
+    },
+    {
+      "title": "Real-time Performance",
+      "description": "Designed multi-threaded architecture separating camera I/O from processing to maintain real-time performance without blocking."
+    }
+  ],
+  "technologies_title": "Technologies Used",
+  "technologies": [
+    {
+      "name": "YuNet",
+      "category": "Face Detection"
+    },
+    {
+      "name": "FaceNet",
+      "category": "Deep Learning"
+    },
+    {
+      "name": "Weaviate",
+      "category": "Vector Database"
+    },
+    {
+      "name": "PyQt",
+      "category": "GUI Framework"
+    },
+    {
+      "name": "Python",
+      "category": "Language"
+    },
+    {
+      "name": "Encryption",
+      "category": "Security"
+    }
+  ]
+}

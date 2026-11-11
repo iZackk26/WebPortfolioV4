@@ -1,0 +1,54 @@
+{
+  "label": "Proyectos principales",
+  "slide": "{{current}} de {{total}}",
+  "previous": "Proyecto anterior",
+  "next": "Proyecto siguiente",
+  "goTo": "Ir a {{title}}",
+  "visitSite": "Visitar sitio",
+  "viewCase": "Ver caso",
+  "privateNote": "Código y detalles privados",
+  "rolePrefix": "Rol",
+  "kinds": {
+    "main": "Principal",
+    "private": "Privado",
+    "university": "Universitario"
+  },
+  "roles": {
+    "developer": "Desarrollador",
+    "owner": "Owner"
+  },
+  "items": {
+    "visioneFlow": {
+      "title": "Visione Flow",
+      "description": "Constructor visual de agentes de IA: editor drag-and-drop con más de 40 tipos de nodos, varios proveedores de LLM y despliegue en WhatsApp, Telegram y web, con traspaso a humanos.",
+      "alt": "Landing de Visione Flow"
+    },
+    "theGrowthPath": {
+      "title": "The Growth Path",
+      "description": "Plataforma para digitalizar asesorías de coaching fitness: onboarding, entrenamiento, nutrición y seguimiento sobre un motor de formularios data-driven y multi-tenant por subdominio.",
+      "alt": "Landing de The Growth Path"
+    },
+    "fieldAppraisals": {
+      "title": "App de avalúos en campo",
+      "byline": "Desarrollo para un cliente · el producto es del cliente",
+      "description": "App móvil híbrida para que los tasadores hagan avalúos en campo, con formularios dinámicos que funcionan sin conexión y se sincronizan solos al recuperar señal.",
+      "alt": "Dos pantallas de la app de avalúos en iPhone"
+    },
+    "puraCompra": {
+      "title": "Pura Compra",
+      "description": "Plataforma que conecta usuarios con múltiples tiendas en línea, con comparación de precios y un checkout unificado.",
+      "alt": "Catálogo de productos de Pura Compra"
+    }
+  },
+  "more": {
+    "dock": "Más proyectos",
+    "viewAll": "Ver todos los proyectos"
+  },
+  "dock": {
+    "appraisal": "Avalúos",
+    "faceAntiSpoofing": "Anti-spoofing",
+    "iFixIt": "iFixIt",
+    "stateDetection": "Estados",
+    "vectorDB": "Vector DB"
+  }
+}

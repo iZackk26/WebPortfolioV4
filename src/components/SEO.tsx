@@ -8,7 +8,7 @@ interface SEOProps {
   keywords?: string;
   ogImage?: string;
   type?: 'website' | 'article' | 'profile';
-  structuredData?: Record<string, any>;
+  structuredData?: Record<string, unknown>;
 }
 
 export const SEO = ({
@@ -69,7 +69,7 @@ export const SEO = ({
       meta.setAttribute('content', content);
     });
 
-    let linkCanonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+    let linkCanonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!linkCanonical) {
       linkCanonical = document.createElement('link');
       linkCanonical.rel = 'canonical';
@@ -122,7 +122,7 @@ export const SEO = ({
 
     const dataToUse = structuredData || defaultStructuredData;
 
-    let structuredDataScript = document.querySelector('script[type="application/ld+json"]');
+    let structuredDataScript = document.querySelector<HTMLScriptElement>('script[type="application/ld+json"]');
     if (!structuredDataScript) {
       structuredDataScript = document.createElement('script');
       structuredDataScript.type = 'application/ld+json';

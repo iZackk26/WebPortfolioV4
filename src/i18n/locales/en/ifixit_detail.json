@@ -1,0 +1,75 @@
+{
+  "back": "Back to Projects",
+  "category": "UNIVERSITY PROJECT",
+  "title": "iFixIt - Workshop Management Platform",
+  "description": "A comprehensive web and mobile platform for automotive workshop management, featuring real-time location tracking, appointment scheduling, and complete service lifecycle management.",
+  "overview_title": "Project Overview",
+  "overview_p1": "iFixIt is a full-stack solution designed to modernize automotive workshop operations. The platform connects customers, technicians, and workshop managers through intuitive web and mobile interfaces.",
+  "overview_p2": "The system includes real-time location tracking for mobile technicians, intelligent appointment scheduling, comprehensive service management, and automated customer communications.",
+  "overview_p3": "Built with modern technologies and best practices, the platform demonstrates proficiency in full-stack development and system architecture.",
+  "features_title": "Key Features",
+  "features": [
+    "Real-time location tracking for mobile technicians",
+    "Appointment scheduling and management",
+    "Service history and tracking",
+    "Customer portal for service requests",
+    "Mobile and web interfaces",
+    "Automated notifications and reminders"
+  ],
+  "challenges_title": "Technical Challenges",
+  "challenges": [
+    {
+      "title": "Real-time Tracking",
+      "description": "Implemented efficient real-time location tracking for field technicians with minimal battery impact and accurate positioning."
+    },
+    {
+      "title": "Smart Scheduling",
+      "description": "Developed an intelligent scheduling system that optimizes routes and minimizes travel time between appointments."
+    },
+    {
+      "title": "Service Management",
+      "description": "Created a comprehensive service management system handling the complete lifecycle from request to completion."
+    }
+  ],
+  "technologies_title": "Technologies Used",
+  "technologies": [
+    {
+      "name": "PostgreSQL",
+      "category": "Database"
+    },
+    {
+      "name": "Node.js",
+      "category": "Backend"
+    },
+    {
+      "name": "React",
+      "category": "Frontend"
+    },
+    {
+      "name": "Tailwind CSS",
+      "category": "Styling"
+    },
+    {
+      "name": "Google Maps API",
+      "category": "Integration"
+    },
+    {
+      "name": "WebSockets",
+      "category": "Real-time"
+    }
+  ],
+  "automation_title": "Comprehensive Management System",
+  "automation_subtitle": "Designed for workshops and agencies looking to optimize vehicle registration and maintenance tracking",
+  "automation_search_title": "Instant License Plate Search",
+  "automation_search_desc": "Locate any vehicle in seconds. Access complete history, current status, and all relevant information by simply entering the license plate.",
+  "automation_status_title": "Real-time Tracking",
+  "automation_status_desc": "Keep your customers informed. Status system that notifies maintenance progress and when they can pick up their vehicle.",
+  "automation_images_title": "Visual Gallery",
+  "automation_images_desc": "Document every detail with photos. Organize and store images of the vehicle's condition before, during, and after service.",
+  "automation_comments_title": "Notes History",
+  "automation_comments_desc": "Record observations, pre-existing damage, and important communications for each vehicle.",
+  "automation_mobile_title": "Mobile App for Customers",
+  "automation_mobile_desc": "Native iOS and Android app for customers to browse nearby workshops, check their vehicle status, and receive real-time notifications.",
+  "automation_responsive_title": "Multi-platform",
+  "automation_responsive_desc": "Works seamlessly on any device: PC, tablet, or smartphone."
+}

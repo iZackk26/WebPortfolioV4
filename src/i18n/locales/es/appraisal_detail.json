@@ -1,0 +1,61 @@
+{
+  "back": "Volver a Proyectos",
+  "category": "PROYECTO PROFESIONAL",
+  "title": "Aplicación Móvil de Avalúos",
+  "description": "Solución móvil híbrida que permite a los tasadores de campo completar formularios dinámicos sin conexión y sincronizar datos sin problemas cuando se restaura la conectividad.",
+  "overview_title": "Descripción del Proyecto",
+  "overview_p1": "Esta aplicación móvil fue desarrollada para una empresa profesional de valuación con el fin de optimizar sus operaciones en campo. La app permite que los peritos trabajen en ubicaciones remotas sin conexión a internet, manteniendo todas las funcionalidades.",
+  "overview_p2": "La solución utiliza Angular junto con Capacitor para ofrecer una experiencia móvil multiplataforma, implementando una arquitectura offline-first robusta que garantiza la integridad de los datos y una sincronización fluida.",
+  "overview_p3": "Los formularios dinámicos se generan mediante Formly, lo que permite que el sistema se adapte a diferentes tipos de valuaciones sin necesidad de actualizar la aplicación.",
+  "features_title": "Características Clave",
+  "features": [
+    "Arquitectura offline-first para trabajo de campo sin interrupciones",
+    "Generación de formularios dinámicos usando Formly",
+    "Sincronización automática de datos cuando está en línea",
+    "Captura de fotos y gestión de archivos adjuntos",
+    "Seguimiento de ubicación GPS",
+    "Soporte multiidioma"
+  ],
+  "challenges_title": "Desafíos Técnicos",
+  "challenges": [
+    {
+      "title": "Gestión de Datos Offline",
+      "description": "Implementación de almacenamiento local robusto con SQLite para manejar estructuras de datos de formularios complejos mientras se mantiene la integridad de los datos."
+    },
+    {
+      "title": "Renderizado de Formularios Dinámicos",
+      "description": "Creación de un sistema de formularios flexible usando Formly que se adapta a diferentes tipos de avalúos y requisitos."
+    },
+    {
+      "title": "Consistencia Multiplataforma",
+      "description": "Garantizar una experiencia de usuario idéntica en dispositivos iOS y Android con optimizaciones específicas de la plataforma."
+    }
+  ],
+  "technologies_title": "Tecnologías Utilizadas",
+  "technologies": [
+    {
+      "name": "Angular + Capacitator",
+      "category": "Frontend"
+    },
+    {
+      "name": "Formly",
+      "category": "Formularios"
+    },
+    {
+      "name": "TypeScript",
+      "category": "Lenguaje"
+    },
+    {
+      "name": "SQLite",
+      "category": "Base de Datos"
+    },
+    {
+      "name": "Redux",
+      "category": "Gestión de Estado"
+    },
+    {
+      "name": "React Navigation",
+      "category": "Navegación"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "back": "Back to Projects",
+  "category": "COMPUTER VISION PROJECT",
+  "title": "Intelligent Cart State Detection",
+  "description": "A real-time video analytics system for detecting and tracking the state of shopping carts using advanced computer vision techniques and optimized sampling strategies.",
+  "overview_title": "Project Overview",
+  "overview_p1": "This project demonstrates an intelligent video analytics system for real-time detection and tracking of shopping cart states in retail environments. The system employs advanced computer vision algorithms and optimized video frame sampling techniques to efficiently analyze cart occupancy levels.",
+  "overview_p2": "By leveraging state-of-the-art object detection models like YOLOv8 and robust tracking algorithms, the system can reliably monitor multiple carts simultaneously, even in challenging real-world scenarios. The customizable region of interest (ROI) feature allows for focused analysis in specific areas of the video frame.",
+  "overview_p3": "The system provides detailed analytics and intuitive visualizations, enabling store managers to gain valuable insights into customer behavior and optimize store operations. With its cross-platform compatibility and scalable architecture, the solution can be easily integrated into existing retail systems.",
+  "features_title": "Key Features",
+  "features": [
+    "Real-time cart state detection",
+    "Efficient video frame sampling",
+    "Advanced object tracking techniques",
+    "Customizable ROI for focused analysis",
+    "Detailed analytics and visualizations",
+    "Cross-platform compatibility"
+  ],
+  "challenges_title": "Technical Challenges",
+  "challenges": [
+    {
+      "title": "Optimizing Sampling Rate",
+      "description": "Fine-tuned the video frame sampling rate to achieve an optimal balance between processing speed and analysis accuracy."
+    },
+    {
+      "title": "Tracking Multiple Carts",
+      "description": "Implemented robust object tracking algorithms to reliably follow multiple shopping carts simultaneously."
+    },
+    {
+      "title": "Real-time Performance",
+      "description": "Optimized the system architecture and algorithms to enable smooth real-time cart state detection and analysis."
+    }
+  ],
+  "technologies_title": "Technologies Used",
+  "technologies": [
+    {
+      "name": "Computer Vision",
+      "category": "AI/ML"
+    },
+    {
+      "name": "Python",
+      "category": "Language"
+    },
+    {
+      "name": "YOLOv8",
+      "category": "Object Detection"
+    },
+    {
+      "name": "OpenCV",
+      "category": "Image Processing"
+    },
+    {
+      "name": "FastAPI",
+      "category": "Backend"
+    },
+    {
+      "name": "React",
+      "category": "Frontend"
+    }
+  ],
+  "system_states_title": "Understanding the System",
+  "system_states_intro": "This project was developed to automate the seed and product filling process in an industrial setting. The system monitors carts as they move through different stages from empty to full and uses computer vision to track, analyze, and optimize the filling process.",
+  "states": [
+    {
+      "name": "Empty Platform",
+      "description": "The platform is ready, waiting for a cart to be placed for the filling process to begin."
+    },
+    {
+      "name": "Empty Cart",
+      "description": "A cart with 6 empty slots is positioned on the platform, ready to receive test tubes."
+    },
+    {
+      "name": "Incomplete Cart",
+      "description": "The cart contains between 1 and 5 test tubes, indicating the filling process is underway."
+    },
+    {
+      "name": "Complete Cart",
+      "description": "All 6 slots are filled with test tubes. The cart is ready for sealing and quality analysis."
+    }
+  ],
+  "process_explanation": "Once filled, tubes are sealed and pass through the detection model to capture metrics such as processing duration, identify potential issues, and analyze system behavior for continuous improvement.",
+  "model_demo_title": "Model Demonstration",
+  "model_limitations": {
+    "title": "Model Evolution & Limitations",
+    "intro": "In this section, you can observe a comparison of the training process, the selected hyperparameters, and the false positives generated throughout the model's development, allowing us to visualize how the model has evolved based on the training it received.",
+    "dataset_label": "Dataset limitation:",
+    "dataset_text": "During the project, the conveyor belt used to capture the images was damaged, preventing the collection of additional data. As a result, the model was trained on only",
+    "images_count": "260 images",
+    "dataset_suffix": "which is considerably small for a computer vision task.",
+    "potential_label": "Future potential:",
+    "potential_text": "Despite these constraints, the system demonstrates promising capabilities, and its performance could improve significantly with a larger and more diverse dataset."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "title": "Let's build something",
+  "lede": "Got a project, a role or an idea you want to take to production? Send me a message.",
+  "window": "New message",
+  "to": "To:",
+  "from": "From:",
+  "subject": "Subject:",
+  "namePlaceholder": "Your name",
+  "subjectPlaceholder": "What it's about",
+  "messagePlaceholder": "Write your message…",
+  "messageLabel": "Message",
+  "send": "Send",
+  "bookCall": "Book a call",
+  "emptyError": "Write a message before sending.",
+  "defaultSubject": "Hi Isaac",
+  "subjectFrom": "Message from {{name}}",
+  "or": "or directly:",
+  "copy": "Copy email",
+  "copied": "Email copied"
+}

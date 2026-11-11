@@ -1,0 +1,41 @@
+{
+  "title": "Proyectos",
+  "professional": "Proyectos Profesionales",
+  "ai": "Proyectos de IA",
+  "university": "Proyectos Universitarios",
+  "viewDetails": "Ver Detalles",
+  "technologies": "Tecnologías",
+  "items": {
+    "appraisal": {
+      "title": "Aplicación Móvil de Avalúos",
+      "description": "Solución móvil híbrida que permite completar formularios dinámicos sin conexión usando Formly. Diseñada para tasadores de campo que trabajan sin conectividad a internet.",
+      "highlights": "Arquitectura offline-first, Generación de formularios dinámicos, Sincronización de datos",
+      "privacyNote": "Nota: Las imágenes mostradas son ilustrativas, ya que este es un proyecto privado y no se puede divulgar información confidencial."
+    },
+    "faceAntiSpoofing": {
+      "title": "Sistema Anti-Spoofing Facial",
+      "description": "Solución impulsada por IA para prevenir la falsificación de identidad mediante la detección de ataques de presentación en sistemas de reconocimiento facial.",
+      "highlights": "Detección en tiempo real, Alta tasa de precisión, Modelo ligero"
+    },
+    "stateDetection": {
+      "title": "Modelo Optimizado de Detección de Estados",
+      "description": "Modelo de aprendizaje automático optimizado para lograr alta precisión con datos de entrenamiento mínimos, demostrando uso eficiente de conjuntos de datos limitados.",
+      "highlights": "Optimización con dataset pequeño, Alta precisión, Inferencia rápida"
+    },
+    "vectorDB": {
+      "title": "Sistema de Reconocimiento Facial con Weaviate y TensorFlow",
+      "description": "Proyecto que implementa un sistema de reconocimiento facial utilizando Weaviate, una base de datos vectorial, para almacenar embeddings faciales, y TensorFlow para la detección y reconocimiento de rostros. Incluye una interfaz gráfica para el registro de usuarios e identificación en imágenes y video.",
+      "highlights": "Weaviate - Base de datos vectorial, TensorFlow - Aprendizaje automático"
+    },
+    "iFixIt": {
+      "title": "iFixIt - Plataforma de Gestión de Talleres",
+      "description": "Plataforma integral web y móvil para gestión de talleres automotrices, con seguimiento de ubicación en tiempo real, programación de citas y gestión de servicios.",
+      "highlights": "Solución full-stack, Seguimiento en tiempo real, Interfaces móvil y web"
+    },
+    "puraCompra": {
+      "title": "Pura Compra - Intermediario de E-commerce",
+      "description": "Plataforma que conecta usuarios con múltiples tiendas en línea, proporcionando una experiencia de compra unificada con comparación de precios y checkout simplificado.",
+      "highlights": "Integración multi-tienda, Comparación de precios, Checkout unificado"
+    }
+  }
+}

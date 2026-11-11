@@ -1,0 +1,103 @@
+/* Intro de la Home: escritorio con foto, nota adhesiva e íconos arrastrables. */
+@keyframes desk-rise {
+  from { opacity: 0; translate: 0 10px; }
+}
+
+.desk-item {
+  position: absolute;
+  z-index: 1;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  animation: desk-rise 0.7s cubic-bezier(0.2, 0.7, 0.25, 1) 0.25s backwards;
+  transition: opacity 0.35s, filter 0.2s;
+}
+.desk-item.is-dragging {
+  z-index: 5;
+  cursor: grabbing;
+  filter: drop-shadow(0 18px 24px rgb(0 0 0 / 0.18));
+}
+.desk-item img {
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+/* Al arrastrar, el resto del escritorio se atenúa */
+.desk-dim { transition: opacity 0.35s; }
+.intro-desk.is-focus .desk-dim:not(.is-dragging) { opacity: 0.3; }
+
+/* Nota adhesiva con cinta */
+.sticky-note {
+  position: relative;
+  padding: 16px 16px 18px;
+  text-align: left;
+  border-radius: 3px 3px 14px 3px;
+  background: linear-gradient(#fff7b8, #fff09a);
+  box-shadow: 0 14px 26px rgb(120 100 20 / 0.18), 0 2px 4px rgb(0 0 0 / 0.08), inset 0 -10px 18px rgb(255 255 255 / 0.25);
+}
+.sticky-note::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 84px;
+  height: 22px;
+  transform: translateX(-50%) rotate(-2deg);
+  background: rgb(255 255 255 / 0.55);
+  border: 1px solid rgb(0 0 0 / 0.06);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.06);
+}
+.sticky-note-title {
+  margin: 0 0 8px;
+  font: 500 11px var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgb(90 70 0 / 0.7);
+}
+.sticky-note ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 14.5px;
+  color: #3a3210;
+}
+.sticky-note li::before {
+  content: '→ ';
+  font-family: var(--font-mono);
+  color: rgb(90 70 0 / 0.55);
+}
+
+/* Íconos de escritorio: stickers con sombra y caption de archivo */
+.desk-icon { width: 64px; text-align: center; }
+.desk-icon img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 8px rgb(0 0 0 / 0.16));
+}
+.desk-icon[data-size='wide'] { width: 84px; }
+.desk-icon[data-size='wide'] img { width: 72px; }
+.desk-icon[data-size='tall'] img { width: 56px; height: 52px; }
+.desk-icon-caption {
+  margin-top: 6px;
+  font: 11px var(--font-mono);
+  color: rgb(0 0 0 / 0.4);
+  text-shadow: 0 1px 1px rgb(255 255 255 / 0.8);
+}
+
+/* Versión móvil: fila compacta */
+.desk-icon-row .desk-icon { width: 54px; }
+.desk-icon-row .desk-icon[data-size='wide'] { width: 62px; }
+.desk-icon-row .desk-icon img { width: 34px; height: 34px; }
+.desk-icon-row .desk-icon[data-size='wide'] img { width: 52px; }
+.desk-icon-row .desk-icon[data-size='tall'] img { width: 38px; height: 34px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .desk-item { animation: none; transition: none; }
+}

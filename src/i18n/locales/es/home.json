@@ -1,0 +1,14 @@
+{
+  "name": "Isaac Ramírez",
+  "role": "Estudiante de Ingeniería en Computación y Desarrollador de Software",
+  "viewProjects": "Ver proyectos",
+  "downloadCv": "Descargar CV",
+  "dragHint": "Arrastra la foto, la nota o los íconos",
+  "photoAlt": "Foto de Isaac Ramírez",
+  "note": {
+    "title": "Ahora mismo",
+    "visioneFlow": "Desarrollador en Visione Flow",
+    "growthPath": "Owner de The Growth Path",
+    "studies": "Ing. en Computación, TEC"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "back": "Volver a Proyectos",
+  "category": "PROYECTO UNIVERSITARIO",
+  "title": "Pura Compra - Intermediario de E-commerce",
+  "description": "Plataforma que conecta usuarios con múltiples tiendas en línea, proporcionando una experiencia de compra unificada con comparaciones inteligentes de precios y proceso de checkout optimizado.",
+  "production_title": "Plataforma en Producción",
+  "production_description": "Esta plataforma fue diseñada y desplegada para uso real, permitiendo a usuarios comprar productos de forma automatizada y eficiente. El sistema integra tecnologías modernas para ofrecer una experiencia completa de comercio electrónico.",
+  "production_features": [
+    {
+      "icon": "CreditCard",
+      "title": "Sistema de Pagos",
+      "description": "Integración completa con pasarelas de pago seguras"
+    },
+    {
+      "icon": "Shield",
+      "title": "Panel de Administración",
+      "description": "Vistas especializadas para gestión de productos, pedidos y usuarios"
+    },
+    {
+      "icon": "MapPin",
+      "title": "Gestor de Direcciones",
+      "description": "Sistema completo para administrar múltiples direcciones de envío"
+    },
+    {
+      "icon": "Palette",
+      "title": "Selector de Colores",
+      "description": "Visualización y selección de variantes de productos por color"
+    },
+    {
+      "icon": "Globe",
+      "title": "Web Scraping",
+      "description": "Extracción automática de información de tiendas seleccionadas"
+    },
+    {
+      "icon": "Zap",
+      "title": "Cotizaciones Automáticas",
+      "description": "Generación y envío automático de cotizaciones al dueño de la tienda"
+    }
+  ],
+  "overview_title": "Descripción del Proyecto",
+  "overview_p1": "Pura Compra es una plataforma intermediaria de e-commerce que simplifica las compras en línea al agregar productos de múltiples tiendas en una única interfaz unificada. Los usuarios pueden comparar precios, leer reseñas y completar compras sin navegar entre diferentes sitios web.",
+  "overview_p2": "La plataforma se integra con varios minoristas en línea, normaliza los datos de productos y proporciona recomendaciones inteligentes basadas en precio, disponibilidad y opciones de envío.",
+  "overview_p3": "Construida como proyecto universitario, demuestra competencia en desarrollo full-stack, integración de APIs y creación de soluciones de e-commerce centradas en el usuario.",
+  "features_title": "Características Clave",
+  "features": [
+    "Integración multi-tienda",
+    "Comparación de precios en tiempo real",
+    "Proceso de checkout unificado",
+    "Agregación de catálogo de productos",
+    "Sincronización de carrito de compras",
+    "Seguimiento de pedidos entre tiendas"
+  ],
+  "challenges_title": "Desafíos Técnicos",
+  "challenges": [
+    {
+      "title": "Integración de Tiendas",
+      "description": "Desarrollo de una capa de integración flexible que se conecta con múltiples tiendas en línea mientras maneja diferentes formatos de datos y APIs."
+    },
+    {
+      "title": "Comparación de Precios",
+      "description": "Implementación de algoritmos de comparación de precios en tiempo real que tienen en cuenta envío, impuestos y ofertas promocionales."
+    },
+    {
+      "title": "Experiencia Unificada",
+      "description": "Creación de una experiencia de compra fluida que abstrae la complejidad de comprar en múltiples tiendas."
+    }
+  ],
+  "technologies_title": "Tecnologías Utilizadas",
+  "technologies": [
+    {
+      "name": "SQL",
+      "category": "Base de Datos"
+    },
+    {
+      "name": "Node.js",
+      "category": "Backend"
+    },
+    {
+      "name": "Sequelize",
+      "category": "ORM"
+    },
+    {
+      "name": "React",
+      "category": "Frontend"
+    },
+    {
+      "name": "Tailwind CSS",
+      "category": "Estilos"
+    },
+    {
+      "name": "REST API",
+      "category": "Integración"
+    }
+  ]
+}

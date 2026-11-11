@@ -1,0 +1,61 @@
+{
+  "back": "Back to Projects",
+  "category": "AI/ML PROJECT",
+  "title": "Face Anti-Spoofing System",
+  "description": "An AI-powered solution to prevent identity falsification by detecting presentation attacks in facial recognition systems with high accuracy and real-time performance.",
+  "overview_title": "Project Overview",
+  "overview_p1": "This project addresses the critical security challenge of presentation attacks in facial recognition systems. Using deep learning techniques, the system can distinguish between genuine faces and various types of spoofing attempts.",
+  "overview_p2": "The solution implements a lightweight convolutional neural network architecture optimized for real-time detection while maintaining high accuracy across diverse scenarios.",
+  "overview_p3": "Extensive testing with various attack types ensures robust protection against evolving spoofing techniques.",
+  "features_title": "Key Features",
+  "features": [
+    "Real-time presentation attack detection",
+    "High accuracy with low false positive rate",
+    "Lightweight model for edge deployment",
+    "Multi-modal spoof detection",
+    "Integration with existing authentication systems",
+    "Continuous model improvement pipeline"
+  ],
+  "challenges_title": "Technical Challenges",
+  "challenges": [
+    {
+      "title": "Attack Variety Detection",
+      "description": "Developed robust detection mechanisms for various presentation attacks including print, replay, and mask attacks."
+    },
+    {
+      "title": "Real-time Performance",
+      "description": "Optimized model architecture to achieve real-time processing speeds without sacrificing accuracy."
+    },
+    {
+      "title": "Generalization",
+      "description": "Ensured model performs well across different lighting conditions, camera qualities, and demographic groups."
+    }
+  ],
+  "technologies_title": "Technologies Used",
+  "technologies": [
+    {
+      "name": "Python",
+      "category": "Language"
+    },
+    {
+      "name": "TensorFlow",
+      "category": "Framework"
+    },
+    {
+      "name": "OpenCV",
+      "category": "Computer Vision"
+    },
+    {
+      "name": "Deep Learning",
+      "category": "AI/ML"
+    },
+    {
+      "name": "CNN Architecture",
+      "category": "Model"
+    },
+    {
+      "name": "Data Augmentation",
+      "category": "Training"
+    }
+  ]
+}

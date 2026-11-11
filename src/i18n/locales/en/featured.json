@@ -1,0 +1,54 @@
+{
+  "label": "Featured projects",
+  "slide": "{{current}} of {{total}}",
+  "previous": "Previous project",
+  "next": "Next project",
+  "goTo": "Go to {{title}}",
+  "visitSite": "Visit site",
+  "viewCase": "View case",
+  "privateNote": "Code and details are private",
+  "rolePrefix": "Role",
+  "kinds": {
+    "main": "Featured",
+    "private": "Private",
+    "university": "University"
+  },
+  "roles": {
+    "developer": "Developer",
+    "owner": "Owner"
+  },
+  "items": {
+    "visioneFlow": {
+      "title": "Visione Flow",
+      "description": "Visual AI agent builder: a drag-and-drop editor with 40+ node types, multiple LLM providers and deployment to WhatsApp, Telegram and the web, with human handoff.",
+      "alt": "Visione Flow landing page"
+    },
+    "theGrowthPath": {
+      "title": "The Growth Path",
+      "description": "A platform that digitizes fitness coaching: onboarding, training, nutrition and progress tracking on a data-driven form engine with per-subdomain multi-tenancy.",
+      "alt": "The Growth Path landing page"
+    },
+    "fieldAppraisals": {
+      "title": "Field appraisal app",
+      "byline": "Built for a client · the product belongs to the client",
+      "description": "Hybrid mobile app for appraisers working in the field, with dynamic forms that work offline and sync automatically once the connection is back.",
+      "alt": "Two screens of the appraisal app on iPhone"
+    },
+    "puraCompra": {
+      "title": "Pura Compra",
+      "description": "A platform that connects users with multiple online stores, with price comparison and a unified checkout.",
+      "alt": "Pura Compra product catalog"
+    }
+  },
+  "more": {
+    "dock": "More projects",
+    "viewAll": "View all projects"
+  },
+  "dock": {
+    "appraisal": "Appraisals",
+    "faceAntiSpoofing": "Anti-spoofing",
+    "iFixIt": "iFixIt",
+    "stateDetection": "States",
+    "vectorDB": "Vector DB"
+  }
+}

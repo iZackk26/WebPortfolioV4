@@ -1,0 +1,29 @@
+{
+  "title": "Sobre Mí",
+  "downloadCV": "Descargar CV",
+  "introduction": "Soy estudiante de Ingeniería en Computación en el TEC de Costa Rica, profundamente apasionado por la automatización de procesos y la transformación digital. Mi camino en la tecnología está impulsado por un deseo constante de aprender y crear soluciones que marquen la diferencia.",
+  "motivation": "Motivación y Objetivos",
+  "motivationText": "Mi objetivo es aprovechar la tecnología para automatizar procesos, optimizar flujos de trabajo e impulsar la transformación digital en todas las industrias. Creo en el poder de la innovación para resolver problemas complejos y mejorar la vida de las personas.",
+  "technicalSkills": "Habilidades Técnicas",
+  "softSkills": "Habilidades Blandas",
+  "skills": {
+    "technical": [
+      "Desarrollo Full-Stack (React, Node.js, TypeScript)",
+      "Desarrollo Móvil (React Native, Nativewind)",
+      "Diseño de Bases de Datos (PostgreSQL, SQL, Bases de Datos Vectoriales)",
+      "Computación en la Nube (AWS, Google Cloud, Azure)",
+      "IA/ML (Reconocimiento Facial, Anti-Spoofing, Optimización de Modelos)",
+      "DevOps y Administración de Sistemas (Linux, Docker, Heroku)",
+      "Desarrollo de APIs (REST, GraphQL)"
+    ],
+    "soft": [
+      "Resolución de Problemas y Pensamiento Crítico",
+      "Colaboración en Equipo y Liderazgo",
+      "Adaptabilidad y Aprendizaje Rápido",
+      "Comunicación Efectiva",
+      "Gestión de Proyectos",
+      "Atención al Detalle",
+      "Inglés Avanzado (B2/C1)"
+    ]
+  }
+}

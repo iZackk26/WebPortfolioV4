@@ -1,0 +1,104 @@
+/* Wordmark del footer: teclas ilustradas con leyendas y entrada en ola. */
+.wordmark {
+  position: relative;
+  aspect-ratio: 29 / 7;
+  max-width: 100%;
+  container-type: inline-size;
+}
+
+.keycap {
+  --k-top: #f1ecdf;
+  --k-top2: #e4ddcb;
+  --k-side: #cbc2ad;
+  --k-edge: #7a7160;
+  --k-ink: #6f6754;
+  position: absolute;
+  width: calc(100% / 29 - 2px);
+  height: calc(100% / 7 - 2px);
+  border-radius: 24%;
+  background: var(--k-side);
+  box-shadow: inset 0 0 0 1px var(--k-edge), 0 2px 3px rgb(0 0 0 / 0.1);
+  transform: translate(var(--jx), var(--jy)) rotate(var(--jr));
+  transition: transform 0.25s var(--ease-pop);
+}
+.keycap:hover {
+  transform: translate(var(--jx), calc(var(--jy) - 4px)) rotate(calc(var(--jr) * -1));
+  z-index: 2;
+}
+
+/* Cara superior */
+.keycap::before {
+  content: '';
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  top: 1px;
+  bottom: 24%;
+  border-radius: 22%;
+  background: linear-gradient(var(--k-top), var(--k-top2));
+  box-shadow: inset 0 0 0 1px var(--k-edge), inset 0 2px 0 rgb(255 255 255 / 0.7);
+  transition: transform 0.12s;
+}
+
+/* Leyenda impresa */
+.keycap::after {
+  content: attr(data-legend);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 4%;
+  height: 70%;
+  display: grid;
+  place-items: center;
+  font: 500 1.05cqi var(--font-mono);
+  color: var(--k-ink);
+  pointer-events: none;
+  transition: transform 0.12s;
+}
+.keycap:active::before,
+.keycap:active::after {
+  transform: translateY(14%);
+}
+
+/* Entrada: una sola ola de izquierda a derecha; cada tecla cae, aterriza y se hunde */
+@keyframes key-in {
+  0% { opacity: 0; transform: translate(var(--jx), calc(var(--jy) - 10px)) rotate(var(--jr)); }
+  45% {
+    opacity: 1;
+    transform: translate(var(--jx), calc(var(--jy) + 1px)) rotate(var(--jr));
+    box-shadow: inset 0 0 0 1px var(--k-edge), 0 0 1px rgb(0 0 0 / 0.08);
+  }
+  100% { transform: translate(var(--jx), var(--jy)) rotate(var(--jr)); }
+}
+@keyframes face-press {
+  0%, 40% { transform: none; }
+  60% { transform: translateY(16%); }
+  100% { transform: none; }
+}
+.wordmark.is-waiting .keycap { opacity: 0; }
+.wordmark.is-playing .keycap {
+  animation: key-in 0.5s cubic-bezier(0.3, 0.7, 0.3, 1) backwards;
+  animation-delay: var(--wave);
+}
+.wordmark.is-playing .keycap::before,
+.wordmark.is-playing .keycap::after {
+  animation: face-press 0.5s cubic-bezier(0.3, 0, 0.3, 1) backwards;
+  animation-delay: var(--wave);
+}
+
+/* Iconos de escritorio laterales */
+@keyframes decor-in {
+  from { opacity: 0; transform: scale(0.4); }
+  to { opacity: 1; transform: none; }
+}
+.footer-decor.is-waiting { opacity: 0; }
+.footer-decor.is-playing { animation: decor-in 0.55s var(--ease-pop) 900ms backwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wordmark.is-waiting .keycap, .footer-decor.is-waiting { opacity: 1; }
+  .wordmark.is-playing .keycap,
+  .wordmark.is-playing .keycap::before,
+  .wordmark.is-playing .keycap::after,
+  .footer-decor.is-playing { animation: none; }
+  .keycap { transition: none; }
+}

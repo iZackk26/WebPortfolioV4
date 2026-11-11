@@ -1,0 +1,16 @@
+{
+  "kicker": "Consistency",
+  "title": "One commit at a time",
+  "lede": "My real GitHub activity over the last year, including private client and Visione repos.",
+  "total": "contributions",
+  "activeDays": "active days",
+  "longestStreak": "longest streak",
+  "peakDay": "best single day",
+  "days": "{{count}} days",
+  "peak": "peak: {{count}} on {{date}}",
+  "cell": "{{count}} contributions · {{date}}",
+  "graphLabel": "GitHub contribution map for the last year: {{total}} contributions over {{days}} active days",
+  "less": "less",
+  "more": "more",
+  "updated": "updated {{date}}"
+}

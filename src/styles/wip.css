@@ -1,0 +1,113 @@
+/* Página "en construcción": Claude pixel tecleando y terminal de compilación. */
+:root {
+  --clawd: #d97757;
+}
+
+.wip-kicker {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font: 500 11px var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a5a00;
+  background: repeating-linear-gradient(-45deg, #ffe08a 0 10px, #ffd25a 10px 20px);
+  box-shadow: inset 0 0 0 1px rgb(138 90 0 / 0.35);
+}
+
+.wip-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 26px 18px;
+  border-bottom: 1px solid rgb(0 0 0 / 0.1);
+  background-image: radial-gradient(rgb(0 0 0 / 0.07) 1px, transparent 1.3px);
+  background-size: 16px 16px;
+}
+@media (min-width: 640px) {
+  .wip-stage { border-bottom: 0; border-right: 1px solid rgb(0 0 0 / 0.1); }
+}
+
+.wip-clawd { width: 132px; overflow: visible; filter: drop-shadow(0 8px 10px rgb(120 50 20 / 0.22)); }
+.wip-clawd rect { fill: var(--clawd); }
+.wip-clawd path { fill: none; stroke: #111; stroke-width: 1.1; stroke-linecap: square; stroke-linejoin: miter; }
+.wip-eyes-blink { opacity: 0; }
+.wip-clawd.is-blinking .wip-eyes-open { opacity: 0; }
+.wip-clawd.is-blinking .wip-eyes-blink { opacity: 1; }
+
+@keyframes wip-bob { to { transform: translateY(0.55px); } }
+@keyframes wip-tap-l { from { transform: translateY(0); } to { transform: translateY(1.6px); } }
+@keyframes wip-tap-r { from { transform: translateY(1.6px); } to { transform: translateY(0); } }
+.wip-body { animation: wip-bob 0.42s ease-in-out infinite alternate; }
+.wip-arm-l { animation: wip-tap-l 0.42s ease-in-out infinite alternate; }
+.wip-arm-r { animation: wip-tap-r 0.42s ease-in-out infinite alternate; }
+.wip-clawd.is-idle .wip-body,
+.wip-clawd.is-idle .wip-arm-l,
+.wip-clawd.is-idle .wip-arm-r { animation-play-state: paused; }
+
+/* Teclado al frente, tapando las patas */
+.wip-keyboard {
+  position: relative;
+  z-index: 1;
+  margin-top: -37px;
+  display: grid;
+  grid-template-columns: repeat(6, 26px);
+  gap: 4px;
+  padding: 8px;
+  border-radius: 10px;
+  background: linear-gradient(#e7e1d1, #d8d0bb);
+  box-shadow: inset 0 0 0 1px #9e9581, 0 6px 14px rgb(0 0 0 / 0.12);
+}
+.wip-key {
+  position: relative;
+  height: 22px;
+  border-radius: 5px;
+  background: #cbc2ad;
+  box-shadow: inset 0 0 0 1px #7a7160;
+}
+.wip-key::before {
+  content: '';
+  position: absolute;
+  inset: 1px 1px 5px;
+  border-radius: 4px;
+  background: linear-gradient(#f4efe3, #e5ddca);
+  box-shadow: inset 0 0 0 1px #7a7160;
+  transition: transform 0.07s;
+}
+.wip-key[data-pressed='true']::before { transform: translateY(3px); }
+.wip-key[data-accent='true']::before { background: linear-gradient(#ffb27f, #f8935a); }
+.wip-key[data-wide='true'] { grid-column: 2 / span 4; }
+
+.wip-terminal {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 210px;
+  padding: 16px 18px;
+  font: 13px/1.75 var(--font-mono);
+  color: #2b2b2b;
+}
+.wip-line { white-space: pre-wrap; overflow-wrap: anywhere; }
+.wip-line[data-tone='command'] { color: #1d6ee5; }
+.wip-line[data-tone='dim'] { color: rgb(0 0 0 / 0.4); }
+.wip-line[data-tone='warn'] { color: #8a5a00; }
+.wip-line[data-tone='ok'] { color: #1a7f37; }
+
+@keyframes wip-caret { 50% { opacity: 0; } }
+.wip-caret { display: inline-block; width: 7px; height: 14px; vertical-align: -2px; background: rgb(var(--ink)); animation: wip-caret 1s steps(1) infinite; }
+
+.wip-track { height: 8px; overflow: hidden; border-radius: 999px; background: #eee; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.08); }
+@keyframes wip-stripes { to { background-position: 22.6px 0; } }
+.wip-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: repeating-linear-gradient(-45deg, #f0a07f 0 8px, var(--clawd) 8px 16px);
+  background-size: 22.6px 22.6px;
+  animation: wip-stripes 1s linear infinite;
+  transition: width 0.5s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wip-body, .wip-arm-l, .wip-arm-r, .wip-caret, .wip-fill { animation: none; }
+  .wip-fill, .wip-key::before { transition: none; }
+}

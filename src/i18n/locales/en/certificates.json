@@ -1,0 +1,10 @@
+{
+  "title": "Certificates & Achievements",
+  "cloudExperience": "Cloud Experience",
+  "osExperience": "Operating Systems",
+  "aws": "Amazon Web Services (CloudWatch, Cognito)",
+  "gcp": "Google Cloud Platform (VMs, Firewall, Storage)",
+  "azure": "Microsoft Azure",
+  "linux": "Linux Distributions (Arch, Ubuntu, Fedora, Kali, Manjaro, EndevourOS)",
+  "other": "macOS & Windows"
+}

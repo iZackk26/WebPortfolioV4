@@ -1,0 +1,94 @@
+/* Constancia en GitHub: cifras y mapa de contribuciones en los azules del sitio. */
+:root {
+  --act-0: #ebedf0;
+  --act-1: #c6dbff;
+  --act-2: #8fb8ff;
+  --act-3: #4d8af0;
+  --act-4: #1d5fd6;
+}
+
+.activity-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-bottom: 1px solid rgb(0 0 0 / 0.1);
+}
+.activity-stat {
+  min-width: 0;
+  padding: 16px 18px;
+  border-right: 1px solid rgb(0 0 0 / 0.1);
+}
+.activity-stat:last-child { border-right: 0; }
+@media (max-width: 720px) {
+  .activity-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .activity-stat:nth-child(2) { border-right: 0; }
+  .activity-stat:nth-child(-n + 2) { border-bottom: 1px solid rgb(0 0 0 / 0.1); }
+}
+
+/* Escritorio: las semanas se reparten el ancho; móvil: celdas fijas con scroll */
+.activity-graph {
+  display: grid;
+  grid-template-rows: 14px repeat(7, auto);
+  grid-template-columns: repeat(var(--weeks), minmax(0, 1fr));
+  gap: 3px;
+  width: 100%;
+}
+@media (max-width: 760px) {
+  .activity-graph { grid-template-columns: repeat(var(--weeks), 11px); width: max-content; }
+}
+.activity-month {
+  grid-row: 1;
+  font: 10.5px var(--font-mono);
+  color: rgb(0 0 0 / 0.4);
+  white-space: nowrap;
+}
+.activity-cell {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 3px;
+  background: var(--act-0);
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.05);
+}
+.activity-cell[data-level='1'] { background: var(--act-1); }
+.activity-cell[data-level='2'] { background: var(--act-2); }
+.activity-cell[data-level='3'] { background: var(--act-3); }
+.activity-cell[data-level='4'] { background: var(--act-4); }
+.activity-graph .activity-cell:hover { outline: 1.5px solid rgb(var(--ink)); outline-offset: 1px; }
+
+/* Entrada: ola de izquierda a derecha cuando la sección aparece */
+@keyframes activity-pop {
+  from { transform: scale(0.2); opacity: 0; }
+}
+.activity-graph.is-waiting .activity-cell { opacity: 0; }
+.activity-graph.is-playing .activity-cell {
+  animation: activity-pop 0.38s cubic-bezier(0.2, 0.9, 0.25, 1) backwards;
+  animation-delay: var(--d);
+}
+
+.activity-legend-cell { width: 11px; }
+
+.activity-peak {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font: 500 12px var(--font-mono);
+  color: rgb(var(--aqua-edge));
+  background: linear-gradient(#f3f7ff, #dde9ff);
+  box-shadow: inset 0 0 0 1px rgb(var(--aqua-edge) / 0.35);
+}
+
+.activity-tip {
+  position: fixed;
+  z-index: 60;
+  pointer-events: none;
+  padding: 5px 9px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font: 12px var(--font-mono);
+  color: #fff;
+  background: rgb(20 20 20 / 0.9);
+  transform: translate(-50%, -130%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .activity-graph.is-waiting .activity-cell { opacity: 1; }
+  .activity-graph.is-playing .activity-cell { animation: none; }
+}

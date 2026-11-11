@@ -1,0 +1,14 @@
+{
+  "name": "Isaac Ramírez",
+  "role": "Computer Engineering Student & Software Developer",
+  "viewProjects": "View projects",
+  "downloadCv": "Download CV",
+  "dragHint": "Drag the photo, the note or the icons",
+  "photoAlt": "Photo of Isaac Ramírez",
+  "note": {
+    "title": "Right now",
+    "visioneFlow": "Developer at Visione Flow",
+    "growthPath": "Owner of The Growth Path",
+    "studies": "Computer Engineering, TEC"
+  }
+}

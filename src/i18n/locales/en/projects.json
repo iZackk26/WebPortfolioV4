@@ -1,0 +1,41 @@
+{
+  "title": "Projects",
+  "professional": "Professional Projects",
+  "ai": "AI Projects",
+  "university": "University Projects",
+  "viewDetails": "View Details",
+  "technologies": "Technologies",
+  "items": {
+    "appraisal": {
+      "title": "Mobile Appraisal Application",
+      "description": "Hybrid mobile solution enabling offline completion of dynamic forms using Formly. Designed for field appraisers to work seamlessly without internet connectivity.",
+      "highlights": "Offline-first architecture, Dynamic form generation, Data synchronization",
+      "privacyNote": "Note: Images shown are illustrative only, as this is a private project and confidential information cannot be disclosed."
+    },
+    "faceAntiSpoofing": {
+      "title": "Face Anti-Spoofing System",
+      "description": "AI-powered solution to prevent identity falsification by detecting presentation attacks in facial recognition systems.",
+      "highlights": "Real-time detection, High accuracy rate, Lightweight model"
+    },
+    "stateDetection": {
+      "title": "Optimized State Detection Model",
+      "description": "Machine learning model optimized to achieve high accuracy with minimal training data, demonstrating efficient use of limited datasets.",
+      "highlights": "Small dataset optimization, High precision, Fast inference"
+    },
+    "vectorDB": {
+      "title": "Facial Recognition System with Weaviate and TensorFlow",
+      "description": "This project implements a facial recognition system using Weaviate, a vector database, to store facial embeddings, and TensorFlow for face detection and recognition. It includes a graphical user interface for user registration and identification in images and video.",
+      "highlights": "Weaviate - Vector database, TensorFlow - Machine learning"
+    },
+    "iFixIt": {
+      "title": "iFixIt - Workshop Management Platform",
+      "description": "Comprehensive web and mobile platform for automotive workshop management, featuring real-time location tracking, appointment scheduling, and service management.",
+      "highlights": "Full-stack solution, Real-time tracking, Mobile & Web interfaces"
+    },
+    "puraCompra": {
+      "title": "Pura Compra - E-commerce Intermediary",
+      "description": "Platform connecting users with multiple online stores, providing a unified shopping experience with price comparisons and streamlined checkout.",
+      "highlights": "Multi-store integration, Price comparison, Unified checkout"
+    }
+  }
+}

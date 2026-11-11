@@ -1,0 +1,49 @@
+/* Foto de producto: dos iPhones de titanio que suben desde el borde inferior. */
+.carousel-shot.is-phones {
+  background: radial-gradient(80% 110% at 30% 0%, #ffffff, #eef0f4 55%, #e4e7ee);
+}
+
+.iphone {
+  position: absolute;
+  aspect-ratio: 1206 / 2622;
+  border-radius: 16.5% / 7.6%;
+  background: linear-gradient(120deg, #f4f4f6 0%, #bdbdc4 18%, #e9e9ec 34%, #a6a6ad 58%, #dcdce0 80%, #9c9ca3 100%);
+  box-shadow: 0 30px 50px -10px rgb(30 35 55 / 0.35), 0 8px 16px rgb(30 35 55 / 0.12), inset 0 0 0 0.6px rgb(0 0 0 / 0.35);
+}
+/* Bisel negro */
+.iphone::before {
+  content: '';
+  position: absolute;
+  inset: 0.9% 1.9%;
+  border-radius: 15.4% / 7.1%;
+  background: #0b0b0c;
+  box-shadow: 0 0 0 0.5px rgb(255 255 255 / 0.5);
+}
+.iphone-screen {
+  position: absolute;
+  inset: 1.8% 3.9%;
+  border-radius: 13.4% / 6.2%;
+  overflow: hidden;
+  background: #fff;
+}
+.iphone-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Dynamic Island: 31% del ancho de pantalla, alineada con la barra de estado */
+.iphone-screen::after {
+  content: '';
+  position: absolute;
+  top: 1.15%;
+  left: 50%;
+  width: 31%;
+  height: 4.1%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #000;
+}
+
+.iphone.is-front { z-index: 1; height: 132%; top: 12%; left: 50%; transform: translateX(-78%); }
+.iphone.is-back { height: 118%; top: 24%; left: 50%; transform: translateX(-2%); }
