@@ -18,7 +18,7 @@ export const HomeIntro = () => {
 
   return (
     <section
-      className={`intro-desk relative mx-auto flex max-w-[1400px] flex-col items-center justify-center px-4 pb-14 pt-10 text-center lg:min-h-[560px] lg:pb-20 lg:pt-16 ${focused ? 'is-focus' : ''}`}
+      className={`desk-scope relative mx-auto flex max-w-[1400px] flex-col items-center justify-center px-4 pb-14 pt-10 text-center lg:min-h-[560px] lg:pb-20 lg:pt-16 ${focused ? 'is-focus' : ''}`}
     >
       <div className="hidden lg:block">
         <DeskItem className="left-[4%] top-[150px]" rotate={PHOTO_ROTATION_DEG} onDragChange={onDragChange}>

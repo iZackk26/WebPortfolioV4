@@ -4,6 +4,8 @@ import { ProjectCarousel } from '../components/home/carousel/ProjectCarousel';
 import { SecondaryDock } from '../components/home/SecondaryDock';
 import { ActivitySection } from '../components/home/activity/ActivitySection';
 import { MethodSection } from '../components/home/method/MethodSection';
+import { StackScatter } from '../components/home/stack/StackScatter';
+import { StackRow } from '../components/home/stack/StackRow';
 import { ContactSection } from '../components/home/contact/ContactSection';
 
 export const Home = () => (
@@ -16,8 +18,11 @@ export const Home = () => (
     <HomeIntro />
     <ProjectCarousel />
     <SecondaryDock />
-    <ActivitySection />
-    <MethodSection />
+    <StackScatter>
+      <ActivitySection />
+      <StackRow />
+      <MethodSection />
+    </StackScatter>
     <ContactSection />
   </>
 );

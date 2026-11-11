@@ -25,7 +25,7 @@
 
 /* Al arrastrar, el resto del escritorio se atenúa */
 .desk-dim { transition: opacity 0.35s; }
-.intro-desk.is-focus .desk-dim:not(.is-dragging) { opacity: 0.3; }
+.desk-scope.is-focus .desk-dim:not(.is-dragging) { opacity: 0.3; }
 
 /* Nota adhesiva con cinta */
 .sticky-note {
