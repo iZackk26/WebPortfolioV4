@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { ContactForm } from './ContactForm';
 import { ContactLinks } from './ContactLinks';
+import { ContactPhoto } from './ContactPhoto';
 
 /** Cierre de contacto de la Home, entre el dock de proyectos y el footer. */
 export const ContactSection = () => {
@@ -15,7 +16,10 @@ export const ContactSection = () => {
         {t('contact.title')}
       </h2>
       <p className="m-0 max-w-[46ch] text-balance text-lg text-black/60">{t('contact.lede')}</p>
-      <ContactForm />
+      <div className="mt-2 grid w-[min(940px,100%)] grid-cols-1 items-center justify-items-center gap-7 lg:grid-cols-[300px_minmax(0,600px)] lg:gap-10">
+        <ContactPhoto />
+        <ContactForm />
+      </div>
       <ContactLinks />
     </section>
   );

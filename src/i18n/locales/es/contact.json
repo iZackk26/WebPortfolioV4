@@ -16,5 +16,6 @@
   "subjectFrom": "Mensaje de {{name}}",
   "or": "o directo:",
   "copy": "Copiar correo",
-  "copied": "Correo copiado"
+  "copied": "Correo copiado",
+  "photoAlt": "Isaac con dos compañeros"
 }
