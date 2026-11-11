@@ -50,7 +50,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     fileName: 'agrovoltaic.py',
     kind: 'research',
     role: 'techLead',
-    media: { type: 'screen', src: '/featured/agrovoltaic.jpg', fit: 'contain' },
+    media: { type: 'screen', src: '/featured/agrovoltaic.jpg' },
     stack: ['Python', 'pandas', 'pvlib', 'FastAPI', 'Supabase', 'Next.js'],
   },
 
