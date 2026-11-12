@@ -1,0 +1,351 @@
+{
+  "seo": {
+    "title": "Privacy Policy · Isaac Ramírez Rojas",
+    "description": "What personal data izackk.com and its assistant Max collect, why, who it is shared with and how to exercise your rights."
+  },
+  "kicker": "Privacy",
+  "title": "Privacy Policy",
+  "bio": "This policy describes what personal data is collected on izackk.com, for what purpose, who it is shared with and how you can exercise your rights.",
+  "sub": "It applies to the website and to the virtual assistant Max. It was drafted in accordance with Costa Rica's Law 8968 and the European Union's General Data Protection Regulation.",
+  "actions": [
+    {
+      "label": "Cookie preferences",
+      "target": "cookies",
+      "tone": "aqua"
+    },
+    {
+      "label": "Exercise my rights",
+      "target": "#derechos",
+      "tone": "silver"
+    }
+  ],
+  "factsWindow": "Get Info",
+  "file": "privacy.txt",
+  "version": "version 1.0",
+  "indexLabel": "Contents",
+  "facts": [
+    {
+      "label": "Controller",
+      "value": "Isaac Ramírez Rojas"
+    },
+    {
+      "label": "Contact",
+      "value": "izackk26@gmail.com"
+    },
+    {
+      "label": "Location",
+      "value": "Costa Rica"
+    },
+    {
+      "label": "Effective",
+      "value": "November 12, 2026"
+    },
+    {
+      "label": "Authority",
+      "value": "PRODHAB"
+    }
+  ],
+  "clauses": [
+    {
+      "id": "responsable",
+      "title": "Data controller",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "The controller of the personal data collected on this site is Isaac Ramírez Rojas, domiciled in Costa Rica (hereinafter, \"the controller\"). Any question about this policy may be sent to izackk26@gmail.com."
+        }
+      ]
+    },
+    {
+      "id": "datos",
+      "title": "Data collected",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Virtual assistant Max"
+        },
+        {
+          "type": "p",
+          "text": "When a user writes to the assistant, the following are recorded: the content of the messages and replies; the approximate location (country, region and city) derived from the connection; the type of device and browser; the page from which the user writes; the browser language; and a pseudonymised identifier of the IP address, generated with a hash function that does not allow it to be recovered. The IP address is not stored."
+        },
+        {
+          "type": "h3",
+          "text": "Audience measurement"
+        },
+        {
+          "type": "p",
+          "text": "The site loads Google Tag Manager on every visit using Google's consent mode, which starts in a denied state. Until the user accepts analytics, no Google cookies are set and only technical signals without persistent identifiers may be sent. With consent, Google Analytics 4 records the pages visited, the time spent and technical data about the device."
+        },
+        {
+          "type": "h3",
+          "text": "Security and operation"
+        },
+        {
+          "type": "p",
+          "text": "To limit the number of messages and prevent abuse, the pseudonymised IP identifier is kept for one hour. The site also uses Vercel Analytics, which produces aggregated statistics without cookies or personal identifiers."
+        },
+        {
+          "type": "h3",
+          "text": "Contact form"
+        },
+        {
+          "type": "p",
+          "text": "The form does not send data to the site's servers: it opens the user's own email program with the message already written."
+        }
+      ]
+    },
+    {
+      "id": "finalidades",
+      "title": "Purposes and legal bases",
+      "blocks": [
+        {
+          "type": "table",
+          "head": [
+            "Purpose",
+            "Legal basis"
+          ],
+          "rows": [
+            [
+              "Answering questions sent to the assistant and analysing them to improve the service",
+              "Informed consent when using the assistant and the controller's legitimate interest"
+            ],
+            [
+              "Preventing abuse and protecting the availability of the service",
+              "The controller's legitimate interest"
+            ],
+            [
+              "Audience measurement with Google Analytics 4",
+              "Consent, which can be withdrawn at any time"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The data is not sold or used for advertising."
+        }
+      ]
+    },
+    {
+      "id": "destinatarios",
+      "title": "Recipients and processors",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Data is disclosed only to the providers that deliver the services needed to run the site, acting as processors:"
+        },
+        {
+          "type": "table",
+          "head": [
+            "Provider",
+            "Service",
+            "Data"
+          ],
+          "rows": [
+            [
+              "Vercel Inc.",
+              "Hosting and aggregated statistics",
+              "Connection data and approximate location"
+            ],
+            [
+              "Visione Edge",
+              "Visione Flow platform, which runs the assistant",
+              "Conversations and their context"
+            ],
+            [
+              "Anthropic PBC",
+              "Language model that writes the replies",
+              "Conversations"
+            ],
+            [
+              "Supabase Inc.",
+              "Database",
+              "The data described in clause 02"
+            ],
+            [
+              "Upstash Inc.",
+              "Message limit control",
+              "Pseudonymised identifier, for one hour"
+            ],
+            [
+              "Amazon Web Services",
+              "Email alerts to the controller",
+              "Last message and pseudonymised identifier"
+            ],
+            [
+              "Google LLC",
+              "Google Analytics 4 and Google Tag Manager",
+              "Technical signals without cookies; browsing data with consent"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transferencias",
+      "title": "International transfers",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Some processors store or process data outside Costa Rica, mainly in the United States. These transfers take place under the data processing agreements that each provider offers its customers."
+        }
+      ]
+    },
+    {
+      "id": "conservacion",
+      "title": "Retention periods",
+      "blocks": [
+        {
+          "type": "table",
+          "head": [
+            "Data",
+            "Period"
+          ],
+          "rows": [
+            [
+              "Conversations with the assistant",
+              "12 months from when they are recorded; then deleted"
+            ],
+            [
+              "Blocks for misuse",
+              "The block lasts 24 hours; its record is deleted 30 days after it expires"
+            ],
+            [
+              "Message limit control",
+              "1 hour"
+            ],
+            [
+              "Google Analytics 4 data",
+              "14 months"
+            ],
+            [
+              "Cookie preferences",
+              "6 months in the user's browser"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "automatizadas",
+      "title": "Automated decisions",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "The assistant may automatically restrict access from a connection for 24 hours when it detects insults, mass messaging or repeated attempts to alter how it works. The controller is notified of the reason for each restriction. The person affected may ask the controller to review it by writing to izackk26@gmail.com."
+        }
+      ]
+    },
+    {
+      "id": "derechos",
+      "title": "Users' rights",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Users may at any time exercise their rights of access, rectification, erasure and objection, and withdraw any consent given. People in the European Union may also exercise the rights to restriction of processing and to data portability."
+        },
+        {
+          "type": "p",
+          "text": "To exercise them, send a request to izackk26@gmail.com stating the approximate date of the conversation and, if possible, the text of one of the messages, so it can be identified. Requests will be handled within the time limits set by applicable law."
+        },
+        {
+          "type": "p",
+          "text": "If you believe your rights have not been respected, you may lodge a complaint with Costa Rica's Data Protection Agency (PRODHAB) or with the supervisory authority of your country of residence."
+        }
+      ]
+    },
+    {
+      "id": "cookies",
+      "title": "Cookies and local storage",
+      "action": "cookies",
+      "blocks": [
+        {
+          "type": "table",
+          "head": [
+            "Name",
+            "Category",
+            "Purpose",
+            "Duration"
+          ],
+          "rows": [
+            [
+              "`language`",
+              "Necessary",
+              "Remember the chosen language",
+              "Persistent"
+            ],
+            [
+              "`chatbot_session_id`",
+              "Necessary",
+              "Keep the conversation with the assistant",
+              "Persistent"
+            ],
+            [
+              "`max_chat_history`",
+              "Necessary",
+              "Show the messages after reloading the page",
+              "Until the tab is closed"
+            ],
+            [
+              "`izackk-consent`",
+              "Necessary",
+              "Record the cookie decision",
+              "6 months"
+            ],
+            [
+              "`_ga`, `_ga_*`",
+              "Analytics",
+              "Google Analytics 4, only with consent",
+              "Up to 2 years"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Preferences can be changed at any time from the \"Cookies\" link in the footer or with the button below."
+        }
+      ]
+    },
+    {
+      "id": "menores",
+      "title": "Minors",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "This site is not directed at children under 13 and does not knowingly collect data from minors. A parent or guardian who becomes aware that a minor has provided personal data may request its deletion at izackk26@gmail.com."
+        }
+      ]
+    },
+    {
+      "id": "ia",
+      "title": "Artificial intelligence assistant and limitation of liability",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Max's replies are generated by a language model from an external provider (Anthropic PBC), which receives the content of the conversations and processes it under its own terms of service and privacy policies. The controller does not control that provider's systems or practices."
+        },
+        {
+          "type": "p",
+          "text": "For that reason, users are advised not to share sensitive data with the assistant, such as financial or health information, passwords, identity documents or personal data of third parties."
+        },
+        {
+          "type": "p",
+          "text": "To the extent permitted by applicable law, the controller accepts no liability for how external providers process information that users choose to share voluntarily with the assistant, or for unauthorised access to those providers' systems."
+        },
+        {
+          "type": "p",
+          "text": "The assistant's replies are generated automatically, may contain errors and are not statements, offers or commitments by the controller. Their use is also governed by the Terms of Use."
+        }
+      ]
+    },
+    {
+      "id": "cambios",
+      "title": "Changes",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "The controller may update this policy to reflect changes to the site or to the law. The effective date shows the latest update. When a change requires new consent, it will be requested again through the cookie notice. This policy is reviewed at least once a year."
+        }
+      ]
+    }
+  ]
+}

@@ -25,6 +25,8 @@ const StateDetectionDetail = lazy(() => retryImport(() => import('./pages/projec
 const VectorDBDetail = lazy(() => retryImport(() => import('./pages/projects/VectorDBDetail')).then(m => ({ default: m.VectorDBDetail })));
 const IFixItDetail = lazy(() => retryImport(() => import('./pages/projects/IFixItDetail')).then(m => ({ default: m.IFixItDetail })));
 const PuraCompraDetail = lazy(() => retryImport(() => import('./pages/projects/PuraCompraDetail')).then(m => ({ default: m.PuraCompraDetail })));
+const Privacy = lazy(() => retryImport(() => import('./pages/Privacy')).then(m => ({ default: m.Privacy })));
+const Terms = lazy(() => retryImport(() => import('./pages/Terms')).then(m => ({ default: m.Terms })));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -68,6 +70,8 @@ function App() {
                     <Route path="/projects/iFixIt" element={<IFixItDetail />} />
                     <Route path="/projects/puraCompra" element={<PuraCompraDetail />} />
                     <Route path="/certificates" element={<UnderConstruction section="certificates" />} />
+                    <Route path="/privacy" element={<Privacy />} />
+                    <Route path="/terms" element={<Terms />} />
                   </Routes>
                 </Suspense>
               </RouteBoundary>

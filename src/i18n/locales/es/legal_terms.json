@@ -1,0 +1,216 @@
+{
+  "seo": {
+    "title": "Términos de uso · Isaac Ramírez Rojas",
+    "description": "Condiciones que regulan el acceso y el uso de izackk.com y de su asistente virtual Max."
+  },
+  "kicker": "Legal",
+  "title": "Términos de uso",
+  "bio": "Estas condiciones regulan el acceso y el uso de izackk.com y de su asistente virtual Max.",
+  "sub": "Al navegar por el sitio o escribir al asistente, la persona usuaria acepta estos términos. Si no está de acuerdo con ellos, debe abstenerse de utilizar el sitio.",
+  "actions": [
+    {
+      "label": "Sobre el asistente Max",
+      "target": "#asistente",
+      "tone": "aqua"
+    },
+    {
+      "label": "Política de privacidad",
+      "target": "/privacy",
+      "tone": "silver"
+    }
+  ],
+  "factsWindow": "Obtener información",
+  "file": "terminos.txt",
+  "version": "versión 1.0",
+  "indexLabel": "Índice",
+  "facts": [
+    {
+      "label": "Titular",
+      "value": "Isaac Ramírez Rojas"
+    },
+    {
+      "label": "Contacto",
+      "value": "izackk26@gmail.com"
+    },
+    {
+      "label": "Naturaleza",
+      "value": "Portafolio personal, sin fines comerciales"
+    },
+    {
+      "label": "Ley aplicable",
+      "value": "República de Costa Rica"
+    },
+    {
+      "label": "Vigencia",
+      "value": "12 de noviembre de 2026"
+    }
+  ],
+  "clauses": [
+    {
+      "id": "aceptacion",
+      "title": "Aceptación",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "El acceso a izackk.com (en adelante, \"el sitio\") y el uso del asistente virtual Max implican la aceptación plena de estos términos y de la Política de privacidad. El titular del sitio es Isaac Ramírez Rojas (en adelante, \"el titular\")."
+        }
+      ]
+    },
+    {
+      "id": "sitio",
+      "title": "Naturaleza del sitio",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "El sitio es un portafolio profesional de carácter personal e informativo. Su acceso es gratuito y no ofrece la venta de productos ni la contratación de servicios. La información sobre proyectos, experiencia y certificaciones se presenta con fines de referencia y puede no estar actualizada en todo momento."
+        }
+      ]
+    },
+    {
+      "id": "asistente",
+      "title": "Asistente virtual Max",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Max es un asistente basado en inteligencia artificial que responde preguntas sobre el titular y su trabajo. Sus respuestas se generan de forma automática a partir de un modelo de lenguaje de un proveedor externo y pueden contener errores, omisiones o información desactualizada."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Las respuestas del asistente no constituyen asesoría profesional, técnica, legal ni de ninguna otra clase.",
+            "Las respuestas no constituyen ofertas, cotizaciones, promesas de contratación, acuerdos ni declaraciones del titular, y no lo obligan de ninguna forma.",
+            "El uso del asistente no crea una relación laboral, comercial ni contractual entre la persona usuaria y el titular.",
+            "Cualquier información relevante para una decisión debe confirmarse directamente con el titular en izackk26@gmail.com."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uso",
+      "title": "Uso aceptable",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "La persona usuaria se compromete a utilizar el sitio y el asistente de buena fe y conforme a la ley. En particular, queda prohibido:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Intentar acceder sin autorización a los sistemas del sitio o de sus proveedores, o vulnerar sus medidas de seguridad.",
+            "Manipular el asistente para alterar su funcionamiento, obtener sus instrucciones internas o hacerle generar contenido ilícito u ofensivo.",
+            "Enviar mensajes de forma automatizada o masiva, o extraer contenido del sitio mediante herramientas automatizadas.",
+            "Insultar, acosar o amenazar al titular o a terceros, o suplantar la identidad de otra persona."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "El titular puede restringir el acceso de forma temporal o permanente a quien incumpla estas reglas, sin aviso previo."
+        }
+      ]
+    },
+    {
+      "id": "contenido",
+      "title": "Contenido de la persona usuaria",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "La persona usuaria es la única responsable de la información que comparte con el asistente o por cualquier otro medio del sitio. Se compromete a no compartir datos personales de terceros sin su autorización ni información que infrinja derechos de otras personas. Al escribir al asistente autoriza el tratamiento de sus mensajes en los términos de la Política de privacidad."
+        }
+      ]
+    },
+    {
+      "id": "propiedad",
+      "title": "Propiedad intelectual",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Los textos, diseños, imágenes, código y demás elementos del sitio pertenecen al titular, salvo indicación en contrario, y no pueden reproducirse ni utilizarse con fines comerciales sin su autorización previa y por escrito. Los nombres, logotipos y marcas de terceros que aparecen en el sitio pertenecen a sus respectivos titulares y se muestran solo con fines descriptivos. Los proyectos desarrollados para clientes son propiedad de dichos clientes."
+        }
+      ]
+    },
+    {
+      "id": "terceros",
+      "title": "Enlaces y servicios de terceros",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "El sitio contiene enlaces a sitios y servicios de terceros que el titular no controla. El titular no es responsable de su contenido, disponibilidad ni de sus prácticas de privacidad. El acceso a ellos se rige por sus propios términos."
+        }
+      ]
+    },
+    {
+      "id": "garantias",
+      "title": "Exclusión de garantías",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "En la máxima medida permitida por la ley, el sitio y el asistente se ofrecen \"tal cual\" y \"según disponibilidad\", sin garantías de ningún tipo, expresas o implícitas, incluidas las de exactitud, integridad, actualidad, idoneidad para un fin determinado o funcionamiento ininterrumpido y libre de errores."
+        }
+      ]
+    },
+    {
+      "id": "responsabilidad",
+      "title": "Limitación de responsabilidad",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "En la máxima medida permitida por la ley, el titular no será responsable de los daños o perjuicios directos o indirectos, incluidos el lucro cesante y la pérdida de datos, derivados de:"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "el uso del sitio o del asistente, o la imposibilidad de usarlos;",
+            "las decisiones que la persona usuaria tome con base en las respuestas del asistente o en la información del sitio;",
+            "la información que la persona usuaria comparta voluntariamente con el asistente y el tratamiento que de ella hagan los proveedores externos;",
+            "interrupciones, fallos técnicos, virus o accesos no autorizados a los sistemas del sitio o de sus proveedores;",
+            "el contenido o el funcionamiento de sitios y servicios de terceros."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Esta limitación no se aplica a los daños causados por dolo o culpa grave del titular, ni a los derechos que la ley reconoce a la persona usuaria y que no pueden ser objeto de renuncia."
+        }
+      ]
+    },
+    {
+      "id": "indemnidad",
+      "title": "Indemnidad",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "La persona usuaria se compromete a mantener indemne al titular frente a cualquier reclamación, daño, gasto o costo, incluidos los honorarios razonables de abogados, que se deriven del incumplimiento de estos términos o del uso ilícito del sitio o del asistente."
+        }
+      ]
+    },
+    {
+      "id": "disponibilidad",
+      "title": "Disponibilidad y cambios",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "El titular puede modificar, suspender o retirar el sitio, el asistente o cualquiera de sus contenidos en cualquier momento y sin aviso previo. También puede actualizar estos términos; la fecha de vigencia indica la última actualización y el uso del sitio posterior a ella implica la aceptación de los cambios."
+        }
+      ]
+    },
+    {
+      "id": "ley",
+      "title": "Ley aplicable y jurisdicción",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Estos términos se rigen por las leyes de la República de Costa Rica. Cualquier controversia relacionada con el sitio o con el asistente se someterá a los tribunales competentes de Costa Rica, sin perjuicio de los derechos irrenunciables que la legislación del país de residencia de la persona usuaria pueda reconocerle. Antes de iniciar cualquier acción, las partes procurarán resolver la controversia de buena fe mediante comunicación a izackk26@gmail.com."
+        }
+      ]
+    },
+    {
+      "id": "finales",
+      "title": "Disposiciones finales",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Si alguna disposición de estos términos se declara nula o inaplicable, las demás conservarán su validez. La falta de ejercicio de un derecho por parte del titular no implica su renuncia. Estos términos, junto con la Política de privacidad, constituyen el acuerdo completo entre la persona usuaria y el titular respecto del uso del sitio."
+        }
+      ]
+    }
+  ]
+}

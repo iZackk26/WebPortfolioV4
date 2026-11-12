@@ -1,0 +1,351 @@
+{
+  "seo": {
+    "title": "Política de privacidad · Isaac Ramírez Rojas",
+    "description": "Qué datos personales recopila izackk.com y su asistente Max, con qué finalidad, con quién se comparten y cómo ejercer sus derechos."
+  },
+  "kicker": "Privacidad",
+  "title": "Política de privacidad",
+  "bio": "Esta política describe qué datos personales se recopilan en izackk.com, con qué finalidad, con quién se comparten y cómo puede ejercer sus derechos.",
+  "sub": "Se aplica al sitio web y al asistente virtual Max. Se redactó conforme a la Ley 8968 de Costa Rica y al Reglamento General de Protección de Datos de la Unión Europea.",
+  "actions": [
+    {
+      "label": "Preferencias de cookies",
+      "target": "cookies",
+      "tone": "aqua"
+    },
+    {
+      "label": "Ejercer mis derechos",
+      "target": "#derechos",
+      "tone": "silver"
+    }
+  ],
+  "factsWindow": "Obtener información",
+  "file": "privacidad.txt",
+  "version": "versión 1.0",
+  "indexLabel": "Índice",
+  "facts": [
+    {
+      "label": "Responsable",
+      "value": "Isaac Ramírez Rojas"
+    },
+    {
+      "label": "Contacto",
+      "value": "izackk26@gmail.com"
+    },
+    {
+      "label": "Ubicación",
+      "value": "Costa Rica"
+    },
+    {
+      "label": "Vigencia",
+      "value": "12 de noviembre de 2026"
+    },
+    {
+      "label": "Autoridad",
+      "value": "PRODHAB"
+    }
+  ],
+  "clauses": [
+    {
+      "id": "responsable",
+      "title": "Responsable del tratamiento",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "El responsable del tratamiento de los datos personales recopilados en este sitio es Isaac Ramírez Rojas, con domicilio en Costa Rica (en adelante, \"el responsable\"). Cualquier consulta relacionada con esta política puede dirigirse a izackk26@gmail.com."
+        }
+      ]
+    },
+    {
+      "id": "datos",
+      "title": "Datos que se recopilan",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Asistente virtual Max"
+        },
+        {
+          "type": "p",
+          "text": "Cuando la persona usuaria escribe al asistente se registran el contenido de los mensajes y de las respuestas; la ubicación aproximada (país, región y ciudad) derivada de la conexión; el tipo de dispositivo y de navegador; la página desde la que se escribe; el idioma del navegador; y un identificador seudonimizado de la dirección IP, generado mediante una función hash que no permite recuperarla. La dirección IP no se almacena."
+        },
+        {
+          "type": "h3",
+          "text": "Medición de audiencia"
+        },
+        {
+          "type": "p",
+          "text": "El sitio carga Google Tag Manager en cada visita con el modo de consentimiento de Google, que parte de un estado denegado. Mientras la persona usuaria no acepte la analítica, no se instalan cookies de Google y solo pueden enviarse señales técnicas sin identificadores persistentes. Con su consentimiento, Google Analytics 4 registra las páginas visitadas, el tiempo de permanencia y datos técnicos del dispositivo."
+        },
+        {
+          "type": "h3",
+          "text": "Seguridad y funcionamiento"
+        },
+        {
+          "type": "p",
+          "text": "Para limitar la cantidad de mensajes y prevenir abusos, el identificador seudonimizado de la IP se conserva durante una hora. El sitio utiliza además Vercel Analytics, que genera estadísticas agregadas sin cookies ni identificadores personales."
+        },
+        {
+          "type": "h3",
+          "text": "Formulario de contacto"
+        },
+        {
+          "type": "p",
+          "text": "El formulario no transmite datos a los servidores del sitio: abre el programa de correo de la persona usuaria con el mensaje redactado."
+        }
+      ]
+    },
+    {
+      "id": "finalidades",
+      "title": "Finalidades y bases legales",
+      "blocks": [
+        {
+          "type": "table",
+          "head": [
+            "Finalidad",
+            "Base legal"
+          ],
+          "rows": [
+            [
+              "Responder las consultas dirigidas al asistente y analizar su contenido para mejorar el servicio",
+              "Consentimiento informado al utilizar el asistente e interés legítimo del responsable"
+            ],
+            [
+              "Prevenir abusos y proteger la disponibilidad del servicio",
+              "Interés legítimo del responsable"
+            ],
+            [
+              "Medición de audiencia mediante Google Analytics 4",
+              "Consentimiento, revocable en cualquier momento"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Los datos no se venden ni se utilizan con fines publicitarios."
+        }
+      ]
+    },
+    {
+      "id": "destinatarios",
+      "title": "Destinatarios y encargados del tratamiento",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Los datos se comunican exclusivamente a los proveedores que prestan los servicios necesarios para el funcionamiento del sitio, en calidad de encargados del tratamiento:"
+        },
+        {
+          "type": "table",
+          "head": [
+            "Proveedor",
+            "Servicio",
+            "Datos"
+          ],
+          "rows": [
+            [
+              "Vercel Inc.",
+              "Alojamiento y estadísticas agregadas",
+              "Datos de conexión y ubicación aproximada"
+            ],
+            [
+              "Visione Edge",
+              "Plataforma Visione Flow, que ejecuta el asistente",
+              "Conversaciones y su contexto"
+            ],
+            [
+              "Anthropic PBC",
+              "Modelo de lenguaje que redacta las respuestas",
+              "Conversaciones"
+            ],
+            [
+              "Supabase Inc.",
+              "Base de datos",
+              "Datos descritos en la cláusula 02"
+            ],
+            [
+              "Upstash Inc.",
+              "Control del límite de mensajes",
+              "Identificador seudonimizado, durante una hora"
+            ],
+            [
+              "Amazon Web Services",
+              "Envío de alertas por correo al responsable",
+              "Último mensaje e identificador seudonimizado"
+            ],
+            [
+              "Google LLC",
+              "Google Analytics 4 y Google Tag Manager",
+              "Señales técnicas sin cookies; datos de navegación con consentimiento"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transferencias",
+      "title": "Transferencias internacionales",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Algunos de los encargados almacenan o procesan los datos fuera de Costa Rica, principalmente en los Estados Unidos. Estas transferencias se realizan conforme a los acuerdos de tratamiento de datos que cada proveedor ofrece a sus clientes."
+        }
+      ]
+    },
+    {
+      "id": "conservacion",
+      "title": "Plazos de conservación",
+      "blocks": [
+        {
+          "type": "table",
+          "head": [
+            "Dato",
+            "Plazo"
+          ],
+          "rows": [
+            [
+              "Conversaciones con el asistente",
+              "12 meses desde su registro; después se eliminan"
+            ],
+            [
+              "Bloqueos por uso indebido",
+              "El bloqueo dura 24 horas; su registro se elimina 30 días después de vencer"
+            ],
+            [
+              "Control del límite de mensajes",
+              "1 hora"
+            ],
+            [
+              "Datos de Google Analytics 4",
+              "14 meses"
+            ],
+            [
+              "Preferencias de cookies",
+              "6 meses en el navegador de la persona usuaria"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "automatizadas",
+      "title": "Decisiones automatizadas",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "El asistente puede restringir de forma automática el acceso de una conexión durante 24 horas cuando detecta insultos, envío masivo de mensajes o intentos reiterados de alterar su funcionamiento. El responsable recibe una notificación con el motivo de cada restricción. La persona afectada puede solicitar su revisión por parte del responsable escribiendo a izackk26@gmail.com."
+        }
+      ]
+    },
+    {
+      "id": "derechos",
+      "title": "Derechos de las personas usuarias",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "La persona usuaria puede ejercer en cualquier momento sus derechos de acceso, rectificación, cancelación y oposición, así como revocar el consentimiento otorgado. Las personas que se encuentren en la Unión Europea pueden ejercer además los derechos de limitación del tratamiento y de portabilidad."
+        },
+        {
+          "type": "p",
+          "text": "Para ejercerlos debe enviar una solicitud a izackk26@gmail.com indicando la fecha aproximada de la consulta y, si es posible, el texto de alguno de los mensajes, para identificar la conversación. La solicitud se atenderá dentro de los plazos establecidos por la normativa aplicable."
+        },
+        {
+          "type": "p",
+          "text": "Si considera que sus derechos no han sido atendidos, puede presentar una reclamación ante la Agencia de Protección de Datos de los Habitantes (PRODHAB) de Costa Rica o ante la autoridad de control de su país de residencia."
+        }
+      ]
+    },
+    {
+      "id": "cookies",
+      "title": "Cookies y almacenamiento local",
+      "action": "cookies",
+      "blocks": [
+        {
+          "type": "table",
+          "head": [
+            "Nombre",
+            "Categoría",
+            "Finalidad",
+            "Duración"
+          ],
+          "rows": [
+            [
+              "`language`",
+              "Necesaria",
+              "Conservar el idioma elegido",
+              "Persistente"
+            ],
+            [
+              "`chatbot_session_id`",
+              "Necesaria",
+              "Mantener la conversación con el asistente",
+              "Persistente"
+            ],
+            [
+              "`max_chat_history`",
+              "Necesaria",
+              "Mostrar los mensajes al recargar la página",
+              "Hasta cerrar la pestaña"
+            ],
+            [
+              "`izackk-consent`",
+              "Necesaria",
+              "Registrar la decisión sobre cookies",
+              "6 meses"
+            ],
+            [
+              "`_ga`, `_ga_*`",
+              "Analítica",
+              "Google Analytics 4, solo con consentimiento",
+              "Hasta 2 años"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Las preferencias pueden modificarse en cualquier momento desde el enlace \"Cookies\" del pie de página o con el siguiente botón."
+        }
+      ]
+    },
+    {
+      "id": "menores",
+      "title": "Menores de edad",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Este sitio no está dirigido a menores de 13 años y no recopila de forma consciente datos de menores. Si un padre, madre o tutor tiene conocimiento de que un menor ha facilitado datos personales, puede solicitar su eliminación a izackk26@gmail.com."
+        }
+      ]
+    },
+    {
+      "id": "ia",
+      "title": "Asistente de inteligencia artificial y limitación de responsabilidad",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Las respuestas del asistente Max se generan mediante un modelo de lenguaje de un proveedor externo (Anthropic PBC), que recibe el contenido de las conversaciones y lo trata conforme a sus propias condiciones de servicio y políticas de privacidad. El responsable no controla los sistemas ni las prácticas de dicho proveedor."
+        },
+        {
+          "type": "p",
+          "text": "Por ello, se recomienda no compartir con el asistente datos sensibles, como información financiera o de salud, contraseñas, documentos de identidad o datos personales de terceros."
+        },
+        {
+          "type": "p",
+          "text": "En la medida en que lo permita la legislación aplicable, el responsable no asume responsabilidad por el tratamiento que los proveedores externos realicen de la información que la persona usuaria decida compartir voluntariamente con el asistente, ni por accesos no autorizados a los sistemas de dichos proveedores."
+        },
+        {
+          "type": "p",
+          "text": "Las respuestas del asistente se generan de forma automática, pueden contener errores y no constituyen declaraciones, ofertas ni compromisos del responsable. Su uso se rige además por los Términos de uso."
+        }
+      ]
+    },
+    {
+      "id": "cambios",
+      "title": "Modificaciones",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "El responsable puede actualizar esta política para reflejar cambios en el sitio o en la normativa. La fecha de vigencia indica la última actualización. Cuando un cambio requiera un nuevo consentimiento, se solicitará nuevamente mediante el aviso de cookies. Esta política se revisa al menos una vez al año."
+        }
+      ]
+    }
+  ]
+}

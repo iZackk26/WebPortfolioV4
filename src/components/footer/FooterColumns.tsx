@@ -33,6 +33,12 @@ export const FooterColumns = () => {
         <a href={CV_LINKS.en} target="_blank" rel="noopener noreferrer" className={linkClass}>
           {t('footer.cvEn')}
         </a>
+        <Link to="/privacy" className={linkClass}>
+          {t('footer.privacy')}
+        </Link>
+        <Link to="/terms" className={linkClass}>
+          {t('footer.terms')}
+        </Link>
         <button type="button" className={`${linkClass} text-left`} onClick={() => window.dispatchEvent(new Event(CONSENT_OPEN_EVENT))}>
           {t('consent.footerLink')}
         </button>
