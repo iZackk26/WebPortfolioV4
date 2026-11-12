@@ -1,6 +1,7 @@
 import { useState, KeyboardEvent } from 'react';
 import { Send } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 interface ChatInputProps {
   onSend: (message: string) => void;
@@ -8,6 +9,7 @@ interface ChatInputProps {
 }
 
 export function ChatInput({ onSend, disabled }: ChatInputProps) {
+  const { t } = useTranslation();
   const [input, setInput] = useState('');
 
   const handleSend = () => {
@@ -32,7 +34,7 @@ export function ChatInput({ onSend, disabled }: ChatInputProps) {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Escribe tu mensaje..."
+          placeholder={t('chat.placeholder')}
           disabled={disabled}
           className="flex-1 bg-[rgb(var(--color-bg-secondary))] text-[rgb(var(--color-text-primary))] rounded-xl px-3 md:px-4 py-2 md:py-3 text-sm
                      focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-accent))]
@@ -48,6 +50,7 @@ export function ChatInput({ onSend, disabled }: ChatInputProps) {
           whileHover={{ scale: disabled ? 1 : 1.05 }}
           whileTap={{ scale: disabled ? 1 : 0.95 }}
           onClick={handleSend}
+          aria-label={t('chat.send')}
           disabled={disabled || !input.trim()}
           className="bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))] text-white
                      rounded-xl p-2.5 md:p-3 hover:shadow-lg transition-all

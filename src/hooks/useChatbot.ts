@@ -1,7 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { chatbotService, ChatMessage } from '../services/chatbot';
 
 export function useChatbot() {
+  const { t } = useTranslation();
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -59,7 +61,7 @@ export function useChatbot() {
         // Add error message from assistant
         const errorResponse: ChatMessage = {
           role: 'assistant',
-          content: `Lo siento, hubo un error al procesar tu mensaje. ${errorMessage}`,
+          content: t('chat.error'),
           timestamp: Date.now(),
         };
 
@@ -68,7 +70,7 @@ export function useChatbot() {
         setIsLoading(false);
       }
     },
-    [isLoading, sessionId]
+    [isLoading, sessionId, t]
   );
 
   const toggleChat = useCallback(() => {

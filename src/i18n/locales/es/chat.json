@@ -1,0 +1,9 @@
+{
+  "open": "Abrir chat",
+  "close": "Cerrar chat",
+  "subtitle": "Asistente de IA de Isaac",
+  "placeholder": "Escribe tu mensaje…",
+  "send": "Enviar mensaje",
+  "typing": "Escribiendo…",
+  "error": "Lo siento, hubo un error al procesar tu mensaje. Inténtalo de nuevo."
+}

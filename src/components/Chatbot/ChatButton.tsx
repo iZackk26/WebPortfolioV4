@@ -1,4 +1,5 @@
 import { MessageCircle, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface ChatButtonProps {
   isOpen: boolean;
@@ -9,6 +10,8 @@ interface ChatButtonProps {
 
 /** Botón flotante del chat. Animaciones en CSS (chat-button.css): no carga framer-motion. */
 export function ChatButton({ isOpen, onClick, onIntent }: ChatButtonProps) {
+  const { t } = useTranslation();
+
   return (
     <button
       type="button"
@@ -19,7 +22,7 @@ export function ChatButton({ isOpen, onClick, onIntent }: ChatButtonProps) {
       className="chat-fab fixed bottom-6 right-6 z-50 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full
                  bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))]
                  shadow-2xl md:h-16 md:w-16"
-      aria-label={isOpen ? 'Close chat' : 'Open chat'}
+      aria-label={isOpen ? t('chat.close') : t('chat.open')}
     >
       <span className="chat-fab-pulse absolute inset-0 rounded-full bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))]" aria-hidden="true" />
       <span className="relative z-10 grid h-6 w-6 md:h-7 md:w-7" aria-hidden="true">

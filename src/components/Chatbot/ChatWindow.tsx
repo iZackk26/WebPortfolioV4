@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Bot, Loader2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { ChatMessage } from './ChatMessage';
 import { ChatInput } from './ChatInput';
 import { ChatMessage as ChatMessageType } from '../../services/chatbot';
@@ -14,6 +15,7 @@ interface ChatWindowProps {
 }
 
 export function ChatWindow({ isOpen, messages, isLoading, onClose, onSendMessage }: ChatWindowProps) {
+  const { t } = useTranslation();
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
 
@@ -64,7 +66,7 @@ export function ChatWindow({ isOpen, messages, isLoading, onClose, onSendMessage
                 </div>
                 <div>
                   <h3 className="text-white font-semibold">Max</h3>
-                  <p className="text-white/80 text-xs">Isaac's AI Assistant</p>
+                  <p className="text-white/80 text-xs">{t('chat.subtitle')}</p>
                 </div>
               </div>
 
@@ -72,6 +74,7 @@ export function ChatWindow({ isOpen, messages, isLoading, onClose, onSendMessage
                 whileHover={{ scale: 1.1, rotate: 90 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={onClose}
+                aria-label={t('chat.close')}
                 className="text-white/80 hover:text-white transition-colors"
               >
                 <X className="w-5 h-5" />
@@ -104,7 +107,7 @@ export function ChatWindow({ isOpen, messages, isLoading, onClose, onSendMessage
                   <div className="bg-[rgb(var(--color-card))] border border-[rgb(var(--color-border))] rounded-2xl px-4 py-3">
                     <div className="flex items-center gap-2 text-[rgb(var(--color-accent))]">
                       <Loader2 className="w-4 h-4 animate-spin" />
-                      <span className="text-sm">Escribiendo...</span>
+                      <span className="text-sm">{t('chat.typing')}</span>
                     </div>
                   </div>
                 </motion.div>

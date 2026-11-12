@@ -1,0 +1,9 @@
+{
+  "open": "Open chat",
+  "close": "Close chat",
+  "subtitle": "Isaac's AI assistant",
+  "placeholder": "Type your message…",
+  "send": "Send message",
+  "typing": "Typing…",
+  "error": "Sorry, something went wrong processing your message. Please try again."
+}
