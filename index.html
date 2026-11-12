@@ -83,11 +83,33 @@
     </script>
 
     <!-- Preconnect to improve performance -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/inter-500.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Vista inicial: se pinta antes de que llegue el JS (React la reemplaza al montar) -->
+    <style>
+      body { margin: 0; background-color: #f5f5f5; background-image: radial-gradient(rgb(0 0 0 / 0.13) 1px, transparent 1.3px); background-size: 34px 34px; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+      .shell-nav { position: fixed; top: 16px; left: 16px; right: 16px; height: 56px; border-radius: 999px; background: rgb(255 255 255 / 0.7); border: 1px solid rgb(98 98 98 / 0.55); box-shadow: 0 14px 30px -10px rgb(0 0 0 / 0.22); }
+      .shell-nav::before { content: ''; position: absolute; left: 6px; top: 6px; width: 44px; height: 44px; border-radius: 50%; background: rgb(0 0 0 / 0.08); }
+      .shell-hero { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 136px 16px 0; text-align: center; }
+      .shell-hero h1 { margin: 0; font-size: clamp(46px, 8vw, 84px); font-weight: 500; line-height: 0.95; letter-spacing: -0.055em; color: #000; }
+      .shell-bar { border-radius: 999px; background: rgb(0 0 0 / 0.07); }
+      .shell-row { display: flex; gap: 12px; margin-top: 16px; }
+      @media (min-width: 768px) { .shell-nav { left: 24px; right: 24px; } }
+      @media (min-width: 1024px) { .shell-hero { padding-top: 192px; } }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="shell-nav" aria-hidden="true"></div>
+      <div class="shell-hero" aria-busy="true">
+        <h1>Isaac Ramírez</h1>
+        <div class="shell-bar" style="width: min(420px, 80vw); height: 20px"></div>
+        <div class="shell-row" aria-hidden="true">
+          <div class="shell-bar" style="width: 160px; height: 44px"></div>
+          <div class="shell-bar" style="width: 150px; height: 44px"></div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
 
   </body>
