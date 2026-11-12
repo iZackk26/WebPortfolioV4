@@ -31,3 +31,15 @@ export const STACK_MOBILE_BOTTOM: ScatterSpot[] = [
   { id: 'postgres', position: 'right-[9%] top-0', rotate: 5 },
   { id: 'tailwind', position: 'left-[36%] top-[96px]', rotate: 3 },
 ];
+
+/** About, recorrido: dos sobre el título (en su espacio superior) y tres debajo */
+export const JOURNEY_MOBILE_TOP: ScatterSpot[] = [
+  { id: 'swift', position: 'left-[10%] top-[26px]', rotate: -7 },
+  { id: 'dotnet', position: 'right-[9%] top-[40px]', rotate: 6 },
+];
+
+export const JOURNEY_MOBILE_BOTTOM: ScatterSpot[] = [
+  { id: 'mysql', position: 'right-[22%] top-[10px]', rotate: 5 },
+  { id: 'python', position: 'left-[6%] top-[46px]', rotate: -6 },
+  { id: 'github', position: 'left-[34%] top-[128px]', rotate: 4 },
+];

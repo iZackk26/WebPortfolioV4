@@ -18,7 +18,7 @@ const positionFor = (icon: StackIcon): CSSProperties => {
 
 /**
  * Envuelve uno o más bloques de la Home con los logos de sus grupos.
- * En xl+ flotan a los costados y se arrastran; en pantallas más chicas los muestra StackRow.
+ * En xl+ flotan a los costados y se arrastran; en pantallas más chicas los muestra StackRowScatter.
  */
 export const StackScatter = ({ groups, children }: StackScatterProps) => {
   const [focused, setFocused] = useState(false);
