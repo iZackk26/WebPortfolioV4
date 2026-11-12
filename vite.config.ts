@@ -1,9 +1,21 @@
-import { defineConfig } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
+import { tagManagerHeadSnippet } from './src/utils/tagManagerSnippet';
+
+// Consent Mode + Tag Manager como primer script del <head>, como pide Google. Va justo
+// después de <meta charset>, que debe quedar dentro de los primeros 1024 bytes
+const CHARSET_META = '<meta charset="UTF-8" />';
+const tagManagerHead = (): Plugin => ({
+  name: 'tag-manager-head',
+  transformIndexHtml: (html) => {
+    if (!html.includes(CHARSET_META)) throw new Error('index.html necesita <meta charset="UTF-8" />');
+    return html.replace(CHARSET_META, `${CHARSET_META}\n    <script>${tagManagerHeadSnippet()}</script>`);
+  },
+});
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [tagManagerHead(), react()],
   build: {
     // Disable CSS code splitting to have one CSS file that can be cached better
     cssCodeSplit: false,

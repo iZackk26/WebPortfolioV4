@@ -16,3 +16,6 @@ export const CONSENT_MOBILE_QUERY = '(max-width: 639px)';
 
 /** Cookies que deja GA4; se borran si el visitante retira el permiso */
 export const ANALYTICS_COOKIE_PREFIXES = ['_ga', '_gid', '_gat'];
+
+/** Cuánto espera GTM una actualización de consentimiento antes de evaluar sus tags */
+export const CONSENT_WAIT_FOR_UPDATE_MS = 500;

@@ -3,13 +3,13 @@ import {
   CONSENT_MAX_AGE_MS,
   CONSENT_STORAGE_KEY,
   CONSENT_VERSION,
-  GTM_SCRIPT_URL,
 } from '../constants/consent';
 import type { ConsentPreferences, ConsentRecord } from '../types/consent';
 
 /**
- * Consent Mode v2 en modo básico: todo arranca denegado y Tag Manager solo se carga
- * después de que el visitante acepta la analítica. Antes de eso no sale nada hacia Google.
+ * Consent Mode v2 avanzado: el <head> (utils/tagManagerSnippet.ts) deja todo denegado,
+ * aplica la decisión guardada y carga Tag Manager. Aquí solo se actualiza el estado
+ * cuando el visitante decide en el aviso. GA4 dentro de GTM exige analytics_storage.
  */
 declare global {
   interface Window {
@@ -17,10 +17,10 @@ declare global {
   }
 }
 
-// gtag debe empujar el objeto `arguments`, no un array: así lo lee GTM. Los parámetros
-// solo tipan la llamada; el valor real sale de `arguments`
+// gtag debe empujar el objeto `arguments`, no un array: así lo lee GTM
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function gtag(..._args: unknown[]) {
+  window.dataLayer = window.dataLayer || [];
   // eslint-disable-next-line prefer-rest-params -- formato exigido por Google
   window.dataLayer.push(arguments);
 }
@@ -35,23 +35,6 @@ const signals = ({ analytics, marketing }: ConsentPreferences) => {
   };
 };
 
-/** Va antes de todo: deja declarado que no hay permiso hasta que el visitante decida */
-export const initConsentDefaults = () => {
-  window.dataLayer = window.dataLayer || [];
-  gtag('consent', 'default', signals({ analytics: false, marketing: false }));
-};
-
-let gtmLoaded = false;
-const loadTagManager = () => {
-  if (gtmLoaded) return;
-  gtmLoaded = true;
-  gtag('js', new Date());
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = GTM_SCRIPT_URL;
-  document.head.appendChild(script);
-};
-
 const clearAnalyticsCookies = () => {
   const domains = ['', `; domain=${location.hostname}`, `; domain=.${location.hostname.replace(/^www\./, '')}`];
   for (const cookie of document.cookie.split(';')) {
@@ -61,11 +44,10 @@ const clearAnalyticsCookies = () => {
   }
 };
 
-/** Aplica la decisión: actualiza Consent Mode y carga GTM solo si hay permiso */
-export const applyConsent = (preferences: ConsentPreferences) => {
+/** Aplica la decisión: actualiza Consent Mode y, si se retira la analítica, borra sus cookies */
+const applyConsent = (preferences: ConsentPreferences) => {
   gtag('consent', 'update', signals(preferences));
-  if (preferences.analytics) loadTagManager();
-  else clearAnalyticsCookies();
+  if (!preferences.analytics) clearAnalyticsCookies();
 };
 
 /** Decisión vigente o null si no hay, venció o es de una versión anterior */
@@ -90,11 +72,4 @@ export const saveConsent = (preferences: ConsentPreferences) => {
     // Sin almacenamiento: la decisión vale solo para esta visita
   }
   applyConsent(preferences);
-};
-
-/** Al arrancar la app: defaults denegados y, si ya había permiso, se carga GTM de una vez */
-export const bootConsent = () => {
-  initConsentDefaults();
-  const record = readConsent();
-  if (record) applyConsent(record);
 };
