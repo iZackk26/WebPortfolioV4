@@ -1,6 +1,7 @@
 import { CSSProperties, PointerEvent, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ActivityStats, dateOf, levelFor } from '../../../utils/githubActivity';
+import { ActivityStats, dateOf } from '../../../utils/githubActivity';
+import { ContributionWeeks } from './ContributionWeeks';
 
 interface ContributionGraphProps {
   weeks: number[][];
@@ -15,9 +16,6 @@ interface Tip {
   x: number;
   y: number;
 }
-
-const COL_DELAY_MS = 14;
-const ROW_DELAY_MS = 6;
 
 /** Mapa semanal tipo GitHub; entra en ola y muestra fecha y número al pasar el mouse. */
 export const ContributionGraph = ({ weeks, firstDay, stats, playing, label }: ContributionGraphProps) => {
@@ -52,27 +50,17 @@ export const ContributionGraph = ({ weeks, firstDay, stats, playing, label }: Co
         onPointerOver={onOver}
         onPointerLeave={() => setTip(null)}
       >
-        {weeks.map((week, w) => {
+        {weeks.map((_, w) => {
           const month = dateOf(firstDay, w, 0).getMonth();
           const showMonth = month !== lastMonth && w < weeks.length - 2;
           if (showMonth) lastMonth = month;
-          return [
-            <span key={`m${w}`} className="activity-month" style={{ gridColumn: w + 1 }} aria-hidden="true">
+          return (
+            <span key={w} className="activity-month" style={{ gridColumn: w + 1 }} aria-hidden="true">
               {showMonth ? dateOf(firstDay, w, 0).toLocaleDateString(i18n.language, { month: 'short' }) : ''}
-            </span>,
-            ...week.map((count, d) => (
-              <span
-                key={`${w}-${d}`}
-                className="activity-cell"
-                data-level={levelFor(count, stats.thresholds)}
-                data-count={count}
-                data-week={w}
-                data-day={d}
-                style={{ gridColumn: w + 1, gridRow: d + 2, ['--d' as string]: `${w * COL_DELAY_MS + d * ROW_DELAY_MS}ms` }}
-              />
-            )),
-          ];
+            </span>
+          );
         })}
+        <ContributionWeeks weeks={weeks} thresholds={stats.thresholds} />
       </div>
       {tip && (
         <span role="tooltip" className="activity-tip" style={{ left: tip.x, top: tip.y }}>
