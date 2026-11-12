@@ -16,7 +16,7 @@ export const SecondaryDock = () => {
         {SECONDARY_PROJECTS.map((project) => (
           <Link key={project.id} to={project.route}>
             <span className="dock-win" aria-hidden="true">
-              <img src={project.image} alt="" loading="lazy" decoding="async" />
+              <img src={project.thumb} alt="" width={48} height={28} loading="lazy" decoding="async" />
             </span>
             {t(`featured.dock.${project.id}`)}
           </Link>

@@ -1,5 +1,6 @@
-import { FeaturedMedia } from '../../../constants/featuredProjects';
+import { FeaturedMedia, SCREEN_SIZES } from '../../../constants/featuredProjects';
 import { PhoneMockup } from './PhoneMockup';
+import { ProgressiveImage } from '../../ui/ProgressiveImage';
 
 interface CarouselShotProps {
   media: FeaturedMedia;
@@ -14,8 +15,8 @@ export const CarouselShot = ({ media, alt, flashNonce }: CarouselShotProps) => {
   if (media.type === 'phones') {
     return (
       <div className="carousel-shot is-phones" role="img" aria-label={alt}>
-        <PhoneMockup src={media.front} position="front" />
-        <PhoneMockup src={media.back} position="back" />
+        <PhoneMockup src={media.front} placeholder={media.frontPlaceholder} position="front" />
+        <PhoneMockup src={media.back} placeholder={media.backPlaceholder} position="back" />
         {sweep}
       </div>
     );
@@ -23,7 +24,18 @@ export const CarouselShot = ({ media, alt, flashNonce }: CarouselShotProps) => {
 
   return (
     <div className="carousel-shot">
-      <img src={media.src} alt={alt} loading="lazy" decoding="async" className={media.fit === 'contain' ? '!object-contain !object-center p-3' : undefined} />
+      <ProgressiveImage
+        src={media.src}
+        srcSet={media.srcSet}
+        lowSrc={media.lowSrc}
+        placeholder={media.placeholder}
+        sizes={SCREEN_SIZES}
+        alt={alt}
+        width={1080}
+        height={675}
+        loading="lazy"
+        decoding="async"
+        className={media.fit === 'contain' ? '!object-contain !object-center p-3' : undefined} />
       {sweep}
     </div>
   );

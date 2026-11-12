@@ -1,5 +1,5 @@
 /** Contenido estructural de la página About V5 (los textos viven en i18n about.*). */
-export const ABOUT_AVATAR = '/about/avatar.jpg';
+export const ABOUT_AVATAR = '/about/avatar-160.webp';
 
 export type JourneyKey = 'tec' | 'vadi' | 'visione' | 'growthPath';
 

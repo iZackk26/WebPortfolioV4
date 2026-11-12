@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { INTRO_PHOTO } from '../../../constants/intro';
 import { Window } from '../../ui/Window';
+import { ProgressiveImage } from '../../ui/ProgressiveImage';
 
 interface DeskPhotoProps {
   /** desk: 3:4 con caption, en el escritorio; compact: cuadrada, en móvil */
@@ -15,8 +16,11 @@ export const DeskPhoto = ({ variant }: DeskPhotoProps) => {
   return (
     <figure className={`m-0 ${isDesk ? 'w-[168px]' : 'w-[132px]'}`}>
       <Window>
-        <img
+        <ProgressiveImage
           src={INTRO_PHOTO.src}
+          placeholder={INTRO_PHOTO.placeholder}
+          width={400}
+          height={533}
           alt={t('home.photoAlt')}
           draggable={false}
           decoding="async"

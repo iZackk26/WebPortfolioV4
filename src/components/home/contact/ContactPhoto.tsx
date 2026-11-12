@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { CONTACT_PHOTO } from '../../../constants/contact';
 import { Draggable } from '../../ui/Draggable';
 import { Window } from '../../ui/Window';
+import { ProgressiveImage } from '../../ui/ProgressiveImage';
 
 interface ContactPhotoProps {
   /** Ancho de la foto según dónde se use */
@@ -16,8 +17,14 @@ export const ContactPhoto = ({ className = 'w-[min(190px,55%)] lg:w-[300px]' }: 
     <Draggable mouseOnly rotate={CONTACT_PHOTO.rotateDeg} className={className}>
       <figure className="m-0">
         <Window title={CONTACT_PHOTO.fileName}>
-          <img
+          <ProgressiveImage
             src={CONTACT_PHOTO.src}
+            srcSet={CONTACT_PHOTO.srcSet}
+            lowSrc={CONTACT_PHOTO.lowSrc}
+            placeholder={CONTACT_PHOTO.placeholder}
+            sizes={CONTACT_PHOTO.sizes}
+            width={700}
+            height={933}
             alt={t('contact.photoAlt')}
             draggable={false}
             loading="lazy"

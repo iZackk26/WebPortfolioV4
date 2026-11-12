@@ -1,6 +1,9 @@
+import { LQIP_DESK_PHOTO } from './imagePlaceholders';
+
 /** Contenido del escritorio de la intro de la Home. */
 export const INTRO_PHOTO = {
-  src: '/desk/isaac.jpg',
+  src: '/desk/isaac-400.webp',
+  placeholder: LQIP_DESK_PHOTO,
   fileName: 'isaac.jpg',
 } as const;
 
@@ -22,11 +25,11 @@ export interface DeskIcon {
 }
 
 export const DESK_ICONS: DeskIcon[] = [
-  { id: 'python', src: '/desk/python.png', fileName: 'main.py', label: 'Python', size: 'square', position: 'left-[17%] top-[36px]' },
-  { id: 'spotify', src: '/desk/spotify.png', fileName: 'spotify', label: 'Spotify', size: 'square', position: 'left-[33%] top-[28px]' },
-  { id: 'aws', src: '/desk/aws.png', fileName: 'aws', label: 'AWS', size: 'wide', position: 'right-[19%] top-[52px]' },
-  { id: 'rust', src: '/desk/rust-ferris.png', fileName: 'lib.rs', label: 'Rust', size: 'wide', position: 'left-[25%] top-[408px]' },
-  { id: 'claude', src: '/desk/claude.png', fileName: 'claude', label: 'Claude', size: 'tall', position: 'right-[25%] top-[404px]' },
+  { id: 'python', src: '/desk/python-144.webp', fileName: 'main.py', label: 'Python', size: 'square', position: 'left-[17%] top-[36px]' },
+  { id: 'spotify', src: '/desk/spotify-144.webp', fileName: 'spotify', label: 'Spotify', size: 'square', position: 'left-[33%] top-[28px]' },
+  { id: 'aws', src: '/desk/aws-160.webp', fileName: 'aws', label: 'AWS', size: 'wide', position: 'right-[19%] top-[52px]' },
+  { id: 'rust', src: '/desk/rust-ferris-160.webp', fileName: 'lib.rs', label: 'Rust', size: 'wide', position: 'left-[25%] top-[408px]' },
+  { id: 'claude', src: '/desk/claude-144.webp', fileName: 'claude', label: 'Claude', size: 'tall', position: 'right-[25%] top-[404px]' },
 ];
 
 /** Giro de reposo de la foto y la nota; al arrastrarlas se enderezan */
