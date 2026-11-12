@@ -42,7 +42,8 @@ export const askUpstream = async ({ question, sessionId }: ChatInput, clientId: 
       method: 'POST',
       // La clave es opcional: se manda solo si el webhook la exige
       headers: { 'Content-Type': 'application/json', ...(key ? { 'X-API-Key': key } : {}) },
-      body: JSON.stringify({ message: question, sessionId, clientId }),
+      // El endpoint /web de Flow solo reenvía message y metadata al flujo: lo demás se pierde
+      body: JSON.stringify({ message: question, sessionId, metadata: { clientId, sessionId } }),
       signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
       redirect: 'error',
     });
