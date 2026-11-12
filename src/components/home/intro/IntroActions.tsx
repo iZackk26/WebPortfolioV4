@@ -1,14 +1,14 @@
 import { useTranslation } from 'react-i18next';
-import { CV_LINKS, Language } from '../../../constants/navigation';
+import { useLocaleMeta } from '../../../hooks/useLocaleMeta';
 import { FEATURED_SECTION_ID } from '../../../constants/intro';
 import { usePrefersReducedMotion } from '../../../hooks/usePrefersReducedMotion';
 import { AeroButton } from '../../ui/AeroButton';
 
 /** "Ver proyectos" baja al carrusel; "Descargar CV" abre el CV en el idioma actual. */
 export const IntroActions = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const reducedMotion = usePrefersReducedMotion();
-  const lang: Language = i18n.language === 'es' ? 'es' : 'en';
+  const { cv } = useLocaleMeta();
 
   const scrollToProjects = () => {
     document
@@ -19,7 +19,7 @@ export const IntroActions = () => {
   return (
     <div className="mt-4 flex flex-wrap justify-center gap-3">
       <AeroButton onClick={scrollToProjects}>{t('home.viewProjects')} ↓</AeroButton>
-      <AeroButton tone="silver" href={CV_LINKS[lang]}>
+      <AeroButton tone="silver" href={cv}>
         {t('home.downloadCv')}
       </AeroButton>
     </div>

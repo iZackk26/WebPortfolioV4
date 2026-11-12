@@ -18,12 +18,11 @@ export const SOCIAL_LINKS = [
 
 export const GITHUB_URL = SOCIAL_LINKS[1].href;
 
+/** CVs publicados (el footer lista ambos); cada idioma elige el suyo en su meta.json */
 export const CV_LINKS = {
   es: '/cv-es.pdf',
   en: '/cv-en.pdf',
 } as const;
-
-export type Language = keyof typeof CV_LINKS;
 
 export const AVATAR = {
   webp: '/icon.webp',

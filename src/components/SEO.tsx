@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useLocaleMeta } from '../hooks/useLocaleMeta';
 
 interface SEOProps {
   title?: string;
@@ -21,10 +22,10 @@ export const SEO = ({
 }: SEOProps) => {
   const location = useLocation();
   const { i18n } = useTranslation();
+  const { ogLocale } = useLocaleMeta();
   const canonicalUrl = `${window.location.origin}${location.pathname}`;
 
   useEffect(() => {
-    document.documentElement.lang = i18n.language;
     document.title = title;
 
     const metaTags = {
@@ -37,7 +38,7 @@ export const SEO = ({
       'og:url': canonicalUrl,
       'og:type': type,
       'og:site_name': 'Isaac Ramírez Rojas - izackk',
-      'og:locale': i18n.language === 'es' ? 'es_ES' : 'en_US',
+      'og:locale': ogLocale,
       'twitter:card': 'summary_large_image',
       'twitter:title': title,
       'twitter:description': description,
@@ -130,7 +131,7 @@ export const SEO = ({
     }
     structuredDataScript.textContent = JSON.stringify(dataToUse);
 
-  }, [title, description, keywords, ogImage, canonicalUrl, type, structuredData, i18n.language]);
+  }, [title, description, keywords, ogImage, canonicalUrl, type, structuredData, i18n.language, ogLocale]);
 
   return null;
 };

@@ -11,9 +11,12 @@ export default defineConfig({
     rollupOptions: {
       output: {
         // framer-motion no va aquí: Rollup lo separa solo en las páginas que lo usan
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'i18n-vendor': ['react-i18next', 'i18next'],
+        manualChunks(id) {
+          if (/node_modules\/(react|react-dom|react-router|react-router-dom|scheduler)\//.test(id)) return 'react-vendor';
+          if (/node_modules\/(i18next|react-i18next)\//.test(id)) return 'i18n-vendor';
+          // Cada idioma en un solo chunk (meta.json queda en el principal: lo usa el botón)
+          const locale = /src\/i18n\/locales\/([^/]+)\/(?!meta\.json)[^/]+\.json/.exec(id);
+          if (locale) return `locale-${locale[1]}`;
         },
       },
     },

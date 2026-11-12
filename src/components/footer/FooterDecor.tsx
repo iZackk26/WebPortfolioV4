@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { CV_LINKS, GITHUB_URL, Language } from '../../constants/navigation';
+import { GITHUB_URL } from '../../constants/navigation';
+import { useLocaleMeta } from '../../hooks/useLocaleMeta';
 
 interface FooterDecorProps {
   playing: boolean;
@@ -9,8 +10,8 @@ const state = (playing: boolean) => (playing ? 'is-playing' : 'is-waiting');
 
 /** Iconos de escritorio a los lados del wordmark: CV en el idioma actual y GitHub. */
 export const FooterDecor = ({ playing }: FooterDecorProps) => {
-  const { t, i18n } = useTranslation();
-  const cv = CV_LINKS[(i18n.language as Language) in CV_LINKS ? (i18n.language as Language) : 'en'];
+  const { t } = useTranslation();
+  const { cv } = useLocaleMeta();
 
   return (
     <>
