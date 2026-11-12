@@ -1,0 +1,21 @@
+{
+  "kicker": "공사 중",
+  "lede": "V5에 맞춰 이 섹션을 새로 디자인하고 있어요. 그동안 주요 프로젝트는 홈에서 볼 수 있어요.",
+  "progress": "빌드 중",
+  "ctaHome": "홈에서 프로젝트 보기",
+  "ctaContact": "연락하기",
+  "note": "네, Claude가 도와줘요. 검토는 제가 해요.",
+  "sections": {
+    "about": { "title": "소개, 버전 5", "file": "about.tsx" },
+    "projects": { "title": "프로젝트, 버전 5", "file": "projects.tsx" },
+    "certificates": { "title": "자격증, 버전 5", "file": "certificates.tsx" }
+  },
+  "lines": [
+    "$ claude \"redesign {{file}}\"",
+    "› 승인된 디자인 읽는 중…",
+    "› 150줄 이하로 컴포넌트 만드는 중",
+    "› Isaac의 검토 기다리는 중",
+    "✓ 거의 다 됐어요"
+  ],
+  "sceneLabel": "섹션을 만드는 동안 키보드를 두드리는 Claude"
+}

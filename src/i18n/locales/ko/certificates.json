@@ -1,0 +1,10 @@
+{
+  "title": "자격증 및 성과",
+  "cloudExperience": "클라우드 경험",
+  "osExperience": "운영체제",
+  "aws": "Amazon Web Services (CloudWatch, Cognito)",
+  "gcp": "Google Cloud Platform (VM, 방화벽, 스토리지)",
+  "azure": "Microsoft Azure",
+  "linux": "Linux 배포판 (Arch, Ubuntu, Fedora, Kali, Manjaro, EndevourOS)",
+  "other": "macOS 및 Windows"
+}

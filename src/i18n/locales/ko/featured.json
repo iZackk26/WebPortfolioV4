@@ -1,0 +1,56 @@
+{
+  "label": "주요 프로젝트",
+  "slide": "{{current}} / {{total}}",
+  "previous": "이전 프로젝트",
+  "next": "다음 프로젝트",
+  "goTo": "{{title}}(으)로 이동",
+  "visitSite": "사이트 방문",
+  "viewCase": "사례 보기",
+  "privateNote": "코드와 세부 내용은 비공개예요",
+  "rolePrefix": "역할",
+  "kinds": {
+    "main": "대표",
+    "private": "비공개",
+    "research": "연구"
+  },
+  "roles": {
+    "developer": "개발자",
+    "owner": "오너",
+    "techLead": "테크 리드"
+  },
+  "items": {
+    "visioneFlow": {
+      "title": "Visione Flow",
+      "description": "비주얼 AI 에이전트 빌더예요. 40가지 이상의 노드를 드래그 앤 드롭으로 연결하고, 여러 LLM 제공자를 지원하며, 상담원 연결 기능과 함께 WhatsApp, Telegram, 웹에 배포할 수 있어요.",
+      "alt": "Visione Flow 랜딩 페이지"
+    },
+    "theGrowthPath": {
+      "title": "The Growth Path",
+      "description": "피트니스 코칭을 디지털화한 플랫폼이에요. 온보딩, 트레이닝, 영양, 진행 상황 추적을 데이터 기반 폼 엔진 위에서 처리하고, 서브도메인별 멀티테넌시를 지원해요.",
+      "alt": "The Growth Path 랜딩 페이지"
+    },
+    "fieldAppraisals": {
+      "title": "Vadi App",
+      "byline": "클라이언트를 위해 개발 · 제품 소유권은 클라이언트에게 있어요",
+      "description": "현장에서 일하는 감정평가사를 위한 하이브리드 모바일 앱이에요. 동적 폼이 오프라인에서도 동작하고, 연결이 돌아오면 자동으로 동기화돼요.",
+      "alt": "iPhone에 띄운 감정평가 앱 화면 두 개"
+    },
+    "agrovoltaic": {
+      "title": "AgroVoltaic",
+      "description": "산카를로스의 영농형 태양광 시스템을 위한 데이터·AI 에이전트 플랫폼이에요. Supabase로 들어가는 센서 ETL, 과거 데이터 분석 에이전트, 일사량 예측 에이전트, 그리고 이를 디버깅하는 콘솔로 구성돼요. 저는 아키텍처와 에이전트 툴링을 이끌고 있어요.",
+      "alt": "산카를로스 발전소의 월별 일사량을 보여주는 AgroVoltaic 대시보드"
+    }
+  },
+  "more": {
+    "dock": "더 많은 프로젝트",
+    "viewAll": "모든 프로젝트 보기"
+  },
+  "dock": {
+    "appraisal": "감정평가",
+    "faceAntiSpoofing": "안티 스푸핑",
+    "iFixIt": "iFixIt",
+    "stateDetection": "상태 감지",
+    "vectorDB": "벡터 DB",
+    "puraCompra": "Pura Compra"
+  }
+}

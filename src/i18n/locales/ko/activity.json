@@ -1,0 +1,16 @@
+{
+  "kicker": "꾸준함",
+  "title": "한 번에 커밋 하나씩",
+  "lede": "지난 1년간의 실제 GitHub 활동이에요. 고객사와 Visione의 비공개 저장소도 포함돼요.",
+  "total": "기여",
+  "activeDays": "활동일",
+  "longestStreak": "최장 연속 기록",
+  "peakDay": "하루 최다 기록",
+  "days": "{{count}}일",
+  "peak": "최다: {{date}}에 {{count}}회",
+  "cell": "기여 {{count}}회 · {{date}}",
+  "graphLabel": "지난 1년간 GitHub 기여 지도: 활동일 {{days}}일 동안 기여 {{total}}회",
+  "less": "적음",
+  "more": "많음",
+  "updated": "{{date}} 업데이트"
+}

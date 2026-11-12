@@ -1,0 +1,41 @@
+{
+  "title": "프로젝트",
+  "professional": "실무 프로젝트",
+  "ai": "AI 프로젝트",
+  "university": "대학 프로젝트",
+  "viewDetails": "자세히 보기",
+  "technologies": "기술 스택",
+  "items": {
+    "appraisal": {
+      "title": "모바일 감정평가 앱",
+      "description": "Formly로 만든 동적 폼을 오프라인에서도 작성할 수 있는 하이브리드 모바일 솔루션이에요. 현장 감정평가사가 인터넷 연결 없이도 끊김 없이 일할 수 있도록 설계했어요.",
+      "highlights": "오프라인 우선 아키텍처, 동적 폼 생성, 데이터 동기화",
+      "privacyNote": "참고: 비공개 프로젝트라 기밀 정보를 공개할 수 없어서, 여기 보이는 이미지는 예시용이에요."
+    },
+    "faceAntiSpoofing": {
+      "title": "얼굴 안티 스푸핑 시스템",
+      "description": "얼굴 인식 시스템에 대한 프레젠테이션 공격을 탐지해 신원 위조를 막는 AI 기반 솔루션이에요.",
+      "highlights": "실시간 탐지, 높은 정확도, 경량 모델"
+    },
+    "stateDetection": {
+      "title": "최적화된 상태 감지 모델",
+      "description": "적은 학습 데이터로도 높은 정확도를 내도록 최적화한 머신러닝 모델이에요. 제한된 데이터셋을 효율적으로 활용하는 방법을 보여줘요.",
+      "highlights": "소규모 데이터셋 최적화, 높은 정밀도, 빠른 추론"
+    },
+    "vectorDB": {
+      "title": "Weaviate와 TensorFlow 기반 얼굴 인식 시스템",
+      "description": "벡터 데이터베이스인 Weaviate에 얼굴 임베딩을 저장하고, TensorFlow로 얼굴을 감지하고 인식하는 얼굴 인식 시스템이에요. 이미지와 영상에서 사용자를 등록하고 식별할 수 있는 GUI도 함께 제공해요.",
+      "highlights": "Weaviate - 벡터 데이터베이스, TensorFlow - 머신러닝"
+    },
+    "iFixIt": {
+      "title": "iFixIt - 정비소 관리 플랫폼",
+      "description": "자동차 정비소 운영을 위한 웹·모바일 통합 플랫폼이에요. 실시간 위치 추적, 예약 관리, 서비스 관리 기능을 갖추고 있어요.",
+      "highlights": "풀스택 솔루션, 실시간 추적, 모바일·웹 인터페이스"
+    },
+    "puraCompra": {
+      "title": "Pura Compra - 이커머스 중개 플랫폼",
+      "description": "사용자와 여러 온라인 스토어를 연결하는 플랫폼이에요. 가격 비교와 간편한 결제로 하나로 통합된 쇼핑 경험을 제공해요.",
+      "highlights": "멀티 스토어 연동, 가격 비교, 통합 결제"
+    }
+  }
+}

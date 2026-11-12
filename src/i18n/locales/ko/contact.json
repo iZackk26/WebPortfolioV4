@@ -1,0 +1,21 @@
+{
+  "title": "함께 만들어 봐요",
+  "lede": "실제 서비스로 만들고 싶은 프로젝트나 포지션, 아이디어가 있나요? 메시지를 보내 주세요.",
+  "window": "새 메시지",
+  "to": "받는사람:",
+  "from": "보낸사람:",
+  "subject": "제목:",
+  "namePlaceholder": "이름",
+  "subjectPlaceholder": "어떤 내용인가요",
+  "messagePlaceholder": "메시지를 입력하세요…",
+  "messageLabel": "메시지",
+  "send": "보내기",
+  "bookCall": "통화 예약",
+  "emptyError": "보내기 전에 메시지를 입력해 주세요.",
+  "defaultSubject": "안녕하세요 Isaac",
+  "subjectFrom": "{{name}}님의 메시지",
+  "or": "또는 직접:",
+  "copy": "이메일 복사",
+  "copied": "이메일을 복사했어요",
+  "photoAlt": "동료 두 명과 함께 있는 Isaac"
+}

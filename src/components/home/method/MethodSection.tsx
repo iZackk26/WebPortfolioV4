@@ -21,7 +21,7 @@ export const MethodSection = () => {
         id="method-title"
         className="method-title m-0 text-balance text-[clamp(34px,5.5vw,56px)] font-medium leading-none tracking-[-0.05em] text-black"
       >
-        {t('method.titleYes')} <s>{t('method.titleStruck')}</s> <span className="text-[#c42b1c]">{t('method.titleNo')}</span>
+        {t('method.titleYes')} <s className="whitespace-nowrap">{t('method.titleStruck')}</s> <span className="text-[#c42b1c]">{t('method.titleNo')}</span>
       </h2>
       <p className="m-0 max-w-[48ch] text-balance text-[17px] text-black/60">{t('method.lede')}</p>
 

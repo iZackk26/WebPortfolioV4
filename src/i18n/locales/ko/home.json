@@ -1,0 +1,15 @@
+{
+  "name": "Isaac Ramírez",
+  "role": "컴퓨터공학 전공생 & 소프트웨어 개발자",
+  "viewProjects": "프로젝트 보기",
+  "downloadCv": "이력서 다운로드",
+  "dragHint": "사진, 메모, 아이콘을 드래그해 보세요",
+  "photoAlt": "Isaac Ramírez의 사진",
+  "note": {
+    "title": "지금 하는 일",
+    "visioneFlow": "Visione Edge 개발자",
+    "growthPath": "The Growth Path 운영자",
+    "studies": "컴퓨터공학, TEC"
+  },
+  "stackLabel": "사용하는 기술"
+}

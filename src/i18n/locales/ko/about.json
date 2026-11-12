@@ -1,0 +1,63 @@
+{
+  "kicker": "소개",
+  "title": "안녕하세요, Isaac이에요.",
+  "bio": "코스타리카에서 활동하는 풀스택 개발자예요. 시스템을 설계하고, 프로세스를 자동화하고, AI 에이전트를 만들어요.",
+  "bioRoles": "Visione Edge 개발자이자 The Growth Path 운영자예요.",
+  "downloadCv": "이력서 다운로드",
+  "contact": "연락하기",
+  "info": {
+    "window": "정보 보기",
+    "role": "직무",
+    "roleValue": "Visione Edge 개발자",
+    "project": "프로젝트",
+    "projectValue": "The Growth Path 운영자",
+    "studies": "학력",
+    "studiesValue": "컴퓨터공학, TEC (2023–2026)",
+    "location": "위치",
+    "locationValue": "코스타리카",
+    "languages": "언어",
+    "languagesValue": "스페인어 · 영어 B2/C1",
+    "focus": "관심 분야",
+    "focusValues": ["시스템 설계", "자동화", "AI 에이전트"]
+  },
+  "story": {
+    "kicker": "나의 이야기",
+    "title": "문제를 해결하는 데서 시작됐어요",
+    "paragraphs": [
+      "17살에 Python으로, AI 없이 코딩을 시작했어요. 처음부터 저를 사로잡은 건 문제를 찾아내고 실제 필요를 해결하는 일이었어요.",
+      "한 걸음씩 성장해 왔어요. 지금은 Visione Edge에서 프로젝트를 이끌고 있어요. 개발자로서 기술적인 부분을 맡으면서 고객과의 협상도 직접 해요.",
+      "기술로 시스템을 설계하고, 프로세스를 자동화하고, 산업과 기술 전반에서 시장이 어디로 가는지 분석하는 걸 좋아해요."
+    ],
+    "quote": "중요한 건 제품 자체보다 해결하려는 필요인 경우가 많아요. 그 필요를 깊이 이해하는 것이 가장 큰 가치를 만들어요."
+  },
+  "journey": {
+    "kicker": "여정",
+    "title": "걸어온 길",
+    "lede": "지금까지 해 온 일과 지금 하고 있는 일이에요.",
+    "finished": "완료",
+    "ownProject": "개인 프로젝트",
+    "items": {
+      "tec": { "title": "컴퓨터공학, TEC", "period": "2023 – 2026", "role": "학생", "text": "2023년에 입학해 2026년에 졸업해요." },
+      "vadi": { "title": "Vadi", "period": "2025년 2월 – 2025년 12월", "role": "개발자", "text": "오프라인에서도 작동하는 양식을 갖춘 현장 감정용 모바일 앱이에요. Vadi는 이후 Visione Edge의 고객이 됐어요." },
+      "visione": { "title": "Visione Edge", "period": "2026년 1월 – 현재", "role": "개발자", "text": "프로젝트를 이끌며 기술적인 부분을 맡고, 고객과 협상하고, 비주얼 AI 에이전트 빌더인 Visione Flow를 만들고 있어요." },
+      "growthPath": { "title": "The Growth Path", "period": "2026년 6월 – 현재", "role": "운영자", "text": "한 코치의 방법론으로 검증 중인 아이디어예요. 운동, 식단, 체중을 위한 종합 분석을 제공해요." }
+    },
+    "aiImport": "AI로 기록 가져오기"
+  },
+  "systems": {
+    "kicker": "시스템",
+    "title": "작업 환경",
+    "lede": "Linux가 제 집이지만, 어떤 데스크톱에서도 편하게 작업해요.",
+    "label": "사용하는 운영체제"
+  },
+  "close": {
+    "title": "이야기 나눠볼까요?",
+    "text": "프로젝트나 아이디어, 그 밖의 무엇이든 이야기하고 싶다면 메시지를 보내 주세요.",
+    "send": "메시지 보내기",
+    "projects": "프로젝트 보기"
+  },
+  "seo": {
+    "title": "소개 · Isaac Ramírez Rojas | 코스타리카의 풀스택 개발자",
+    "description": "코스타리카의 풀스택 개발자 Isaac Ramírez Rojas (izackk). Visione Edge에서 AI 에이전트와 자동화 프로젝트를 이끌고 있으며 The Growth Path를 운영하고 있어요."
+  }
+}

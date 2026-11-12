@@ -1,0 +1,61 @@
+{
+  "back": "프로젝트로 돌아가기",
+  "category": "실무 프로젝트",
+  "title": "모바일 감정평가 앱",
+  "description": "현장 감정평가사가 오프라인에서도 동적 폼을 작성하고, 연결이 복구되면 데이터를 끊김 없이 동기화할 수 있는 하이브리드 모바일 솔루션이에요.",
+  "overview_title": "프로젝트 개요",
+  "overview_p1": "전문 감정평가 회사의 현장 업무를 효율화하기 위해 개발한 모바일 앱이에요. 인터넷이 닿지 않는 외딴 지역에서도 감정평가사가 모든 기능을 그대로 사용할 수 있어요.",
+  "overview_p2": "Angular와 Capacitor로 크로스 플랫폼 모바일 경험을 구현했고, 데이터 무결성과 매끄러운 동기화를 보장하는 견고한 오프라인 우선 아키텍처를 적용했어요.",
+  "overview_p3": "동적 폼은 Formly로 생성해서, 앱을 업데이트하지 않아도 다양한 감정평가 유형에 맞춰 시스템이 유연하게 대응해요.",
+  "features_title": "주요 기능",
+  "features": [
+    "현장 작업을 위한 오프라인 우선 아키텍처",
+    "Formly 기반 동적 폼 생성",
+    "온라인 전환 시 자동 데이터 동기화",
+    "사진 촬영 및 첨부파일 관리",
+    "GPS 위치 추적",
+    "다국어 지원"
+  ],
+  "challenges_title": "기술적 과제",
+  "challenges": [
+    {
+      "title": "오프라인 데이터 관리",
+      "description": "SQLite로 견고한 로컬 저장소를 구현해, 복잡한 폼 데이터 구조를 다루면서도 데이터 무결성을 지켰어요."
+    },
+    {
+      "title": "동적 폼 렌더링",
+      "description": "Formly로 감정평가 유형과 요구사항에 따라 유연하게 바뀌는 폼 시스템을 만들었어요."
+    },
+    {
+      "title": "크로스 플랫폼 일관성",
+      "description": "플랫폼별 최적화를 적용해 iOS와 Android에서 동일한 사용자 경험을 보장했어요."
+    }
+  ],
+  "technologies_title": "사용 기술",
+  "technologies": [
+    {
+      "name": "Angular + Capacitator",
+      "category": "프론트엔드"
+    },
+    {
+      "name": "Formly",
+      "category": "폼"
+    },
+    {
+      "name": "TypeScript",
+      "category": "언어"
+    },
+    {
+      "name": "SQLite",
+      "category": "데이터베이스"
+    },
+    {
+      "name": "Redux",
+      "category": "상태 관리"
+    },
+    {
+      "name": "React Navigation",
+      "category": "내비게이션"
+    }
+  ]
+}

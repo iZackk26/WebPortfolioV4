@@ -1,0 +1,95 @@
+{
+  "back": "프로젝트로 돌아가기",
+  "category": "대학 프로젝트",
+  "title": "Pura Compra - 이커머스 중개 플랫폼",
+  "description": "사용자와 여러 온라인 스토어를 연결하는 플랫폼이에요. 스마트한 가격 비교와 간편한 결제 과정으로 하나로 통합된 쇼핑 경험을 제공해요.",
+  "production_title": "실서비스 플랫폼",
+  "production_description": "실제 사용을 위해 설계하고 배포한 플랫폼으로, 사용자가 자동화된 방식으로 효율적으로 상품을 구매할 수 있어요. 최신 기술을 통합해 완성도 있는 이커머스 경험을 제공해요.",
+  "production_features": [
+    {
+      "icon": "CreditCard",
+      "title": "결제 시스템",
+      "description": "안전한 결제 게이트웨이와 완전 연동"
+    },
+    {
+      "icon": "Shield",
+      "title": "관리자 대시보드",
+      "description": "상품, 주문, 사용자 관리를 위한 전용 화면"
+    },
+    {
+      "icon": "MapPin",
+      "title": "주소 관리",
+      "description": "여러 배송지를 관리하는 완전한 시스템"
+    },
+    {
+      "icon": "Palette",
+      "title": "색상 선택",
+      "description": "색상별 상품 옵션 미리보기 및 선택"
+    },
+    {
+      "icon": "Globe",
+      "title": "웹 스크래핑",
+      "description": "선택한 스토어에서 정보를 자동으로 수집"
+    },
+    {
+      "icon": "Zap",
+      "title": "견적 자동화",
+      "description": "견적서를 자동으로 생성해 스토어 운영자에게 발송"
+    }
+  ],
+  "overview_title": "프로젝트 개요",
+  "overview_p1": "Pura Compra는 여러 스토어의 상품을 하나의 통합 인터페이스로 모아 온라인 쇼핑을 간편하게 만드는 이커머스 중개 플랫폼이에요. 여러 웹사이트를 오가지 않고도 가격을 비교하고, 리뷰를 읽고, 구매까지 마칠 수 있어요.",
+  "overview_p2": "다양한 온라인 판매처와 연동해 상품 데이터를 정규화하고, 가격, 재고, 배송 옵션을 바탕으로 똑똑한 추천을 제공해요.",
+  "overview_p3": "대학 프로젝트로 만들었고, 풀스택 개발, API 연동, 사용자 중심 이커머스 솔루션 구축 역량을 보여주는 프로젝트예요.",
+  "features_title": "주요 기능",
+  "features": [
+    "멀티 스토어 연동",
+    "실시간 가격 비교",
+    "통합 결제 프로세스",
+    "상품 카탈로그 통합",
+    "장바구니 동기화",
+    "스토어별 주문 추적"
+  ],
+  "challenges_title": "기술적 과제",
+  "challenges": [
+    {
+      "title": "스토어 연동",
+      "description": "서로 다른 데이터 포맷과 API를 처리하면서 여러 온라인 스토어와 연결되는 유연한 연동 레이어를 개발했어요."
+    },
+    {
+      "title": "가격 비교",
+      "description": "배송비, 세금, 프로모션까지 반영하는 실시간 가격 비교 알고리즘을 구현했어요."
+    },
+    {
+      "title": "통합된 경험",
+      "description": "여러 스토어에서 구매하는 복잡함을 감추고, 끊김 없는 쇼핑 경험을 만들었어요."
+    }
+  ],
+  "technologies_title": "사용 기술",
+  "technologies": [
+    {
+      "name": "SQL",
+      "category": "데이터베이스"
+    },
+    {
+      "name": "Node.js",
+      "category": "백엔드"
+    },
+    {
+      "name": "Sequelize",
+      "category": "ORM"
+    },
+    {
+      "name": "React",
+      "category": "프론트엔드"
+    },
+    {
+      "name": "Tailwind CSS",
+      "category": "스타일링"
+    },
+    {
+      "name": "REST API",
+      "category": "연동"
+    }
+  ]
+}

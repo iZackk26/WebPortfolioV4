@@ -1,0 +1,8 @@
+{
+  "label": "한국어",
+  "short": "KO",
+  "order": 3,
+  "ogLocale": "ko_KR",
+  "cv": "/cv-en.pdf",
+  "wordBreak": "keep-all"
+}
