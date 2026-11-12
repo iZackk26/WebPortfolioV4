@@ -21,8 +21,10 @@ export async function POST(request: Request): Promise<Response> {
   }
 
   // El cupo se cobra antes de leer el body: también cuentan las peticiones mal formadas
+  // Hash salado de la IP: sirve para el rate-limit y para que Flow aplique bans sin ver la IP real
+  const clientId = ipKey(ipAddress(request) ?? 'unknown');
   try {
-    const limit = await checkLimits(ipKey(ipAddress(request) ?? 'unknown'));
+    const limit = await checkLimits(clientId);
     waitUntil(Promise.allSettled(limit.pending));
     if (!limit.allowed) return rateLimited(limit.retryAfter);
   } catch (error) {
@@ -37,7 +39,7 @@ export async function POST(request: Request): Promise<Response> {
   if (!input) return fail('invalid_request');
 
   try {
-    return json({ answer: await askUpstream(input) });
+    return json({ answer: await askUpstream(input, clientId) });
   } catch (error) {
     console.error('[chat]', error instanceof UpstreamError ? error.message : 'upstream-unknown');
     return fail('upstream_error');

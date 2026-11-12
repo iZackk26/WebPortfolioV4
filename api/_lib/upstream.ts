@@ -29,8 +29,9 @@ export const isUpstreamConfigured = () => Boolean(process.env.CHATBOT_API_URL);
  * servidor (sin VITE_): nunca viajan al navegador (CWE-798 / CWE-522).
  * De la respuesta solo se toma el texto: el webhook a veces adjunta el registro de
  * ejecución (executionResult) con el prompt de sistema, y eso no debe llegar al visitante.
+ * clientId es el hash salado de la IP (nunca la IP): Flow lo usa para registrar y banear.
  */
-export const askUpstream = async ({ question, sessionId }: ChatInput): Promise<string> => {
+export const askUpstream = async ({ question, sessionId }: ChatInput, clientId: string): Promise<string> => {
   const url = process.env.CHATBOT_API_URL;
   const key = process.env.CHATBOT_API_KEY;
   if (!url) throw new UpstreamError('upstream-not-configured');
@@ -41,7 +42,7 @@ export const askUpstream = async ({ question, sessionId }: ChatInput): Promise<s
       method: 'POST',
       // La clave es opcional: se manda solo si el webhook la exige
       headers: { 'Content-Type': 'application/json', ...(key ? { 'X-API-Key': key } : {}) },
-      body: JSON.stringify({ message: question, sessionId }),
+      body: JSON.stringify({ message: question, sessionId, clientId }),
       signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
       redirect: 'error',
     });
