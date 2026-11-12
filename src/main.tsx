@@ -1,5 +1,5 @@
 import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.tsx';
 import './index.css';
@@ -7,14 +7,25 @@ import { i18nReady } from './i18n/config';
 
 const rootElement = document.getElementById('root')!;
 
-// #root trae una vista inicial estática (index.html) que React reemplaza al montar.
-// Se espera al idioma del visitante para no pintar primero en inglés y luego cambiar.
+const app = (
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>
+);
+
+// Las páginas del blog llegan prerenderizadas (scripts/blog/prerender.mjs): React se engancha
+// a ese HTML sin repintarlo. El resto trae una vista inicial estática que React reemplaza.
+// En ambos casos se espera al idioma (el del blog sale de la URL) para no pintar otro primero.
 void i18nReady.finally(() => {
-  createRoot(rootElement).render(
-    <StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </StrictMode>
-  );
+  if (rootElement.hasAttribute('data-prerendered')) {
+    hydrateRoot(rootElement, app, {
+      onRecoverableError: (error) => {
+        if (import.meta.env.DEV) console.warn('[hydrate]', error);
+      },
+    });
+    return;
+  }
+  createRoot(rootElement).render(app);
 });
