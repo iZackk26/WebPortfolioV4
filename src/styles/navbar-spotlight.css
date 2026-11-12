@@ -1,6 +1,7 @@
 /* Compacto estilo Spotlight: foto, links e idioma como burbujas de vidrio separadas. */
 .nav-pill:not([data-mode='top'], [data-shrinking]) { overflow: visible; padding: 0; }
-.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-shell { opacity: 0; }
+/* Al separarse, el vidrio de la barra se va en el mismo cuadro: si se desvanece, queda un pill fantasma entre la foto y Max */
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-shell { opacity: 0; transition: none; }
 .nav-pill:not([data-mode='top'], [data-shrinking]) .nav-name { display: none; }
 .nav-pill:not([data-mode='top'], [data-shrinking]) .nav-piece { position: relative; height: 56px; border-radius: 999px; }
 .nav-pill:not([data-mode='top'], [data-shrinking]) .nav-avatar { width: 56px; justify-content: center; padding: 0; }
@@ -69,10 +70,8 @@
   transition: opacity 0.2s ease-in;
 }
 /* Barra que crece: lo que vuelve aparece suave cuando el borde ya lo alcanzó */
-.nav-pill[data-growing] :is(.nav-name, .nav-burger, .max-launcher) { transition: opacity 0.3s ease-out 0.22s; }
-@starting-style {
-  .nav-pill[data-mode='top'] :is(.nav-name, .nav-burger, .max-launcher) { opacity: 0; }
-}
+.nav-pill[data-growing] :is(.nav-name, .nav-burger, .max-launcher) { animation: nav-fade-in 0.3s ease-out 0.22s backwards; }
+@keyframes nav-fade-in { from { opacity: 0; } }
 .nav-pill[data-shrinking] .nav-reveal {
   transform: none;
   transition: opacity 0.34s ease-in-out, visibility 0s 0.34s;
