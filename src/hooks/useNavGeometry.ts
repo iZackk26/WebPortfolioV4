@@ -1,4 +1,5 @@
-import { RefObject, useEffect, useLayoutEffect, useRef } from 'react';
+import { RefObject, useEffect, useRef } from 'react';
+import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 import { NAV_GEOMETRY } from '../constants/navbar';
 import type { NavMode } from './useCompactNav';
 
@@ -16,7 +17,7 @@ export const useNavGeometry = (
 ) => {
   const prevMode = useRef(mode);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const wrap = wrapRef.current;
     const content = contentRef.current;
     const pill = content?.parentElement;
