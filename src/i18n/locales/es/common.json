@@ -1,0 +1,5 @@
+{
+  "loading": "Cargando…",
+  "loadError": "No se pudo cargar esta sección. Revisa tu conexión e inténtalo de nuevo.",
+  "retry": "Recargar"
+}
