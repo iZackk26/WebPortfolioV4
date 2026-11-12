@@ -16,7 +16,7 @@ export const SEO = ({
   title = 'Isaac Ramírez Rojas | Computer Engineering Student & Software Developer',
   description = 'Isaac Ramírez Rojas (izackk) - Computer Engineering student specializing in automation, digital transformation, and innovative software solutions. Expert in Full-Stack Development, AI/ML, and Cloud Computing. Advanced English (B2/C1).',
   keywords = 'Isaac Ramírez Rojas, Isaac Ramírez, izackk, izackk.com, software developer, computer engineering, full-stack developer, react, typescript, ai ml, cloud computing, automation, digital transformation, portfolio, Costa Rica developer',
-  ogImage = '/og-image.jpg',
+  ogImage = '/og/izackk-v5.jpg',
   type = 'website',
   structuredData
 }: SEOProps) => {
