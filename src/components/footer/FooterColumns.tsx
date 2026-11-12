@@ -2,7 +2,8 @@ import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { CONSENT_OPEN_EVENT } from '../../constants/consent';
-import { CV_LINKS, NAV_ITEMS, SOCIAL_LINKS } from '../../constants/navigation';
+import { CV_LINKS, SOCIAL_LINKS } from '../../constants/navigation';
+import { useNavItems } from '../../hooks/useNavItems';
 
 const linkClass = 'w-fit text-black/60 transition hover:text-black active:scale-[0.97]';
 
@@ -15,11 +16,12 @@ const Column = ({ title, children }: { title: string; children: ReactNode }) => 
 
 export const FooterColumns = () => {
   const { t } = useTranslation();
+  const navItems = useNavItems();
 
   return (
     <nav aria-label={t('footer.label')} className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
       <Column title={t('footer.navigation')}>
-        {NAV_ITEMS.map((item) => (
+        {navItems.map((item) => (
           <Link key={item.path} to={item.path} className={linkClass}>
             {t(item.labelKey)}
           </Link>

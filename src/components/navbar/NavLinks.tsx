@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { NAV_ITEMS } from '../../constants/navigation';
+import { useNavItems } from '../../hooks/useNavItems';
 
 interface NavLinksProps {
   /** 'pill': fila dentro del navbar; 'sheet': lista vertical en móvil */
@@ -13,8 +13,9 @@ const linkClass = ({ isActive }: { isActive: boolean }) =>
 
 export const NavLinks = ({ layout, onNavigate }: NavLinksProps) => {
   const { t } = useTranslation();
+  const items = useNavItems();
 
-  const links = NAV_ITEMS.map((item) => (
+  const links = items.map((item) => (
     <NavLink key={item.path} to={item.path} end={item.path === '/'} className={linkClass} onClick={onNavigate}>
       {t(item.labelKey)}
     </NavLink>

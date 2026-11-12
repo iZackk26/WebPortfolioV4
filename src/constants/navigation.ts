@@ -1,12 +1,15 @@
 export interface NavItem {
   path: string;
   labelKey: string;
+  /** El link del blog va a la versión del idioma actual y se oculta mientras no haya posts */
+  blog?: true;
 }
 
 export const NAV_ITEMS: NavItem[] = [
   { path: '/', labelKey: 'nav.home' },
   { path: '/about', labelKey: 'nav.about' },
   { path: '/projects', labelKey: 'nav.projects' },
+  { path: '/blog', labelKey: 'nav.blog', blog: true },
   { path: '/certificates', labelKey: 'nav.certificates' },
 ];
 
