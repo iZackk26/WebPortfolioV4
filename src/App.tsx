@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/navbar/Navbar';
 import { Footer } from './components/footer/Footer';
 import { LanguageTransition } from './components/LanguageTransition';
@@ -15,6 +15,10 @@ import { retryImport } from './utils/retryImport';
 import { useEffect, lazy, Suspense, ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { BLOG_LOCALES } from './constants/blog';
+import { ClientOnly } from './components/ui/ClientOnly';
+import { useRouteLanguage } from './hooks/useRouteLanguage';
+import { blogBase } from './utils/blog/blogRoutes';
 
 // Lazy load pages that aren't immediately needed
 // Projects y Certificates se están rediseñando para la V5: mientras tanto muestran la página en construcción
@@ -26,6 +30,8 @@ const VectorDBDetail = lazy(() => retryImport(() => import('./pages/projects/Vec
 const IFixItDetail = lazy(() => retryImport(() => import('./pages/projects/IFixItDetail')).then(m => ({ default: m.IFixItDetail })));
 const PuraCompraDetail = lazy(() => retryImport(() => import('./pages/projects/PuraCompraDetail')).then(m => ({ default: m.PuraCompraDetail })));
 const Privacy = lazy(() => retryImport(() => import('./pages/Privacy')).then(m => ({ default: m.Privacy })));
+const BlogIndex = lazy(() => retryImport(() => import('./pages/BlogIndex')).then(m => ({ default: m.BlogIndex })));
+const BlogPost = lazy(() => retryImport(() => import('./pages/BlogPost')).then(m => ({ default: m.BlogPost })));
 const Terms = lazy(() => retryImport(() => import('./pages/Terms')).then(m => ({ default: m.Terms })));
 
 function ScrollToTop() {
@@ -48,43 +54,52 @@ function RouteBoundary({ children }: { children: ReactNode }) {
   );
 }
 
+/** El Router lo pone quien monta la app: BrowserRouter en el navegador, StaticRouter en el prerender */
 function App() {
+  useRouteLanguage();
+
   return (
-    <Router>
-      <ToastProvider>
-        <ChatProvider>
-          <ScrollToTop />
-          <div className="min-h-screen">
-            <Navbar />
-            <LanguageTransition>
-              <RouteBoundary>
-                <Suspense fallback={<SectionSkeleton size="page" windows={2} />}>
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/projects" element={<UnderConstruction section="projects" />} />
-                    <Route path="/projects/appraisal" element={<AppraisalDetail />} />
-                    <Route path="/projects/faceAntiSpoofing" element={<FaceAntiSpoofingDetail />} />
-                    <Route path="/projects/stateDetection" element={<StateDetectionDetail />} />
-                    <Route path="/projects/vectorDB" element={<VectorDBDetail />} />
-                    <Route path="/projects/iFixIt" element={<IFixItDetail />} />
-                    <Route path="/projects/puraCompra" element={<PuraCompraDetail />} />
-                    <Route path="/certificates" element={<UnderConstruction section="certificates" />} />
-                    <Route path="/privacy" element={<Privacy />} />
-                    <Route path="/terms" element={<Terms />} />
-                  </Routes>
-                </Suspense>
-              </RouteBoundary>
-            </LanguageTransition>
-            <Footer />
-            <Chatbot />
-          <CookieConsent />
-          </div>
-          <Analytics />
-          <SpeedInsights />
-        </ChatProvider>
-      </ToastProvider>
-    </Router>
+    <ToastProvider>
+      <ChatProvider>
+        <ScrollToTop />
+        <div className="min-h-screen">
+          <Navbar />
+          <LanguageTransition>
+            <RouteBoundary>
+              <Suspense fallback={<SectionSkeleton size="page" windows={2} />}>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/projects" element={<UnderConstruction section="projects" />} />
+                  <Route path="/projects/appraisal" element={<AppraisalDetail />} />
+                  <Route path="/projects/faceAntiSpoofing" element={<FaceAntiSpoofingDetail />} />
+                  <Route path="/projects/stateDetection" element={<StateDetectionDetail />} />
+                  <Route path="/projects/vectorDB" element={<VectorDBDetail />} />
+                  <Route path="/projects/iFixIt" element={<IFixItDetail />} />
+                  <Route path="/projects/puraCompra" element={<PuraCompraDetail />} />
+                  <Route path="/certificates" element={<UnderConstruction section="certificates" />} />
+                  <Route path="/privacy" element={<Privacy />} />
+                  <Route path="/terms" element={<Terms />} />
+                  {BLOG_LOCALES.flatMap((locale) => [
+                    <Route key={`${locale}-index`} path={blogBase(locale)} element={<BlogIndex />} />,
+                    <Route key={`${locale}-page`} path={`${blogBase(locale)}/page/:page`} element={<BlogIndex />} />,
+                    <Route key={`${locale}-post`} path={`${blogBase(locale)}/:slug`} element={<BlogPost />} />,
+                  ])}
+                </Routes>
+              </Suspense>
+            </RouteBoundary>
+          </LanguageTransition>
+          <Footer />
+          <Chatbot />
+          {/* Depende de localStorage: no va en el HTML prerenderizado */}
+          <ClientOnly>
+            <CookieConsent />
+          </ClientOnly>
+        </div>
+        <Analytics />
+        <SpeedInsights />
+      </ChatProvider>
+    </ToastProvider>
   );
 }
 

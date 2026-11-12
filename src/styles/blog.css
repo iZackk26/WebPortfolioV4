@@ -1,0 +1,104 @@
+/* Índice del blog V5: tarjetas en ventanas retro, portada sobre el whiteboard y paginación Aero. */
+.blog {
+  /* Gris mínimo para texto chico: ~5.2:1 sobre el tablero (black/40 no pasa AA) */
+  --blog-muted: rgb(0 0 0 / 0.6);
+  --blog-line: rgb(0 0 0 / 0.1);
+  --blog-link: #1d6ee5;
+  /* body hereda un azul de la V4; el blog usa la tinta V5 */
+  color: rgb(var(--ink));
+}
+.blog .carousel-kicker { color: var(--blog-muted); }
+
+.blog-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font: 12.5px var(--font-mono); color: var(--blog-muted); }
+.blog-meta-dot { width: 3px; height: 3px; border-radius: 50%; background: currentColor; }
+.blog-more { font-size: 14.5px; font-weight: 500; color: var(--blog-link); }
+
+/* Portada: la imagen como ventana sobre un tablero de puntos más fino */
+.blog-cover {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  padding: 7% 9% 0;
+  border-bottom: 1px solid var(--blog-line);
+  background-color: #eef0f3;
+  background-image: radial-gradient(rgb(0 0 0 / 0.12) 1px, transparent 1.3px);
+  background-size: 22px 22px;
+}
+.blog-cover::before {
+  content: '';
+  position: absolute;
+  left: 9%;
+  right: 9%;
+  top: calc(7% - 14px);
+  height: 14px;
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(#fbfbfb, #e6e6e6);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.18);
+}
+.blog-cover img {
+  display: block;
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 0 0 2px 2px;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.18), 0 12px 26px rgb(0 0 0 / 0.16);
+}
+
+/* Destacado: portada y texto lado a lado */
+.blog-featured { position: relative; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+.blog-featured .blog-cover { aspect-ratio: auto; min-height: 280px; border-bottom: 0; border-right: 1px solid var(--blog-line); }
+.blog-featured .blog-cover img { height: 100%; }
+.blog-featured-body { display: grid; align-content: center; gap: 12px; padding: 28px 30px; }
+.blog-featured-title { margin: 0; font-size: clamp(24px, 2.6vw, 32px); font-weight: 500; line-height: 1.08; letter-spacing: -0.045em; text-wrap: balance; }
+.blog-featured-text { margin: 0; max-width: 52ch; font-size: 16px; color: rgb(0 0 0 / 0.72); }
+
+.blog-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.blog-card { position: relative; display: grid; grid-template-rows: auto 1fr; transition: translate 0.25s var(--ease-pop), box-shadow 0.25s; }
+.blog-card:hover { translate: 0 -3px; box-shadow: 0 18px 34px rgb(0 0 0 / 0.12); }
+.blog-card:focus-within { box-shadow: 0 0 0 2px rgb(80 180 255), 0 18px 34px rgb(0 0 0 / 0.12); }
+.blog-card-body { display: grid; align-content: start; gap: 8px; padding: 16px 18px 18px; }
+.blog-card-title { margin: 0; font-size: 19px; font-weight: 500; line-height: 1.2; letter-spacing: -0.03em; text-wrap: balance; }
+.blog-card-text {
+  margin: 0;
+  font-size: 14.5px;
+  color: rgb(0 0 0 / 0.68);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* Todo el artículo es clicable, pero el único foco es el título */
+.blog-stretched::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+.blog-stretched:focus-visible { outline: none; }
+.blog-fallback {
+  width: fit-content;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font: 500 11px var(--font-mono);
+  color: #2f3440;
+  background: #ececee;
+  box-shadow: inset 0 0 0 1px rgb(47 52 64 / 0.35);
+}
+
+.blog-pager { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; }
+.blog-pager ol { margin: 0; padding: 0; list-style: none; display: flex; align-items: center; gap: 8px; }
+.blog-pager-gap { font: 13px var(--font-mono); color: var(--blog-muted); }
+.blog-pager [aria-disabled='true'] { opacity: 0.5; pointer-events: none; }
+.blog-pager .aero-btn--icon { font: 500 14px var(--font-mono); }
+
+@media (max-width: 1023px) {
+  .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .blog-featured { grid-template-columns: minmax(0, 1fr); }
+  .blog-featured .blog-cover { aspect-ratio: 16 / 9; min-height: 0; border-right: 0; border-bottom: 1px solid var(--blog-line); }
+}
+@media (max-width: 639px) {
+  .blog-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .blog-featured-body { padding: 20px; }
+  /* En móvil: anterior, la actual y siguiente */
+  .blog-pager li:not([data-current]), .blog-pager-gap { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .blog-card { transition: none; }
+  .blog-card:hover { translate: none; }
+}

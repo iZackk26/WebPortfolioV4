@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Blog | Isaac Ramírez: automatización y agentes de IA en la práctica",
+    "description": "Casos de estudio y lecciones de Isaac Ramírez sobre automatizar procesos de negocio, construir agentes de IA y diseñar sistemas de software.",
+    "pageTitle": "Blog, página {{page}} | Isaac Ramírez",
+    "feedTitle": "Isaac Ramírez · Blog",
+    "postTitle": "{{title}} | Isaac Ramírez"
+  },
+  "kicker": "Blog",
+  "title": "Notas de construir sistemas reales.",
+  "lede": "Casos de estudio y lecciones de automatizar procesos y lanzar agentes de IA para empresas reales.",
+  "sub": "Escrito por Isaac Ramírez, desarrollador en Visione Edge. Qué funcionó, qué no y los números detrás.",
+  "ctaLatest": "Empezar por el más reciente",
+  "ctaContact": "Hablemos de tu proyecto",
+  "info": {
+    "window": "Obtener información",
+    "name": "Notas de campo",
+    "posts": "Posts",
+    "postsValue_one": "{{count}} artículo",
+    "postsValue_other": "{{count}} artículos",
+    "updated": "Actualizado",
+    "languages": "Idiomas",
+    "feed": "Feed",
+    "topics": "Temas"
+  },
+  "latestKicker": "Lo último",
+  "latestTitle": "Artículo más reciente",
+  "allKicker": "Todos los posts",
+  "allTitle": "Todo lo que he escrito",
+  "pageCount": "Página {{page}} de {{total}} · {{count}} posts",
+  "readMore": "Leer el artículo →",
+  "minutes": "{{count}} min de lectura",
+  "kind": {
+    "case-study": "Caso de estudio",
+    "guide": "Guía",
+    "note": "Nota"
+  },
+  "fallbackNotice": "Disponible en inglés",
+  "pagination": {
+    "label": "Paginación",
+    "newer": "← Más recientes",
+    "older": "Anteriores →",
+    "page": "Página {{page}}"
+  },
+  "empty": {
+    "title": "El primer artículo viene en camino.",
+    "text": "Estoy escribiendo los primeros casos de estudio. Mientras tanto, puedes ver lo que construyo o preguntarle a Max por mi trabajo."
+  },
+  "close": {
+    "kicker": "¿Trabajas en algo parecido?",
+    "title": "Mapeemos tu proceso juntos.",
+    "text": "Cuéntame qué le quita más tiempo a tu equipo. Te respondo con cómo lo abordaría.",
+    "contact": "Contactar",
+    "max": "Preguntarle a Max"
+  },
+  "post": {
+    "breadcrumb": "Ruta de navegación",
+    "home": "Inicio",
+    "author": "Autor",
+    "published": "Publicado",
+    "updated": "Actualizado",
+    "reading": "Lectura",
+    "topics": "Temas",
+    "takeaways": "Puntos clave",
+    "onThisPage": "En esta página",
+    "share": "Compartir",
+    "copyLink": "Copiar enlace",
+    "copied": "Copiado",
+    "shareLinkedIn": "Compartir en LinkedIn",
+    "anchor": "Enlace a esta sección",
+    "copyCode": "Copiar",
+    "loading": "Cargando el artículo…",
+    "more": "Más sobre mí",
+    "ctaTitle": "¿Tienes un proceso que se come la semana de tu equipo?",
+    "ctaText": "Mándame una descripción corta. Te respondo con cómo lo automatizaría y un tiempo estimado.",
+    "relatedKicker": "Sigue leyendo",
+    "relatedTitle": "Artículos relacionados"
+  }
+}

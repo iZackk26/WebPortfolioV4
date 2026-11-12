@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Blog | Isaac Ramírez: automation and AI agents in practice",
+    "description": "Case studies and lessons from Isaac Ramírez on automating business processes, building AI agents and designing software systems.",
+    "pageTitle": "Blog, page {{page}} | Isaac Ramírez",
+    "feedTitle": "Isaac Ramírez · Blog",
+    "postTitle": "{{title}} | Isaac Ramírez"
+  },
+  "kicker": "Blog",
+  "title": "Notes from building real systems.",
+  "lede": "Case studies and lessons from automating processes and shipping AI agents for real businesses.",
+  "sub": "Written by Isaac Ramírez, developer at Visione Edge. What worked, what didn't, and the numbers behind it.",
+  "ctaLatest": "Start with the latest",
+  "ctaContact": "Talk about your project",
+  "info": {
+    "window": "Get Info",
+    "name": "Field notes",
+    "posts": "Posts",
+    "postsValue_one": "{{count}} article",
+    "postsValue_other": "{{count}} articles",
+    "updated": "Updated",
+    "languages": "Languages",
+    "feed": "Feed",
+    "topics": "Topics"
+  },
+  "latestKicker": "Latest",
+  "latestTitle": "Most recent article",
+  "allKicker": "All posts",
+  "allTitle": "Everything I've written",
+  "pageCount": "Page {{page}} of {{total}} · {{count}} posts",
+  "readMore": "Read the article →",
+  "minutes": "{{count}} min read",
+  "kind": {
+    "case-study": "Case study",
+    "guide": "Guide",
+    "note": "Note"
+  },
+  "fallbackNotice": "Available in English",
+  "pagination": {
+    "label": "Pagination",
+    "newer": "← Newer",
+    "older": "Older →",
+    "page": "Page {{page}}"
+  },
+  "empty": {
+    "title": "The first article is on its way.",
+    "text": "I'm writing up the first case studies. Meanwhile, you can see what I build or ask Max about my work."
+  },
+  "close": {
+    "kicker": "Working on something similar?",
+    "title": "Let's map your process together.",
+    "text": "Tell me what takes your team the most time. I'll reply with how I'd approach it.",
+    "contact": "Get in touch",
+    "max": "Ask Max"
+  },
+  "post": {
+    "breadcrumb": "Breadcrumb",
+    "home": "Home",
+    "author": "Author",
+    "published": "Published",
+    "updated": "Updated",
+    "reading": "Reading",
+    "topics": "Topics",
+    "takeaways": "Key takeaways",
+    "onThisPage": "On this page",
+    "share": "Share",
+    "copyLink": "Copy link",
+    "copied": "Copied",
+    "shareLinkedIn": "Share on LinkedIn",
+    "anchor": "Link to this section",
+    "copyCode": "Copy",
+    "loading": "Loading article…",
+    "more": "More about me",
+    "ctaTitle": "Have a process that eats your team's week?",
+    "ctaText": "Send me a short description. I'll reply with how I'd automate it and a rough timeline.",
+    "relatedKicker": "Keep reading",
+    "relatedTitle": "Related articles"
+  }
+}

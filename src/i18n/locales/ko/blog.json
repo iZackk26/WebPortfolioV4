@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "블로그 | Isaac Ramírez: 실무에서의 자동화와 AI 에이전트",
+    "description": "비즈니스 프로세스 자동화, AI 에이전트 구축, 소프트웨어 시스템 설계에 관한 Isaac Ramírez의 사례 연구와 교훈.",
+    "pageTitle": "블로그 {{page}}페이지 | Isaac Ramírez",
+    "feedTitle": "Isaac Ramírez · 블로그",
+    "postTitle": "{{title}} | Isaac Ramírez"
+  },
+  "kicker": "블로그",
+  "title": "실제 시스템을 만들며 남긴 기록.",
+  "lede": "실제 기업을 위해 프로세스를 자동화하고 AI 에이전트를 출시하며 얻은 사례 연구와 교훈.",
+  "sub": "Visione Edge 개발자 Isaac Ramírez가 씁니다. 무엇이 효과가 있었고 무엇이 아니었는지, 그리고 그 뒤의 숫자까지.",
+  "ctaLatest": "최신 글부터 보기",
+  "ctaContact": "프로젝트 상담하기",
+  "info": {
+    "window": "정보 가져오기",
+    "name": "현장 기록",
+    "posts": "글",
+    "postsValue_one": "{{count}}개의 글",
+    "postsValue_other": "{{count}}개의 글",
+    "updated": "업데이트",
+    "languages": "언어",
+    "feed": "피드",
+    "topics": "주제"
+  },
+  "latestKicker": "최신",
+  "latestTitle": "가장 최근 글",
+  "allKicker": "전체 글",
+  "allTitle": "지금까지 쓴 글",
+  "pageCount": "{{total}}페이지 중 {{page}}페이지 · 글 {{count}}개",
+  "readMore": "글 읽기 →",
+  "minutes": "{{count}}분 분량",
+  "kind": {
+    "case-study": "사례 연구",
+    "guide": "가이드",
+    "note": "노트"
+  },
+  "fallbackNotice": "영어로 제공",
+  "pagination": {
+    "label": "페이지 이동",
+    "newer": "← 최신 글",
+    "older": "이전 글 →",
+    "page": "{{page}}페이지"
+  },
+  "empty": {
+    "title": "첫 번째 글을 준비하고 있습니다.",
+    "text": "첫 사례 연구를 쓰는 중입니다. 그동안 제가 만든 것을 보거나 Max에게 제 작업에 대해 물어보세요."
+  },
+  "close": {
+    "kicker": "비슷한 일을 하고 계신가요?",
+    "title": "함께 프로세스를 정리해 봅시다.",
+    "text": "팀에서 가장 시간이 많이 드는 일을 알려 주세요. 제가 어떻게 접근할지 답장 드리겠습니다.",
+    "contact": "연락하기",
+    "max": "Max에게 묻기"
+  },
+  "post": {
+    "breadcrumb": "탐색 경로",
+    "home": "홈",
+    "author": "작성자",
+    "published": "게시일",
+    "updated": "업데이트",
+    "reading": "읽는 시간",
+    "topics": "주제",
+    "takeaways": "핵심 요약",
+    "onThisPage": "이 페이지의 내용",
+    "share": "공유",
+    "copyLink": "링크 복사",
+    "copied": "복사됨",
+    "shareLinkedIn": "LinkedIn에 공유",
+    "anchor": "이 섹션 링크",
+    "copyCode": "복사",
+    "loading": "글을 불러오는 중…",
+    "more": "더 알아보기",
+    "ctaTitle": "팀의 한 주를 잡아먹는 프로세스가 있나요?",
+    "ctaText": "짧은 설명을 보내 주세요. 어떻게 자동화할지와 대략적인 일정을 답장 드리겠습니다.",
+    "relatedKicker": "계속 읽기",
+    "relatedTitle": "관련 글"
+  }
+}

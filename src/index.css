@@ -26,6 +26,9 @@
 @import './styles/wip.css';
 @import './styles/stack.css';
 @import './styles/about.css';
+@import './styles/blog.css';
+@import './styles/blog-post.css';
+@import './styles/blog-prose.css';
 
 @tailwind base;
 @tailwind components;
