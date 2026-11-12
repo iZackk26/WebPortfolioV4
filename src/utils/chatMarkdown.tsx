@@ -1,30 +1,26 @@
 import { Fragment, ReactNode } from 'react';
+import { BARE_LINK, bareLink, ChatLink } from './chatLinks';
 
 /**
  * Markdown mínimo y seguro para las respuestas de Max: **negrita**, `código`, enlaces
- * [texto](https://…) y listas. Construye nodos de React (sin innerHTML), así que un texto
- * con <script> o atributos on* solo se muestra como texto (CWE-79).
+ * [texto](https://…), URLs y correos sueltos (como enlace corto) y listas. Construye nodos
+ * de React (sin innerHTML), así que un texto con <script> o atributos on* solo se muestra
+ * como texto (CWE-79).
  */
-const INLINE = /(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)\s]+\))/g;
-const SAFE_LINK = /^(https:\/\/|mailto:)/i;
+// **negrita** | `código` | [texto](url) | https://… suelto | correo suelto
+const INLINE = /(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)\s]+\)|https:\/\/[^\s<>()[\]]+|[\w.+-]+@[\w-]+(?:\.[\w-]+)+)/g;
+const MD_LINK = /^\[([^\]]+)\]\(([^)\s]+)\)$/;
+const IS_BARE = new RegExp(`^${BARE_LINK.source}$`);
 
 const inline = (text: string, keyBase: string): ReactNode[] =>
   text.split(INLINE).map((part, i) => {
     const key = `${keyBase}-${i}`;
+    if (!part) return null;
     if (part.startsWith('**') && part.endsWith('**')) return <strong key={key}>{part.slice(2, -2)}</strong>;
     if (part.startsWith('`') && part.endsWith('`')) return <code key={key}>{part.slice(1, -1)}</code>;
-    const link = /^\[([^\]]+)\]\(([^)\s]+)\)$/.exec(part);
-    if (link) {
-      const [, label, href] = link;
-      // Solo https y mailto: un javascript: queda como texto
-      return SAFE_LINK.test(href) ? (
-        <a key={key} href={href} target="_blank" rel="noopener noreferrer nofollow">
-          {label}
-        </a>
-      ) : (
-        <Fragment key={key}>{label}</Fragment>
-      );
-    }
+    const link = MD_LINK.exec(part);
+    if (link) return <ChatLink key={key} href={link[2]} label={link[1]} />;
+    if (IS_BARE.test(part)) return bareLink(part, key);
     return <Fragment key={key}>{part}</Fragment>;
   });
 

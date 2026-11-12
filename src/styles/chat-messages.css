@@ -43,7 +43,6 @@
 .max-bubble p + p, .max-bubble ul + p, .max-bubble p + ul { margin-top: 6px; }
 .max-bubble ul { margin: 0; padding-left: 18px; list-style: disc; }
 .max-bubble code { font: 12.5px var(--font-mono); padding: 1px 4px; border-radius: 4px; background: rgb(0 0 0 / 0.06); }
-.max-bubble a { color: #1d5fd6; text-decoration: underline; text-underline-offset: 2px; }
 @keyframes max-pop { from { opacity: 0; transform: translateY(8px) scale(0.94); } }
 
 .max-typing { display: inline-flex; gap: 5px; padding: 13px 14px; }
@@ -98,3 +97,23 @@
   .max-bubble, .max-chip { animation: none; }
   .max-typing i { animation: none; opacity: 0.7; }
 }
+
+/* Enlaces y correos de Max: cortos, subrayados y con ↗ si salen del sitio */
+.max-bubble .max-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  color: #1d5fd6;
+  font-weight: 500;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.max-bubble .max-link-text {
+  text-decoration: underline;
+  text-decoration-color: rgb(29 95 214 / 0.35);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s;
+}
+.max-bubble .max-link:hover .max-link-text { text-decoration-color: currentColor; }
+.max-bubble .max-link-arrow { font-size: 0.85em; }
+.max-bubble .max-link:focus-visible { outline: 2px solid rgb(80 180 255); outline-offset: 2px; border-radius: 3px; }
