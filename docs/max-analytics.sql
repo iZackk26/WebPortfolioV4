@@ -47,9 +47,10 @@ end $$;
 -- deduplique dos reportes distintos. El ban real lo hace max_ban_session en la rama onSuccess.
 drop function if exists public.max_ban(text);
 create or replace function public.max_flag(reason text)
-returns jsonb language sql as $$
-  select jsonb_build_object('flagged', true, 'flag_id', gen_random_uuid());
-$$;
+returns jsonb language plpgsql as $$
+begin
+  return jsonb_build_object('flagged', true, 'flag_id', gen_random_uuid());
+end $$;
 
 -- Rama onSuccess: banea al visitante de ESA sesión. El session_id lo pone el runtime de Flow,
 -- nunca el modelo; el client_id sale de la última pregunta registrada con esa sesión.

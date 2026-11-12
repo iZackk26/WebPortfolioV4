@@ -1,5 +1,5 @@
 -- Migración 002 del chat de Max: el ban pasa de header (max_ban) a sesión (max_ban_session).
--- Ejecutar una vez en el SQL Editor de Supabase, después de max-analytics.sql.
+-- Ejecutar SOLO este archivo, en una pestaña nueva del SQL Editor y sin texto seleccionado.
 -- Motivo: el runtime de Flow no resuelve {{…}} en los headers de las herramientas.
 
 drop function if exists public.max_ban(text);
@@ -7,9 +7,11 @@ drop function if exists public.max_ban(text);
 -- Herramienta del agente: solo confirma el reporte. El id único evita que Flow deduplique
 -- dos reportes distintos. El ban real lo hace max_ban_session en la rama onSuccess.
 create or replace function public.max_flag(reason text)
-returns jsonb language sql as $$
-  select jsonb_build_object('flagged', true, 'flag_id', gen_random_uuid());
-$$;
+returns jsonb language plpgsql as $$
+begin
+  return jsonb_build_object('flagged', true, 'flag_id', gen_random_uuid());
+end $$;
+revoke execute on function public.max_flag(text) from public, anon, authenticated;
 
 -- Rama onSuccess: banea al visitante de ESA sesión. El session_id lo pone el runtime de Flow,
 -- nunca el modelo; el client_id sale de la última pregunta registrada con esa sesión.
@@ -30,7 +32,7 @@ begin
   values (v_client, left(coalesce(nullif(p_reason, ''), 'sin motivo'), 500), v_expires);
   return jsonb_build_object('banned', true, 'hours', v_hours, 'expires_at', v_expires, 'client_id', v_client);
 end $$;
-
--- Solo la service role (Flow) puede llamarlas
-revoke execute on function public.max_flag(text)              from public, anon, authenticated;
 revoke execute on function public.max_ban_session(text, text) from public, anon, authenticated;
+
+-- Comprobación: deben salir max_ban_session, max_check_and_log y max_flag (y ya no max_ban)
+select proname from pg_proc where pronamespace = 'public'::regnamespace and proname like 'max\_%' order by 1;
