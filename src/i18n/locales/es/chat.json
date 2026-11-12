@@ -15,8 +15,5 @@
   "send": "Enviar",
   "typing": "Max está escribiendo…",
   "footer": "Max responde con lo que Isaac publicó en este sitio.",
-  "error": "No se pudo obtener la respuesta. Inténtalo de nuevo.",
-  "unavailable": "Max no está disponible ahora. Inténtalo más tarde.",
-  "rateLimited": "Son muchas preguntas seguidas. Puedes volver a preguntar en {{seconds}} s.",
   "cooldown": "Espera {{seconds}} s…"
 }

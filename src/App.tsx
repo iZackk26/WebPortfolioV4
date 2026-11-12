@@ -4,6 +4,7 @@ import { Footer } from './components/footer/Footer';
 import { LanguageTransition } from './components/LanguageTransition';
 import { Chatbot } from './components/Chatbot';
 import { ChatProvider } from './components/Chatbot/ChatProvider';
+import { ToastProvider } from './components/ui/toast/ToastProvider';
 import { Home } from './pages/Home';
 // About va en la carga principal (~3 KB): como chunk aparte sumaba un viaje de red más en móvil
 import { About } from './pages/About';
@@ -47,34 +48,36 @@ function RouteBoundary({ children }: { children: ReactNode }) {
 function App() {
   return (
     <Router>
-      <ChatProvider>
-        <ScrollToTop />
-        <div className="min-h-screen">
-          <Navbar />
-          <LanguageTransition>
-            <RouteBoundary>
-              <Suspense fallback={<SectionSkeleton size="page" windows={2} />}>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/projects" element={<UnderConstruction section="projects" />} />
-                  <Route path="/projects/appraisal" element={<AppraisalDetail />} />
-                  <Route path="/projects/faceAntiSpoofing" element={<FaceAntiSpoofingDetail />} />
-                  <Route path="/projects/stateDetection" element={<StateDetectionDetail />} />
-                  <Route path="/projects/vectorDB" element={<VectorDBDetail />} />
-                  <Route path="/projects/iFixIt" element={<IFixItDetail />} />
-                  <Route path="/projects/puraCompra" element={<PuraCompraDetail />} />
-                  <Route path="/certificates" element={<UnderConstruction section="certificates" />} />
-                </Routes>
-              </Suspense>
-            </RouteBoundary>
-          </LanguageTransition>
-          <Footer />
-          <Chatbot />
-        </div>
-        <Analytics />
-        <SpeedInsights />
-      </ChatProvider>
+      <ToastProvider>
+        <ChatProvider>
+          <ScrollToTop />
+          <div className="min-h-screen">
+            <Navbar />
+            <LanguageTransition>
+              <RouteBoundary>
+                <Suspense fallback={<SectionSkeleton size="page" windows={2} />}>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/projects" element={<UnderConstruction section="projects" />} />
+                    <Route path="/projects/appraisal" element={<AppraisalDetail />} />
+                    <Route path="/projects/faceAntiSpoofing" element={<FaceAntiSpoofingDetail />} />
+                    <Route path="/projects/stateDetection" element={<StateDetectionDetail />} />
+                    <Route path="/projects/vectorDB" element={<VectorDBDetail />} />
+                    <Route path="/projects/iFixIt" element={<IFixItDetail />} />
+                    <Route path="/projects/puraCompra" element={<PuraCompraDetail />} />
+                    <Route path="/certificates" element={<UnderConstruction section="certificates" />} />
+                  </Routes>
+                </Suspense>
+              </RouteBoundary>
+            </LanguageTransition>
+            <Footer />
+            <Chatbot />
+          </div>
+          <Analytics />
+          <SpeedInsights />
+        </ChatProvider>
+      </ToastProvider>
     </Router>
   );
 }

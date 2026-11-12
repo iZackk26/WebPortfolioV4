@@ -1,0 +1,29 @@
+{
+  "region": "Notificaciones",
+  "close": "Cerrar aviso",
+  "copied": {
+    "title": "Correo copiado",
+    "message": "{{email}} está en tu portapapeles."
+  },
+  "copyFailed": {
+    "title": "No se pudo copiar",
+    "message": "Copia el correo a mano: {{email}}"
+  },
+  "rateLimited": {
+    "title": "Vas muy rápido",
+    "message": "Puedes volver a preguntarle a Max en {{seconds}} s."
+  },
+  "chatError": {
+    "title": "Max no pudo responder",
+    "message": "Revisa tu conexión e inténtalo de nuevo."
+  },
+  "chatUnavailable": {
+    "title": "Max no está disponible",
+    "message": "Inténtalo de nuevo más tarde."
+  },
+  "chunk": {
+    "title": "Esta sección no cargó",
+    "message": "Puede ser la conexión o una versión nueva del sitio.",
+    "action": "Recargar"
+  }
+}

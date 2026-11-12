@@ -1,0 +1,29 @@
+{
+  "region": "Notifications",
+  "close": "Close notification",
+  "copied": {
+    "title": "Email copied",
+    "message": "{{email}} is on your clipboard."
+  },
+  "copyFailed": {
+    "title": "Couldn't copy",
+    "message": "Copy the email by hand: {{email}}"
+  },
+  "rateLimited": {
+    "title": "You're going fast",
+    "message": "You can ask Max again in {{seconds}} s."
+  },
+  "chatError": {
+    "title": "Max couldn't answer",
+    "message": "Check your connection and try again."
+  },
+  "chatUnavailable": {
+    "title": "Max isn't available",
+    "message": "Please try again later."
+  },
+  "chunk": {
+    "title": "This section didn't load",
+    "message": "It may be your connection or a new version of the site.",
+    "action": "Reload"
+  }
+}

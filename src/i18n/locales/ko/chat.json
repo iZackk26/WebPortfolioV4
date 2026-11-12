@@ -15,8 +15,5 @@
   "send": "보내기",
   "typing": "Max가 입력 중…",
   "footer": "Max는 Isaac이 이 사이트에 올린 내용으로 답해요.",
-  "error": "답변을 가져오지 못했어요. 다시 시도해 주세요.",
-  "unavailable": "지금은 Max를 사용할 수 없어요. 잠시 후 다시 시도해 주세요.",
-  "rateLimited": "연속으로 질문이 너무 많아요. {{seconds}}초 후에 다시 물어보세요.",
   "cooldown": "{{seconds}}초 기다려 주세요…"
 }

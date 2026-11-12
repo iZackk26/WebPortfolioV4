@@ -1,5 +1,5 @@
 import { Component, ReactNode } from 'react';
-import { ChunkErrorNotice } from './ChunkErrorNotice';
+import { ChunkErrorToast } from './ChunkErrorToast';
 
 interface ChunkErrorBoundaryProps {
   children: ReactNode;
@@ -13,7 +13,8 @@ interface ChunkErrorBoundaryState {
 
 /**
  * Si una parte diferida no llega (red caída o deploy nuevo con otros nombres de archivo),
- * muestra un aviso con recarga solo en esa parte en lugar de dejar la página en blanco.
+ * deja su skeleton quieto y avisa con un toast que ofrece recargar, en lugar de dejar
+ * la página en blanco.
  */
 export class ChunkErrorBoundary extends Component<ChunkErrorBoundaryProps, ChunkErrorBoundaryState> {
   state: ChunkErrorBoundaryState = { failed: false };
@@ -25,9 +26,9 @@ export class ChunkErrorBoundary extends Component<ChunkErrorBoundaryProps, Chunk
   render() {
     if (!this.state.failed) return this.props.children;
     return (
-      <div className="relative">
+      <div className="skel-failed">
         {this.props.fallback}
-        <ChunkErrorNotice />
+        <ChunkErrorToast />
       </div>
     );
   }

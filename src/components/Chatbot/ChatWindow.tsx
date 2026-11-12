@@ -49,7 +49,7 @@ export const ChatWindow = () => {
       >
         <ChatCaption onClose={close} />
         <div className="max-chat-client">
-          <ChatMessages messages={chat.messages} sending={chat.sending} failure={chat.failure} cooldown={chat.cooldown} onAsk={chat.send} />
+          <ChatMessages messages={chat.messages} sending={chat.sending} cooldown={chat.cooldown} onAsk={chat.send} />
           <ChatComposer ref={inputRef} disabled={chat.sending || chat.cooldown > 0} cooldown={chat.cooldown} onSend={chat.send} />
           <p className="max-chat-foot">{t('chat.footer')}</p>
         </div>

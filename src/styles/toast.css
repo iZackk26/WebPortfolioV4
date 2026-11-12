@@ -1,0 +1,119 @@
+/* Avisos: cápsulas de vidrio líquido abajo al centro, con gema Aero por tono y anillo de tiempo. */
+.toast-region {
+  position: fixed;
+  z-index: 70;
+  left: 50%;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  translate: -50% 0;
+  width: min(440px, calc(100vw - 24px));
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 10px;
+  pointer-events: none;
+}
+/* En móvil, con el chat a pantalla completa, el aviso sube para no tapar el campo */
+@media (max-width: 767px) {
+  html.max-chat-open .toast-region { bottom: auto; top: calc(84px + env(safe-area-inset-top, 0px)); flex-direction: column; }
+}
+
+.toast {
+  --c1: #59a8ff;
+  --c2: #1846c8;
+  position: relative;
+  pointer-events: auto;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 8px;
+  padding: 10px;
+  border-radius: 20px;
+  color: rgb(var(--ink));
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.92), rgb(240 246 255 / 0.78) 46%, rgb(255 255 255 / 0.88));
+  border: 1px solid rgb(30 50 110 / 0.38);
+  box-shadow: inset 0 1px 0 #fff, inset 0 -10px 18px -12px rgb(90 150 255 / 0.45), 0 20px 44px -14px rgb(10 25 80 / 0.42);
+  -webkit-backdrop-filter: blur(16px) saturate(1.8);
+  backdrop-filter: blur(16px) saturate(1.8);
+  animation: toast-in 0.55s var(--ease-spring) both;
+}
+.toast::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(120% 70% at 12% -30%, rgb(255 255 255 / 0.9), transparent 50%);
+}
+.toast[data-tone='success'] { --c1: #3ccf78; --c2: #137a3b; }
+.toast[data-tone='warning'] { --c1: #f7bb35; --c2: #a96d05; }
+.toast[data-tone='error'] { --c1: #f2725f; --c2: #a8261a; }
+.toast[data-leaving='true'] { animation: toast-out 0.26s cubic-bezier(0.4, 0, 1, 1) forwards; pointer-events: none; }
+@keyframes toast-in { from { opacity: 0; transform: translateY(18px) scale(0.92); } }
+@keyframes toast-out { to { opacity: 0; transform: translateY(8px) scale(0.95); filter: blur(2px); } }
+
+.toast-ring { position: relative; width: 38px; height: 38px; display: grid; place-items: center; }
+.toast-ring svg { position: absolute; inset: 0; rotate: -90deg; }
+.toast-ring circle { fill: none; stroke-width: 3; }
+.toast-track { stroke: rgb(0 0 0 / 0.08); }
+.toast-progress {
+  stroke: var(--c1);
+  stroke-linecap: round;
+  stroke-dasharray: var(--ring);
+  animation: toast-ring linear forwards;
+}
+.toast[data-paused='true'] .toast-progress { animation-play-state: paused; }
+@keyframes toast-ring { to { stroke-dashoffset: var(--ring); } }
+
+.toast-gem {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-shadow: 0 1px 1px rgb(0 0 0 / 0.25);
+  background: radial-gradient(circle at 50% 120%, rgb(255 255 255 / 0.55), transparent 55%), radial-gradient(circle at 50% 35%, var(--c1), var(--c2) 78%);
+  box-shadow: 0 0 0 1px var(--c2), 0 2px 6px rgb(0 0 0 / 0.2);
+}
+.toast-gem::before {
+  content: '';
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  top: 5%;
+  height: 42%;
+  border-radius: 50%;
+  background: linear-gradient(rgb(255 255 255 / 0.85), rgb(255 255 255 / 0.05));
+}
+
+.toast-text b { display: block; font-size: 13.5px; font-weight: 600; line-height: 1.3; }
+.toast-text span { display: block; font-size: 12.5px; line-height: 1.35; color: rgb(0 0 0 / 0.58); overflow-wrap: anywhere; }
+.toast-action { border: 0; cursor: pointer; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 500; }
+.toast-close {
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 13px;
+  color: rgb(0 0 0 / 0.5);
+  background: rgb(0 0 0 / 0.06);
+}
+.toast-close:hover { background: rgb(0 0 0 / 0.1); }
+.toast-action:focus-visible, .toast-close:focus-visible { outline: 2px solid rgb(80 180 255); outline-offset: 2px; }
+
+/* En pantallas angostas la acción baja debajo del texto y cerrar queda arriba */
+@media (max-width: 520px) {
+  .toast { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .toast-close { grid-column: 3; grid-row: 1; }
+  .toast-action { grid-column: 2; grid-row: 2; justify-self: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast, .toast[data-leaving='true'] { animation-duration: 0.01ms; }
+  .toast-progress { animation: none; }
+}

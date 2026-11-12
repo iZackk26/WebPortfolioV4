@@ -1,0 +1,29 @@
+{
+  "region": "알림",
+  "close": "알림 닫기",
+  "copied": {
+    "title": "이메일 복사됨",
+    "message": "{{email}} 주소가 클립보드에 복사됐어요."
+  },
+  "copyFailed": {
+    "title": "복사하지 못했어요",
+    "message": "이메일을 직접 복사해 주세요: {{email}}"
+  },
+  "rateLimited": {
+    "title": "너무 빨라요",
+    "message": "{{seconds}}초 후에 Max에게 다시 물어볼 수 있어요."
+  },
+  "chatError": {
+    "title": "Max가 답하지 못했어요",
+    "message": "연결을 확인하고 다시 시도해 주세요."
+  },
+  "chatUnavailable": {
+    "title": "지금은 Max를 쓸 수 없어요",
+    "message": "잠시 후 다시 시도해 주세요."
+  },
+  "chunk": {
+    "title": "이 섹션을 불러오지 못했어요",
+    "message": "연결 문제이거나 사이트가 새 버전으로 바뀌었을 수 있어요.",
+    "action": "새로고침"
+  }
+}

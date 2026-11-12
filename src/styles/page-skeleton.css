@@ -52,27 +52,8 @@
 @media (min-width: 1024px) { .skel-work { min-height: 1727px; } .skel-contact { min-height: 781px; } }
 @media (min-width: 1280px) { .skel-work { min-height: 1499px; } }
 
-/* Aviso de sección que no cargó: tarjeta sobre el título del skeleton */
-.skel-error {
-  position: absolute;
-  top: 80px;
-  left: 50%;
-  translate: -50% 0;
-  width: min(520px, calc(100% - 32px));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 20px;
-  border-radius: 14px;
-  background: #fff;
-  border: 1px solid rgb(0 0 0 / 0.14);
-  box-shadow: 0 14px 30px rgb(0 0 0 / 0.1);
-  text-align: center;
-  font-size: 15px;
-  color: rgb(0 0 0 / 0.7);
-}
-.skel-error p { margin: 0; }
+/* Sección que no cargó: el brillo se detiene (ya no está cargando) */
+.skel-failed .skel::after { animation: none; }
 
 /* Imagen progresiva: la miniatura (LQIP) ampliada hace de fondo hasta que llega la real */
 .pimg { background-size: cover; background-position: center; background-repeat: no-repeat; }

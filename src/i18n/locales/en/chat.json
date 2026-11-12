@@ -15,8 +15,5 @@
   "send": "Send",
   "typing": "Max is typing…",
   "footer": "Max answers with what Isaac has published on this site.",
-  "error": "Something went wrong getting the answer. Please try again.",
-  "unavailable": "Max isn't available right now. Please try again later.",
-  "rateLimited": "That's a lot of questions in a row. You can ask again in {{seconds}} s.",
   "cooldown": "Wait {{seconds}} s…"
 }

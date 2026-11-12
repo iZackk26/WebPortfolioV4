@@ -1,19 +1,18 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { ChatFailure, ChatMessage } from '../../types/chat';
+import type { ChatMessage } from '../../types/chat';
 import { ChatBubble } from './ChatBubble';
 import { MaxOrb } from './MaxOrb';
 
 interface ChatMessagesProps {
   messages: ChatMessage[];
   sending: boolean;
-  failure: ChatFailure | null;
   cooldown: number;
   onAsk: (question: string) => void;
 }
 
-/** Conversación: saludo, mensajes, "escribiendo…", avisos y sugerencias pendientes. */
-export const ChatMessages = ({ messages, sending, failure, cooldown, onAsk }: ChatMessagesProps) => {
+/** Conversación: saludo, mensajes, "escribiendo…" y sugerencias pendientes. Los avisos van en toasts. */
+export const ChatMessages = ({ messages, sending, cooldown, onAsk }: ChatMessagesProps) => {
   const { t } = useTranslation();
   const endRef = useRef<HTMLDivElement>(null);
   const suggestions = t('chat.suggestions', { returnObjects: true }) as string[];
@@ -22,16 +21,7 @@ export const ChatMessages = ({ messages, sending, failure, cooldown, onAsk }: Ch
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ block: 'end', behavior: 'smooth' });
-  }, [messages.length, sending, failure]);
-
-  const notice =
-    failure?.kind === 'rate_limited'
-      ? t('chat.rateLimited', { seconds: cooldown || failure.retryAfter })
-      : failure?.kind === 'unavailable'
-        ? t('chat.unavailable')
-        : failure
-          ? t('chat.error')
-          : null;
+  }, [messages.length, sending]);
 
   return (
     <div className="max-chat-msgs" aria-live="polite">
@@ -50,7 +40,6 @@ export const ChatMessages = ({ messages, sending, failure, cooldown, onAsk }: Ch
           </div>
         </div>
       )}
-      {notice && <ChatBubble role="assistant" content={notice} tone="notice" />}
       {!sending && pending.length > 0 && (
         <div className="max-chips">
           {pending.map((question) => (
