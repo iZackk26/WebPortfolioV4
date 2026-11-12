@@ -54,7 +54,7 @@
 
 /* Vidrio: borde de luz, tinte inferior y sombra en dos capas */
 .glass-aqua,
-.nav-pill:not([data-mode='top']) .nav-piece {
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-piece {
   background: linear-gradient(180deg, rgb(255 255 255 / 0.34), rgb(255 255 255 / 0.06) 46%, rgb(255 255 255 / 0.2));
   border: 1px solid rgb(var(--frame) / 0.55);
   box-shadow:
@@ -73,7 +73,7 @@
 }
 /* Brillo especular */
 .nav-shell::before,
-.nav-pill:not([data-mode='top']) .nav-piece::before {
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-piece::before {
   content: '';
   position: absolute;
   inset: 0;

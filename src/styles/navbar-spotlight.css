@@ -1,16 +1,16 @@
 /* Compacto estilo Spotlight: foto, links e idioma como burbujas de vidrio separadas. */
-.nav-pill:not([data-mode='top']) { overflow: visible; padding: 0; }
-.nav-pill:not([data-mode='top']) .nav-shell { opacity: 0; }
-.nav-pill:not([data-mode='top']) .nav-name { display: none; }
-.nav-pill:not([data-mode='top']) .nav-piece { position: relative; height: 56px; border-radius: 999px; }
-.nav-pill:not([data-mode='top']) .nav-avatar { width: 56px; justify-content: center; padding: 0; }
-.nav-pill:not([data-mode='top']) .nav-links { padding: 0 6px; }
-.nav-pill:not([data-mode='top']) .nav-lang { width: 56px; padding: 0; }
-.nav-pill:not([data-mode='top']) .max-launcher { display: none; }
-.nav-pill:not([data-mode='top']) .nav-link:not([aria-current='page']) { color: rgb(0 0 0 / 0.74); }
+.nav-pill:not([data-mode='top'], [data-shrinking]) { overflow: visible; padding: 0; }
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-shell { opacity: 0; }
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-name { display: none; }
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-piece { position: relative; height: 56px; border-radius: 999px; }
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-avatar { width: 56px; justify-content: center; padding: 0; }
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-links { padding: 0 6px; }
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-lang { width: 56px; padding: 0; }
+.nav-pill:not([data-mode='top'], [data-shrinking]) .max-launcher { display: none; }
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-link:not([aria-current='page']) { color: rgb(0 0 0 / 0.74); }
 
 /* Sobre contenido el vidrio se densifica para que los links se lean */
-.nav-pill:not([data-mode='top']) .nav-piece {
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-piece {
   background: linear-gradient(180deg, rgb(255 255 255 / 0.84), rgb(246 249 255 / 0.68) 46%, rgb(255 255 255 / 0.78));
   -webkit-backdrop-filter: blur(8px) saturate(1.6) brightness(1.08);
   backdrop-filter: blur(8px) saturate(1.6) brightness(1.08);
@@ -35,7 +35,7 @@
   transform: scale(0.4);
   transition: opacity 0.2s, transform 0.3s var(--ease-spring);
 }
-.nav-pill:not([data-mode='top']) .nav-close-badge { display: block; }
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-close-badge { display: block; }
 .nav-pill[data-open='true'] .nav-close-badge { opacity: 1; transform: scale(1); }
 
 /* Entrada en cascada: en la barra acompaña al borde; en Spotlight salen con rebote */
@@ -44,7 +44,7 @@
   transition: opacity 0.24s ease-out, transform 0.46s var(--ease-glide), visibility 0s;
   transition-delay: calc(var(--i, 0) * 30ms + 40ms);
 }
-.nav-pill:not([data-mode='top']) .nav-reveal {
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-reveal {
   transform-origin: left center;
   transition: opacity 0.2s ease-out, transform 0.42s var(--ease-spring), visibility 0s;
   transition-delay: calc(var(--i, 0) * 45ms);
@@ -63,10 +63,16 @@
 .nav-wrap[data-mode='closed']:has(.nav-pill[data-shrinking]) {
   transition: width 0.62s cubic-bezier(0.45, 0, 0.2, 1), transform 0.2s var(--ease-glide);
 }
-.nav-pill[data-shrinking] { overflow: hidden; }
-.nav-pill[data-shrinking] .nav-shell { opacity: 1; transition: none; }
-.nav-pill[data-shrinking] .nav-piece { background: none; border-color: transparent; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
-.nav-pill[data-shrinking] .nav-piece::before { display: none; }
+/* Mientras se encoge conserva el aspecto de barra; lo que no cabe en el compacto se desvanece */
+.nav-pill[data-shrinking] :is(.nav-name, .nav-burger, .max-launcher) {
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+/* Barra que crece: lo que vuelve aparece suave cuando el borde ya lo alcanzó */
+.nav-pill[data-growing] :is(.nav-name, .nav-burger, .max-launcher) { transition: opacity 0.3s ease-out 0.22s; }
+@starting-style {
+  .nav-pill[data-mode='top'] :is(.nav-name, .nav-burger, .max-launcher) { opacity: 0; }
+}
 .nav-pill[data-shrinking] .nav-reveal {
   transform: none;
   transition: opacity 0.34s ease-in-out, visibility 0s 0.34s;
@@ -111,3 +117,7 @@
   .nav-wrap, .nav-reveal, .nav-sheet, .nav-close-badge { transition: opacity 0.2s, visibility 0s !important; }
   .nav-pulse::before, .nav-pulse::after { animation: none !important; }
 }
+
+/* Al separarse en piezas, borde y sombra entran suaves en vez de aparecer de golpe */
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-piece { animation: nav-piece-in 0.4s ease-out; }
+@keyframes nav-piece-in { from { box-shadow: none; border-color: transparent; } }

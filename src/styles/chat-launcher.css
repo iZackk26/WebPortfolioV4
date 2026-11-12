@@ -65,16 +65,42 @@
 }
 
 /* Burbuja del navbar compacto, junto a tu foto: solo existe fuera de la barra completa */
-.max-launcher-bubble { display: none; }
-.nav-pill:not([data-mode='top']) .max-launcher-bubble {
+/* En la barra espera invisible en su lugar del compacto (6px de padding + 56 + 10 = 66) */
+.nav-lead { position: relative; }
+.max-launcher-bubble {
+  position: absolute;
+  top: 0;
+  left: 60px;
+  width: 56px;
+  height: 56px;
   display: grid;
   place-items: center;
-  width: 56px;
   padding: 0;
   cursor: pointer;
+  opacity: 0;
+  scale: 0.6;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.16s, scale 0.2s, visibility 0s 0.2s;
+}
+/* Aparece cuando el borde de la barra que se encoge se le acerca */
+.nav-pill[data-shrinking] .max-launcher-bubble {
+  opacity: 1;
+  scale: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease-out 0.24s, scale 0.46s var(--ease-spring) 0.24s, visibility 0s;
+}
+.nav-pill:not([data-mode='top'], [data-shrinking]) .max-launcher-bubble {
+  position: relative;
+  left: auto;
+  opacity: 1;
+  scale: 1;
+  visibility: visible;
+  pointer-events: auto;
   transition: transform 0.2s var(--ease-glide), box-shadow 0.2s, opacity 0.2s;
 }
-.nav-pill:not([data-mode='top']) .max-launcher-bubble:hover { transform: scale(1.06); }
+.nav-pill .max-launcher-bubble[data-open='true'] { opacity: 0; }
+.nav-pill:not([data-mode='top'], [data-shrinking]) .max-launcher-bubble:hover { transform: scale(1.06); }
 .max-launcher-tip {
   position: absolute;
   top: calc(100% + 10px);

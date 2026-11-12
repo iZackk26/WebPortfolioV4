@@ -30,7 +30,7 @@
 @media (min-width: 768px) {
   .nav-burger { display: none; }
 }
-.nav-pill:not([data-mode='top']) .nav-burger { display: none; }
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-burger { display: none; }
 
 @media (prefers-reduced-motion: reduce) {
   .nav-burger path { transition: none; }

@@ -20,7 +20,7 @@ export const AvatarButton = forwardRef<HTMLButtonElement, AvatarButtonProps>(({ 
       aria-expanded={open}
       aria-controls="nav-links nav-sheet"
       aria-label={open ? t('nav.close_menu') : t('nav.open_menu')}
-      className="nav-avatar nav-piece flex shrink-0 items-center gap-2.5 rounded-full py-1 pl-0.5 pr-2.5 md:pr-0.5"
+      className="nav-avatar nav-piece flex shrink-0 items-center gap-2.5 rounded-full py-1 pl-0 pr-2.5 md:pr-0"
     >
       <picture>
         <source srcSet={AVATAR.webp} type="image/webp" />
