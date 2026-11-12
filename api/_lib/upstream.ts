@@ -1,4 +1,5 @@
 import type { ChatInput } from './request.js';
+import type { VisitorContext } from './visitor.js';
 
 /** Espera máxima a n8n: una respuesta colgada no debe retener la función (CWE-400) */
 const UPSTREAM_TIMEOUT_MS = 20_000;
@@ -29,9 +30,9 @@ export const isUpstreamConfigured = () => Boolean(process.env.CHATBOT_API_URL);
  * servidor (sin VITE_): nunca viajan al navegador (CWE-798 / CWE-522).
  * De la respuesta solo se toma el texto: el webhook a veces adjunta el registro de
  * ejecución (executionResult) con el prompt de sistema, y eso no debe llegar al visitante.
- * clientId es el hash salado de la IP (nunca la IP): Flow lo usa para registrar y banear.
+ * visitor viaja en metadata (hash de la IP, geo, dispositivo, página): Flow lo guarda para la analítica.
  */
-export const askUpstream = async ({ question, sessionId }: ChatInput, clientId: string): Promise<string> => {
+export const askUpstream = async ({ question, sessionId }: ChatInput, visitor: VisitorContext): Promise<string> => {
   const url = process.env.CHATBOT_API_URL;
   const key = process.env.CHATBOT_API_KEY;
   if (!url) throw new UpstreamError('upstream-not-configured');
@@ -43,7 +44,7 @@ export const askUpstream = async ({ question, sessionId }: ChatInput, clientId: 
       // La clave es opcional: se manda solo si el webhook la exige
       headers: { 'Content-Type': 'application/json', ...(key ? { 'X-API-Key': key } : {}) },
       // El endpoint /web de Flow solo reenvía message y metadata al flujo: lo demás se pierde
-      body: JSON.stringify({ message: question, sessionId, metadata: { clientId, sessionId } }),
+      body: JSON.stringify({ message: question, sessionId, metadata: visitor }),
       signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
       redirect: 'error',
     });

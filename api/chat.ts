@@ -3,6 +3,7 @@ import { checkLimits, ipKey } from './_lib/limits.js';
 import { fail, json, rateLimited } from './_lib/http.js';
 import { isAllowedOrigin, isJson, parseChatInput, readLimitedText } from './_lib/request.js';
 import { askUpstream, isUpstreamConfigured, UpstreamError } from './_lib/upstream.js';
+import { visitorContext } from './_lib/visitor.js';
 
 /**
  * POST /api/chat — proxy del chat de Max hacia su agente (webhook de Visione Flow).
@@ -39,7 +40,7 @@ export async function POST(request: Request): Promise<Response> {
   if (!input) return fail('invalid_request');
 
   try {
-    return json({ answer: await askUpstream(input, clientId) });
+    return json({ answer: await askUpstream(input, visitorContext(request, clientId, input.sessionId)) });
   } catch (error) {
     console.error('[chat]', error instanceof UpstreamError ? error.message : 'upstream-unknown');
     return fail('upstream_error');
