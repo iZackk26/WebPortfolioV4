@@ -1,6 +1,6 @@
 import { CSSProperties, ReactNode, useCallback, useState } from 'react';
 import { STACK_ICONS, STACK_WINDOW_WIDTH_PX, StackGroup, StackIcon } from '../../../constants/stackIcons';
-import { DeskItem } from '../intro/DeskItem';
+import { Draggable } from '../../ui/Draggable';
 import { StackIconTile } from './StackIconTile';
 
 interface StackScatterProps {
@@ -26,14 +26,14 @@ export const StackScatter = ({ groups, children }: StackScatterProps) => {
 
   return (
     <div className={`desk-scope relative ${focused ? 'is-focus' : ''}`}>
-      <div className="pointer-events-none absolute inset-0 z-10 hidden xl:block" aria-hidden="true">
+      {children}
+      <div className="pointer-events-none absolute inset-0 hidden xl:block" aria-hidden="true">
         {STACK_ICONS.filter((icon) => groups.includes(icon.group)).map((icon) => (
-          <DeskItem key={icon.id} className="pointer-events-auto" style={positionFor(icon)} rotate={icon.rotate} onDragChange={onDragChange}>
+          <Draggable key={icon.id} className="desk-item desk-dim pointer-events-auto" style={positionFor(icon)} rotate={icon.rotate} onDragChange={onDragChange}>
             <StackIconTile icon={icon} />
-          </DeskItem>
+          </Draggable>
         ))}
       </div>
-      {children}
     </div>
   );
 };

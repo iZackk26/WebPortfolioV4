@@ -1,0 +1,24 @@
+/* Arrastrables del sitio (componente Draggable). El z-index lo pone la pila global. */
+.drag-item {
+  position: relative;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: opacity 0.35s, filter 0.2s;
+}
+.drag-item.is-dragging {
+  cursor: grabbing;
+  filter: drop-shadow(0 18px 24px rgb(0 0 0 / 0.18));
+}
+.drag-item img {
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+/* Solo mouse: en táctil se deja el scroll normal y sin cursor de agarre */
+.drag-item.is-mouse-only { touch-action: auto; cursor: auto; }
+@media (min-width: 1024px) {
+  .drag-item.is-mouse-only { cursor: grab; }
+  .drag-item.is-mouse-only.is-dragging { cursor: grabbing; }
+}

@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DESK_ICONS, NOTE_ROTATION_DEG, PHOTO_ROTATION_DEG } from '../../../constants/intro';
-import { DeskItem } from './DeskItem';
+import { Draggable } from '../../ui/Draggable';
 import { DeskPhoto } from './DeskPhoto';
 import { StickyNote } from './StickyNote';
 import { DeskIconTile } from './DeskIconTile';
@@ -21,16 +21,16 @@ export const HomeIntro = () => {
       className={`desk-scope relative mx-auto flex max-w-[1400px] flex-col items-center justify-center px-4 pb-14 pt-10 text-center lg:min-h-[560px] lg:pb-20 lg:pt-16 ${focused ? 'is-focus' : ''}`}
     >
       <div className="hidden lg:block">
-        <DeskItem className="left-[4%] top-[150px]" rotate={PHOTO_ROTATION_DEG} onDragChange={onDragChange}>
+        <Draggable className="desk-item desk-dim left-[4%] top-[150px]" rotate={PHOTO_ROTATION_DEG} onDragChange={onDragChange}>
           <DeskPhoto variant="desk" />
-        </DeskItem>
-        <DeskItem className="right-[4%] top-[176px] w-[224px]" rotate={NOTE_ROTATION_DEG} onDragChange={onDragChange}>
+        </Draggable>
+        <Draggable className="desk-item desk-dim right-[4%] top-[176px] w-[224px]" rotate={NOTE_ROTATION_DEG} onDragChange={onDragChange}>
           <StickyNote />
-        </DeskItem>
+        </Draggable>
         {DESK_ICONS.map((icon) => (
-          <DeskItem key={icon.id} className={icon.position} onDragChange={onDragChange}>
+          <Draggable key={icon.id} className={`desk-item desk-dim ${icon.position}`} onDragChange={onDragChange}>
             <DeskIconTile icon={icon} />
-          </DeskItem>
+          </Draggable>
         ))}
       </div>
 

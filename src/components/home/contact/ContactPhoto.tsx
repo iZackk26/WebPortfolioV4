@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { CONTACT_PHOTO } from '../../../constants/contact';
-import { MouseDraggable } from '../../ui/MouseDraggable';
+import { Draggable } from '../../ui/Draggable';
 import { Window } from '../../ui/Window';
 
 interface ContactPhotoProps {
@@ -13,7 +13,7 @@ export const ContactPhoto = ({ className = 'w-[min(190px,55%)] lg:w-[300px]' }: 
   const { t } = useTranslation();
 
   return (
-    <MouseDraggable rotate={CONTACT_PHOTO.rotateDeg} className={className}>
+    <Draggable mouseOnly rotate={CONTACT_PHOTO.rotateDeg} className={className}>
       <figure className="m-0">
         <Window title={CONTACT_PHOTO.fileName}>
           <img
@@ -26,6 +26,6 @@ export const ContactPhoto = ({ className = 'w-[min(190px,55%)] lg:w-[300px]' }: 
           />
         </Window>
       </figure>
-    </MouseDraggable>
+    </Draggable>
   );
 };

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { ABOUT_AVATAR } from '../../constants/about';
 import { isString, toValidList } from '../../utils/translationGuards';
-import { MouseDraggable } from '../ui/MouseDraggable';
+import { Draggable } from '../ui/Draggable';
 import { Window } from '../ui/Window';
 
 const FACTS = ['role', 'project', 'studies', 'location', 'languages'] as const;
@@ -12,7 +12,7 @@ export const InfoCard = () => {
   const focus = toValidList(t('about.info.focusValues', { returnObjects: true }), isString);
 
   return (
-    <MouseDraggable rotate={1.5} className="w-full max-w-[400px] justify-self-center">
+    <Draggable mouseOnly rotate={1.5} className="w-full max-w-[400px] justify-self-center">
       <Window title={t('about.info.window')}>
         <div className="flex items-center gap-3.5 border-b border-black/10 p-[16px_18px]">
           <img src={ABOUT_AVATAR} alt="" width={64} height={64} draggable={false} className="h-16 w-16 rounded-[14px] object-cover shadow-[0_0_0_1px_rgba(0,0,0,0.15),0_4px_10px_rgba(0,0,0,0.12)]" />
@@ -38,6 +38,6 @@ export const InfoCard = () => {
           </dd>
         </dl>
       </Window>
-    </MouseDraggable>
+    </Draggable>
   );
 };
