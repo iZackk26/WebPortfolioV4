@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useCompactNav } from '../../hooks/useCompactNav';
 import { useNavGeometry } from '../../hooks/useNavGeometry';
+import { useMergePhase } from '../../hooks/useMergePhase';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { useOutsidePointer } from '../../hooks/useOutsidePointer';
 import { DESKTOP_QUERY } from '../../constants/navbar';
@@ -27,9 +28,11 @@ export const Navbar = () => {
   const avatarRef = useRef<HTMLButtonElement>(null);
   const dismissRefs = useMemo(() => [wrapRef, sheetRef], []);
   const { close } = nav;
+  // Modo que se pinta: al volver arriba sigue compacto mientras los círculos se funden
+  const { shown, merging } = useMergePhase(nav.mode);
 
   useEffect(() => close(), [pathname, close]);
-  useNavGeometry(wrapRef, contentRef, nav.mode, desktop);
+  useNavGeometry(wrapRef, contentRef, shown, desktop);
   useOutsidePointer(dismissRefs, nav.open, close);
 
   const onPointerEnter = (e: PointerEvent) => e.pointerType === 'mouse' && nav.engage();
@@ -54,7 +57,7 @@ export const Navbar = () => {
       <div
         ref={wrapRef}
         className="nav-wrap"
-        data-mode={nav.mode}
+        data-mode={shown}
         onPointerEnter={onPointerEnter}
         onPointerLeave={onPointerLeave}
         onFocus={onFocus}
@@ -62,7 +65,7 @@ export const Navbar = () => {
         onKeyDown={onKeyDown}
       >
         <span className="nav-pulse" aria-hidden="true" />
-        <nav aria-label={t('nav.main')} className="nav-pill" data-mode={nav.mode} data-open={nav.open}>
+        <nav aria-label={t('nav.main')} className="nav-pill" data-mode={shown} data-open={nav.open} data-merging={merging || undefined}>
           <div className="nav-shell glass-aqua" aria-hidden="true" />
           <div ref={contentRef} className="nav-content">
             <div className="nav-lead">

@@ -1,5 +1,8 @@
 /* Navbar pill liquid glass V5: barra completa arriba (variante aqua clara). */
 .nav-wrap {
+  /* Disolución del pill en círculos y fusión de vuelta (mergeMs en constants/navbar.ts) */
+  --nav-dissolve: 0.45s;
+  --nav-merge: 0.32s;
   position: fixed;
   z-index: 50;
   top: calc(16px + env(safe-area-inset-top, 0px));
@@ -54,7 +57,8 @@
 
 /* Vidrio: borde de luz, tinte inferior y sombra en dos capas */
 .glass-aqua,
-.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-piece {
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-reveal.nav-piece,
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-piece:not(.nav-reveal)::after {
   background: linear-gradient(180deg, rgb(255 255 255 / 0.34), rgb(255 255 255 / 0.06) 46%, rgb(255 255 255 / 0.2));
   border: 1px solid rgb(var(--frame) / 0.55);
   box-shadow:

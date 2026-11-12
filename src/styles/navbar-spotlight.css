@@ -1,9 +1,22 @@
 /* Compacto estilo Spotlight: foto, links e idioma como burbujas de vidrio separadas. */
 .nav-pill:not([data-mode='top'], [data-shrinking]) { overflow: visible; padding: 0; }
-/* Al separarse, el vidrio de la barra se va en el mismo cuadro: si se desvanece, queda un pill fantasma entre la foto y Max */
-.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-shell { opacity: 0; transition: none; }
+/* Ya encogida, el pill que une la foto y Max se disuelve y quedan los dos círculos */
+.nav-shell { will-change: opacity; }
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-shell { opacity: 0; transition: opacity var(--nav-dissolve) linear; }
+/* …y en el mismo tiempo y con la misma curva aparece el vidrio de cada círculo (crossfade) */
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-piece:not(.nav-reveal)::after,
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-piece:not(.nav-reveal)::before { animation: nav-glass-in var(--nav-dissolve) linear backwards; }
+@keyframes nav-glass-in { from { opacity: 0; } }
+/* Volviendo arriba: primero los círculos se funden en el pill y después se expande */
+.nav-pill[data-merging] .nav-shell { opacity: 1; transition: opacity var(--nav-merge) linear; }
+.nav-pill[data-merging] .nav-piece:not(.nav-reveal)::after,
+.nav-pill[data-merging] .nav-piece:not(.nav-reveal)::before { opacity: 0; transition: opacity var(--nav-merge) linear; }
+.nav-wrap:has(.nav-pill[data-merging]) .nav-pulse { opacity: 0; transition: opacity 0.2s; }
 .nav-pill:not([data-mode='top'], [data-shrinking]) .nav-name { display: none; }
+/* El vidrio de cada círculo vive en ::after para poder fundirlo con el pill sin tocar su contenido */
 .nav-pill:not([data-mode='top'], [data-shrinking]) .nav-piece { position: relative; height: 56px; border-radius: 999px; }
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-piece:not(.nav-reveal) { background: none; box-shadow: none; }
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-piece:not(.nav-reveal)::after { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; will-change: opacity; }
 .nav-pill:not([data-mode='top'], [data-shrinking]) .nav-avatar { width: 56px; justify-content: center; padding: 0; }
 .nav-pill:not([data-mode='top'], [data-shrinking]) .nav-links { padding: 0 6px; }
 .nav-pill:not([data-mode='top'], [data-shrinking]) .nav-lang { width: 56px; padding: 0; }
@@ -11,7 +24,8 @@
 .nav-pill:not([data-mode='top'], [data-shrinking]) .nav-link:not([aria-current='page']) { color: rgb(0 0 0 / 0.74); }
 
 /* Sobre contenido el vidrio se densifica para que los links se lean */
-.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-piece {
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-reveal.nav-piece,
+.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-piece:not(.nav-reveal)::after {
   background: linear-gradient(180deg, rgb(255 255 255 / 0.84), rgb(246 249 255 / 0.68) 46%, rgb(255 255 255 / 0.78));
   -webkit-backdrop-filter: blur(8px) saturate(1.6) brightness(1.08);
   backdrop-filter: blur(8px) saturate(1.6) brightness(1.08);
@@ -116,7 +130,3 @@
   .nav-wrap, .nav-reveal, .nav-sheet, .nav-close-badge { transition: opacity 0.2s, visibility 0s !important; }
   .nav-pulse::before, .nav-pulse::after { animation: none !important; }
 }
-
-/* Al separarse en piezas, borde y sombra entran suaves en vez de aparecer de golpe */
-.nav-pill:not([data-mode='top'], [data-shrinking]) .nav-piece { animation: nav-piece-in 0.4s ease-out; }
-@keyframes nav-piece-in { from { box-shadow: none; border-color: transparent; } }

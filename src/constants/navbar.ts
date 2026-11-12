@@ -15,6 +15,8 @@ export const NAV_TIMING = {
   scrollThresholdPx: 100,
   /** Espera antes de cerrar al sacar el mouse */
   hoverCloseDelayMs: 400,
+  /** Compacto → barra: lo que tardan los círculos en fundirse en un pill antes de expandirse */
+  mergeMs: 320,
   /** Desplazamiento que cierra el menú abierto */
   closeOnScrollPx: 24,
 } as const;
