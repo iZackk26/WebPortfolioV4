@@ -8,13 +8,16 @@
     "build": "node scripts/check-locales.mjs && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit -p tsconfig.app.json",
+    "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.api.json",
     "sync:github": "node scripts/sync-github-activity.mjs",
     "check:locales": "node scripts/check-locales.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",
+    "@upstash/ratelimit": "^2.2.0",
+    "@upstash/redis": "^1.41.0",
     "@vercel/analytics": "^1.5.0",
+    "@vercel/functions": "^3.11.1",
     "@vercel/speed-insights": "^1.2.0",
     "framer-motion": "^12.23.24",
     "i18next": "^25.6.2",
