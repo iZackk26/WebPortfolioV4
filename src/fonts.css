@@ -1,10 +1,11 @@
-/* Inter Font - Self-hosted */
+/* Inter self-hosted: woff2 con subconjunto latino (~18 KB por peso, antes ~318 KB en ttf). */
 @font-face {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/inter-400.ttf') format('truetype');
+  src: url('/fonts/inter-400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2190-21FF, U+2212, U+2215, U+2713, U+2715;
 }
 
 @font-face {
@@ -12,7 +13,8 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/inter-500.ttf') format('truetype');
+  src: url('/fonts/inter-500.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2190-21FF, U+2212, U+2215, U+2713, U+2715;
 }
 
 @font-face {
@@ -20,7 +22,8 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('/fonts/inter-600.ttf') format('truetype');
+  src: url('/fonts/inter-600.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2190-21FF, U+2212, U+2215, U+2713, U+2715;
 }
 
 @font-face {
@@ -28,7 +31,8 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/inter-700.ttf') format('truetype');
+  src: url('/fonts/inter-700.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2190-21FF, U+2212, U+2215, U+2713, U+2715;
 }
 
 @font-face {
@@ -36,5 +40,6 @@
   font-style: normal;
   font-weight: 800;
   font-display: swap;
-  src: url('/fonts/inter-800.ttf') format('truetype');
+  src: url('/fonts/inter-800.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2190-21FF, U+2212, U+2215, U+2713, U+2715;
 }
