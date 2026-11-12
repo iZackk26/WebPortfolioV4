@@ -15,5 +15,6 @@
   "send": "Send",
   "typing": "Max is typing…",
   "footer": "Max answers with what Isaac has published on this site.",
-  "cooldown": "Wait {{seconds}} s…"
+  "cooldown": "Wait {{seconds}} s…",
+  "newChat": "New chat"
 }

@@ -36,7 +36,7 @@ export const askMax = async (question: string, sessionId: string): Promise<strin
   return answer;
 };
 
-/** Id de conversación estable por navegador, para que n8n recuerde el contexto. */
+/** Id de conversación estable por navegador, para que el agente recuerde el contexto. */
 export const getSessionId = () => {
   try {
     const saved = localStorage.getItem(CHAT_SESSION_KEY);
@@ -47,6 +47,18 @@ export const getSessionId = () => {
   } catch {
     return crypto.randomUUID();
   }
+};
+
+/** Conversación nueva: otro id (el agente arranca sin memoria) y sin historial guardado. */
+export const resetSession = () => {
+  const created = crypto.randomUUID();
+  try {
+    localStorage.setItem(CHAT_SESSION_KEY, created);
+    sessionStorage.removeItem(CHAT_HISTORY_KEY);
+  } catch {
+    // Sin almacenamiento: el id nuevo vale para esta página
+  }
+  return created;
 };
 
 const isMessage = (value: unknown): value is ChatMessage => {

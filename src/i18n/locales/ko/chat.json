@@ -15,5 +15,6 @@
   "send": "보내기",
   "typing": "Max가 입력 중…",
   "footer": "Max는 Isaac이 이 사이트에 올린 내용으로 답해요.",
-  "cooldown": "{{seconds}}초 기다려 주세요…"
+  "cooldown": "{{seconds}}초 기다려 주세요…",
+  "newChat": "새 대화"
 }

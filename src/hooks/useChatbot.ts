@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { ChatFailure, ChatMessage } from '../types/chat';
 import { useToast } from './useToast';
-import { askMax, ChatRequestError, getSessionId, loadHistory, saveHistory } from '../services/chatbot';
+import { askMax, ChatRequestError, getSessionId, loadHistory, resetSession, saveHistory } from '../services/chatbot';
 
 const newId = () => crypto.randomUUID();
 
@@ -52,5 +52,12 @@ export const useChatbot = () => {
     [sending, cooldown, show],
   );
 
-  return { messages, sending, cooldown, send };
+  /** Empieza de cero: el agente pierde el contexto anterior (incluido el idioma) */
+  const reset = useCallback(() => {
+    if (sending) return;
+    sessionId.current = resetSession();
+    setMessages([]);
+  }, [sending]);
+
+  return { messages, sending, cooldown, send, reset };
 };

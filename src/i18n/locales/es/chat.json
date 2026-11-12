@@ -15,5 +15,6 @@
   "send": "Enviar",
   "typing": "Max está escribiendo…",
   "footer": "Max responde con lo que Isaac publicó en este sitio.",
-  "cooldown": "Espera {{seconds}} s…"
+  "cooldown": "Espera {{seconds}} s…",
+  "newChat": "Nueva conversación"
 }

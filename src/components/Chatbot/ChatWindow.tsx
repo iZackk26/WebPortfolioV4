@@ -47,7 +47,7 @@ export const ChatWindow = () => {
         data-settled={settled}
         hidden={!visible}
       >
-        <ChatCaption onClose={close} />
+        <ChatCaption onClose={close} onReset={chat.reset} canReset={chat.messages.length > 0 && !chat.sending} />
         <div className="max-chat-client">
           <ChatMessages messages={chat.messages} sending={chat.sending} cooldown={chat.cooldown} onAsk={chat.send} />
           <ChatComposer ref={inputRef} disabled={chat.sending || chat.cooldown > 0} cooldown={chat.cooldown} onSend={chat.send} />

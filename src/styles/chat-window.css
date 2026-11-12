@@ -87,6 +87,27 @@
 .max-chat-id { display: flex; align-items: center; gap: 8px; padding-left: 2px; text-shadow: 0 0 10px rgb(255 255 255 / 0.9), 0 1px 0 rgb(255 255 255 / 0.8); }
 .max-chat-id h2 { margin: 0; font-size: 13.5px; line-height: 1.2; font-weight: 600; color: #0b1838; }
 .max-chat-id p { margin: 0; font: 10.5px/1.3 var(--font-mono); color: rgb(11 24 56 / 0.62); }
+.max-chat-id > div { flex: 1; min-width: 0; }
+/* Nueva conversación: borra el historial y le da al agente una sesión limpia */
+.max-chat-new {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 26px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: rgb(var(--ink));
+  text-shadow: none;
+  transition: box-shadow 0.2s, opacity 0.2s;
+}
+.max-chat-new:hover:not(:disabled) { box-shadow: inset 0 0 0 1px rgb(var(--frame)), 0 0 10px rgb(80 180 255 / 0.5); }
+.max-chat-new:disabled { opacity: 0.45; cursor: default; }
+.max-chat-new:focus-visible { outline: 2px solid rgb(80 180 255); outline-offset: 2px; }
+@media (max-width: 380px) { .max-chat-new-label { display: none; } }
 
 .max-chat-client {
   position: relative;
