@@ -2,6 +2,8 @@
 export const NAV_GEOMETRY = {
   /** Diámetro del círculo compacto */
   compactPx: 56,
+  /** Ancho del compacto: tu foto + la burbuja de Max (56 + 10 de separación + 56) */
+  compactWidthPx: 122,
   /** Padding horizontal del pill completo (6px izquierda + 8px derecha) */
   pillPaddingPx: 14,
   gutterMobilePx: 16,

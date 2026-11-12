@@ -1,9 +1,22 @@
 {
-  "open": "Open chat",
+  "launcher": "Ask Max",
+  "launcherLabel": "Ask Max, Isaac's AI assistant (⌘K)",
   "close": "Close chat",
+  "minimize": "Minimize chat",
   "subtitle": "Isaac's AI assistant",
-  "placeholder": "Type your message…",
-  "send": "Send message",
-  "typing": "Typing…",
-  "error": "Sorry, something went wrong processing your message. Please try again."
+  "welcome": "Hi! I'm Max, Isaac's assistant. Ask me about his projects, his stack or how to reach him.",
+  "suggestions": [
+    "What is Visione Flow?",
+    "What stack does he work with?",
+    "How can I contact him?"
+  ],
+  "placeholder": "Ask Max something…",
+  "inputLabel": "Your question for Max",
+  "send": "Send",
+  "typing": "Max is typing…",
+  "footer": "Max answers with what Isaac has published on this site.",
+  "error": "Something went wrong getting the answer. Please try again.",
+  "unavailable": "Max isn't available right now. Please try again later.",
+  "rateLimited": "That's a lot of questions in a row. You can ask again in {{seconds}} s.",
+  "cooldown": "Wait {{seconds}} s…"
 }

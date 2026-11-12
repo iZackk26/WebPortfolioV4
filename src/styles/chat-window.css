@@ -1,0 +1,106 @@
+/* Ventana de Max: marco Aero Glass (vidrio líquido) con semáforos de Mac y área esmerilada. */
+.max-scrim {
+  position: fixed;
+  z-index: 45;
+  inset: 0;
+  background: rgb(14 20 40 / 0.14);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-glide);
+}
+.max-scrim[data-open='true'] { opacity: 1; pointer-events: auto; }
+@media (min-width: 768px) {
+  .max-scrim { -webkit-backdrop-filter: blur(4px) saturate(0.95); backdrop-filter: blur(4px) saturate(0.95); }
+}
+
+.max-chat {
+  position: fixed;
+  z-index: 55;
+  top: calc(84px + env(safe-area-inset-top, 0px));
+  right: 24px;
+  width: min(420px, calc(100vw - 48px));
+  height: min(560px, calc(100dvh - 110px));
+  display: flex;
+  flex-direction: column;
+  padding: 0 7px 7px;
+  border-radius: 16px;
+  color: rgb(var(--ink));
+  background: linear-gradient(180deg, rgb(225 238 255 / 0.66), rgb(190 215 250 / 0.46) 34%, rgb(205 225 255 / 0.54));
+  border: 1px solid rgb(30 50 110 / 0.55);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.95),
+    inset 0 0 0 1px rgb(255 255 255 / 0.35),
+    inset 0 -12px 24px -16px rgb(90 150 255 / 0.6),
+    0 30px 70px -18px rgb(10 25 80 / 0.45);
+  -webkit-backdrop-filter: blur(18px) saturate(1.8) brightness(1.05);
+  backdrop-filter: blur(18px) saturate(1.8) brightness(1.05);
+}
+.max-chat[hidden] { display: none; }
+.max-chat[data-anchor='left'] { left: 24px; right: auto; }
+/* Brillo especular del vidrio */
+.max-chat::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 60% at 15% -20%, rgb(255 255 255 / 0.8), transparent 50%),
+    linear-gradient(105deg, transparent 40%, rgb(255 255 255 / 0.22) 46%, transparent 54%);
+}
+@media (max-width: 767px) {
+  .max-chat, .max-chat[data-anchor='left'] {
+    left: 10px;
+    right: 10px;
+    width: auto;
+    height: auto;
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  }
+  html.max-chat-open { overflow: hidden; }
+}
+
+/* El contenido entra cuando la ventana ya casi tiene su tamaño y sale primero al cerrar */
+.max-chat-caption, .max-chat-client { transition: opacity 0.24s ease, translate 0.32s var(--ease-glide); }
+.max-chat[data-settled='false'] .max-chat-caption, .max-chat[data-settled='false'] .max-chat-client { opacity: 0; }
+.max-chat[data-settled='false'] .max-chat-client { translate: 0 6px; }
+
+.max-chat-caption { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 9px 8px 9px 6px; }
+.max-lights { display: flex; gap: 8px; padding-left: 2px; }
+.max-lights > * {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font: 700 9px/1 var(--font-mono);
+  color: transparent;
+  box-shadow: inset 0 0 0 0.5px rgb(0 0 0 / 0.3), inset 0 2px 2px rgb(255 255 255 / 0.55);
+}
+.max-lights button { cursor: pointer; }
+.max-lights .is-close { background: #ff5f57; }
+.max-lights .is-min { background: #febc2e; }
+.max-lights .is-zoom { background: #28c840; }
+.max-lights:hover > * { color: rgb(0 0 0 / 0.55); }
+.max-lights button:focus-visible { outline: 2px solid rgb(80 180 255); outline-offset: 2px; }
+.max-chat-id { display: flex; align-items: center; gap: 8px; padding-left: 2px; text-shadow: 0 0 10px rgb(255 255 255 / 0.9), 0 1px 0 rgb(255 255 255 / 0.8); }
+.max-chat-id h2 { margin: 0; font-size: 13.5px; line-height: 1.2; font-weight: 600; color: #0b1838; }
+.max-chat-id p { margin: 0; font: 10.5px/1.3 var(--font-mono); color: rgb(11 24 56 / 0.62); }
+
+.max-chat-client {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgb(255 255 255 / 0.92);
+  box-shadow: 0 0 0 1px rgb(30 50 110 / 0.35), inset 0 1px 2px rgb(0 0 0 / 0.05);
+}
+.max-chat-foot { margin: 0; padding: 0 14px 8px; font: 11px var(--font-mono); color: rgb(0 0 0 / 0.42); background: rgb(238 242 248 / 0.92); }
+
+@media (prefers-reduced-motion: reduce) {
+  .max-scrim, .max-chat-caption, .max-chat-client { transition: none; }
+}

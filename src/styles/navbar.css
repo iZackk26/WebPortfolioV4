@@ -43,12 +43,13 @@
   align-items: center;
   gap: 4px;
 }
-.nav-content > .nav-avatar { justify-self: start; }
-.nav-content > .nav-lang { justify-self: end; }
+.nav-lead, .nav-tools { display: flex; align-items: center; }
+.nav-lead { justify-self: start; gap: 10px; }
+.nav-tools { justify-self: end; gap: 8px; }
 .nav-content[data-layout='row'] { display: flex; width: max-content; gap: 10px; }
 @media (max-width: 767px) {
   .nav-content { display: flex; }
-  .nav-content > .nav-lang { margin-left: auto; }
+  .nav-content > .nav-tools { margin-left: auto; }
 }
 
 /* Vidrio: borde de luz, tinte inferior y sombra en dos capas */

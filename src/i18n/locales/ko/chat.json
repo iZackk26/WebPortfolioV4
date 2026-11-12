@@ -1,9 +1,22 @@
 {
-  "open": "채팅 열기",
+  "launcher": "Max에게 물어보기",
+  "launcherLabel": "Isaac의 AI 어시스턴트 Max에게 물어보기 (⌘K)",
   "close": "채팅 닫기",
+  "minimize": "채팅 최소화",
   "subtitle": "Isaac의 AI 어시스턴트",
-  "placeholder": "메시지를 입력하세요…",
-  "send": "메시지 보내기",
-  "typing": "입력 중…",
-  "error": "죄송해요, 메시지를 처리하는 중에 문제가 생겼어요. 다시 시도해 주세요."
+  "welcome": "안녕하세요! Isaac의 어시스턴트 Max예요. 프로젝트, 기술 스택, 연락 방법을 물어보세요.",
+  "suggestions": [
+    "Visione Flow는 뭔가요?",
+    "어떤 기술 스택을 쓰나요?",
+    "어떻게 연락할 수 있나요?"
+  ],
+  "placeholder": "Max에게 질문해 보세요…",
+  "inputLabel": "Max에게 보낼 질문",
+  "send": "보내기",
+  "typing": "Max가 입력 중…",
+  "footer": "Max는 Isaac이 이 사이트에 올린 내용으로 답해요.",
+  "error": "답변을 가져오지 못했어요. 다시 시도해 주세요.",
+  "unavailable": "지금은 Max를 사용할 수 없어요. 잠시 후 다시 시도해 주세요.",
+  "rateLimited": "연속으로 질문이 너무 많아요. {{seconds}}초 후에 다시 물어보세요.",
+  "cooldown": "{{seconds}}초 기다려 주세요…"
 }

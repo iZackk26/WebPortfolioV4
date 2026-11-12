@@ -7,7 +7,9 @@
 @import './styles/navbar-burger.css';
 @import './styles/aero.css';
 @import './styles/aero-button.css';
-@import './styles/chat-button.css';
+@import './styles/chat-launcher.css';
+@import './styles/chat-window.css';
+@import './styles/chat-messages.css';
 @import './styles/page-skeleton.css';
 @import './styles/keycaps.css';
 @import './styles/carousel.css';

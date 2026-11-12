@@ -1,0 +1,102 @@
+/* Max en el navbar: orbe Aero con el corgi, pieza con texto arriba y burbuja en el compacto. */
+.max-orb {
+  position: relative;
+  flex: 0 0 auto;
+  display: block;
+  border-radius: 50%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 120%, #7ff3ff 0, rgb(127 243 255 / 0) 55%),
+    radial-gradient(circle at 50% 35%, #4fa3ff, #1846c8 70%, #0b237a);
+  box-shadow: 0 0 0 1px #0b237a, 0 2px 6px rgb(10 40 140 / 0.4);
+}
+.max-orb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.max-orb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 -3px 6px rgb(140 240 255 / 0.55), inset 0 0 0 1px rgb(255 255 255 / 0.25);
+}
+/* Brillo del vidrio por encima del retrato */
+.max-orb::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  left: 14%;
+  right: 14%;
+  top: 5%;
+  height: 42%;
+  border-radius: 50%;
+  background: linear-gradient(rgb(255 255 255 / 0.75), rgb(255 255 255 / 0.06));
+}
+.max-orb--sm { width: 28px; height: 28px; }
+.max-orb--md { width: 30px; height: 30px; }
+.max-orb--lg { width: 40px; height: 40px; }
+
+/* Pieza del navbar arriba: plata con orbe, texto y atajo */
+.max-launcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 11px 0 4px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgb(var(--ink));
+  white-space: nowrap;
+  transition: box-shadow 0.2s, transform 0.15s, opacity 0.2s;
+}
+.max-launcher:hover { box-shadow: inset 0 0 0 1px rgb(var(--frame)), 0 0 12px rgb(80 180 255 / 0.55); }
+.max-launcher:active { transform: scale(0.97); }
+.max-launcher-kbd {
+  font: 11px var(--font-mono);
+  color: rgb(0 0 0 / 0.45);
+  padding: 1px 5px;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.15);
+}
+/* Mientras la ventana está abierta, la pieza "se convirtió" en ella */
+.max-launcher[data-open='true'], .max-launcher-bubble[data-open='true'] { opacity: 0; }
+@media (max-width: 767px) {
+  .max-launcher { padding: 0 4px; }
+  .max-launcher-label, .max-launcher-kbd { display: none; }
+}
+
+/* Burbuja del navbar compacto, junto a tu foto: solo existe fuera de la barra completa */
+.max-launcher-bubble { display: none; }
+.nav-pill:not([data-mode='top']) .max-launcher-bubble {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s var(--ease-glide), box-shadow 0.2s, opacity 0.2s;
+}
+.nav-pill:not([data-mode='top']) .max-launcher-bubble:hover { transform: scale(1.06); }
+.max-launcher-tip {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  translate: -50% -4px;
+  display: flex;
+  gap: 6px;
+  white-space: nowrap;
+  padding: 6px 10px;
+  border-radius: 9px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: rgb(var(--ink));
+  pointer-events: none;
+  opacity: 0;
+  background: rgb(255 255 255 / 0.94);
+  box-shadow: 0 0 0 1px rgb(98 98 98 / 0.35), 0 10px 20px -8px rgb(0 0 0 / 0.25);
+  transition: opacity 0.18s, translate 0.25s var(--ease-glide);
+}
+.max-launcher-tip kbd { font: 11px var(--font-mono); color: rgb(0 0 0 / 0.45); }
+@media (hover: hover) {
+  .max-launcher-bubble:hover .max-launcher-tip { opacity: 1; translate: -50% 0; }
+}
+.max-launcher-bubble:focus-visible .max-launcher-tip { opacity: 1; translate: -50% 0; }
+.max-launcher:focus-visible, .max-launcher-bubble:focus-visible { outline: 2px solid rgb(80 180 255); outline-offset: 3px; }

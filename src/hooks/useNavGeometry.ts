@@ -42,7 +42,7 @@ export const useNavGeometry = (
       wrap.style.width = `${content.offsetWidth}px`;
     } else {
       if (mode === 'top' || !desktop) content.dataset.layout = 'bar';
-      wrap.style.width = mode === 'top' ? '' : `${NAV_GEOMETRY.compactPx}px`;
+      wrap.style.width = mode === 'top' ? '' : `${NAV_GEOMETRY.compactWidthPx}px`;
     }
 
     prevMode.current = mode;

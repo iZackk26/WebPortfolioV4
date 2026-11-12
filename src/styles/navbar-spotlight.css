@@ -6,6 +6,7 @@
 .nav-pill:not([data-mode='top']) .nav-avatar { width: 56px; justify-content: center; padding: 0; }
 .nav-pill:not([data-mode='top']) .nav-links { padding: 0 6px; }
 .nav-pill:not([data-mode='top']) .nav-lang { width: 56px; padding: 0; }
+.nav-pill:not([data-mode='top']) .max-launcher { display: none; }
 .nav-pill:not([data-mode='top']) .nav-link:not([aria-current='page']) { color: rgb(0 0 0 / 0.74); }
 
 /* Sobre contenido el vidrio se densifica para que los links se lean */
@@ -78,7 +79,9 @@
 /* Pulso continuo del círculo compacto; arranca cuando termina de encogerse */
 .nav-pulse {
   position: absolute;
-  inset: 0;
+  /* Solo alrededor de tu foto: la burbuja de Max va al lado */
+  inset: 0 auto 0 0;
+  width: 56px;
   z-index: -1;
   border-radius: 999px;
   pointer-events: none;

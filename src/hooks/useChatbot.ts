@@ -1,105 +1,51 @@
-import { useState, useEffect, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { chatbotService, ChatMessage } from '../services/chatbot';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import type { ChatFailure, ChatMessage } from '../types/chat';
+import { askMax, ChatRequestError, getSessionId, loadHistory, saveHistory } from '../services/chatbot';
 
-export function useChatbot() {
-  const { t } = useTranslation();
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const [sessionId, setSessionId] = useState('');
-  const [error, setError] = useState<string | null>(null);
+const newId = () => crypto.randomUUID();
 
-  // Initialize session ID and load messages
+/**
+ * Conversación con Max: historial de la pestaña, envío y espera cuando el servidor
+ * aplica el límite. El límite real lo decide /api/chat; aquí solo se muestra la cuenta atrás.
+ */
+export const useChatbot = () => {
+  const [messages, setMessages] = useState<ChatMessage[]>(loadHistory);
+  const [sending, setSending] = useState(false);
+  const [failure, setFailure] = useState<ChatFailure | null>(null);
+  const [cooldown, setCooldown] = useState(0);
+  const sessionId = useRef<string>('');
+
+  useEffect(() => saveHistory(messages), [messages]);
+
+  // Cuenta atrás del límite: enviar vuelve solo cuando el servidor lo permite
   useEffect(() => {
-    const id = chatbotService.generateSessionId();
-    setSessionId(id);
+    if (cooldown <= 0) return;
+    const timer = setTimeout(() => setCooldown((s) => s - 1), 1000);
+    return () => clearTimeout(timer);
+  }, [cooldown]);
 
-    const loadedMessages = chatbotService.loadMessages();
-    setMessages(loadedMessages);
-  }, []);
+  const send = useCallback(
+    async (text: string) => {
+      const question = text.trim();
+      if (!question || sending || cooldown > 0) return;
+      if (!sessionId.current) sessionId.current = getSessionId();
 
-  // Save messages whenever they change
-  useEffect(() => {
-    if (messages.length > 0) {
-      chatbotService.saveMessages(messages);
-    }
-  }, [messages]);
-
-  const sendMessage = useCallback(
-    async (content: string) => {
-      if (!content.trim() || isLoading) return;
-
-      setError(null);
-
-      // Add user message
-      const userMessage: ChatMessage = {
-        role: 'user',
-        content: content.trim(),
-        timestamp: Date.now(),
-      };
-
-      setMessages((prev) => [...prev, userMessage]);
-      setIsLoading(true);
-
+      setFailure(null);
+      setSending(true);
+      setMessages((list) => [...list, { id: newId(), role: 'user', content: question }]);
       try {
-        // Get bot response
-        const response = await chatbotService.sendMessage(content.trim(), sessionId);
-
-        // Add assistant message
-        const assistantMessage: ChatMessage = {
-          role: 'assistant',
-          content: response,
-          timestamp: Date.now(),
-        };
-
-        setMessages((prev) => [...prev, assistantMessage]);
-      } catch (err) {
-        const errorMessage = err instanceof Error ? err.message : 'Something went wrong';
-        setError(errorMessage);
-
-        // Add error message from assistant
-        const errorResponse: ChatMessage = {
-          role: 'assistant',
-          content: t('chat.error'),
-          timestamp: Date.now(),
-        };
-
-        setMessages((prev) => [...prev, errorResponse]);
+        const answer = await askMax(question, sessionId.current);
+        setMessages((list) => [...list, { id: newId(), role: 'assistant', content: answer }]);
+      } catch (error) {
+        const next: ChatFailure = error instanceof ChatRequestError ? error.failure : { kind: 'error' };
+        setFailure(next);
+        if (next.kind === 'rate_limited') setCooldown(next.retryAfter);
       } finally {
-        setIsLoading(false);
+        setSending(false);
       }
     },
-    [isLoading, sessionId, t]
+    [sending, cooldown],
   );
 
-  const toggleChat = useCallback(() => {
-    setIsOpen((prev) => !prev);
-  }, []);
-
-  const closeChat = useCallback(() => {
-    setIsOpen(false);
-  }, []);
-
-  const openChat = useCallback(() => {
-    setIsOpen(true);
-  }, []);
-
-  const clearChat = useCallback(() => {
-    chatbotService.clearMessages();
-    const defaultMessages = chatbotService.loadMessages();
-    setMessages(defaultMessages);
-  }, []);
-
-  return {
-    messages,
-    isLoading,
-    isOpen,
-    error,
-    sendMessage,
-    toggleChat,
-    closeChat,
-    openChat,
-    clearChat,
-  };
-}
+  return { messages, sending, failure, cooldown, send };
+};

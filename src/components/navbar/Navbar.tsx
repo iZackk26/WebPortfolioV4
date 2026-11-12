@@ -10,6 +10,7 @@ import { AvatarButton } from './AvatarButton';
 import { NavLinks } from './NavLinks';
 import { LanguageToggle } from './LanguageToggle';
 import { LiquidGlassFilter } from './LiquidGlassFilter';
+import { MaxLauncher } from '../Chatbot/MaxLauncher';
 
 /**
  * Navbar liquid glass: barra completa arriba; al hacer scroll, círculo con pulso que
@@ -64,12 +65,18 @@ export const Navbar = () => {
         <nav aria-label={t('nav.main')} className="nav-pill" data-mode={nav.mode} data-open={nav.open}>
           <div className="nav-shell glass-aqua" aria-hidden="true" />
           <div ref={contentRef} className="nav-content">
-            <AvatarButton ref={avatarRef} open={nav.open} onClick={nav.toggle} />
+            <div className="nav-lead">
+              <AvatarButton ref={avatarRef} open={nav.open} onClick={nav.toggle} />
+              <MaxLauncher variant="bubble" onOpen={close} />
+            </div>
             <span className="nav-name nav-text whitespace-nowrap text-[15px] font-medium md:hidden">
               {t('home.name')}
             </span>
             <NavLinks layout="pill" />
-            <LanguageToggle revealIndex={1} />
+            <div className="nav-tools">
+              <MaxLauncher variant="pill" />
+              <LanguageToggle revealIndex={1} />
+            </div>
           </div>
         </nav>
       </div>

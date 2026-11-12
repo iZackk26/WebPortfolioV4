@@ -1,9 +1,22 @@
 {
-  "open": "Abrir chat",
+  "launcher": "Pregúntale a Max",
+  "launcherLabel": "Pregúntale a Max, el asistente de IA de Isaac (⌘K)",
   "close": "Cerrar chat",
-  "subtitle": "Asistente de IA de Isaac",
-  "placeholder": "Escribe tu mensaje…",
-  "send": "Enviar mensaje",
-  "typing": "Escribiendo…",
-  "error": "Lo siento, hubo un error al procesar tu mensaje. Inténtalo de nuevo."
+  "minimize": "Minimizar chat",
+  "subtitle": "asistente de IA de Isaac",
+  "welcome": "¡Hola! Soy Max, el asistente de Isaac. Pregúntame por sus proyectos, su stack o cómo contactarlo.",
+  "suggestions": [
+    "¿Qué es Visione Flow?",
+    "¿Con qué stack trabaja?",
+    "¿Cómo lo contacto?"
+  ],
+  "placeholder": "Pregúntale algo a Max…",
+  "inputLabel": "Tu pregunta para Max",
+  "send": "Enviar",
+  "typing": "Max está escribiendo…",
+  "footer": "Max responde con lo que Isaac publicó en este sitio.",
+  "error": "No se pudo obtener la respuesta. Inténtalo de nuevo.",
+  "unavailable": "Max no está disponible ahora. Inténtalo más tarde.",
+  "rateLimited": "Son muchas preguntas seguidas. Puedes volver a preguntar en {{seconds}} s.",
+  "cooldown": "Espera {{seconds}} s…"
 }
