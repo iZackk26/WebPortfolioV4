@@ -3,6 +3,7 @@ import { Navbar } from './components/navbar/Navbar';
 import { Footer } from './components/footer/Footer';
 import { LanguageTransition } from './components/LanguageTransition';
 import { Chatbot } from './components/Chatbot';
+import { CookieConsent } from './components/consent/CookieConsent';
 import { ChatProvider } from './components/Chatbot/ChatProvider';
 import { ToastProvider } from './components/ui/toast/ToastProvider';
 import { Home } from './pages/Home';
@@ -73,6 +74,7 @@ function App() {
             </LanguageTransition>
             <Footer />
             <Chatbot />
+          <CookieConsent />
           </div>
           <Analytics />
           <SpeedInsights />

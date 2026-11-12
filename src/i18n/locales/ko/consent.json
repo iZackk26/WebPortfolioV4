@@ -1,0 +1,27 @@
+{
+  "label": "쿠키 안내",
+  "window": "cookies.txt",
+  "prefsWindow": "cookies.txt · 설정",
+  "prefsTitle": "쿠키 설정",
+  "message": "사이트에서 어떤 부분이 읽히는지 알기 위해 분석 쿠키(Google Analytics)를 사용합니다. 동의하실 때만 켜집니다.",
+  "messageShort": "동의하실 때만 Google Analytics가 작동합니다.",
+  "accept": "동의",
+  "reject": "거부",
+  "configure": "설정",
+  "save": "저장",
+  "acceptAll": "모두 동의",
+  "footerLink": "쿠키",
+  "necessary": {
+    "title": "필수",
+    "always": "항상 사용",
+    "text": "언어, Max와의 대화, 메시지 제한에 쓰입니다. 없으면 사이트가 작동하지 않습니다."
+  },
+  "analytics": {
+    "title": "분석",
+    "text": "Tag Manager를 통한 Google Analytics 4: 페이지 조회수, 사이트 체류 시간, 방문자 국가."
+  },
+  "marketing": {
+    "title": "마케팅",
+    "text": "지금은 사용하지 않습니다. 나중에 광고가 생길 경우를 위해 꺼져 있습니다."
+  }
+}

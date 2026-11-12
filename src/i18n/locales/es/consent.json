@@ -1,0 +1,27 @@
+{
+  "label": "Aviso de cookies",
+  "window": "cookies.txt",
+  "prefsWindow": "cookies.txt · preferencias",
+  "prefsTitle": "Preferencias de cookies",
+  "message": "Uso cookies de analítica (Google Analytics) para saber qué partes del sitio se leen. Solo se activan si aceptas.",
+  "messageShort": "Google Analytics solo se activa si aceptas.",
+  "accept": "Aceptar",
+  "reject": "Rechazar",
+  "configure": "Configurar",
+  "save": "Guardar",
+  "acceptAll": "Aceptar todo",
+  "footerLink": "Cookies",
+  "necessary": {
+    "title": "Necesarias",
+    "always": "Siempre activas",
+    "text": "Idioma, la conversación con Max y el límite de mensajes. Sin ellas el sitio no funciona."
+  },
+  "analytics": {
+    "title": "Analítica",
+    "text": "Google Analytics 4 a través de Tag Manager: páginas vistas, tiempo en el sitio y país de las visitas."
+  },
+  "marketing": {
+    "title": "Marketing",
+    "text": "Hoy no se usa. Queda apagada por si algún día hay anuncios."
+  }
+}

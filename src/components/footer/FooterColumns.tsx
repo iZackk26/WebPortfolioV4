@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { CONSENT_OPEN_EVENT } from '../../constants/consent';
 import { CV_LINKS, NAV_ITEMS, SOCIAL_LINKS } from '../../constants/navigation';
 
 const linkClass = 'w-fit text-black/60 transition hover:text-black active:scale-[0.97]';
@@ -32,6 +33,9 @@ export const FooterColumns = () => {
         <a href={CV_LINKS.en} target="_blank" rel="noopener noreferrer" className={linkClass}>
           {t('footer.cvEn')}
         </a>
+        <button type="button" className={`${linkClass} text-left`} onClick={() => window.dispatchEvent(new Event(CONSENT_OPEN_EVENT))}>
+          {t('consent.footerLink')}
+        </button>
       </Column>
 
       <Column title={t('footer.connect')}>
