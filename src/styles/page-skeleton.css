@@ -46,10 +46,10 @@
 .skel-row.is-short { width: 62%; }
 
 /* Altos medidos de las secciones reales por breakpoint */
-.skel-work { min-height: 2307px; }
+.skel-work { min-height: 2317px; }
 .skel-contact { min-height: 979px; }
-@media (min-width: 768px) { .skel-work { min-height: 1743px; } .skel-contact { min-height: 1040px; } }
-@media (min-width: 1024px) { .skel-work { min-height: 1717px; } .skel-contact { min-height: 781px; } }
+@media (min-width: 768px) { .skel-work { min-height: 1753px; } .skel-contact { min-height: 1040px; } }
+@media (min-width: 1024px) { .skel-work { min-height: 1727px; } .skel-contact { min-height: 781px; } }
 @media (min-width: 1280px) { .skel-work { min-height: 1499px; } }
 
 /* Aviso de sección que no cargó: tarjeta sobre el título del skeleton */

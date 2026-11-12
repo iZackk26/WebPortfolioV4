@@ -76,12 +76,12 @@
   text-shadow: 0 1px 1px rgb(255 255 255 / 0.8);
 }
 
-/* Versión móvil: fila compacta */
-.desk-icon-row .desk-icon { width: 54px; }
-.desk-icon-row .desk-icon[data-size='wide'] { width: 62px; }
-.desk-icon-row .desk-icon img { width: 34px; height: 34px; }
-.desk-icon-row .desk-icon[data-size='wide'] img { width: 52px; }
-.desk-icon-row .desk-icon[data-size='tall'] img { width: 38px; height: 34px; }
+/* Versión móvil: íconos más chicos, sueltos alrededor de la foto */
+.desk-icon-compact .desk-icon { width: 54px; }
+.desk-icon-compact .desk-icon[data-size='wide'] { width: 62px; }
+.desk-icon-compact .desk-icon img { width: 34px; height: 34px; }
+.desk-icon-compact .desk-icon[data-size='wide'] img { width: 52px; }
+.desk-icon-compact .desk-icon[data-size='tall'] img { width: 38px; height: 34px; }
 
 @media (prefers-reduced-motion: reduce) {
   .desk-item { animation: none; transition: none; }

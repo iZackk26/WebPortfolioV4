@@ -6,6 +6,7 @@ import { DeskPhoto } from './DeskPhoto';
 import { StickyNote } from './StickyNote';
 import { DeskIconTile } from './DeskIconTile';
 import { IntroActions } from './IntroActions';
+import { INTRO_MOBILE_SPOTS } from '../../../constants/mobileScatter';
 
 /**
  * Intro tipo escritorio. En lg+ la foto, la nota y los íconos flotan y se arrastran;
@@ -44,14 +45,20 @@ export const HomeIntro = () => {
         </div>
       </div>
 
-      <div className="mt-6 flex flex-col items-center gap-3.5 lg:hidden">
-        <div className="-rotate-3">
-          <DeskPhoto variant="compact" />
-        </div>
-        <div className="desk-icon-row flex flex-nowrap justify-center gap-1">
-          {DESK_ICONS.map((icon) => (
-            <DeskIconTile key={icon.id} icon={icon} />
-          ))}
+      <div className="mt-6 flex w-full flex-col items-center gap-3.5 lg:hidden">
+        {/* Foto al centro y los íconos sueltos alrededor, como en el escritorio */}
+        <div className="desk-icon-compact relative h-[230px] w-full max-w-[400px]">
+          <div className="absolute left-1/2 top-[22px] -translate-x-1/2 -rotate-3">
+            <DeskPhoto variant="compact" />
+          </div>
+          {INTRO_MOBILE_SPOTS.map(({ id, position, rotate }) => {
+            const icon = DESK_ICONS.find((item) => item.id === id);
+            return icon && (
+              <div key={id} className={`absolute ${position}`} style={{ rotate: `${rotate}deg` }}>
+                <DeskIconTile icon={icon} />
+              </div>
+            );
+          })}
         </div>
         <StickyNote className="w-[min(290px,100%)] rotate-[1.5deg]" />
       </div>
