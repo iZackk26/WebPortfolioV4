@@ -1,0 +1,54 @@
+---
+title: Cómo está construido este blog para que lo lean buscadores e IA
+description: Cada artículo es un archivo MDX. El build lo valida, lo convierte en HTML estático con sus propios metadatos y lo publica en inglés y español.
+date: 2026-11-12T09:00:00-06:00
+kind: guide
+tags: [system-design, seo, automation]
+cover: ./cover.jpg
+coverAlt: Escritorio de Isaac Ramírez con una foto, una nota adhesiva y los íconos del stack con el que trabaja
+takeaways:
+  - Cada artículo es un archivo del repositorio; publicar es agregar una carpeta y hacer push.
+  - El build escribe HTML estático por página, así que los crawlers que no ejecutan JavaScript leen el artículo completo.
+  - Cada idioma tiene su URL con hreflang recíproco, y los posts sin traducción se muestran en inglés sin duplicar páginas.
+draft: true
+---
+
+## ¿Por qué un portafolio necesita un blog?
+
+Un portafolio muestra lo que construí. Un blog explica **cómo pienso un problema**, y eso es lo que un cliente quiere saber antes de contratar a alguien. Además, es la parte del sitio que los buscadores pueden posicionar para preguntas reales.
+
+## ¿Dónde vive cada artículo?
+
+Cada artículo es una carpeta dentro de `content/blog`. El nombre de la carpeta es la URL, y cada idioma es un archivo:
+
+```txt title="content/blog"
+how-this-blog-is-built/
+  en.mdx      ← obligatorio (idioma primario)
+  es.mdx      ← opcional
+  cover.jpg   ← 1200×630
+```
+
+El frontmatter guarda el título, la descripción para los resultados de búsqueda, las fechas y los puntos clave. Si falta un campo o es demasiado largo, el build falla e indica qué archivo y qué campo.
+
+## ¿Cómo lo leen los crawlers sin JavaScript?
+
+El resto del sitio es una aplicación de una sola página. Google puede ejecutar JavaScript, pero la mayoría de los crawlers de IA no, así que verían una página vacía.
+
+El blog lo resuelve en el build. Después del build normal, un script renderiza cada ruta del blog en el servidor y escribe un archivo HTML por página, con su título, URL canónica, enlaces hreflang y datos estructurados ya incluidos. Vercel sirve ese archivo antes de que la aplicación tome el control.
+
+<Stats items={[
+  { value: '0 KB', label: 'de JavaScript para resaltar código' },
+  { value: '1', label: 'archivo HTML por página e idioma' },
+  { value: '2', label: 'idiomas: inglés y español' },
+]} />
+
+## ¿Qué pasa con los idiomas?
+
+El inglés vive en `/blog` y el español en `/es/blog`. Cada versión enlaza a la otra con hreflang. Si un artículo solo existe en inglés, la lista en español lo muestra igual, marcado como disponible en inglés, y enlaza a la URL en inglés en lugar de crear una copia.
+
+## Preguntas frecuentes
+
+<Faq items={[
+  { question: '¿Necesito un CMS para publicar?', answer: 'No. Un artículo es un archivo del repositorio, así que tiene historial de versiones y pasa por la misma revisión que el código.' },
+  { question: '¿El blog vuelve más lento el resto del sitio?', answer: 'No. Cada artículo se carga en su propio chunk, solo cuando alguien lo abre.' },
+]} />

@@ -1,0 +1,54 @@
+---
+title: How this blog is built so search engines and AI can read it
+description: Each article is an MDX file. The build validates it, turns it into static HTML with its own metadata and publishes it in English and Spanish.
+date: 2026-11-12T09:00:00-06:00
+kind: guide
+tags: [system-design, seo, automation]
+cover: ./cover.jpg
+coverAlt: Isaac Ramírez's desk with a photo, a sticky note and the icons of the stack he works with
+takeaways:
+  - Every article is a file in the repository; publishing means adding a folder and pushing.
+  - The build writes static HTML for each page, so crawlers that don't run JavaScript still read the full article.
+  - Each language has its own URL with reciprocal hreflang, and untranslated posts fall back to English without duplicate pages.
+draft: true
+---
+
+## Why does a portfolio need a blog?
+
+A portfolio shows what I built. A blog explains **how I think about a problem**, and that is what a client wants to know before hiring someone. It is also the part of the site that search engines can rank for real questions.
+
+## Where does each article live?
+
+Each article is a folder inside `content/blog`. The folder name is the URL, and each language is one file:
+
+```txt title="content/blog"
+how-this-blog-is-built/
+  en.mdx      ← required (primary language)
+  es.mdx      ← optional
+  cover.jpg   ← 1200×630
+```
+
+The frontmatter holds the title, the description for search results, the dates and the key takeaways. If a field is missing or too long, the build fails and says which file and which field.
+
+## How do crawlers read it without JavaScript?
+
+The rest of the site is a single-page app. Google can run JavaScript, but most AI crawlers can't, so they would see an empty page.
+
+The blog solves this at build time. After the normal build, a script renders every blog route on the server and writes one HTML file per page, with its title, canonical URL, hreflang links and structured data already inside. Vercel serves that file before the app takes over.
+
+<Stats items={[
+  { value: '0 KB', label: 'of JavaScript to highlight code' },
+  { value: '1', label: 'HTML file per page and language' },
+  { value: '2', label: 'languages: English and Spanish' },
+]} />
+
+## What happens with languages?
+
+English lives at `/blog` and Spanish at `/es/blog`. Each version links to the other with hreflang. If an article only exists in English, the Spanish list still shows it, marked as available in English, and links to the English URL instead of creating a copy.
+
+## Questions people ask
+
+<Faq items={[
+  { question: 'Do I need a CMS to publish?', answer: 'No. An article is a file in the repository, so it has version history and goes through the same review as the code.' },
+  { question: 'Does the blog slow down the rest of the site?', answer: 'No. Each article loads in its own chunk, only when someone opens it.' },
+]} />
