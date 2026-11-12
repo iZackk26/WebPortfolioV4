@@ -1,72 +1,59 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useScrolledPast } from './useScrolledPast';
+import { NAV_TIMING } from '../constants/navbar';
 
-const SCROLL_THRESHOLD_PX = 100;
-const COLLAPSE_DELAY_MS = 700;
-const SHEET_CLOSE_SCROLL_PX = 24;
+export type NavMode = 'top' | 'closed' | 'open';
 
 /**
- * Estado del navbar pill:
- * - arriba de la página: expandido
- * - tras el umbral de scroll: compacto (foto + ≡), se expande con hover, foco o tap
- * - `sheetOpen`: hoja de links en pantallas angostas
+ * Estado del navbar:
+ * - 'top': zona superior de la página, barra completa
+ * - 'closed': compacto, solo el círculo con la foto
+ * - 'open': compacto abierto (piezas Spotlight en escritorio, hoja en móvil)
+ * En la zona superior `open` solo controla la hoja móvil.
  */
 export const useCompactNav = () => {
-  const scrolled = useScrolledPast(SCROLL_THRESHOLD_PX);
-  const [engaged, setEngaged] = useState(false);
-  const [sheetOpen, setSheetOpen] = useState(false);
+  const scrolled = useScrolledPast(NAV_TIMING.scrollThresholdPx);
+  const [open, setOpen] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout>>();
 
   const clearTimer = () => clearTimeout(timer.current);
 
+  const close = useCallback(() => {
+    clearTimer();
+    setOpen(false);
+  }, []);
+
+  const toggle = useCallback(() => {
+    clearTimer();
+    setOpen((value) => !value);
+  }, []);
+
+  // Hover y foco solo abren el compacto: arriba la barra ya lo muestra todo
   const engage = useCallback(() => {
     clearTimer();
-    setEngaged(true);
-  }, []);
+    if (scrolled) setOpen(true);
+  }, [scrolled]);
 
   const release = useCallback(() => {
     clearTimer();
-    timer.current = setTimeout(() => setEngaged(false), COLLAPSE_DELAY_MS);
-  }, []);
+    if (scrolled) timer.current = setTimeout(() => setOpen(false), NAV_TIMING.hoverCloseDelayMs);
+  }, [scrolled]);
 
-  const close = useCallback(() => {
-    clearTimer();
-    setEngaged(false);
-    setSheetOpen(false);
-  }, []);
-
-  const expanded = !scrolled || engaged;
-
-  const toggleFromAvatar = useCallback(() => {
-    if (!expanded) {
-      engage();
-      setSheetOpen(true);
-    } else if (scrolled) {
-      close();
-    } else {
-      setSheetOpen((open) => !open);
-    }
-  }, [expanded, scrolled, engage, close]);
-
-  // Al cruzar el umbral de scroll se cierra cualquier interacción abierta
+  // Al cruzar el umbral se cierra cualquier interacción abierta
   useEffect(() => close(), [scrolled, close]);
 
-  // Con la hoja abierta, desplazarse la cierra (como el menú móvil anterior)
+  // Con el menú abierto, desplazarse lo cierra
   useEffect(() => {
-    if (!sheetOpen) return;
+    if (!open) return;
     const startY = window.scrollY;
-    const onScroll = () => Math.abs(window.scrollY - startY) > SHEET_CLOSE_SCROLL_PX && close();
+    const onScroll = () => Math.abs(window.scrollY - startY) > NAV_TIMING.closeOnScrollPx && close();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, [sheetOpen, close]);
+  }, [open, close]);
+
   useEffect(() => clearTimer, []);
 
-  return {
-    expanded,
-    sheetOpen: expanded && sheetOpen,
-    engage,
-    release,
-    close,
-    toggleFromAvatar,
-  };
+  const mode: NavMode = !scrolled ? 'top' : open ? 'open' : 'closed';
+
+  return { mode, open, engage, release, close, toggle };
 };

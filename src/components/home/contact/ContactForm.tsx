@@ -3,9 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { BOOKING_URL, CONTACT_EMAIL, MESSAGE_MAX_LENGTH } from '../../../constants/contact';
 import { buildMailto } from '../../../utils/mailto';
 import { Window } from '../../ui/Window';
-import { RetroButton } from '../../ui/RetroButton';
-
-const BUTTON_SIZE = '!h-10 !px-5 !text-[15px]';
+import { AeroButton } from '../../ui/AeroButton';
 
 /** Ventana de "mensaje nuevo" en blanco; al enviar abre el correo del visitante con todo cargado. */
 export const ContactForm = () => {
@@ -64,13 +62,13 @@ export const ContactForm = () => {
           </p>
           <div className="flex flex-wrap gap-2.5">
             {BOOKING_URL && (
-              <RetroButton href={BOOKING_URL} variant="silver" className={BUTTON_SIZE}>
+              <AeroButton href={BOOKING_URL} tone="silver" size="sm">
                 {t('contact.bookCall')} ↗
-              </RetroButton>
+              </AeroButton>
             )}
-            <button type="submit" className={`btn-retro gloss aqua-fill ${BUTTON_SIZE}`}>
+            <AeroButton type="submit" size="sm">
               {t('contact.send')}
-            </button>
+            </AeroButton>
           </div>
         </div>
       </Window>

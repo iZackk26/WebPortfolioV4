@@ -1,0 +1,37 @@
+/* Ícono ≡ → ×: trazos vectoriales iguales que giran sobre su propio centro. */
+.nav-burger {
+  display: block;
+  width: 20px;
+  height: 20px;
+  overflow: visible;
+  color: rgb(var(--ink) / 0.82);
+  filter: drop-shadow(0 1px 0 rgb(255 255 255 / 0.9));
+  transition: opacity 0.2s, visibility 0s;
+}
+.nav-burger path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  transform-box: view-box;
+  transform-origin: 10px 10px;
+  /* Cerrar: primero se endereza y luego se separa */
+  transition: rotate 0.18s var(--ease-glide), translate 0.2s var(--ease-glide) 0.14s, opacity 0.12s 0.14s, scale 0.2s 0.14s;
+}
+/* Abrir: primero las líneas se juntan al centro y luego giran */
+.nav-pill[data-open='true'] .nav-burger path {
+  transition: translate 0.16s var(--ease-glide), rotate 0.26s var(--ease-glide) 0.12s, opacity 0.1s, scale 0.16s;
+}
+.nav-pill[data-open='true'] .nav-burger-top { translate: 0 4px; rotate: 45deg; }
+.nav-pill[data-open='true'] .nav-burger-mid { opacity: 0; scale: 0.2 1; }
+.nav-pill[data-open='true'] .nav-burger-bottom { translate: 0 -4px; rotate: -45deg; }
+
+/* En escritorio los links están a la vista arriba y en el compacto el pulso es la pista */
+@media (min-width: 768px) {
+  .nav-burger { display: none; }
+}
+.nav-pill:not([data-mode='top']) .nav-burger { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-burger path { transition: none; }
+}

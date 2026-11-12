@@ -1,0 +1,73 @@
+/*
+ * Material Aero (Windows 7): bisel, brillo cortado al 50%, luz que rebota en la base y
+ * halo al pasar el mouse. El tono se cambia solo con variables; el efecto es uno.
+ */
+.aero {
+  --aero-ink: #0b1838;
+  --aero-edge: rgb(var(--aqua-edge));
+  --aero-body: linear-gradient(180deg, #eef6ff 0%, #d3e6ff 48%, #8db8f4 50.5%, #9cc7f7 78%, #b5dbfb 100%);
+  --aero-bounce: 150 238 255;
+  --aero-rim: 200 245 255;
+  --aero-halo: 80 180 255;
+  --aero-drop: 10 30 100;
+
+  position: relative;
+  isolation: isolate;
+  color: var(--aero-ink);
+  text-shadow: 0 1px 0 rgb(255 255 255 / 0.9);
+  background:
+    radial-gradient(85% 70% at 50% 118%, rgb(var(--aero-bounce) / 0.95), rgb(var(--aero-bounce) / 0) 70%),
+    var(--aero-body);
+  box-shadow:
+    0 0 0 1px var(--aero-edge),
+    inset 0 0 0 1px rgb(255 255 255 / 0.7),
+    inset 0 -3px 6px -2px rgb(var(--aero-rim) / 0.9),
+    0 2px 5px rgb(var(--aero-drop) / 0.28);
+  transition: box-shadow 0.2s, transform 0.12s, filter 0.12s;
+}
+.aero--silver {
+  --aero-ink: rgb(var(--ink));
+  --aero-edge: rgb(var(--frame) / 0.85);
+  --aero-body: linear-gradient(180deg, #ffffff 0%, #f3f4f6 48%, #d9dce2 50.5%, #e3e6eb 78%, #f1f3f6 100%);
+  --aero-bounce: 255 255 255;
+  --aero-rim: 255 255 255;
+  --aero-halo: 150 170 205;
+  --aero-drop: 20 25 40;
+}
+/* Mitad superior clara con corte nítido */
+.aero::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 2px;
+  right: 2px;
+  top: 1px;
+  height: 48%;
+  border-radius: 999px 999px 40% 40% / 999px 999px 8px 8px;
+  background: linear-gradient(rgb(255 255 255 / 0.95), rgb(255 255 255 / 0.4));
+  pointer-events: none;
+}
+/* Luz que rebota en la base */
+.aero::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 22%;
+  right: 22%;
+  bottom: 1px;
+  height: 30%;
+  border-radius: 999px;
+  background: radial-gradient(closest-side, rgb(var(--aero-rim) / 0.9), transparent);
+  filter: blur(1px);
+  pointer-events: none;
+}
+.aero:hover:not(:disabled) {
+  box-shadow:
+    0 0 0 1px var(--aero-edge),
+    inset 0 0 0 1px rgb(255 255 255 / 0.8),
+    inset 0 -3px 6px -2px #fff,
+    0 0 12px rgb(var(--aero-halo) / 0.65),
+    0 2px 5px rgb(var(--aero-drop) / 0.28);
+}
+.aero:active:not(:disabled) { filter: brightness(0.94) saturate(1.1); }
+.nav-link.aero[aria-current='page'] { color: var(--aero-ink); }

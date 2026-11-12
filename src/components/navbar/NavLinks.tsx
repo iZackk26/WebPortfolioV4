@@ -9,31 +9,27 @@ interface NavLinksProps {
 }
 
 const linkClass = ({ isActive }: { isActive: boolean }) =>
-  `nav-link nav-text ${isActive ? 'aqua-fill gloss' : ''}`;
+  `nav-link nav-text ${isActive ? 'aero' : ''}`;
 
 export const NavLinks = ({ layout, onNavigate }: NavLinksProps) => {
   const { t } = useTranslation();
 
-  if (layout === 'sheet') {
-    return (
-      <>
-        {NAV_ITEMS.map((item) => (
-          <NavLink key={item.path} to={item.path} end={item.path === '/'} className={linkClass} onClick={onNavigate}>
-            {t(item.labelKey)}
-          </NavLink>
-        ))}
-      </>
-    );
-  }
+  const links = NAV_ITEMS.map((item) => (
+    <NavLink key={item.path} to={item.path} end={item.path === '/'} className={linkClass} onClick={onNavigate}>
+      {t(item.labelKey)}
+    </NavLink>
+  ));
+
+  if (layout === 'sheet') return <>{links}</>;
 
   return (
-    <ul className="hidden md:flex items-center gap-0.5 ml-1">
-      {NAV_ITEMS.map((item, index) => (
-        <li key={item.path} className="nav-reveal" style={{ ['--i' as string]: index }}>
-          <NavLink to={item.path} end={item.path === '/'} className={linkClass} onClick={onNavigate}>
-            {t(item.labelKey)}
-          </NavLink>
-        </li>
+    <ul
+      id="nav-links"
+      className="nav-links nav-piece nav-reveal hidden md:flex items-center gap-0.5"
+      style={{ ['--i' as string]: 0 }}
+    >
+      {links.map((link) => (
+        <li key={link.key}>{link}</li>
       ))}
     </ul>
   );

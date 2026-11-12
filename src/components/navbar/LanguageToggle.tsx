@@ -23,7 +23,7 @@ export const LanguageToggle = ({ revealIndex }: LanguageToggleProps) => {
       type="button"
       onClick={toggle}
       aria-label={t('nav.switch_language')}
-      className="nav-reveal silver-fill ml-auto shrink-0 rounded-full px-3 py-1.5 text-[12.5px] font-medium font-mono transition-transform active:scale-[0.97]"
+      className="nav-lang nav-piece nav-reveal silver-fill shrink-0 rounded-full px-3 py-1.5 text-[12.5px] font-medium font-mono active:scale-[0.97]"
       style={{ ['--i' as string]: revealIndex }}
     >
       {next.toUpperCase()}

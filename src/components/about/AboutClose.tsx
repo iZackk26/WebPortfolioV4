@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { CONTACT_EMAIL } from '../../constants/contact';
 import { ContactPhoto } from '../home/contact/ContactPhoto';
-import { RetroButton } from '../ui/RetroButton';
+import { AeroButton } from '../ui/AeroButton';
 
 /** Cierre: invitación a escribir, sin venderlo como "disponible". */
 export const AboutClose = () => {
@@ -16,12 +16,10 @@ export const AboutClose = () => {
         </h2>
         <p className="m-0 mt-2.5 max-w-[44ch] text-[16.5px] text-black/60">{t('about.close.text')}</p>
         <div className="mt-6 flex flex-wrap justify-center gap-3 md:justify-start">
-          <a href={`mailto:${CONTACT_EMAIL}`} className="btn-retro gloss aqua-fill">
-            {t('about.close.send')}
-          </a>
-          <RetroButton to="/" variant="silver">
+          <AeroButton href={`mailto:${CONTACT_EMAIL}`}>{t('about.close.send')}</AeroButton>
+          <AeroButton to="/" tone="silver">
             {t('about.close.projects')}
-          </RetroButton>
+          </AeroButton>
         </div>
       </div>
     </section>

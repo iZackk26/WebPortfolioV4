@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { SEO } from '../components/SEO';
 import { Window } from '../components/ui/Window';
-import { RetroButton } from '../components/ui/RetroButton';
+import { AeroButton } from '../components/ui/AeroButton';
 import { ClawdTyping } from '../components/wip/ClawdTyping';
 import { BuildTerminal } from '../components/wip/BuildTerminal';
 import { CONTACT_EMAIL } from '../constants/contact';
@@ -41,10 +41,10 @@ export const UnderConstruction = ({ section }: UnderConstructionProps) => {
         </div>
 
         <div className="mt-2.5 flex flex-wrap justify-center gap-3">
-          <RetroButton to="/">{t('wip.ctaHome')}</RetroButton>
-          <a href={`mailto:${CONTACT_EMAIL}`} className="btn-retro gloss silver-fill">
+          <AeroButton to="/">{t('wip.ctaHome')}</AeroButton>
+          <AeroButton tone="silver" href={`mailto:${CONTACT_EMAIL}`}>
             {t('wip.ctaContact')}
-          </a>
+          </AeroButton>
         </div>
         <span className="font-mono text-xs text-black/40">{t('wip.note')}</span>
       </section>

@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { AeroButton } from '../../ui/AeroButton';
 
 interface CarouselControlsProps {
   index: number;
@@ -8,7 +9,6 @@ interface CarouselControlsProps {
 }
 
 const pad = (n: number) => String(n).padStart(2, '0');
-const ROUND = 'btn-retro gloss !h-11 !w-11 !p-0 text-lg';
 
 /** HUD superior: etiqueta, contador "01 — 04" y flechas. */
 export const CarouselControls = ({ index, total, onPrevious, onNext }: CarouselControlsProps) => {
@@ -23,12 +23,12 @@ export const CarouselControls = ({ index, total, onPrevious, onNext }: CarouselC
         </span>
       </div>
       <div className="flex gap-2.5">
-        <button type="button" onClick={onPrevious} aria-label={t('featured.previous')} className={`${ROUND} silver-fill`}>
+        <AeroButton tone="silver" size="icon" onClick={onPrevious} aria-label={t('featured.previous')}>
           ←
-        </button>
-        <button type="button" onClick={onNext} aria-label={t('featured.next')} className={`${ROUND} aqua-fill`}>
+        </AeroButton>
+        <AeroButton size="icon" onClick={onNext} aria-label={t('featured.next')}>
           →
-        </button>
+        </AeroButton>
       </div>
     </div>
   );

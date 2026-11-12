@@ -1,0 +1,110 @@
+/* Compacto estilo Spotlight: foto, links e idioma como burbujas de vidrio separadas. */
+.nav-pill:not([data-mode='top']) { overflow: visible; padding: 0; }
+.nav-pill:not([data-mode='top']) .nav-shell { opacity: 0; }
+.nav-pill:not([data-mode='top']) .nav-name { display: none; }
+.nav-pill:not([data-mode='top']) .nav-piece { position: relative; height: 56px; border-radius: 999px; }
+.nav-pill:not([data-mode='top']) .nav-avatar { width: 56px; justify-content: center; padding: 0; }
+.nav-pill:not([data-mode='top']) .nav-links { padding: 0 6px; }
+.nav-pill:not([data-mode='top']) .nav-lang { width: 56px; padding: 0; }
+.nav-pill:not([data-mode='top']) .nav-link:not([aria-current='page']) { color: rgb(0 0 0 / 0.74); }
+
+/* Sobre contenido el vidrio se densifica para que los links se lean */
+.nav-pill:not([data-mode='top']) .nav-piece {
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.84), rgb(246 249 255 / 0.68) 46%, rgb(255 255 255 / 0.78));
+  -webkit-backdrop-filter: blur(8px) saturate(1.6) brightness(1.08);
+  backdrop-filter: blur(8px) saturate(1.6) brightness(1.08);
+}
+
+/* × sobre la foto mientras está abierto */
+.nav-close-badge {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  right: -2px;
+  bottom: -2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1c1d24;
+  color: #fff;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity 0.2s, transform 0.3s var(--ease-spring);
+}
+.nav-pill:not([data-mode='top']) .nav-close-badge { display: block; }
+.nav-pill[data-open='true'] .nav-close-badge { opacity: 1; transform: scale(1); }
+
+/* Entrada en cascada: en la barra acompaña al borde; en Spotlight salen con rebote */
+.nav-reveal {
+  will-change: opacity, transform;
+  transition: opacity 0.24s ease-out, transform 0.46s var(--ease-glide), visibility 0s;
+  transition-delay: calc(var(--i, 0) * 30ms + 40ms);
+}
+.nav-pill:not([data-mode='top']) .nav-reveal {
+  transform-origin: left center;
+  transition: opacity 0.2s ease-out, transform 0.42s var(--ease-spring), visibility 0s;
+  transition-delay: calc(var(--i, 0) * 45ms);
+}
+.nav-pill[data-mode='closed'] .nav-reveal {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-28px) scale(0.82);
+  /* Se recogen hacia la foto, el idioma primero */
+  --d: calc((1 - var(--i, 0)) * 40ms);
+  transition: opacity 0.22s ease-in var(--d), transform 0.3s cubic-bezier(0.4, 0, 0.7, 0.2) var(--d),
+    visibility 0s calc(var(--d) + 0.32s);
+}
+/* Barra → círculo: la barra conserva su vidrio y su borde barre el contenido quieto */
+.nav-wrap[data-mode='closed']:has(.nav-pill[data-shrinking]) {
+  transition: width 0.62s cubic-bezier(0.45, 0, 0.2, 1), transform 0.2s var(--ease-glide);
+}
+.nav-pill[data-shrinking] { overflow: hidden; }
+.nav-pill[data-shrinking] .nav-shell { opacity: 1; transition: none; }
+.nav-pill[data-shrinking] .nav-piece { background: none; border-color: transparent; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+.nav-pill[data-shrinking] .nav-piece::before { display: none; }
+.nav-pill[data-shrinking] .nav-reveal {
+  transform: none;
+  transition: opacity 0.34s ease-in-out, visibility 0s 0.34s;
+}
+/* En móvil el compacto abre la hoja, no las burbujas */
+@media (max-width: 767px) {
+  .nav-pill[data-mode='open'] .nav-reveal { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+/* Pulso continuo del círculo compacto; arranca cuando termina de encogerse */
+.nav-pulse {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 999px;
+  pointer-events: none;
+}
+.nav-pulse::before,
+.nav-pulse::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  border: 2px solid rgb(70 150 255 / 0.6);
+  box-shadow: 0 0 12px rgb(110 185 255 / 0.55);
+  will-change: transform, opacity;
+}
+.nav-wrap[data-mode='closed'] .nav-pulse::before { animation: nav-pulse 3.4s ease-out 0.4s infinite; }
+.nav-wrap[data-mode='closed'] .nav-pulse::after { animation: nav-pulse 3.4s ease-out 0.75s infinite; }
+/* Durante el encogimiento no pulsa: arranca cuando ya es círculo */
+.nav-wrap:has(.nav-pill[data-shrinking]) .nav-pulse::before,
+.nav-wrap:has(.nav-pill[data-shrinking]) .nav-pulse::after { animation: none; }
+@keyframes nav-pulse {
+  0% { opacity: 0.9; transform: scale(1); }
+  44%, 100% { opacity: 0; transform: scale(1.5); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-wrap, .nav-reveal, .nav-sheet, .nav-close-badge { transition: opacity 0.2s, visibility 0s !important; }
+  .nav-pulse::before, .nav-pulse::after { animation: none !important; }
+}

@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { CV_LINKS, Language } from '../../../constants/navigation';
 import { FEATURED_SECTION_ID } from '../../../constants/intro';
 import { usePrefersReducedMotion } from '../../../hooks/usePrefersReducedMotion';
-import { RetroButton } from '../../ui/RetroButton';
+import { AeroButton } from '../../ui/AeroButton';
 
 /** "Ver proyectos" baja al carrusel; "Descargar CV" abre el CV en el idioma actual. */
 export const IntroActions = () => {
@@ -18,12 +18,10 @@ export const IntroActions = () => {
 
   return (
     <div className="mt-4 flex flex-wrap justify-center gap-3">
-      <button type="button" onClick={scrollToProjects} className="btn-retro gloss aqua-fill">
-        {t('home.viewProjects')} ↓
-      </button>
-      <RetroButton variant="silver" href={CV_LINKS[lang]}>
+      <AeroButton onClick={scrollToProjects}>{t('home.viewProjects')} ↓</AeroButton>
+      <AeroButton tone="silver" href={CV_LINKS[lang]}>
         {t('home.downloadCv')}
-      </RetroButton>
+      </AeroButton>
     </div>
   );
 };

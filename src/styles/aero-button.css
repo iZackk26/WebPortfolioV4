@@ -1,0 +1,28 @@
+/* Forma y tamaños del botón Aero; el material vive en aero.css. */
+.aero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+/* Sombra de apoyo sobre el tablero, además del bisel */
+.aero-btn:not(:disabled) { filter: drop-shadow(0 8px 14px rgb(var(--aero-drop) / 0.12)); }
+.aero-btn:active:not(:disabled) {
+  transform: scale(0.97);
+  filter: drop-shadow(0 4px 8px rgb(var(--aero-drop) / 0.12)) brightness(0.94) saturate(1.1);
+}
+.aero-btn:focus-visible { outline: 2px solid rgb(var(--aero-halo)); outline-offset: 3px; }
+.aero-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.aero-btn--sm { height: 40px; padding: 0 20px; font-size: 15px; }
+.aero-btn--md { height: 44px; padding: 0 22px; font-size: 17px; }
+.aero-btn--icon { width: 44px; height: 44px; padding: 0; font-size: 18px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .aero-btn { transition: none; }
+}

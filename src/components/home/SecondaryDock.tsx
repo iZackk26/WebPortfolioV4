@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { PROJECTS } from '../../constants/projects';
 import { FEATURED_PROJECT_IDS } from '../../constants/featuredProjects';
-import { RetroButton } from '../ui/RetroButton';
+import { AeroButton } from '../ui/AeroButton';
 
 const SECONDARY_PROJECTS = PROJECTS.filter((project) => !FEATURED_PROJECT_IDS.has(project.id));
 
@@ -22,9 +22,9 @@ export const SecondaryDock = () => {
           </Link>
         ))}
       </nav>
-      <RetroButton to="/projects" variant="silver" className="!h-[38px] !text-[15px]">
+      <AeroButton to="/projects" tone="silver" size="sm">
         {t('featured.more.viewAll')} →
-      </RetroButton>
+      </AeroButton>
     </section>
   );
 };
