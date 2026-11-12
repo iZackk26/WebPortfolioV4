@@ -1,28 +1,23 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { ReactNode, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ReactNode } from 'react';
 
 interface LanguageTransitionProps {
   children: ReactNode;
 }
 
+/**
+ * Fundido suave al cambiar de idioma. En la primera carga no anima: el contenido
+ * se pinta de inmediato (sin opacidad 0 mientras carga el JS), lo que adelanta el LCP.
+ */
 export const LanguageTransition = ({ children }: LanguageTransitionProps) => {
   const { i18n } = useTranslation();
+  const initial = useRef(i18n.language);
+  const changed = useRef(false);
+  if (i18n.language !== initial.current) changed.current = true;
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={i18n.language}
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{
-          duration: 0.3,
-          ease: [0.4, 0, 0.2, 1]
-        }}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <div key={i18n.language} className={changed.current ? 'lang-in' : undefined}>
+      {children}
+    </div>
   );
 };

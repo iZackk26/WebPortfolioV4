@@ -1,0 +1,85 @@
+/* Skeletons de carga: bloques con brillo que ocupan el lugar exacto del contenido. */
+.skel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgb(0 0 0 / 0.07);
+}
+/* Brillo que cruza: solo transform, no repinta */
+.skel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.65), transparent);
+  animation: skel-shine 1.4s ease-in-out infinite;
+}
+@keyframes skel-shine {
+  to { transform: translateX(100%); }
+}
+
+.skel-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 96px 16px 0;
+}
+@media (min-width: 768px) { .skel-section { padding-top: 112px; } }
+
+.skel-title { width: min(520px, 80%); height: 44px; border-radius: 12px; }
+.skel-line { width: min(380px, 64%); height: 16px; margin-bottom: 18px; }
+
+.skel-win {
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgb(0 0 0 / 0.14);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgb(0 0 0 / 0.06);
+}
+.skel-win .win-dot { background: rgb(0 0 0 / 0.12) !important; }
+.skel-win-body { display: flex; flex-direction: column; gap: 12px; padding: 22px; min-height: 260px; }
+.skel-row { height: 14px; }
+.skel-row.is-short { width: 62%; }
+
+/* Altos medidos de las secciones reales por breakpoint */
+.skel-work { min-height: 2307px; }
+.skel-contact { min-height: 979px; }
+@media (min-width: 768px) { .skel-work { min-height: 1743px; } .skel-contact { min-height: 1040px; } }
+@media (min-width: 1024px) { .skel-work { min-height: 1717px; } .skel-contact { min-height: 781px; } }
+@media (min-width: 1280px) { .skel-work { min-height: 1499px; } }
+
+/* Aviso de sección que no cargó: tarjeta sobre el título del skeleton */
+.skel-error {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  translate: -50% 0;
+  width: min(520px, calc(100% - 32px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid rgb(0 0 0 / 0.14);
+  box-shadow: 0 14px 30px rgb(0 0 0 / 0.1);
+  text-align: center;
+  font-size: 15px;
+  color: rgb(0 0 0 / 0.7);
+}
+.skel-error p { margin: 0; }
+
+/* Imagen progresiva: la miniatura (LQIP) ampliada hace de fondo hasta que llega la real */
+.pimg { background-size: cover; background-position: center; background-repeat: no-repeat; }
+
+/* Página entera mientras llega su chunk (About, proyectos) */
+.skel-page { min-height: 100vh; }
+
+@media (prefers-reduced-motion: reduce) {
+  .skel::after { animation: none; }
+}

@@ -1,79 +1,34 @@
-import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X } from 'lucide-react';
 
 interface ChatButtonProps {
   isOpen: boolean;
   onClick: () => void;
+  /** Hover o foco: buen momento para precargar la ventana */
+  onIntent?: () => void;
 }
 
-export function ChatButton({ isOpen, onClick }: ChatButtonProps) {
+/** Botón flotante del chat. Animaciones en CSS (chat-button.css): no carga framer-motion. */
+export function ChatButton({ isOpen, onClick, onIntent }: ChatButtonProps) {
   return (
-    <motion.button
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ delay: 0.5, type: 'spring', stiffness: 260, damping: 20 }}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
+    <button
+      type="button"
       onClick={onClick}
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 md:w-16 md:h-16
+      onPointerEnter={onIntent}
+      onFocus={onIntent}
+      data-open={isOpen}
+      className="chat-fab fixed bottom-6 right-6 z-50 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full
                  bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))]
-                 rounded-full shadow-2xl
-                 flex items-center justify-center
-                 cursor-pointer
-                 transition-all duration-300
-                 hover:shadow-[0_0_30px_rgba(98,125,154,0.5)]
-                 group"
+                 shadow-2xl md:h-16 md:w-16"
       aria-label={isOpen ? 'Close chat' : 'Open chat'}
     >
-      {/* Pulse effect */}
-      <motion.div
-        className="absolute inset-0 rounded-full bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))]"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.5, 0, 0.5],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
-
-      {/* Icon */}
-      <div className="relative z-10">
-        <AnimatePresence mode="wait">
-          {isOpen ? (
-            <motion.div
-              key="close"
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <X className="w-6 h-6 md:w-7 md:h-7 text-white" />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="open"
-              initial={{ rotate: 90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: -90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <MessageCircle className="w-6 h-6 md:w-7 md:h-7 text-white" />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-
-      {/* Notification dot (optional - can be used for unread messages) */}
+      <span className="chat-fab-pulse absolute inset-0 rounded-full bg-gradient-to-br from-[rgb(var(--color-accent))] to-[rgb(var(--color-accent-hover))]" aria-hidden="true" />
+      <span className="relative z-10 grid h-6 w-6 md:h-7 md:w-7" aria-hidden="true">
+        <MessageCircle className="chat-fab-icon is-chat h-full w-full text-white" />
+        <X className="chat-fab-icon is-close h-full w-full text-white" />
+      </span>
       {!isOpen && (
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          className="absolute -top-1 -right-1 w-3 h-3 md:w-4 md:h-4 bg-red-500 rounded-full border-2 border-white"
-        />
+        <span className="chat-fab-dot absolute -right-1 -top-1 h-3 w-3 rounded-full border-2 border-white bg-red-500 md:h-4 md:w-4" aria-hidden="true" />
       )}
-    </motion.button>
+    </button>
   );
 }

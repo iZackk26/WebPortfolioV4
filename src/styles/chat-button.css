@@ -1,0 +1,38 @@
+/* Botón flotante del chat: entrada con rebote, pulso y cambio de ícono, todo compuesto en GPU. */
+.chat-fab {
+  animation: chat-fab-in 0.5s var(--ease-spring) 0.5s backwards;
+  transition: transform 0.2s var(--ease-pop), box-shadow 0.3s;
+}
+.chat-fab:hover { transform: scale(1.1); box-shadow: 0 0 30px rgb(98 125 154 / 0.5); }
+.chat-fab:active { transform: scale(0.9); }
+.chat-fab:focus-visible { outline: 2px solid rgb(80 180 255); outline-offset: 3px; }
+
+.chat-fab-pulse {
+  will-change: transform, opacity;
+  animation: chat-fab-pulse 2s ease-in-out infinite;
+}
+/* Abierto, el pulso ya no invita a nada */
+.chat-fab[data-open='true'] .chat-fab-pulse { animation: none; opacity: 0; }
+
+.chat-fab-icon {
+  grid-area: 1 / 1;
+  transition: opacity 0.2s, rotate 0.2s;
+}
+.chat-fab .is-close { opacity: 0; rotate: -90deg; }
+.chat-fab[data-open='true'] .is-chat { opacity: 0; rotate: 90deg; }
+.chat-fab[data-open='true'] .is-close { opacity: 1; rotate: 0deg; }
+
+.chat-fab-dot { animation: chat-fab-in 0.3s var(--ease-spring) backwards; }
+
+@keyframes chat-fab-in {
+  from { transform: scale(0); opacity: 0; }
+}
+@keyframes chat-fab-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-fab, .chat-fab-dot { animation: none; }
+  .chat-fab-pulse { animation: none; opacity: 0; }
+}

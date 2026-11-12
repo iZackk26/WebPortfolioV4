@@ -10,9 +10,9 @@ export default defineConfig({
     // Optimize chunk splitting
     rollupOptions: {
       output: {
+        // framer-motion no va aquí: Rollup lo separa solo en las páginas que lo usan
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'animation-vendor': ['framer-motion'],
           'i18n-vendor': ['react-i18next', 'i18next'],
         },
       },
@@ -27,6 +27,6 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
+    include: ['react', 'react-dom', 'react-router-dom'],
   },
 });
