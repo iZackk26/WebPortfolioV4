@@ -5,7 +5,7 @@ import { isAllowedOrigin, isJson, parseChatInput, readLimitedText } from './_lib
 import { askUpstream, isUpstreamConfigured, UpstreamError } from './_lib/upstream.js';
 
 /**
- * POST /api/chat — proxy del chat de Max hacia n8n.
+ * POST /api/chat — proxy del chat de Max hacia su agente (webhook de Visione Flow).
  *
  * Orden de defensas, de la más barata a la más cara:
  * origen → tipo → rate-limit por IP (3/min, 120/h) y global → tamaño → forma → n8n.
@@ -16,7 +16,7 @@ export async function POST(request: Request): Promise<Response> {
   if (!isJson(request)) return fail('unsupported_media_type');
 
   if (!isUpstreamConfigured()) {
-    console.error('[chat] faltan CHATBOT_API_URL / CHATBOT_API_KEY');
+    console.error('[chat] falta CHATBOT_API_URL');
     return fail('unavailable');
   }
 
