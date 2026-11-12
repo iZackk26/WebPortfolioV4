@@ -1,6 +1,8 @@
 import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ChatContext } from '../../context/chatContext';
 import type { ChatAnchor } from '../../types/chat';
+import { ANALYTICS_EVENTS } from '../../constants/analytics';
+import { track } from '../../utils/analytics';
 
 /** El primer lanzador visible (el del navbar arriba o el del compacto) responde a ⌘K. */
 const visibleLauncher = () =>
@@ -20,6 +22,11 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const close = useCallback(() => setOpen(false), []);
+
+  // Se mide al abrir, no al cerrar; anchor dice si fue el lanzador del pill o el del compacto
+  useEffect(() => {
+    if (open) track(ANALYTICS_EVENTS.chatOpen, { ui_location: `navbar_${anchor}` });
+  }, [open, anchor]);
 
   // ⌘K / Ctrl K abre o cierra desde cualquier parte del sitio
   useEffect(() => {

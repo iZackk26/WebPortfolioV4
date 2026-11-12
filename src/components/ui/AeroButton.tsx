@@ -27,7 +27,7 @@ export const AeroButton = (props: AeroButtonProps) => {
 
   if (props.to !== undefined) {
     return (
-      <Link to={props.to} className={classes} aria-label={label}>
+      <Link to={props.to} className={classes} aria-label={label} onClick={props.onClick}>
         {children}
       </Link>
     );
@@ -40,6 +40,7 @@ export const AeroButton = (props: AeroButtonProps) => {
         href={props.href}
         className={classes}
         aria-label={label}
+        onClick={props.onClick}
         target={newTab ? '_blank' : undefined}
         rel={newTab ? 'noopener noreferrer' : undefined}
       >

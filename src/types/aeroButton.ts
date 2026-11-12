@@ -18,12 +18,16 @@ interface AeroBase {
 interface AeroLink extends AeroBase {
   to: string;
   href?: never;
+  /** Para medir el clic; no reemplaza la navegación */
+  onClick?: () => void;
 }
 
 /** Archivo, sitio externo o mailto */
 interface AeroAnchor extends AeroBase {
   href: string;
   to?: never;
+  /** Para medir el clic; no reemplaza la navegación */
+  onClick?: () => void;
 }
 
 /** Acción en la página o envío de formulario */

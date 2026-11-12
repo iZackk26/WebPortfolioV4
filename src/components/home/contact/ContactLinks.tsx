@@ -1,4 +1,6 @@
 import { useTranslation } from 'react-i18next';
+import { ANALYTICS_EVENTS } from '../../../constants/analytics';
+import { track } from '../../../utils/analytics';
 import { CONTACT_EMAIL, COPY_FEEDBACK_MS } from '../../../constants/contact';
 import { SOCIAL_LINKS } from '../../../constants/navigation';
 import { SOCIAL_ICON_PATHS } from '../../../constants/socialIcons';
@@ -15,6 +17,7 @@ export const ContactLinks = () => {
 
   const copyEmail = async () => {
     const ok = await copy(CONTACT_EMAIL);
+    if (ok) track(ANALYTICS_EVENTS.contactCopyEmail, { ui_location: 'home_contact' });
     show({ key: ok ? 'toast.copied' : 'toast.copyFailed', tone: ok ? 'success' : 'error', values: { email: CONTACT_EMAIL } });
   };
 

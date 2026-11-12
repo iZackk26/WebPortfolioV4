@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { ANALYTICS_EVENTS } from '../constants/analytics';
+import { track } from '../utils/analytics';
 import type { ChatFailure, ChatMessage } from '../types/chat';
 import { useToast } from './useToast';
 import { askMax, ChatRequestError, getSessionId, loadHistory, resetSession, saveHistory } from '../services/chatbot';
@@ -33,6 +35,7 @@ export const useChatbot = () => {
       if (!sessionId.current) sessionId.current = getSessionId();
 
       setSending(true);
+      track(ANALYTICS_EVENTS.chatMessage, { ui_location: 'max_chat' });
       setMessages((list) => [...list, { id: newId(), role: 'user', content: question }]);
       try {
         const answer = await askMax(question, sessionId.current);
@@ -56,6 +59,7 @@ export const useChatbot = () => {
   const reset = useCallback(() => {
     if (sending) return;
     sessionId.current = resetSession();
+    track(ANALYTICS_EVENTS.chatNewConversation, { ui_location: 'max_chat' });
     setMessages([]);
   }, [sending]);
 

@@ -2,6 +2,8 @@ import { FormEvent, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BOOKING_URL, CONTACT_EMAIL, MESSAGE_MAX_LENGTH } from '../../../constants/contact';
 import { buildMailto } from '../../../utils/mailto';
+import { ANALYTICS_EVENTS } from '../../../constants/analytics';
+import { track } from '../../../utils/analytics';
 import { Window } from '../../ui/Window';
 import { AeroButton } from '../../ui/AeroButton';
 
@@ -13,6 +15,13 @@ export const ContactForm = () => {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const messageRef = useRef<HTMLTextAreaElement>(null);
+  // "Abrió el formulario" = primer foco en cualquier campo; se cuenta una vez por visita a la página
+  const started = useRef(false);
+  const onFirstFocus = () => {
+    if (started.current) return;
+    started.current = true;
+    track(ANALYTICS_EVENTS.contactFormStart, { ui_location: 'home_contact' });
+  };
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -23,11 +32,12 @@ export const ContactForm = () => {
     }
     const finalSubject =
       subject.trim() || (name.trim() ? t('contact.subjectFrom', { name: name.trim() }) : t('contact.defaultSubject'));
+    track(ANALYTICS_EVENTS.contactSend, { ui_location: 'home_contact' });
     window.location.href = buildMailto(CONTACT_EMAIL, finalSubject, message);
   };
 
   return (
-    <form onSubmit={onSubmit} noValidate className="w-[min(600px,100%)] text-left">
+    <form onSubmit={onSubmit} onFocus={onFirstFocus} noValidate className="w-[min(600px,100%)] text-left">
       <Window title={t('contact.window')}>
         <div className="contact-field">
           <label>{t('contact.to')}</label>

@@ -1,4 +1,7 @@
 import { Fragment, ReactNode } from 'react';
+import { ANALYTICS_EVENTS, UTM_MEDIUM } from '../constants/analytics';
+import { track } from './analytics';
+import { withUtm } from './utm';
 
 /** URL suelta https://… o correo suelto dentro del texto de Max */
 export const BARE_LINK = /(https:\/\/[^\s<>()[\]]+|[\w.+-]+@[\w-]+(?:\.[\w-]+)+)/;
@@ -21,13 +24,19 @@ export const shortUrl = (href: string) => {
   }
 };
 
-/** Enlace seguro: externo en pestaña nueva con ↗, correo con mailto. */
+/**
+ * Enlace seguro: externo en pestaña nueva con ↗, correo con mailto. A los sitios propios se
+ * les agregan UTMs aquí (no en el prompt): así la visita se atribuye a Max aunque el modelo
+ * copie mal la URL.
+ */
 export const ChatLink = ({ href, label }: { href: string; label: string }) => {
   if (!SAFE_LINK.test(href)) return <>{label}</>;
   const external = href.toLowerCase().startsWith('https://');
+  const target = external ? withUtm(href, { medium: UTM_MEDIUM.maxChat, campaign: 'max' }) : href;
   return (
     <a
-      href={href}
+      href={target}
+      onClick={() => track(ANALYTICS_EVENTS.chatLinkClick, { ui_location: 'max_chat', link_url: external ? href : 'mailto' })}
       className="max-link"
       title={external ? href : undefined}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer nofollow' } : {})}

@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { CONSENT_OPEN_EVENT } from '../constants/consent';
+import { ANALYTICS_EVENTS } from '../constants/analytics';
+import { track } from '../utils/analytics';
 import type { ConsentPreferences } from '../types/consent';
 import { readConsent, saveConsent } from '../utils/consent';
 
@@ -24,8 +26,10 @@ export const useConsent = () => {
     return () => window.removeEventListener(CONSENT_OPEN_EVENT, open);
   }, []);
 
-  const decide = useCallback((preferences: ConsentPreferences) => {
+  const decide = useCallback((preferences: ConsentPreferences, choice: string) => {
     saveConsent(preferences);
+    // Va después de actualizar Consent Mode: con permiso llega completo, sin él como ping sin cookies
+    track(ANALYTICS_EVENTS.cookieChoice, { ui_location: 'cookie_consent', item_name: choice });
     setDraft(preferences);
     setAskNow(false);
     setPrefsOpen(false);
@@ -36,9 +40,9 @@ export const useConsent = () => {
     prefsOpen,
     draft,
     setDraft,
-    acceptAll: useCallback(() => decide(ALL), [decide]),
-    rejectAll: useCallback(() => decide(NONE), [decide]),
-    saveDraft: useCallback(() => decide(draft), [decide, draft]),
+    acceptAll: useCallback(() => decide(ALL, 'accept_all'), [decide]),
+    rejectAll: useCallback(() => decide(NONE, 'reject_all'), [decide]),
+    saveDraft: useCallback(() => decide(draft, draft.analytics ? 'custom_analytics_on' : 'custom_analytics_off'), [decide, draft]),
     openPrefs: useCallback(() => setPrefsOpen(true), []),
     closePrefs: useCallback(() => setPrefsOpen(false), []),
   };
