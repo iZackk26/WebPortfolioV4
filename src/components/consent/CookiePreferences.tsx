@@ -35,7 +35,7 @@ export const CookiePreferences = ({ draft, onChange, onSave, onAcceptAll, onClos
         className="consent-dialog"
         onClick={(event) => event.stopPropagation()}
       >
-        <Window title={t('consent.prefsWindow')}>
+        <Window title={t('consent.prefsWindow')} onClose={onClose} closeLabel={t('consent.close')}>
           <div className="consent-body consent-body--prefs">
             <h2 id="consent-prefs-title" className="sr-only">{t('consent.prefsTitle')}</h2>
             <div className="consent-pref">

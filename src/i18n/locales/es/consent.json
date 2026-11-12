@@ -4,7 +4,7 @@
   "prefsWindow": "cookies.txt · preferencias",
   "prefsTitle": "Preferencias de cookies",
   "message": "Uso cookies de analítica (Google Analytics) para saber qué partes del sitio se leen. Solo se activan si aceptas.",
-  "messageShort": "Google Analytics solo se activa si aceptas.",
+  "messageShort": "Las cookies de Google Analytics solo se activan si aceptas.",
   "accept": "Aceptar",
   "reject": "Rechazar",
   "configure": "Configurar",
@@ -23,5 +23,6 @@
   "marketing": {
     "title": "Marketing",
     "text": "Hoy no se usa. Queda apagada por si algún día hay anuncios."
-  }
+  },
+  "close": "Cerrar"
 }

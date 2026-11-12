@@ -4,7 +4,7 @@
   "prefsWindow": "cookies.txt · preferences",
   "prefsTitle": "Cookie preferences",
   "message": "I use analytics cookies (Google Analytics) to see which parts of the site get read. They only turn on if you accept.",
-  "messageShort": "Google Analytics only runs if you accept.",
+  "messageShort": "Google Analytics cookies only turn on if you accept.",
   "accept": "Accept",
   "reject": "Reject",
   "configure": "Settings",
@@ -23,5 +23,6 @@
   "marketing": {
     "title": "Marketing",
     "text": "Not used today. It stays off in case there are ads someday."
-  }
+  },
+  "close": "Close"
 }

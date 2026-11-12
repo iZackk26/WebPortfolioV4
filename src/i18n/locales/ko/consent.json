@@ -4,7 +4,7 @@
   "prefsWindow": "cookies.txt · 설정",
   "prefsTitle": "쿠키 설정",
   "message": "사이트에서 어떤 부분이 읽히는지 알기 위해 분석 쿠키(Google Analytics)를 사용합니다. 동의하실 때만 켜집니다.",
-  "messageShort": "동의하실 때만 Google Analytics가 작동합니다.",
+  "messageShort": "Google Analytics 쿠키는 동의하실 때만 켜집니다.",
   "accept": "동의",
   "reject": "거부",
   "configure": "설정",
@@ -23,5 +23,6 @@
   "marketing": {
     "title": "마케팅",
     "text": "지금은 사용하지 않습니다. 나중에 광고가 생길 경우를 위해 꺼져 있습니다."
-  }
+  },
+  "close": "닫기"
 }
