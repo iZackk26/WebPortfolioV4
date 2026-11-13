@@ -19,6 +19,8 @@ import { BLOG_LOCALES } from './constants/blog';
 import { ClientOnly } from './components/ui/ClientOnly';
 import { useRouteLanguage } from './hooks/useRouteLanguage';
 import { blogBase } from './utils/blog/blogRoutes';
+import { LanguageLink } from './components/LanguageLink';
+import { LANGUAGES } from './i18n/registry';
 
 // Lazy load pages that aren't immediately needed
 // Projects y Certificates se están rediseñando para la V5: mientras tanto muestran la página en construcción
@@ -85,6 +87,10 @@ function App() {
                     <Route key={`${locale}-page`} path={`${blogBase(locale)}/page/:page`} element={<BlogIndex />} />,
                     <Route key={`${locale}-post`} path={`${blogBase(locale)}/:slug`} element={<BlogPost />} />,
                   ])}
+                  {/* /en, /es, /ko… al inicio de un link: abre el sitio en ese idioma */}
+                  {LANGUAGES.map((code) => (
+                    <Route key={`lang-${code}`} path={`/${code}/*`} element={<LanguageLink />} />
+                  ))}
                 </Routes>
               </Suspense>
             </RouteBoundary>

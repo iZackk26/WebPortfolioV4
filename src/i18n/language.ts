@@ -2,6 +2,7 @@ import i18n from 'i18next';
 import { LANGUAGE_STORAGE_KEY } from '../constants/navigation';
 import { retryImport } from '../utils/retryImport';
 import { blogLocaleFromPath } from '../utils/blog/blogRoutes';
+import { languageLinkFromPath } from './languagePath';
 import { DEFAULT_LANGUAGE, LANGUAGES, LOCALE_META, isSupportedLanguage, loadSections } from './registry';
 
 /** Baja las traducciones del idioma si todavía no están cargadas. */
@@ -27,15 +28,20 @@ export const showLanguage = async (code: string) => {
   await i18n.changeLanguage(code);
 };
 
-/** Único punto para cambiar de idioma por elección del visitante: lo muestra y lo recuerda. */
-export const changeAppLanguage = async (code: string) => {
-  if (!isSupportedLanguage(code)) return;
-  await showLanguage(code);
+/** Guarda el idioma como preferencia del visitante. */
+export const rememberLanguage = (code: string) => {
   try {
     localStorage.setItem(LANGUAGE_STORAGE_KEY, code);
   } catch {
     // Sin almacenamiento disponible: el idioma solo dura la sesión
   }
+};
+
+/** Único punto para cambiar de idioma por elección del visitante: lo muestra y lo recuerda. */
+export const changeAppLanguage = async (code: string) => {
+  if (!isSupportedLanguage(code)) return;
+  await showLanguage(code);
+  rememberLanguage(code);
 };
 
 /** Siguiente idioma del ciclo del botón. */
@@ -54,8 +60,14 @@ export const preferredLanguage = () => {
   return fromBrowser ?? DEFAULT_LANGUAGE;
 };
 
-/** Idioma de arranque: en el blog manda la URL (/es/blog…); en el resto, la preferencia. */
+/**
+ * Idioma de arranque: en el blog manda la URL (/es/blog…). Un link con idioma (/ko, /es/about)
+ * lo deja como preferencia antes del primer render. En el resto, la preferencia.
+ */
 export const initialLanguage = () => {
   if (typeof window === 'undefined') return DEFAULT_LANGUAGE;
-  return blogLocaleFromPath(window.location.pathname) ?? preferredLanguage();
+  const { pathname } = window.location;
+  const link = languageLinkFromPath(pathname);
+  if (link) rememberLanguage(link.code);
+  return blogLocaleFromPath(pathname) ?? link?.code ?? preferredLanguage();
 };
